@@ -46,7 +46,7 @@ export async function register({
 
   if (registerHostEditorTab) {
     const { HostDockerTab } =
-      await import("../../../src/ui/sidebar/HostEditorFeatureTabs.tsx");
+      await import("../../../../src/ui/sidebar/HostEditorFeatureTabs.tsx");
     registerHostEditorTab({
       id: hostEditorTabId,
       labelKey: "hosts.tabDocker",

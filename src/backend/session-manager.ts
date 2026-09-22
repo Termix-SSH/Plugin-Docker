@@ -1,8 +1,8 @@
 // Core imports below point at TypeScript source so tsc can type-check them.
-// scripts/copy-bundled-plugins.cjs rewrites the prefix to the compiled
-// output path after tsc -p tsconfig.plugins.json runs -- see that script.
+// The plugin build rewrites the prefix to the compiled output path; see
+// packages/plugin-sdk/cli/lib/legacy-core-imports.mjs.
 import { Client as SSHClient } from "ssh2";
-import { logger } from "../../../src/backend/utils/logger.js";
+import { logger } from "../../../../src/backend/utils/logger.js";
 import type { ContainerRuntime } from "./container-runtime.js";
 
 const sshLogger = logger;

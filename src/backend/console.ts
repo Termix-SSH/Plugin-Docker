@@ -1,35 +1,35 @@
 // Core imports below point at TypeScript source so tsc can type-check them.
-// scripts/copy-bundled-plugins.cjs rewrites the prefix to the compiled
-// output path after tsc -p tsconfig.plugins.json runs -- see that script.
-import { getErrorMessage } from "../../../src/backend/utils/error-message.js";
+// The plugin build rewrites the prefix to the compiled output path; see
+// packages/plugin-sdk/cli/lib/legacy-core-imports.mjs.
+import { getErrorMessage } from "../../../../src/backend/utils/error-message.js";
 import { StringDecoder } from "string_decoder";
 import { Client as SSHClient } from "ssh2";
-import { SSH_ALGORITHMS } from "../../../src/backend/utils/ssh-algorithms.js";
+import { SSH_ALGORITHMS } from "../../../../src/backend/utils/ssh-algorithms.js";
 import { WebSocketServer, WebSocket } from "ws";
-import { AuthManager } from "../../../src/backend/utils/auth-manager.js";
-import { createCurrentHostResolutionRepository } from "../../../src/backend/database/repositories/factory.js";
-import { systemLogger } from "../../../src/backend/utils/logger.js";
-import type { SSHHost } from "../../../src/types/index.js";
-import { applyAgentAuth } from "../../../src/backend/hosts/terminal-auth-helpers.js";
+import { AuthManager } from "../../../../src/backend/utils/auth-manager.js";
+import { createCurrentHostResolutionRepository } from "../../../../src/backend/database/repositories/factory.js";
+import { systemLogger } from "../../../../src/backend/utils/logger.js";
+import type { SSHHost } from "../../../../src/types/index.js";
+import { applyAgentAuth } from "../../../../src/backend/hosts/terminal-auth-helpers.js";
 import {
   containerCommand,
   getContainerRuntimeConfig,
   type ContainerRuntime,
 } from "./container-runtime.js";
-import { resolveSshConnectConfigHost } from "../../../src/backend/hosts/ssh-dns.js";
+import { resolveSshConnectConfigHost } from "../../../../src/backend/hosts/ssh-dns.js";
 import {
   hostAddressMismatch,
   HOST_ADDRESS_MISMATCH_MESSAGE,
   HOST_NOT_ON_THIS_SERVER_MESSAGE,
-} from "../../../src/backend/hosts/host-identity.js";
-import { extractWebSocketToken } from "../../../src/backend/utils/ws-auth.js";
+} from "../../../../src/backend/hosts/host-identity.js";
+import { extractWebSocketToken } from "../../../../src/backend/utils/ws-auth.js";
 import {
   asObject,
   asString,
   MAX_WS_MESSAGE_BYTES,
   parseWsMessage,
   toTerminalDimension,
-} from "../../../src/backend/utils/ws-message.js";
+} from "../../../../src/backend/utils/ws-message.js";
 
 const sshLogger = systemLogger;
 
@@ -450,7 +450,7 @@ async function onConsoleConnection(
           try {
             // Resolve host with credentials server-side
             const { resolveHostById, resolveHostBySyncId } =
-              await import("../../../src/backend/hosts/host-resolver.js");
+              await import("../../../../src/backend/hosts/host-resolver.js");
             // syncId names the host on both sides of a sync pair; the numeric
             // id only names it in the database the client is displaying.
             const hostSyncId = hostConfig?.syncId;
