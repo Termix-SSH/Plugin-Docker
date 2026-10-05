@@ -102,7 +102,8 @@
     "startContainerToAccess": "Start the container to access the console",
     "noHostSelected": "No host selected",
     "failedToFetchLogs": "Failed to fetch logs: {{error}}",
-    "failedToDownloadLogs": "Failed to download logs: {{error}}"
+    "failedToDownloadLogs": "Failed to download logs: {{error}}",
+    "notEnabledHint": "Turn on Docker in this host's settings to manage its containers."
   },
   "nav": {
     "docker": "Docker"
@@ -143,5 +144,9 @@
     "docsLink": "View docs",
     "hostNotFound": "Host not found",
     "loadingHost": "Loading host..."
+  },
+  "common": {
+    "remove": "Remove",
+    "cancel": "Cancel"
   }
 }

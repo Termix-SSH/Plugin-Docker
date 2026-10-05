@@ -48,7 +48,7 @@ function AdminToggle({
 
 function getLogColor(line: string): string {
   if (line.includes(" WARN") || line.includes(" warn"))
-    return "text-yellow-400/90";
+    return "text-warning/90";
   if (line.includes(" ERROR") || line.includes(" error"))
     return "text-destructive";
   if (line.includes(" DEBUG") || line.includes(" debug"))

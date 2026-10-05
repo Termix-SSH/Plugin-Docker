@@ -1,14 +1,12 @@
-import { Button, Card, Separator } from "@termix/plugin-sdk/ui";
+import {
+  BackButton,
+  Button,
+  PanelShell,
+  TabStrip,
+} from "@termix/plugin-sdk/ui";
 import type { DockerContainer, DockerHost } from "../types";
 import React from "react";
-import {
-  Activity,
-  ArrowLeft,
-  Box,
-  List,
-  Settings,
-  Terminal,
-} from "lucide-react";
+import { Activity, ArrowLeft, Box, List, Terminal } from "lucide-react";
 import { useTranslation } from "@termix/plugin-sdk/frontend";
 import { LogViewer } from "./LogViewer.tsx";
 import { ContainerStats } from "./ContainerStats.tsx";
@@ -83,82 +81,45 @@ export function ContainerDetail({
   ];
 
   return (
-    <div className="flex flex-col flex-1 min-h-0 overflow-hidden">
-      <div className="flex flex-col flex-1 min-h-0 overflow-y-auto px-3 py-3 gap-3">
-        <Card className="flex-row items-center justify-between px-3 py-3 shrink-0 gap-0">
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onBack}
-              className="size-8 text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="size-4" />
-            </Button>
-            <div className="size-10 border border-border bg-muted flex items-center justify-center shrink-0">
-              <Box className="size-5 text-accent-brand" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold">{containerName}</h1>
-              <span className="text-xs text-muted-foreground font-mono">
-                {container.image}
-              </span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <DockerBadge state={container.state} />
-            <Separator orientation="vertical" className="h-8 mx-2" />
-            <Button variant="ghost" size="icon">
-              <Settings className="size-4 text-accent-brand" />
-            </Button>
-          </div>
-        </Card>
-
-        <div className="flex flex-col flex-1 min-h-0 gap-3">
-          <div className="flex gap-1 border-b border-border shrink-0">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold border-b-2 transition-colors ${
-                  activeTab === tab.id
-                    ? "border-b-accent-brand text-foreground bg-accent-brand/5"
-                    : "border-b-transparent text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex-1 min-h-0 flex flex-col">
-            {activeTab === "logs" && (
-              <LogViewer
-                sessionId={sessionId}
-                containerId={containerId}
-                containerName={containerName}
-              />
-            )}
-            {activeTab === "stats" && (
-              <ContainerStats
-                sessionId={sessionId}
-                containerId={containerId}
-                containerName={containerName}
-                containerState={container.state}
-              />
-            )}
-            {activeTab === "console" && (
-              <ConsoleTerminal
-                containerId={containerId}
-                containerName={containerName}
-                containerState={container.state}
-                hostConfig={hostConfig}
-              />
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
+    <PanelShell
+      leading={<BackButton onClick={onBack} label={t("docker.backToList")} />}
+      icon={<Box className="size-4" />}
+      title={containerName}
+      status={container.image}
+      actions={<DockerBadge state={container.state} />}
+      tabs={
+        <TabStrip
+          tabs={tabs}
+          activeTab={activeTab}
+          onTabChange={(id) => setActiveTab(id as DetailTab)}
+        />
+      }
+      scroll={false}
+      className="p-2.5"
+    >
+      {activeTab === "logs" && (
+        <LogViewer
+          sessionId={sessionId}
+          containerId={containerId}
+          containerName={containerName}
+        />
+      )}
+      {activeTab === "stats" && (
+        <ContainerStats
+          sessionId={sessionId}
+          containerId={containerId}
+          containerName={containerName}
+          containerState={container.state}
+        />
+      )}
+      {activeTab === "console" && (
+        <ConsoleTerminal
+          containerId={containerId}
+          containerName={containerName}
+          containerState={container.state}
+          hostConfig={hostConfig}
+        />
+      )}
+    </PanelShell>
   );
 }

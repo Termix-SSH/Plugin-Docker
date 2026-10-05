@@ -1,5 +1,5 @@
 import { getErrorMessage } from "../error-message";
-import { Button, Card, useConfirmation } from "@termix/plugin-sdk/ui";
+import { Button, Card, useConfirm } from "@termix/plugin-sdk/ui";
 import type { DockerContainer } from "../types";
 import React from "react";
 import {
@@ -29,7 +29,7 @@ export function DockerBadge({ state }: { state: DockerContainer["state"] }) {
   if (state === "running")
     colorClass = "border-accent-brand/40 text-accent-brand bg-accent-brand/10";
   if (state === "paused")
-    colorClass = "border-yellow-500/40 text-yellow-500 bg-yellow-500/10";
+    colorClass = "border-warning/40 text-warning bg-warning/10";
   if (state === "exited")
     colorClass = "border-destructive/40 text-destructive bg-destructive/5";
   if (state === "restarting")
@@ -51,7 +51,7 @@ export function ContainerCard({
   onRefresh,
 }: ContainerCardProps): React.ReactElement {
   const { t } = useTranslation();
-  const { confirmWithToast } = useConfirmation();
+  const confirm = useConfirm();
   const docker = useDockerApi();
   const [isStarting, setIsStarting] = React.useState(false);
   const [isStopping, setIsStopping] = React.useState(false);
@@ -150,34 +150,40 @@ export function ContainerCard({
 
   const handleRemove = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    confirmWithToast(
-      t("docker.confirmRemoveContainer", { name: containerName }) +
+    confirm({
+      title:
+        t("docker.confirmRemoveContainer", { name: containerName }) +
         (container.state === "running"
           ? " " + t("docker.runningContainerWarning")
           : ""),
-      async () => {
-        setIsRemoving(true);
-        try {
-          await docker.removeContainer(
-            sessionId,
-            container.id,
-            container.state === "running",
-          );
-          toast.success(t("docker.containerRemoved", { name: containerName }));
-          onRefresh?.();
-        } catch (err) {
-          toast.error(
-            t("docker.failedToRemoveContainer", {
-              error: getErrorMessage(err),
-            }),
-          );
-        } finally {
-          setIsRemoving(false);
-        }
-      },
-      t("common.remove"),
-      t("common.cancel"),
-    );
+      confirmLabel: t("common.remove"),
+      cancelLabel: t("common.cancel"),
+    }).then((ok) => {
+      if (ok)
+        void (async () => {
+          setIsRemoving(true);
+          try {
+            await docker.removeContainer(
+              sessionId,
+              container.id,
+              container.state === "running",
+            );
+            toast.success(
+              t("docker.containerRemoved", { name: containerName }),
+            );
+            onRefresh?.();
+          } catch (err) {
+            toast.error(
+              t("docker.failedToRemoveContainer", {
+                error: getErrorMessage(err),
+              }),
+            );
+          } finally {
+            setIsRemoving(false);
+          }
+        })();
+      return ok;
+    });
   };
 
   return (

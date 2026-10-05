@@ -1,14 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import {
-  AlertCircle,
-  Box,
-  ExternalLink,
-  Grid3X3,
-  List as ListIcon,
-  RefreshCw,
-  Search,
-} from "lucide-react";
+import { Box, ExternalLink, RefreshCw } from "lucide-react";
 import {
   useConnectionRetry,
   useHost,
@@ -17,16 +9,14 @@ import {
   usePluginUiPreferences,
 } from "@termix/plugin-sdk/frontend";
 import {
-  Alert,
-  AlertDescription,
   Button,
-  Card,
   ConnectionLogProvider,
   ConnectionScreen,
-  Input,
+  PanelSearch,
+  PanelShell,
+  Segmented,
+  ViewToggle,
   SSHAuthDialog,
-  Select2,
-  Separator,
   TOTPDialog,
   BrowserSignInDialog,
   useAdaptivePolling,
@@ -445,27 +435,14 @@ function DockerManagerInner({
   if (!enabled) {
     return (
       <div style={wrapperStyle} className={`${containerClass} relative`}>
-        <div className="h-full w-full flex flex-col flex-1 min-h-0 overflow-hidden">
-          <div className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-3">
-            <Card className="flex-row items-center justify-between px-3 py-3 shrink-0 gap-0">
-              <div className="flex items-center gap-3">
-                <div className="size-10 border border-border bg-muted flex items-center justify-center shrink-0">
-                  <Box className="size-5 text-accent-brand" />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold">{title}</h1>
-                  <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">
-                    {t("docker.manager")}
-                  </span>
-                </div>
-              </div>
-            </Card>
-            <Alert variant="destructive">
-              <AlertCircle className="h-4 w-4" />
-              <AlertDescription>{t("docker.notEnabled")}</AlertDescription>
-            </Alert>
-          </div>
-        </div>
+        <ConnectionScreen
+          status="error"
+          message={title}
+          unavailable={{
+            title: t("docker.notEnabled"),
+            hint: t("docker.notEnabledHint"),
+          }}
+        />
       </div>
     );
   }
@@ -505,6 +482,10 @@ function DockerManagerInner({
     </>
   );
 
+  const hostDetail = currentHost
+    ? `${currentHost.username ? currentHost.username + "@" : ""}${currentHost.ip}:${currentHost.port}`
+    : undefined;
+
   if (isConnecting || isValidating) {
     return (
       <div style={wrapperStyle} className={`${containerClass} relative`}>
@@ -513,6 +494,7 @@ function DockerManagerInner({
           message={
             isValidating ? t("docker.validating") : t("docker.connecting")
           }
+          detail={hostDetail}
           attempt={dockerConnectRetry.attempt}
           maxAttempts={dockerConnectRetry.maxAttempts}
           nextRetryInMs={dockerConnectRetry.nextRetryInMs}
@@ -529,6 +511,11 @@ function DockerManagerInner({
         <ConnectionScreen
           status={dockerConnectRetry.status}
           message={t("docker.connectionFailed")}
+          detail={hostDetail}
+          unavailable={{
+            title: t("docker.connectionFailed"),
+            hint: dockerValidation.error,
+          }}
           attempt={dockerConnectRetry.attempt}
           maxAttempts={dockerConnectRetry.maxAttempts}
           nextRetryInMs={dockerConnectRetry.nextRetryInMs}
@@ -556,99 +543,77 @@ function DockerManagerInner({
             initialTab={detailInitialTab}
           />
         ) : (
-          <div className="flex-1 overflow-y-auto px-3 py-3 flex flex-col gap-3">
-            <Card className="flex-row items-center justify-between px-3 py-3 shrink-0 gap-0">
-              <div className="flex items-center gap-3">
-                <div className="size-10 border border-border bg-muted flex items-center justify-center shrink-0">
-                  <Box className="size-5 text-accent-brand" />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold">{title}</h1>
-                  <div className="flex items-center gap-2">
-                    <span className="size-2 rounded-full bg-accent-brand" />
-                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-semibold">
-                      {dockerValidation?.version
-                        ? t("docker.version", {
-                            runtime:
-                              dockerValidation.runtime === "podman"
-                                ? "Podman"
-                                : "Docker",
-                            version: dockerValidation.version,
-                          })
-                        : t("docker.manager")}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="relative w-56">
-                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground" />
-                  <Input
-                    placeholder={t("docker.searchPlaceholder")}
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    className="pl-8 h-8"
-                  />
-                </div>
-                <Select2
-                  value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value)}
-                  className="h-8 px-2 text-xs bg-background border border-border text-foreground outline-none focus:ring-1 focus:ring-ring"
-                >
-                  <option value="all">{t("docker.allStatuses")}</option>
-                  <option value="running">{t("docker.stateRunning")}</option>
-                  <option value="paused">{t("docker.statePaused")}</option>
-                  <option value="exited">{t("docker.stateExited")}</option>
-                  <option value="restarting">
-                    {t("docker.stateRestarting")}
-                  </option>
-                </Select2>
-                <Separator orientation="vertical" className="h-8 mx-1" />
-                <div className="flex items-center border border-border overflow-hidden">
-                  <Button
-                    variant={containerLayout === "card" ? "secondary" : "ghost"}
-                    size="icon"
-                    onClick={() => handleSetContainerLayout("card")}
-                    className={`size-8 rounded-none ${containerLayout === "card" ? "bg-accent-brand/10 text-accent-brand" : ""}`}
-                    title={t("docker.cardView")}
-                  >
-                    <Grid3X3 className="size-4" />
-                  </Button>
-                  <Button
-                    variant={
-                      containerLayout === "table" ? "secondary" : "ghost"
-                    }
-                    size="icon"
-                    onClick={() => handleSetContainerLayout("table")}
-                    className={`size-8 rounded-none border-l border-border ${containerLayout === "table" ? "bg-accent-brand/10 text-accent-brand" : ""}`}
-                    title={t("docker.listView")}
-                  >
-                    <ListIcon className="size-4" />
-                  </Button>
-                </div>
-                <Separator orientation="vertical" className="h-8 mx-1" />
+          <PanelShell
+            icon={<Box className="size-4" />}
+            title={title}
+            status={
+              dockerValidation?.version
+                ? t("docker.version", {
+                    runtime:
+                      dockerValidation.runtime === "podman"
+                        ? "Podman"
+                        : "Docker",
+                    version: dockerValidation.version,
+                  })
+                : t("docker.manager")
+            }
+            actions={
+              <>
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={refreshContainers}
                   disabled={isLoadingContainers}
+                  title={t("docker.refresh")}
+                  className="text-accent-brand"
                 >
                   <RefreshCw
-                    className={`size-4 text-accent-brand ${isLoadingContainers ? "animate-spin" : ""}`}
+                    className={`size-4 ${isLoadingContainers ? "animate-spin" : ""}`}
                   />
                 </Button>
                 <a
                   href="https://docs.termix.site/features/networking/docker"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center size-9 text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
                   title={t("hosts.docsLink")}
                 >
                   <ExternalLink className="size-4" />
                 </a>
-              </div>
-            </Card>
-
+              </>
+            }
+            toolbar={
+              <>
+                <PanelSearch
+                  value={search}
+                  onChange={setSearch}
+                  placeholder={t("docker.searchPlaceholder")}
+                />
+                <Segmented
+                  value={statusFilter}
+                  onChange={setStatusFilter}
+                  options={[
+                    { value: "all", label: t("docker.allStatuses") },
+                    { value: "running", label: t("docker.stateRunning") },
+                    { value: "paused", label: t("docker.statePaused") },
+                    { value: "exited", label: t("docker.stateExited") },
+                    { value: "restarting", label: t("docker.stateRestarting") },
+                  ]}
+                />
+                <div className="ml-auto flex items-center gap-2">
+                  <ViewToggle
+                    view={containerLayout === "table" ? "list" : "grid"}
+                    onView={(next) =>
+                      handleSetContainerLayout(
+                        next === "list" ? "table" : "card",
+                      )
+                    }
+                  />
+                </div>
+              </>
+            }
+            className="p-2.5 gap-2"
+          >
             {sessionId ? (
               !hasLoadedContainersOnce ? (
                 <div className="flex flex-col items-center justify-center h-full opacity-40 py-20">
@@ -687,7 +652,7 @@ function DockerManagerInner({
                 />
               )
             ) : null}
-          </div>
+          </PanelShell>
         )}
       </div>
       {dialogs}
