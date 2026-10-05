@@ -7,7 +7,7 @@ import {
   useTranslation,
   logActivity,
   usePluginUiPreferences,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 import {
   Button,
   ConnectionLogProvider,
@@ -22,7 +22,7 @@ import {
   useAdaptivePolling,
   useConnectionLog,
   useTabsSafe,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import { DockerApiError, useDockerApi, type ConnectResult } from "./docker-api";
 import {
   dockerEnabled,

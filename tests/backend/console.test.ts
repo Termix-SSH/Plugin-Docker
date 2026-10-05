@@ -4,8 +4,8 @@ import { afterEach, describe, expect, it } from "vitest";
 import {
   createMockCtx,
   type MockPluginContext,
-} from "@termix/plugin-sdk/testing";
-import type { PluginWebSocketConnection } from "@termix/plugin-sdk/backend";
+} from "@termix-ssh/plugin-sdk/testing";
+import type { PluginWebSocketConnection } from "@termix-ssh/plugin-sdk/backend";
 import { activate } from "../../src/backend/index.js";
 import { manifest, sshHost } from "./server";
 import { FakeClient, FakeStream } from "./fake-ssh";

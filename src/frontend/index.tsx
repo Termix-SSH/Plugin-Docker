@@ -6,7 +6,7 @@ import type {
   StandaloneViewProps,
   TabProps,
   TermixApp,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 import { DockerManager } from "./DockerManager";
 import DockerApp from "./DockerApp";
 import { dockerWidget } from "./DockerWidget";

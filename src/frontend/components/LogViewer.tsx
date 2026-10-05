@@ -5,12 +5,12 @@ import {
   Select2,
   Separator,
   useAdaptivePolling,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import type { DockerLogOptions } from "../types";
 import React from "react";
 import { Download, RefreshCw, Search, Trash2 } from "lucide-react";
 import { toast } from "sonner";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useDockerApi } from "../docker-api";
 
 interface LogViewerProps {

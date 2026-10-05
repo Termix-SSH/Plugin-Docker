@@ -5,7 +5,7 @@ import { WebSocket, type RawData } from "ws";
 import type {
   PluginContext,
   PluginWebSocketConnection,
-} from "@termix/plugin-sdk/backend";
+} from "@termix-ssh/plugin-sdk/backend";
 import {
   containerCommand,
   type ContainerRuntime,

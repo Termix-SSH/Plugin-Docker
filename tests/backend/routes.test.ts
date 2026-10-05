@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import type {
   PluginSshConnectOptions,
   PluginSshHost,
-} from "@termix/plugin-sdk/backend";
+} from "@termix-ssh/plugin-sdk/backend";
 import { startServer, sshHost, type TestServer } from "./server";
 import { FakeClient } from "./fake-ssh";
 

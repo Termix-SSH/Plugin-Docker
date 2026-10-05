@@ -1,5 +1,5 @@
 import type { Client } from "ssh2";
-import type { PluginContext, PluginSshHost } from "@termix/plugin-sdk/backend";
+import type { PluginContext, PluginSshHost } from "@termix-ssh/plugin-sdk/backend";
 import { containerCommand } from "./container-runtime.js";
 import {
   PS_STATE_FORMAT,

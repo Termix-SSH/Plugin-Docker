@@ -1,6 +1,6 @@
-import { ConnectionScreen, FullScreenAppWrapper } from "@termix/plugin-sdk/ui";
+import { ConnectionScreen, FullScreenAppWrapper } from "@termix-ssh/plugin-sdk/ui";
 import React from "react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { DockerManager } from "./DockerManager.tsx";
 import { toDockerHost, type DockerHostSource } from "./types";
 

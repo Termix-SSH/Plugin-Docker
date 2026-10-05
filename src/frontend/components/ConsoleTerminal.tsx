@@ -14,7 +14,7 @@ import {
   resolveConnectionOrigin,
   useAppTheme as useTheme,
   useConnectionLog,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import type { DockerHost } from "../types";
 import { useConsoleLook, type ConsoleLook } from "./console-look";
 import React from "react";
@@ -27,7 +27,7 @@ import { toast } from "sonner";
 import {
   useTranslation,
   useConnectionRetry,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 
 function applyConsoleLook(
   terminal: NonNullable<ReturnType<typeof useXTerm>["instance"]>,

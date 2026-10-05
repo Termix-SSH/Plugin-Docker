@@ -1,5 +1,5 @@
 import { getErrorMessage } from "../error-message";
-import { SectionCard, useAdaptivePolling } from "@termix/plugin-sdk/ui";
+import { SectionCard, useAdaptivePolling } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerStats } from "../types";
 import React from "react";
 import {
@@ -12,7 +12,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 import { useDockerApi } from "../docker-api";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { DockerBadge } from "./ContainerCard.tsx";
 
 interface ContainerStatsProps {

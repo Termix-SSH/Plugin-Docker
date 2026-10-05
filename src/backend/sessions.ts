@@ -1,5 +1,5 @@
 import type { Client } from "ssh2";
-import type { PluginSchedule } from "@termix/plugin-sdk/backend";
+import type { PluginSchedule } from "@termix-ssh/plugin-sdk/backend";
 import type { ContainerRuntime } from "./container-runtime.js";
 import type { DockerLogger } from "./helpers.js";
 

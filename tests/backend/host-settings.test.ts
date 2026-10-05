@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from "vitest";
 import express from "express";
-import { createMockCtx } from "@termix/plugin-sdk/testing";
-import { PluginCapabilityError } from "@termix/plugin-sdk/backend";
+import { createMockCtx } from "@termix-ssh/plugin-sdk/testing";
+import { PluginCapabilityError } from "@termix-ssh/plugin-sdk/backend";
 import { activate } from "../../src/backend/index.js";
 import {
   normalizeImportedHost,

@@ -1,5 +1,5 @@
 import type { RawData } from "ws";
-import type { PluginLogger } from "@termix/plugin-sdk/backend";
+import type { PluginLogger } from "@termix-ssh/plugin-sdk/backend";
 
 export function getErrorMessage(
   error: unknown,

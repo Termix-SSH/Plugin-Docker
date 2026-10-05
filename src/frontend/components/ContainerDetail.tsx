@@ -3,11 +3,11 @@ import {
   Button,
   PanelShell,
   TabStrip,
-} from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/ui";
 import type { DockerContainer, DockerHost } from "../types";
 import React from "react";
 import { Activity, ArrowLeft, Box, List, Terminal } from "lucide-react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { LogViewer } from "./LogViewer.tsx";
 import { ContainerStats } from "./ContainerStats.tsx";
 import { ConsoleTerminal } from "./ConsoleTerminal.tsx";

@@ -1,6 +1,6 @@
 import { Box } from "lucide-react";
-import { useHost, useTranslation } from "@termix/plugin-sdk/frontend";
-import { WidgetTitle } from "@termix/plugin-sdk/ui";
+import { useHost, useTranslation } from "@termix-ssh/plugin-sdk/frontend";
+import { WidgetTitle } from "@termix-ssh/plugin-sdk/ui";
 import { DockerWidgetEditForm } from "./DockerWidgetEditForm";
 import { DockerManager } from "./DockerManager";
 import {

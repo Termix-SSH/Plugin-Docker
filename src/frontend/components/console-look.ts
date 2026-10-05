@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   invokeAction,
   type PluginHostRecord,
-} from "@termix/plugin-sdk/frontend";
+} from "@termix-ssh/plugin-sdk/frontend";
 
 /** What the SSH terminal's "terminal.resolveTheme" action answers. */
 export interface ConsoleLook {

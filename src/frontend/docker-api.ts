@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import {
   usePluginApi,
   type PluginApiClient,
-} from "@termix/plugin-sdk/frontend";
-import type { ConnectionStage } from "@termix/plugin-sdk/ui";
+} from "@termix-ssh/plugin-sdk/frontend";
+import type { ConnectionStage } from "@termix-ssh/plugin-sdk/ui";
 import type {
   DockerContainer,
   DockerLogOptions,

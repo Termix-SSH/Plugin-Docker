@@ -14,7 +14,7 @@ import type {
   PluginContext,
   PluginSshHost,
   PluginSshPromptRequest,
-} from "@termix/plugin-sdk/backend";
+} from "@termix-ssh/plugin-sdk/backend";
 import type { ContainerRuntime } from "./container-runtime.js";
 import type { DockerSessions } from "./sessions.js";
 import {

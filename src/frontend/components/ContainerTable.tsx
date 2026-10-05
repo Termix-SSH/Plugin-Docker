@@ -1,10 +1,10 @@
 import { getErrorMessage } from "../error-message";
-import { Button } from "@termix/plugin-sdk/ui";
+import { Button } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerContainer } from "../types";
 import React from "react";
 import { Box, List, Play, RefreshCw, Square, Terminal } from "lucide-react";
 import { toast } from "sonner";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useDockerApi } from "../docker-api";
 import { DockerBadge } from "./ContainerCard.tsx";
 

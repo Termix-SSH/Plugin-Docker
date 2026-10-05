@@ -1,7 +1,7 @@
 import type { DockerContainer } from "../types";
 import React from "react";
 import { Box } from "lucide-react";
-import { useTranslation } from "@termix/plugin-sdk/frontend";
+import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { ContainerCard } from "./ContainerCard.tsx";
 
 interface ContainerListProps {
