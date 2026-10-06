@@ -1,6 +1,5 @@
 // The terminal surfaces need xterm's own stylesheet.
 import "@xterm/xterm/css/xterm.css";
-import type { ComponentType } from "react";
 import { Box } from "lucide-react";
 import type {
   StandaloneViewProps,
@@ -59,11 +58,4 @@ export function activate(app: TermixApp): void {
   });
 
   app.registerExtension("homepage.widgets", dockerWidget);
-
-  app.registerSlotContribution("onboarding.features", {
-    actionId: "docker.feature",
-    titleKey: "onboarding.feature_docker",
-    descriptionKey: "onboarding.feature_docker_desc",
-    icon: Box as ComponentType<{ className?: string }>,
-  });
 }
