@@ -1,4 +1,7 @@
-import { ConnectionScreen, FullScreenAppWrapper } from "@termix-ssh/plugin-sdk/ui";
+import {
+  ConnectionScreen,
+  FullScreenAppWrapper,
+} from "@termix-ssh/plugin-sdk/ui";
 import React from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { DockerManager } from "./DockerManager.tsx";

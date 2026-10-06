@@ -5,6 +5,7 @@ import {
   Select2,
   Separator,
   useAdaptivePolling,
+  PanelSearch,
 } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerLogOptions } from "../types";
 import React from "react";
@@ -184,15 +185,12 @@ export function LogViewer({
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="relative flex-1 max-w-64">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3 text-muted-foreground" />
-            <Input
-              placeholder={t("docker.filterLogs")}
-              value={logSearch}
-              onChange={(e) => setLogSearch(e.target.value)}
-              className="pl-7 h-7 text-xs bg-background border-border rounded-none"
-            />
-          </div>
+          <PanelSearch
+            value={logSearch}
+            onChange={setLogSearch}
+            placeholder={t("docker.filterLogs")}
+            className="max-w-64 flex-1"
+          />
           <Button
             variant="ghost"
             size="sm"

@@ -518,9 +518,10 @@ function ConsoleTerminalInner({
             <div className="flex gap-2 sm:gap-2">
               {!isConnected ? (
                 <Button
+                  variant="outline"
                   onClick={connect}
                   disabled={isConnecting}
-                  className="min-w-[120px]"
+                  className="min-w-[120px] border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand dark:border-accent-brand/40 dark:bg-transparent dark:hover:bg-accent-brand/10"
                 >
                   {isConnecting ? (
                     <>
