@@ -592,7 +592,7 @@ function ConsoleTerminalInner({
                   clearLogs();
                   retry.retryNow();
                 }}
-                retryLabel={t("docker.connect")}
+                onClose={false}
               />
             )}
         </CardContent>

@@ -510,17 +510,13 @@ function DockerManagerInner({
       <div style={wrapperStyle} className={`${containerClass} relative`}>
         <ConnectionScreen
           status={dockerConnectRetry.status}
-          message={t("docker.connectionFailed")}
+          message={t("docker.connecting")}
           detail={hostDetail}
-          unavailable={{
-            title: t("docker.connectionFailed"),
-            hint: dockerValidation.error,
-          }}
+          errorDetail={dockerValidation.error || t("docker.error")}
           attempt={dockerConnectRetry.attempt}
           maxAttempts={dockerConnectRetry.maxAttempts}
           nextRetryInMs={dockerConnectRetry.nextRetryInMs}
           onManualRetry={dockerConnectRetry.retryNow}
-          retryLabel={t("terminal.retry")}
           logPosition="top"
         />
       </div>
@@ -663,7 +659,6 @@ function DockerManagerInner({
         maxAttempts={dockerConnectRetry.maxAttempts}
         nextRetryInMs={dockerConnectRetry.nextRetryInMs}
         onManualRetry={dockerConnectRetry.retryNow}
-        retryLabel={t("terminal.retry")}
         logPosition="top"
       />
     </div>
