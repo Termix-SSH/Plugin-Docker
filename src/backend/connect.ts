@@ -39,7 +39,7 @@ const CONNECT_TIMEOUT_MS = BROWSER_SIGN_IN_WAIT_MS + 30 * 1000;
 const PASSWORD_PROMPT = /password/i;
 
 /** Hands each step to whichever request is waiting for one. */
-export class PendingConnect {
+class PendingConnect {
   constructor(
     readonly userId: string,
     readonly hostId: number,

@@ -4,7 +4,7 @@ import {
   type ContainerRuntime,
 } from "./container-runtime.js";
 
-export const PLUGIN_ID = "docker";
+const PLUGIN_ID = "docker";
 
 export interface DockerHostSettings {
   enabled: boolean;

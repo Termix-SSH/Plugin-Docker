@@ -79,10 +79,9 @@ async function call<T>(
   }
 }
 
-export type ContainerAction =
-  "start" | "stop" | "restart" | "pause" | "unpause";
+type ContainerAction = "start" | "stop" | "restart" | "pause" | "unpause";
 
-export function createDockerApi(api: PluginApiClient) {
+function createDockerApi(api: PluginApiClient) {
   return {
     connect: (
       sessionId: string,

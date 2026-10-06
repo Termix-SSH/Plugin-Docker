@@ -8,7 +8,7 @@ export function getErrorMessage(
   return error instanceof Error ? error.message : fallback;
 }
 
-export type Meta = Record<string, unknown>;
+type Meta = Record<string, unknown>;
 
 export interface DockerLogger {
   info: (message: string, meta?: Meta) => void;
@@ -68,7 +68,7 @@ export const DOCKER_TIMESTAMP_RE = /^[0-9T:.Z+-]+$/;
 
 // Cap on a single decoded text frame. Control messages are tiny, and console
 // input is bounded by what a user can type or paste.
-export const MAX_WS_MESSAGE_BYTES = 1024 * 1024;
+const MAX_WS_MESSAGE_BYTES = 1024 * 1024;
 
 function rawByteLength(raw: RawData): number {
   if (Buffer.isBuffer(raw)) return raw.length;
@@ -149,6 +149,6 @@ export const HOST_NOT_ON_THIS_SERVER_MESSAGE =
   "This host does not exist on the sync server, so the connection was refused. " +
   'Run a sync so the server knows about it, or set the connection origin to "This device" for this host.';
 
-export function newSessionId(prefix: string): string {
+function newSessionId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
 }

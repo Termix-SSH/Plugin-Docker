@@ -21,7 +21,7 @@ export interface DockerSession {
 }
 
 /** A connect still waiting on a person (TOTP, a browser sign-in). */
-export interface PendingEntry {
+interface PendingEntry {
   userId: string;
   hostId: number;
   expiresAt: number;

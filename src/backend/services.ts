@@ -1,5 +1,8 @@
 import type { Client } from "ssh2";
-import type { PluginContext, PluginSshHost } from "@termix-ssh/plugin-sdk/backend";
+import type {
+  PluginContext,
+  PluginSshHost,
+} from "@termix-ssh/plugin-sdk/backend";
 import { containerCommand } from "./container-runtime.js";
 import {
   PS_STATE_FORMAT,
@@ -17,7 +20,7 @@ import {
   type DockerLogger,
 } from "./helpers.js";
 
-export const POOL = "docker";
+const POOL = "docker";
 const TICK_MS = 15_000;
 const POLL_INTERVAL_MS = 60_000;
 const HOST_CACHE_MS = 5 * 60_000;
