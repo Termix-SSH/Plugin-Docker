@@ -10,6 +10,13 @@
   "repository": "https://github.com/Termix-SSH/Plugin-Docker",
   "category": "Infrastructure",
   "icon": "Box",
+  "features": [
+    "Start, stop, restart, pause and remove containers",
+    "Live CPU, memory, network and disk stats",
+    "Read and download container logs",
+    "Open a shell inside a container",
+    "Works with Docker and Podman"
+  ],
   "engine": {
     "termix": ">=26.10.0",
     "api": "1"
