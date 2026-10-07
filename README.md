@@ -26,15 +26,6 @@ Docker manages the containers running on your hosts over SSH. It is not meant to
 
 <br />
 
-## Services
-
-Provides to other plugins:
-
-- `docker.containers`: list containers and start, stop, restart, pause, unpause or remove them
-- `docker.events`: get notified when a container starts, exits, restarts or turns unhealthy
-
-<br />
-
 ## Sponsors
 
 Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
