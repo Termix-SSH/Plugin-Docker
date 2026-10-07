@@ -4,7 +4,7 @@
 
 <h1>Docker</h1>
 
-<p>Manage Docker and Podman containers on your hosts</p>
+<p>Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console</p>
 
 </div>
 
@@ -13,6 +13,12 @@
 ## Overview
 
 Docker manages the containers running on your hosts over SSH. It is not meant to replace Portainer or Dockge, just to handle the containers you already have.
+
+<br />
+
+## Install
+
+Docker ships with [Termix](https://github.com/Termix-SSH/Termix). Admins can turn it on or off, update it or install it again from the Plugins tab. Want to see it first? Try the [demo](https://demo.termix.site/), any username and password works.
 
 <br />
 
@@ -32,6 +38,58 @@ Provides to other plugins:
 
 - `docker.containers`: list containers and start, stop, restart, pause, unpause or remove them
 - `docker.events`: get notified when a container starts, exits, restarts or turns unhealthy
+
+<br />
+
+## Sponsors
+
+Interested in a paid placement to support development? Email [mail@termix.site](mailto:mail@termix.site).
+
+<!-- SPONSORS:START -->
+
+<div align="center">
+
+<br />
+
+<a href="https://www.digitalocean.com/">
+  <img src="https://termix.site/img/sponsors/digitalocean.svg" height="40" alt="DigitalOcean" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://crowdin.com/">
+  <img src="https://termix.site/img/sponsors/crowdin.svg" height="40" alt="Crowdin" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://www.blacksmith.sh/">
+  <img src="https://termix.site/img/sponsors/blacksmith.svg" height="40" alt="Blacksmith" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://www.cloudflare.com/">
+  <img src="https://termix.site/img/sponsors/cloudflare.png" height="40" alt="Cloudflare" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://akamai.com/">
+  <img src="https://termix.site/img/sponsors/akamai.svg" height="40" alt="Akamai" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://aws.amazon.com/">
+  <img src="https://termix.site/img/sponsors/aws.png" height="40" alt="AWS" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://rackgenius.com/">
+  <img src="https://termix.site/img/sponsors/rackgenius.png" height="40" alt="Rack Genius" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://ginernet.com/">
+  <img src="https://termix.site/img/sponsors/ginernet.png" height="40" alt="Ginernet" />
+</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://www.hetzner.com/?mtm_campaign=termix&mtm_medium=referral&mtm_content=sponsoring_link">
+  <img src="https://termix.site/img/sponsors/hetzner.png" height="40" alt="Hetzner" />
+</a>
+
+</div>
+
+<!-- SPONSORS:END -->
 
 <br />
 
