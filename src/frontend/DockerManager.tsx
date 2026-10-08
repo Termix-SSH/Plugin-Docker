@@ -35,6 +35,7 @@ import {
 import { ContainerList } from "./components/ContainerList.tsx";
 import { ContainerTable } from "./components/ContainerTable.tsx";
 import { ContainerDetail } from "./components/ContainerDetail.tsx";
+import { docsUrl } from "./docs";
 
 interface DockerManagerProps {
   host?: DockerHost;
@@ -568,7 +569,7 @@ function DockerManagerInner({
                   />
                 </Button>
                 <a
-                  href="https://docs.termix.site/features/networking/docker"
+                  href={docsUrl()}
                   target="_blank"
                   rel="noreferrer"
                   className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"

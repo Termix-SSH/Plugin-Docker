@@ -8,6 +8,7 @@
   },
   "license": "Apache-2.0",
   "repository": "https://github.com/Termix-SSH/Plugin-Docker",
+  "docs": "https://docs.termix.site/plugins/docker",
   "category": "Infrastructure",
   "icon": "Box",
   "features": [
@@ -19,7 +20,7 @@
   ],
   "engine": {
     "termix": ">=26.10.0",
-    "api": "1"
+    "api": "^1.2"
   },
   "capabilities": [
     "hosts:read",

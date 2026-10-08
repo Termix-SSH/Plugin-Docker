@@ -10,20 +10,6 @@ npm run validate   # check manifest.json
 npm run format     # format the code with Prettier
 ```
 
-## Settings
+## Docs
 
-### Host
-
-- **Enable Docker:** show the Docker tab for this host
-- **Container Runtime:** Docker or Podman
-
-## Permissions
-
-- `docker.use`: open the Docker manager and container consoles on hosts with Docker turned on. Admins and users have it by default.
-
-## Services
-
-Provides to other plugins:
-
-- `docker.containers`: list containers and start, stop, restart, pause, unpause or remove them
-- `docker.events`: get notified when a container starts, exits, restarts or turns unhealthy
+The docs for this plugin are in [docs/](docs/) and are published at https://docs.termix.site/plugins/docker. Settings, permissions, services, environment variables and the API reference are made from `manifest.json` and the `@openapi` comments in the code, so keep those up to date instead of writing them by hand. See [writing docs](https://docs.termix.site/develop/docs).

@@ -14,6 +14,8 @@
 
 Docker manages the containers running on your hosts over SSH. It is not meant to replace Portainer or Dockge, just to handle the containers you already have.
 
+Read the [docs](https://docs.termix.site/plugins/docker) to set it up and use it.
+
 <br />
 
 ## Features
