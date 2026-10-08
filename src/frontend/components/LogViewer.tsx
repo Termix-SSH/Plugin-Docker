@@ -1,15 +1,15 @@
 import { getErrorMessage } from "../error-message";
 import {
   Button,
-  Input,
   Select2,
-  Separator,
+  cn,
+  copyToClipboard,
   useAdaptivePolling,
   PanelSearch,
 } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerLogOptions } from "../types";
 import React from "react";
-import { Download, RefreshCw, Search, Trash2 } from "lucide-react";
+import { Clock, Copy, Download, Radio, RefreshCw, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useDockerApi } from "../docker-api";
@@ -20,30 +20,36 @@ interface LogViewerProps {
   containerName: string;
 }
 
-function AdminToggle({
-  on,
-  onToggle,
-  label,
+function ToolbarToggle({
+  active,
+  onClick,
+  title,
+  bordered,
+  children,
 }: {
-  on: boolean;
-  onToggle: () => void;
-  label: string;
+  active: boolean;
+  onClick: () => void;
+  title: string;
+  bordered?: boolean;
+  children: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-[10px] text-muted-foreground uppercase font-bold">
-        {label}
-      </span>
-      <button
-        type="button"
-        onClick={onToggle}
-        className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center border-2 transition-colors ${on ? "bg-accent-brand border-accent-brand" : "bg-muted border-border"}`}
-      >
-        <span
-          className={`pointer-events-none inline-block h-3 w-3 bg-background shadow-sm transition-transform ${on ? "translate-x-4" : "translate-x-0.5"}`}
-        />
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      title={title}
+      aria-label={title}
+      aria-pressed={active}
+      className={cn(
+        "flex size-8 items-center justify-center transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-1 focus-visible:ring-ring",
+        bordered && "border-l border-border",
+        active
+          ? "bg-accent-brand/10 text-accent-brand"
+          : "text-muted-foreground hover:text-foreground",
+      )}
+    >
+      {children}
+    </button>
   );
 }
 
@@ -152,26 +158,35 @@ export function LogViewer({
     ? rawLogs.filter((l) => l.toLowerCase().includes(logSearch.toLowerCase()))
     : rawLogs;
 
+  const handleCopy = async () => {
+    if (await copyToClipboard(filteredLogs.join("\n"))) {
+      toast.success(t("docker.logsCopied", { count: filteredLogs.length }));
+    } else {
+      toast.error(t("docker.failedToCopyLogs"));
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 min-h-0 gap-3">
-      <div className="flex items-center justify-between bg-card border border-border px-3 py-2 gap-3 flex-wrap">
-        <div className="flex items-center gap-3 shrink-0 flex-wrap">
-          <AdminToggle
-            on={autoRefresh}
-            onToggle={() => setAutoRefresh(!autoRefresh)}
-            label={t("docker.autoRefresh")}
-          />
-          <Separator orientation="vertical" className="h-4" />
-          <AdminToggle
-            on={showTimestamps}
-            onToggle={() => setShowTimestamps(!showTimestamps)}
-            label={t("docker.timestamps")}
-          />
-          <Separator orientation="vertical" className="h-4" />
+    <div className="flex flex-col flex-1 min-h-0 gap-2">
+      <div className="flex flex-wrap items-center gap-2">
+        <PanelSearch
+          value={logSearch}
+          onChange={setLogSearch}
+          placeholder={t("docker.filterLogs")}
+          className="min-w-40 flex-1 md:max-w-72"
+        />
+        <span className="text-xs tabular-nums text-muted-foreground whitespace-nowrap">
+          {logSearch
+            ? `${filteredLogs.length}/${rawLogs.length}`
+            : rawLogs.length}{" "}
+          {t("docker.lines")}
+        </span>
+        <div className="ml-auto flex items-center gap-2">
           <Select2
             value={tailLines}
             onChange={(e) => setTailLines(e.target.value)}
-            className="h-7 px-2 text-[10px] bg-background border border-border text-foreground outline-none uppercase font-bold"
+            className="h-8 w-28 text-xs"
+            align="end"
           >
             <option value="50">{t("docker.last50")}</option>
             <option value="100">{t("docker.last100")}</option>
@@ -179,49 +194,67 @@ export function LogViewer({
             <option value="1000">{t("docker.last1000")}</option>
             <option value="all">{t("docker.allLogs")}</option>
           </Select2>
-          <Separator orientation="vertical" className="h-4" />
-          <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">
-            {filteredLogs.length}/{rawLogs.length} {t("docker.lines")}
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <PanelSearch
-            value={logSearch}
-            onChange={setLogSearch}
-            placeholder={t("docker.filterLogs")}
-            className="max-w-64 flex-1"
-          />
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-7 text-xs gap-1.5"
-            onClick={fetchLogs}
-            disabled={isLoading}
-          >
-            <RefreshCw
-              className={`size-3 ${isLoading ? "animate-spin" : ""}`}
-            />
-            {t("docker.refresh")}
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-7 text-xs gap-1.5"
-            onClick={handleDownload}
-            disabled={isDownloading}
-          >
-            <Download className="size-3" />
-            {t("docker.download")}
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="h-7 text-xs gap-1.5"
-            onClick={() => setRawLogs([])}
-          >
-            <Trash2 className="size-3" />
-            {t("docker.clear")}
-          </Button>
+          <div className="flex items-center border border-border">
+            <ToolbarToggle
+              active={showTimestamps}
+              onClick={() => setShowTimestamps(!showTimestamps)}
+              title={t("docker.timestamps")}
+            >
+              <Clock className="size-4" />
+            </ToolbarToggle>
+            <ToolbarToggle
+              active={autoRefresh}
+              onClick={() => setAutoRefresh(!autoRefresh)}
+              title={t("docker.autoRefresh")}
+              bordered
+            >
+              <Radio className="size-4" />
+            </ToolbarToggle>
+          </div>
+          <div className="flex items-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={fetchLogs}
+              disabled={isLoading}
+              title={t("docker.refresh")}
+              aria-label={t("docker.refresh")}
+            >
+              <RefreshCw
+                className={cn("size-4", isLoading && "animate-spin")}
+              />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleCopy}
+              disabled={filteredLogs.length === 0}
+              title={t("docker.copyLogs")}
+              aria-label={t("docker.copyLogs")}
+            >
+              <Copy className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleDownload}
+              disabled={isDownloading}
+              title={t("docker.download")}
+              aria-label={t("docker.download")}
+            >
+              <Download className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setRawLogs([])}
+              disabled={rawLogs.length === 0}
+              title={t("docker.clear")}
+              aria-label={t("docker.clear")}
+            >
+              <Trash2 className="size-4" />
+            </Button>
+          </div>
         </div>
       </div>
 

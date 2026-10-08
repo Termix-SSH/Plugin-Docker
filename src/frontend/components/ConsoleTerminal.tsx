@@ -1,12 +1,11 @@
 import { getErrorMessage } from "../error-message";
 import {
   Button,
-  Card,
-  CardContent,
   ConnectionLogProvider,
   ConnectionScreen,
   RobustClipboardProvider,
   Select2,
+  cn,
   copyToClipboard,
   isElectron,
   pluginWsUrl,
@@ -22,7 +21,13 @@ import { useXTerm } from "react-xtermjs";
 import { FitAddon } from "@xterm/addon-fit";
 import { ClipboardAddon } from "@xterm/addon-clipboard";
 import { WebLinksAddon } from "@xterm/addon-web-links";
-import { Terminal as TerminalIcon, Power, PowerOff } from "lucide-react";
+import {
+  Copy,
+  Power,
+  PowerOff,
+  Terminal as TerminalIcon,
+  Trash2,
+} from "lucide-react";
 import { toast } from "sonner";
 import {
   useTranslation,
@@ -493,110 +498,143 @@ function ConsoleTerminalInner({
     );
   }
 
-  return (
-    <div className="flex flex-col h-full gap-3">
-      <Card className="py-3">
-        <CardContent className="px-3">
-          <div className="flex flex-col sm:flex-row gap-2 items-center sm:items-center">
-            <div className="flex items-center gap-2 flex-1">
-              <TerminalIcon className="h-5 w-5" />
-              <span className="text-base font-medium">
-                {t("docker.console")}
-              </span>
-            </div>
-            <Select2
-              value={selectedShell}
-              onChange={(event) => setSelectedShell(event.target.value)}
-              disabled={isConnected}
-              placeholder={t("docker.selectShell")}
-              className="w-[120px]"
-            >
-              <option value="bash">{t("docker.bash")}</option>
-              <option value="sh">{t("docker.sh")}</option>
-              <option value="ash">{t("docker.ash")}</option>
-            </Select2>
-            <div className="flex gap-2 sm:gap-2">
-              {!isConnected ? (
-                <Button
-                  variant="outline"
-                  onClick={connect}
-                  disabled={isConnecting}
-                  className="min-w-[120px] border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand dark:border-accent-brand/40 dark:bg-transparent dark:hover:bg-accent-brand/10"
-                >
-                  {isConnecting ? (
-                    <>
-                      <div className="h-4 w-4 mr-2 animate-spin rounded-full border-2 border-gray-400 border-t-transparent" />
-                      {t("docker.connecting")}
-                    </>
-                  ) : (
-                    <>
-                      <Power className="h-4 w-4 mr-2" />
-                      {t("docker.connect")}
-                    </>
-                  )}
-                </Button>
-              ) : (
-                <Button
-                  onClick={disconnect}
-                  variant="destructive"
-                  className="min-w-[120px]"
-                >
-                  <PowerOff className="h-4 w-4 mr-2" />
-                  {t("docker.disconnect")}
-                </Button>
-              )}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+  const copyBuffer = async () => {
+    if (!terminal) return;
+    const buffer = terminal.buffer.active;
+    const lines: string[] = [];
+    for (let i = 0; i < buffer.length; i++) {
+      lines.push(buffer.getLine(i)?.translateToString(true) ?? "");
+    }
+    while (lines.length && !lines[lines.length - 1]) lines.pop();
+    if (await copyToClipboard(lines.join("\n"))) {
+      toast.success(t("docker.consoleCopied"));
+    } else {
+      toast.error(t("terminal.clipboardWriteFailed"));
+    }
+  };
 
-      <Card
-        className="flex-1 overflow-hidden pt-1 pb-0"
+  return (
+    <div className="flex flex-col h-full gap-2">
+      <div className="flex flex-wrap items-center gap-2">
+        <div className="flex min-w-0 items-center gap-2 text-xs text-muted-foreground">
+          <span
+            className={cn(
+              "size-2 shrink-0 rounded-full",
+              isConnected
+                ? "bg-green-500"
+                : isConnecting
+                  ? "bg-warning animate-pulse"
+                  : "bg-muted-foreground/40",
+            )}
+          />
+          <span className="truncate">
+            {isConnected
+              ? t("docker.connectedTo", { containerName })
+              : isConnecting
+                ? t("docker.connecting")
+                : t("docker.notConnected")}
+          </span>
+        </div>
+        <div className="ml-auto flex items-center gap-2">
+          <Select2
+            value={selectedShell}
+            onChange={(event) => setSelectedShell(event.target.value)}
+            disabled={isConnected || isConnecting}
+            placeholder={t("docker.selectShell")}
+            title={t("docker.selectShell")}
+            className="h-8 w-24 text-xs"
+            align="end"
+          >
+            <option value="bash">{t("docker.bash")}</option>
+            <option value="sh">{t("docker.sh")}</option>
+            <option value="ash">{t("docker.ash")}</option>
+          </Select2>
+          <div className="flex items-center">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={copyBuffer}
+              disabled={!isConnected}
+              title={t("docker.copyConsole")}
+              aria-label={t("docker.copyConsole")}
+            >
+              <Copy className="size-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => terminal?.clear()}
+              disabled={!isConnected}
+              title={t("docker.clear")}
+              aria-label={t("docker.clear")}
+            >
+              <Trash2 className="size-4" />
+            </Button>
+          </div>
+          {!isConnected ? (
+            <Button
+              variant="outline"
+              onClick={connect}
+              disabled={isConnecting}
+              className="border-accent-brand/40 text-accent-brand hover:bg-accent-brand/10 hover:text-accent-brand dark:border-accent-brand/40 dark:bg-transparent dark:hover:bg-accent-brand/10"
+            >
+              <Power className="size-4" />
+              {t("docker.connect")}
+            </Button>
+          ) : (
+            <Button onClick={disconnect} variant="destructive">
+              <PowerOff className="size-4" />
+              {t("docker.disconnect")}
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <div
+        className="relative flex-1 min-h-0 overflow-hidden border border-border pt-1"
         style={{ background: themeColors.background }}
       >
-        <CardContent className="p-0 h-full relative">
-          <div
-            ref={xtermRef}
-            className="h-full w-full"
-            style={{ display: isConnected ? "block" : "none" }}
-          />
+        <div
+          ref={xtermRef}
+          className="h-full w-full"
+          style={{ display: isConnected ? "block" : "none" }}
+        />
 
-          {!isConnected &&
-            !isConnecting &&
-            retry.status !== "error" &&
-            retry.status !== "disconnected" && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <TerminalIcon className="h-12 w-12 text-muted-foreground/50 mx-auto" />
-                  <p className="text-muted-foreground">
-                    {t("docker.notConnected")}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {t("docker.clickToConnect")}
-                  </p>
-                </div>
+        {!isConnected &&
+          !isConnecting &&
+          retry.status !== "error" &&
+          retry.status !== "disconnected" && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center space-y-2">
+                <TerminalIcon className="h-12 w-12 text-muted-foreground/50 mx-auto" />
+                <p className="text-muted-foreground">
+                  {t("docker.notConnected")}
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  {t("docker.clickToConnect")}
+                </p>
               </div>
-            )}
+            </div>
+          )}
 
-          {!isConnected &&
-            (isConnecting ||
-              retry.status === "error" ||
-              retry.status === "disconnected") && (
-              <ConnectionScreen
-                status={isConnecting ? "connecting" : retry.status}
-                message={t("docker.connectingTo", { containerName })}
-                attempt={retry.attempt}
-                maxAttempts={retry.maxAttempts}
-                nextRetryInMs={retry.nextRetryInMs}
-                onManualRetry={() => {
-                  clearLogs();
-                  retry.retryNow();
-                }}
-                onClose={false}
-              />
-            )}
-        </CardContent>
-      </Card>
+        {!isConnected &&
+          (isConnecting ||
+            retry.status === "error" ||
+            retry.status === "disconnected") && (
+            <ConnectionScreen
+              status={isConnecting ? "connecting" : retry.status}
+              message={t("docker.connectingTo", { containerName })}
+              attempt={retry.attempt}
+              maxAttempts={retry.maxAttempts}
+              nextRetryInMs={retry.nextRetryInMs}
+              onManualRetry={() => {
+                clearLogs();
+                retry.retryNow();
+              }}
+              onClose={false}
+            />
+          )}
+      </div>
     </div>
   );
 }
