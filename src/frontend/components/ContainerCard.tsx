@@ -235,7 +235,7 @@ export function ContainerCard({
           </div>
         </div>
       </div>
-      <div className="px-4 py-2 border-t border-border bg-muted/5 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="px-4 py-2 border-t border-border bg-muted/5 flex items-center justify-between opacity-0 group-hover:opacity-100 focus-within:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity">
         <span className="text-[10px] text-muted-foreground italic">
           {container.id.substring(0, 12)}
         </span>
@@ -246,6 +246,8 @@ export function ContainerCard({
               size="icon-xs"
               className="text-accent-brand"
               disabled={isLoading}
+              title={t("docker.start")}
+              aria-label={t("docker.start")}
               onClick={handleStart}
             >
               {isStarting ? (
@@ -261,6 +263,8 @@ export function ContainerCard({
               size="icon-xs"
               className="text-destructive"
               disabled={isLoading}
+              title={t("docker.stop")}
+              aria-label={t("docker.stop")}
               onClick={handleStop}
             >
               {isStopping ? (
@@ -275,6 +279,16 @@ export function ContainerCard({
               variant="ghost"
               size="icon-xs"
               disabled={isLoading}
+              title={
+                container.state === "paused"
+                  ? t("docker.resume")
+                  : t("docker.pause")
+              }
+              aria-label={
+                container.state === "paused"
+                  ? t("docker.resume")
+                  : t("docker.pause")
+              }
               onClick={handlePause}
             >
               {isPausing ? (
@@ -290,6 +304,8 @@ export function ContainerCard({
             variant="ghost"
             size="icon-xs"
             disabled={isLoading || container.state === "exited"}
+            title={t("docker.restart")}
+            aria-label={t("docker.restart")}
             onClick={handleRestart}
           >
             {isRestarting ? (
@@ -303,6 +319,8 @@ export function ContainerCard({
             size="icon-xs"
             className="text-destructive"
             disabled={isLoading}
+            title={t("docker.remove")}
+            aria-label={t("docker.remove")}
             onClick={handleRemove}
           >
             <Trash2 className="size-3" />

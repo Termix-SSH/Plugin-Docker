@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Fixed
+
+- Container card actions have labels and show on touch screens and keyboard focus, not only on hover
+
 ## 1.0.0
 
 ### Added
