@@ -91,6 +91,9 @@ function ConsoleTerminalInner({
   const wsRef = React.useRef<WebSocket | null>(null);
   const fitAddonRef = React.useRef<FitAddon | null>(null);
   const pingIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const inputListenerRef = React.useRef<{ dispose: () => void } | null>(null);
+  const tRef = React.useRef(t);
+  tRef.current = t;
 
   React.useEffect(() => {
     if (!terminal) return;
@@ -131,7 +134,7 @@ function ConsoleTerminalInner({
             if (text) terminal.paste(text);
           })
           .catch(() => {
-            toast.error(t("terminal.clipboardReadFailed"));
+            toast.error(tRef.current("terminal.clipboardReadFailed"));
           });
         return false;
       }
@@ -149,7 +152,7 @@ function ConsoleTerminalInner({
         const selection = terminal.getSelection();
         if (selection) {
           writeTextToClipboard(selection).catch(() => {
-            toast.error(t("terminal.clipboardWriteFailed"));
+            toast.error(tRef.current("terminal.clipboardWriteFailed"));
           });
           terminal.clearSelection();
         }
@@ -169,7 +172,7 @@ function ConsoleTerminalInner({
         const selection = terminal.getSelection();
         if (selection) {
           writeTextToClipboard(selection).catch(() => {
-            toast.error(t("terminal.clipboardWriteFailed"));
+            toast.error(tRef.current("terminal.clipboardWriteFailed"));
           });
         }
         return false;
@@ -189,7 +192,7 @@ function ConsoleTerminalInner({
             if (text) terminal.paste(text);
           })
           .catch(() => {
-            toast.error(t("terminal.clipboardReadFailed"));
+            toast.error(tRef.current("terminal.clipboardReadFailed"));
           });
         return false;
       }
@@ -235,7 +238,7 @@ function ConsoleTerminalInner({
 
       terminal.dispose();
     };
-  }, [terminal, t]);
+  }, [terminal]);
 
   React.useEffect(() => {
     if (!terminal) return;
@@ -298,6 +301,10 @@ function ConsoleTerminalInner({
         return;
       }
 
+      if (wsRef.current) {
+        wsRef.current.close();
+        wsRef.current = null;
+      }
       const ws = new WebSocket(resolvedUrl.url, resolvedUrl.protocols);
 
       ws.onopen = () => {
@@ -338,7 +345,10 @@ function ConsoleTerminalInner({
 
               if (msg.data?.shellChanged) {
                 toast.warning(
-                  `Shell "${msg.data.requestedShell}" not available. Using "${msg.data.shell}" instead.`,
+                  t("docker.shellChanged", {
+                    requested: msg.data.requestedShell,
+                    shell: msg.data.shell,
+                  }),
                 );
               } else {
                 toast.success(t("docker.connectedTo", { containerName }));
@@ -428,7 +438,8 @@ function ConsoleTerminalInner({
 
       wsRef.current = ws;
 
-      terminal.onData((data) => {
+      inputListenerRef.current?.dispose();
+      inputListenerRef.current = terminal.onData((data) => {
         if (ws.readyState === WebSocket.OPEN) {
           ws.send(
             JSON.stringify({
@@ -440,7 +451,9 @@ function ConsoleTerminalInner({
       });
     } catch (error) {
       setIsConnecting(false);
-      const message = `Failed to connect: ${getErrorMessage(error)}`;
+      const message = t("docker.failedToConnectWithError", {
+        error: getErrorMessage(error),
+      });
       toast.error(message);
       addLog({ type: "error", stage: "error", message });
       retryRef.current.markFailed();
@@ -465,6 +478,8 @@ function ConsoleTerminalInner({
 
   React.useEffect(() => {
     return () => {
+      inputListenerRef.current?.dispose();
+      inputListenerRef.current = null;
       if (pingIntervalRef.current) {
         clearInterval(pingIntervalRef.current);
         pingIntervalRef.current = null;

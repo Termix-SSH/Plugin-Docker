@@ -15,8 +15,11 @@ const EXTRA_PATH_DIRS =
 export function containerCommand(
   runtime: ContainerRuntime | undefined,
   args: string,
+  isWindows = false,
 ): string {
-  return `PATH="${EXTRA_PATH_DIRS}:$PATH" ${normalizeContainerRuntime(runtime)} ${args}`;
+  const cli = `${normalizeContainerRuntime(runtime)} ${args}`;
+  // cmd and PowerShell don't understand the POSIX env prefix.
+  return isWindows ? cli : `PATH="${EXTRA_PATH_DIRS}:$PATH" ${cli}`;
 }
 
 export function getRuntimeLabel(runtime: ContainerRuntime): string {

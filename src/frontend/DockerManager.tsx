@@ -161,7 +161,7 @@ function DockerManagerInner({
           stage: "validation",
           message: validation.error || t("docker.error"),
           details: validation.code
-            ? `Error code: ${validation.code}`
+            ? t("docker.errorCode", { code: validation.code })
             : undefined,
         });
         retryRef.current?.markFailed();

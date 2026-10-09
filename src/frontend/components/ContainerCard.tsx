@@ -80,6 +80,7 @@ export function ContainerCard({
     } catch (err) {
       toast.error(
         t("docker.failedToStartContainer", {
+          name: containerName,
           error: getErrorMessage(err),
         }),
       );
@@ -98,6 +99,7 @@ export function ContainerCard({
     } catch (err) {
       toast.error(
         t("docker.failedToStopContainer", {
+          name: containerName,
           error: getErrorMessage(err),
         }),
       );
@@ -116,6 +118,7 @@ export function ContainerCard({
     } catch (err) {
       toast.error(
         t("docker.failedToRestartContainer", {
+          name: containerName,
           error: getErrorMessage(err),
         }),
       );
@@ -139,7 +142,7 @@ export function ContainerCard({
     } catch (err) {
       toast.error(
         t("docker.failedToTogglePauseContainer", {
-          action: container.state === "paused" ? "unpause" : "pause",
+          name: containerName,
           error: getErrorMessage(err),
         }),
       );
@@ -175,6 +178,7 @@ export function ContainerCard({
           } catch (err) {
             toast.error(
               t("docker.failedToRemoveContainer", {
+                name: containerName,
                 error: getErrorMessage(err),
               }),
             );

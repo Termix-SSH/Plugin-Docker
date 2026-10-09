@@ -67,8 +67,12 @@ export function ContainerTable({
     } catch (err) {
       toast.error(
         container.state === "running"
-          ? t("docker.failedToStopContainer", { error: getErrorMessage(err) })
+          ? t("docker.failedToStopContainer", {
+              name: containerName,
+              error: getErrorMessage(err),
+            })
           : t("docker.failedToStartContainer", {
+              name: containerName,
               error: getErrorMessage(err),
             }),
       );

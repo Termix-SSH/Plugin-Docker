@@ -506,7 +506,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
       try {
         const output = await sessions.exec(
           session,
-          containerCommand(runtime, "--version"),
+          containerCommand(runtime, "--version", session.isWindows),
         );
         version =
           output.match(/(?:Docker|podman) version ([^\s,]+)/i)?.[1] ??
@@ -522,7 +522,10 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
       }
 
       try {
-        await sessions.exec(session, containerCommand(runtime, "ps"));
+        await sessions.exec(
+          session,
+          containerCommand(runtime, "ps", session.isWindows),
+        );
         res.json({ available: true, version, runtime });
       } catch (error) {
         const message = getErrorMessage(error, "");
@@ -589,6 +592,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
           containerCommand(
             session.runtime,
             `ps ${all ? "-a " : ""}--format ${listFormat(session.isWindows)}`,
+            session.isWindows,
           ),
         ),
       );
@@ -640,7 +644,11 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
       const output = await sessions.run(session, () =>
         sessions.exec(
           session,
-          containerCommand(session.runtime, `inspect ${containerId}`),
+          containerCommand(
+            session.runtime,
+            `inspect ${containerId}`,
+            session.isWindows,
+          ),
         ),
       );
       const details = JSON.parse(output) as unknown[];
@@ -721,7 +729,11 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
         await sessions.run(session, () =>
           sessions.exec(
             session,
-            containerCommand(session.runtime, `${action} ${containerId}`),
+            containerCommand(
+              session.runtime,
+              `${action} ${containerId}`,
+              session.isWindows,
+            ),
           ),
         );
         res.json({ success: true, message: `Container ${action} succeeded` });
@@ -797,6 +809,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
             containerCommand(
               session.runtime,
               `rm ${force ? "-f " : ""}${containerId}`,
+              session.isWindows,
             ),
           ),
         );
@@ -886,7 +899,11 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
     const since = typeof req.query.since === "string" ? req.query.since : "";
     const until = typeof req.query.until === "string" ? req.query.until : "";
 
-    let command = containerCommand(session.runtime, `logs ${containerId}`);
+    let command = containerCommand(
+      session.runtime,
+      `logs ${containerId}`,
+      session.isWindows,
+    );
     if (tail && tail > 0) command += ` --tail ${Math.floor(tail)}`;
     if (req.query.timestamps === "true") command += " --timestamps";
     if (since && DOCKER_TIMESTAMP_RE.test(since))
@@ -960,6 +977,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
           containerCommand(
             session.runtime,
             `stats ${containerId} --no-stream --format ${format}`,
+            session.isWindows,
           ),
         ),
       );

@@ -154,7 +154,7 @@ export function createDockerSessions(
       } catch (error) {
         log.warn("Docker command failed", {
           hostId: session.hostId,
-          command: command.split(" ")[2],
+          command: command.match(/\b(?:docker|podman) (\S+)/)?.[1],
           durationMs: Date.now() - started,
           error: error instanceof Error ? error.message : String(error),
         });

@@ -24,6 +24,29 @@ import {
   type DockerLogger,
 } from "./helpers.js";
 
+const WINDOWS_CHECK_MS = 5000;
+
+/** Whether the host's shell is Windows, judged by `ver`. */
+function detectWindows(client: Client): Promise<boolean> {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(false), WINDOWS_CHECK_MS);
+    const done = (value: boolean) => {
+      clearTimeout(timer);
+      resolve(value);
+    };
+    client.exec("ver", (err, stream) => {
+      if (err || !stream) return done(false);
+      let output = "";
+      stream.on("data", (d: Buffer) => {
+        output += d.toString();
+      });
+      stream.stderr.on("data", () => {});
+      stream.on("error", () => done(false));
+      stream.on("close", () => done(output.toLowerCase().includes("windows")));
+    });
+  });
+}
+
 /** What one HTTP request answers with. */
 export interface ConnectStep {
   status: number;
@@ -255,7 +278,7 @@ export async function startConnect(
       prompt: { ask },
     })
     .then(
-      (connection) => {
+      async (connection) => {
         sessions.clearPending(sessionId);
         ctx.hosts.status.reportLogin(hostId, { ok: true });
         if (pending.abandoned) {
@@ -275,20 +298,8 @@ export async function startConnect(
           activeOperations: 0,
         };
         sessions.add(session);
-
-        connection.client.exec("ver", (err, stream) => {
-          if (err || !stream) return;
-          let output = "";
-          stream.on("data", (d: Buffer) => {
-            output += d.toString();
-          });
-          stream.on("close", () => {
-            if (output.toLowerCase().includes("windows")) {
-              session.isWindows = true;
-            }
-          });
-          stream.stderr.on("data", () => {});
-        });
+        // Known before the first command, so it gets the right quoting.
+        session.isWindows = await detectWindows(connection.client);
 
         void ctx.audit.record({
           action: "docker_connect",

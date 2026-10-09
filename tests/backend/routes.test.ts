@@ -313,4 +313,16 @@ describe("docker routes", () => {
     expect(response.status).toBe(500);
     expect(server.mock.statusReports).toEqual([]);
   });
+
+  it("detects a Windows host before the first command", async () => {
+    const client = new FakeClient([
+      [/^ver$/, { stdout: "Microsoft Windows [Version 10.0.26100]" }],
+      [/--version/, { stdout: "Docker version 27.1.1, build abc" }],
+    ]);
+    server = await startServer({ client });
+    expect((await connect(server)).status).toBe(200);
+    await server.request("GET", "/validate/s1");
+    const versionCommand = client.commands.find((c) => c.includes("--version"));
+    expect(versionCommand).toBe("docker --version");
+  });
 });

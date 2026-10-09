@@ -99,6 +99,9 @@ export function registerConsole(ctx: PluginContext, log: DockerLogger): void {
     }
 
     let session: ConsoleSession | null = null;
+    // Bumped by every connect and disconnect, so a slow connect that lost
+    // the race drops its client instead of leaking it.
+    let attempt = 0;
     const send = (message: Record<string, unknown>) => {
       if (ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(message));
     };
@@ -116,6 +119,7 @@ export function registerConsole(ctx: PluginContext, log: DockerLogger): void {
     }, PING_MS);
 
     const cleanup = () => {
+      attempt++;
       clearInterval(pingTimer);
       endSession();
       live.delete(shutdown);
@@ -131,6 +135,7 @@ export function registerConsole(ctx: PluginContext, log: DockerLogger): void {
     live.add(shutdown);
 
     const connect = async (data: unknown) => {
+      const myAttempt = ++attempt;
       if (!connection.isDataUnlocked()) {
         send({
           type: "error",
@@ -203,7 +208,7 @@ export function registerConsole(ctx: PluginContext, log: DockerLogger): void {
           profile: "stream",
           timeoutMs: 65_000,
         });
-        if (ws.readyState !== WebSocket.OPEN) {
+        if (ws.readyState !== WebSocket.OPEN || myAttempt !== attempt) {
           dispose();
           return;
         }
@@ -316,6 +321,7 @@ export function registerConsole(ctx: PluginContext, log: DockerLogger): void {
             break;
           }
           case "disconnect":
+            attempt++;
             if (session) {
               endSession();
               send({
