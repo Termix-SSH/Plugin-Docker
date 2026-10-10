@@ -1,7 +1,7 @@
 {
   "id": "docker",
   "name": "Docker",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
   "author": {
     "name": "Termix"
