@@ -49,10 +49,7 @@
         "id": "docker",
         "titleKey": "nav.docker",
         "icon": "Box",
-        "openFrom": [
-          "host-context-menu",
-          "palette"
-        ]
+        "openFrom": ["host-context-menu", "palette"]
       }
     ],
     "permissions": [
@@ -60,10 +57,7 @@
         "name": "use",
         "titleKey": "permissions.use.title",
         "descriptionKey": "permissions.use.description",
-        "defaultRoles": [
-          "admin",
-          "user"
-        ]
+        "defaultRoles": ["admin", "user"]
       }
     ],
     "settings": {
@@ -109,15 +103,8 @@
         "containerLayout": "table"
       }
     },
-    "uses": [
-      "homepage.widgets",
-      "terminal.resolveTheme"
-    ]
+    "uses": ["homepage.widgets", "terminal.resolveTheme"]
   },
   "locales": "locales",
-  "platforms": [
-    "linux",
-    "win32",
-    "darwin"
-  ]
+  "platforms": ["linux", "win32", "darwin"]
 }
