@@ -1,7 +1,7 @@
 {
   "id": "docker",
   "name": "Docker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
   "author": {
     "name": "Termix"
@@ -49,7 +49,10 @@
         "id": "docker",
         "titleKey": "nav.docker",
         "icon": "Box",
-        "openFrom": ["host-context-menu", "palette"]
+        "openFrom": [
+          "host-context-menu",
+          "palette"
+        ]
       }
     ],
     "permissions": [
@@ -57,7 +60,10 @@
         "name": "use",
         "titleKey": "permissions.use.title",
         "descriptionKey": "permissions.use.description",
-        "defaultRoles": ["admin", "user"]
+        "defaultRoles": [
+          "admin",
+          "user"
+        ]
       }
     ],
     "settings": {
@@ -103,8 +109,15 @@
         "containerLayout": "table"
       }
     },
-    "uses": ["homepage.widgets", "terminal.resolveTheme"]
+    "uses": [
+      "homepage.widgets",
+      "terminal.resolveTheme"
+    ]
   },
   "locales": "locales",
-  "platforms": ["linux", "win32", "darwin"]
+  "platforms": [
+    "linux",
+    "win32",
+    "darwin"
+  ]
 }
