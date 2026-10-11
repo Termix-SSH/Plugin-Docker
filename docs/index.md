@@ -10,9 +10,9 @@ It talks to your hosts over SSH, the same way the terminal does. It never needs 
    sudo usermod -aG docker $USER
    ```
 
-2. Open the host in **Manage** and turn on **Enable Docker** in the Docker section.
-3. If the host uses Podman, set **Container Runtime** to **Podman**.
-4. Save. Open the host's menu and pick **Docker**.
+2. Open the host in Manage and turn on Enable Docker in the Docker section.
+3. If the host uses Podman, set Container Runtime to Podman.
+4. Save. Open the host's menu and pick Docker.
 
 ## What you can do
 
