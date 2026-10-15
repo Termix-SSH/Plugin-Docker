@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Fixed
+
+- The container console started at the wrong width, so the first prompt wrapped and the shell got the wrong size
+
 ## 1.0.1
 
 ### Changed
