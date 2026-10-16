@@ -153,5 +153,9 @@
   "common": {
     "remove": "移除",
     "cancel": "取消"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "透過 SSH 管理主機上的 Docker 和 Podman 容器，支援日誌、統計和主控台。"
   }
 }
