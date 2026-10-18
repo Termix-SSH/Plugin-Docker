@@ -6,6 +6,12 @@
 
 <p>Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console</p>
 
+<!-- VIDEO:START -->
+
+<a href="https://www.youtube.com/watch?v=bbIE8ZcFSBo"><img src="https://img.shields.io/badge/Watch_the_demo-f59145?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch the demo on YouTube" /></a>
+
+<!-- VIDEO:END -->
+
 </div>
 
 <br />
