@@ -155,5 +155,9 @@
   "common": {
     "remove": "Elimina",
     "cancel": "Cancel·la"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Gestioneu els contenidors de Docker i Podman als vostres servidors a través d'SSH, amb registres, estadístiques i una consola."
   }
 }

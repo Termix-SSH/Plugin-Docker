@@ -155,5 +155,9 @@
   "common": {
     "remove": "הסר",
     "cancel": "ביטול"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "ניהול מכלי Docker ו-Podman במארחים שלך דרך SSH, כולל יומנים, סטטיסטיקות ומסוף."
   }
 }

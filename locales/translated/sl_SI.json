@@ -156,5 +156,9 @@
   "common": {
     "remove": "Odstrani",
     "cancel": "Prekliči"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Upravljajte z Docker in Podman kontejnerji na svojih gostiteljih prek SSH, s dnevniki, statistikami in konzolo."
   }
 }

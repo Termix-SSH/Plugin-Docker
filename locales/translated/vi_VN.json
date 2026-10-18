@@ -153,5 +153,9 @@
   "common": {
     "remove": "Xóa",
     "cancel": "Hủy"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Quản lý các container Docker và Podman trên các máy chủ của bạn qua SSH, với nhật ký, thống kê và bảng điều khiển."
   }
 }

@@ -153,5 +153,9 @@
   "common": {
     "remove": "ลบ",
     "cancel": "ยกเลิก"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "จัดการคอนเทนเนอร์ Docker และ Podman บนโฮสต์ของคุณผ่าน SSH พร้อมบันทึกข้อมูล สถิติ และคอนโซล"
   }
 }

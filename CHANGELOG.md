@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.2
+
+### Changed
+
+- The plugin name and description show in your language
+
+### Fixed
+
+- The container console started at the wrong width, so the first prompt wrapped and the shell got the wrong size
+- Opening Docker could connect twice and show no containers until the next refresh
+
 ## 1.0.1
 
 ### Changed

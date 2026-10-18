@@ -156,5 +156,9 @@
   "common": {
     "remove": "Odstranit",
     "cancel": "Zrušit"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Spravujte kontejnery Docker a Podman na vašich hostitelích přes SSH, včetně logů, statistik a konzole."
   }
 }

@@ -154,5 +154,9 @@
   "common": {
     "remove": "Verwyder",
     "cancel": "Kanselleer"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Bestuur Docker- en Podman-houders op jou gasheërs oor SSH, met logboeke, statistieke en 'n konsol."
   }
 }

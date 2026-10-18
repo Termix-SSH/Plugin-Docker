@@ -155,5 +155,9 @@
   "common": {
     "remove": "Elimină",
     "cancel": "Anulează"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Administrați containerele Docker și Podman de pe hosturile dvs. prin SSH, cu jurnale, statistici și o consolă."
   }
 }

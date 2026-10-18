@@ -154,5 +154,9 @@
   "common": {
     "remove": "Poista",
     "cancel": "Peruuta"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Hallinnoi Docker- ja Podman-kontteja isäntälaitteillasi SSH:n kautta, mukaan lukien lokit, tilastot ja konsoli."
   }
 }

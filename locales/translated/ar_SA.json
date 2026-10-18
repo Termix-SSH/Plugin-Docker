@@ -158,5 +158,9 @@
   "common": {
     "remove": "إزالة",
     "cancel": "إلغاء"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "إدارة حاويات Docker و Podman على مضيفيك عبر SSH، مع السجلات والإحصائيات ووحدة تحكم."
   }
 }

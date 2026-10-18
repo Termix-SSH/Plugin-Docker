@@ -154,5 +154,9 @@
   "common": {
     "remove": "Eemalda",
     "cancel": "Tühista"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Halda Dockerit ja Podmani konteinereid oma hostidel SSH kaudu, koos logide, statistika ja konsooliga."
   }
 }

@@ -154,5 +154,9 @@
   "common": {
     "remove": "Fjern",
     "cancel": "Annuller"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Administrer Docker- og Podman-containere på dine værter via SSH, med logs, statistik og en konsol."
   }
 }
