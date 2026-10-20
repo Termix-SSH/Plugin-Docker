@@ -117,7 +117,8 @@
     "errorCode": "Foutkode: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-paneel"
   },
   "terminal": {
     "clipboardReadFailed": "Kon nie van knipbord lees nie. Maak seker dat knipbordtoestemmings verleen is.",
@@ -140,6 +141,31 @@
         "description": "Kies die CLI wat gebruik word vir hooi-bestuur op hierdie gasheer",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Vertoon die houer-paneel in terminale",
+        "description": "Laat die houer-paneel oopmaak langs die SSH-terminal van hierdie gasheer."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Maak die houer-paneel oop met nuwe terminale",
+        "description": "Vertoon die houer-paneel langs elke SSH-terminal wat Docker het. Jy kan dit steeds oopmaak en sluit vanaf die knoppie aan die regterrand."
+      },
+      "companionSide": {
+        "label": "Kant van die houer-paneel",
+        "description": "Waar die houer-paneel langs 'n terminal sit.",
+        "right": "Regs",
+        "left": "Links",
+        "bottom": "Onder"
+      },
+      "companionSize": {
+        "label": "Grootte van die houerpaneel",
+        "description": "Wydte in pixels, of hoogte wanneer dit onderaan is. U kan ook die rand sleep."
+      },
+      "companionEdgeButton": {
+        "label": "Wys die paneelknoppie",
+        "description": "Wys 'n klein knoppie aan die regterrand van 'n terminaal wat die houerpaneel oopmaak."
       }
     }
   },

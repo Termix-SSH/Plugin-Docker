@@ -118,7 +118,8 @@
     "errorCode": "Código de erro: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Painel do Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Falha ao ler da área de transferência. Certifique-se de que as permissões da área de transferência estão concedidas.",
@@ -141,6 +142,31 @@
         "description": "Escolha a CLI utilizada para a gestão de contentores neste servidor",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Mostrar painel de contentores nos terminais",
+        "description": "Permitir que o painel de contentores abra ao lado do terminal SSH deste host."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Abrir o painel de contentores com novos terminais",
+        "description": "Mostrar o painel de contentores ao lado de cada terminal SSH que tenha o Docker ativo. Pode ainda abri-lo e fechá-lo através do botão na borda direita."
+      },
+      "companionSide": {
+        "label": "Lado do painel de contentores",
+        "description": "Onde o painel de contentores fica ao lado de um terminal.",
+        "right": "Direita",
+        "left": "Esquerda",
+        "bottom": "Inferior"
+      },
+      "companionSize": {
+        "label": "Tamanho do painel de contentores",
+        "description": "Largura em pixels, ou altura quando está na parte inferior. Também pode arrastar a sua borda."
+      },
+      "companionEdgeButton": {
+        "label": "Mostrar o botão do painel",
+        "description": "Mostrar um pequeno botão na borda direita de um terminal que abre o painel de contentores."
       }
     }
   },

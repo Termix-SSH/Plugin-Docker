@@ -119,7 +119,8 @@
     "errorCode": "Klaidos kodas: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker skydelis"
   },
   "terminal": {
     "clipboardReadFailed": "Nepavyko nuskaityti iš iškarpinės. Įsitikinkite, kad suteiktos iškarpinės teisės.",
@@ -142,6 +143,31 @@
         "description": "Pasirinkite komandinę eilutę, naudojamą konteinerių valdymui šiame serveryje",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Rodyti konteinerių skydelį terminaluose",
+        "description": "Leisti konteinerių skydeliui atsiverti šalia šio hosto SSH terminalo."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Atidaryti konteinerių skydelį su naujais terminalais",
+        "description": "Rodyti konteinerių skydelį šalia kiekvieno SSH terminalo, kuriame įjungtas Docker. Jį visada galite atidaryti ir uždaryti mygtuku dešiniajame krašte."
+      },
+      "companionSide": {
+        "label": "Konteinerių skydelio padėtis",
+        "description": "Kur konteinerių skydelis yra šalia terminalo.",
+        "right": "Dešinėje",
+        "left": "Kairėje",
+        "bottom": "Apačioje"
+      },
+      "companionSize": {
+        "label": "Konteinerių skydelio dydis",
+        "description": "Plotis pikseliais arba aukštis, kai skydelis yra apačioje. Taip pat galite vilkti jo kraštą."
+      },
+      "companionEdgeButton": {
+        "label": "Rodyti skydelio mygtuką",
+        "description": "Rodyti mažą mygtuką terminalo dešiniajame krašte, kuris atidaro konteinerių skydelį."
       }
     }
   },
@@ -156,5 +182,9 @@
   "common": {
     "remove": "Pašalinti",
     "cancel": "Atšaukti"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Tvarkykite Docker ir Podman konteinerius savo hostuose per SSH, su žurnalais, statistika ir konsole."
   }
 }

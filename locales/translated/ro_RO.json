@@ -118,7 +118,8 @@
     "errorCode": "Cod eroare: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panoul Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Nu s-a putut citi din clipboard. Asigură-te că permisiunile pentru clipboard sunt acordate.",
@@ -141,6 +142,31 @@
         "description": "Alege interfața de linie de comandă folosită pentru gestionarea containerele pe această gazdă",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Afișează panoul de containere în terminale",
+        "description": "Permite panoului de containere să se deschidă lângă terminalul SSH al acestui gazdă."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Deschide panoul de containere cu terminalele noi",
+        "description": "Afișează panoul de containere lângă fiecare terminal SSH care are Docker activat. Îl poți deschide și închide în continuare din butonul de pe marginea dreaptă."
+      },
+      "companionSide": {
+        "label": "Poziția panoului de containere",
+        "description": "Unde se află panoul de containere lângă un terminal.",
+        "right": "Dreapta",
+        "left": "Stânga",
+        "bottom": "Jos"
+      },
+      "companionSize": {
+        "label": "Dimensiunea panoului de containere",
+        "description": "Lățimea în pixeli, sau înălțimea când este poziționat jos. Poți trage și de marginea sa pentru a redimensiona."
+      },
+      "companionEdgeButton": {
+        "label": "Afișează butonul panoului",
+        "description": "Afișează un buton mic pe marginea dreaptă a unui terminal care deschide panoul de containere."
       }
     }
   },

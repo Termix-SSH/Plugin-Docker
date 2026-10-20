@@ -119,7 +119,8 @@
     "errorCode": "Kod błędu: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panel Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Nie udało się odczytać ze schowka. Upewnij się, że przyznano uprawnienia do schowka.",
@@ -142,6 +143,31 @@
         "description": "Wybierz interfejs wiersza poleceń używany do zarządzania kontenerami na tym hoście",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Pokaż panel kontenerów w terminalach",
+        "description": "Pozwól, aby panel kontenerów otwierał się obok terminala SSH tego hosta."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Otwieraj panel kontenerów wraz z nowymi terminalami",
+        "description": "Pokazuj panel kontenerów obok każdego terminala SSH, który ma włączonego Dockera. Możesz go nadal otwierać i zamykać za pomocą przycisku na prawej krawędzi."
+      },
+      "companionSide": {
+        "label": "Położenie panelu kontenerów",
+        "description": "Gdzie panel kontenerów znajduje się obok terminala.",
+        "right": "Prawa",
+        "left": "Lewa",
+        "bottom": "Dolna"
+      },
+      "companionSize": {
+        "label": "Rozmiar panelu kontenerów",
+        "description": "Szerokość w pikselach lub wysokość, gdy panel jest u dołu. Możesz też przeciągnąć jego krawędź."
+      },
+      "companionEdgeButton": {
+        "label": "Pokaż przycisk panelu",
+        "description": "Pokazuj mały przycisk na prawej krawędzi terminala, który otwiera panel kontenerów."
       }
     }
   },

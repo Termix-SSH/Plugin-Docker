@@ -117,7 +117,8 @@
     "errorCode": "Foutcode: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-paneel"
   },
   "terminal": {
     "clipboardReadFailed": "Kan niet van klembord lezen. Zorg ervoor dat klembordtoestemmingen zijn verleend.",
@@ -140,6 +141,31 @@
         "description": "Kies de CLI die wordt gebruikt voor containerbeheer op deze host",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Toon het containers-paneel in terminals",
+        "description": "Laat het containers-paneel open naast de SSH-terminal van deze host."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Open het containers-paneel met nieuwe terminals",
+        "description": "Toon het containers-paneel naast elke SSH-terminal met Docker. Je kunt het paneel nog steeds openen en sluiten via de knop aan de rechterkant."
+      },
+      "companionSide": {
+        "label": "Positie van het containers-paneel",
+        "description": "Waar het containers-paneel naast een terminal staat.",
+        "right": "Rechts",
+        "left": "Links",
+        "bottom": "Onderaan"
+      },
+      "companionSize": {
+        "label": "Grootte van het containerspaneel",
+        "description": "Breedte in pixels, of hoogte wanneer het paneel onderaan staat. Je kunt de rand ook verslepen."
+      },
+      "companionEdgeButton": {
+        "label": "Knop voor het paneel tonen",
+        "description": "Toon een kleine knop aan de rechterkant van een terminal die het containerspaneel opent."
       }
     }
   },

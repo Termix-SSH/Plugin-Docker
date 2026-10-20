@@ -117,7 +117,8 @@
     "errorCode": "Vigakood: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Dockeri paneel"
   },
   "terminal": {
     "clipboardReadFailed": "Lõikelaua lugemine ebaõnnestus. Veenduge, et lõikelaua lubad on antud.",
@@ -140,6 +141,31 @@
         "description": "Vali sellel hostil konteinerite haldamiseks kasutatav käsurea vahend",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Kuvage konteineride paneel terminaalides",
+        "description": "Luba konteineride paneel avada selle hosti SSH-terminaali kõrval."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Ava konteineride paneel koos uute terminaalidega",
+        "description": "Kuva konteineride paneel kõigi SSH-terminaalide kõrval, kus Docker on käivitatud. Saate seda ikka avada ja sulgeda paremal serval olevast nupust."
+      },
+      "companionSide": {
+        "label": "Konteineride paneeli asukoht",
+        "description": "Kus konteineride paneel asub terminaali kõrval.",
+        "right": "Parem",
+        "left": "Vasak",
+        "bottom": "Alumine"
+      },
+      "companionSize": {
+        "label": "Konteinerite paneeli suurus",
+        "description": "Laius pikslites või kõrgus, kui paneel on all. Saate ka selle serva lohistada."
+      },
+      "companionEdgeButton": {
+        "label": "Kuva paneeli nupp",
+        "description": "Kuva terminali paremal serval väike nupp, mis avab konteinerite paneeli."
       }
     }
   },

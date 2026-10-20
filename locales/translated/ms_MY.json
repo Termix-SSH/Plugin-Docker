@@ -116,7 +116,8 @@
     "errorCode": "Kod ralat: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panel Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Gagal membaca dari papan klip. Pastikan kebenaran papan klip diberikan.",
@@ -139,6 +140,31 @@
         "description": "Pilih CLI yang digunakan untuk pengurusan kontena pada hos ini",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Paparkan panel kontena dalam terminal",
+        "description": "Biarkan panel kontena dibuka di sebelah terminal SSH hos ini."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Buka panel kontena bersama terminal baharu",
+        "description": "Paparkan panel kontena di sebelah setiap terminal SSH yang mempunyai Docker dihidupkan. Anda masih boleh membukanya dan menutupnya daripada butang di tepi kanan."
+      },
+      "companionSide": {
+        "label": "Sisi panel kontena",
+        "description": "Di mana panel kontena diletakkan di sebelah terminal.",
+        "right": "Kanan",
+        "left": "Kiri",
+        "bottom": "Bawah"
+      },
+      "companionSize": {
+        "label": "Saiz panel kontena",
+        "description": "Lebar dalam piksel, atau tinggi apabila ia berada di bahagian bawah. Anda juga boleh menyeret tepinya."
+      },
+      "companionEdgeButton": {
+        "label": "Paparkan butang panel",
+        "description": "Paparkan butang kecil di tepi kanan terminal yang membuka panel kontena."
       }
     }
   },
@@ -153,5 +179,9 @@
   "common": {
     "remove": "Buang",
     "cancel": "Batal"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Uruskan kontena Docker dan Podman pada hos anda melalui SSH, dengan log, statistik dan konsol."
   }
 }

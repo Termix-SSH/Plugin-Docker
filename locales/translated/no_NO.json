@@ -117,7 +117,8 @@
     "errorCode": "Feilkode: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-panel"
   },
   "terminal": {
     "clipboardReadFailed": "Kunne ikke lese fra utklippstavlen. Sørg for at tillatelser for utklippstavlen er gitt.",
@@ -140,6 +141,31 @@
         "description": "Velg kommandolinjeverktøyet som brukes til containeradministrasjon på denne verten",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Vis container-panelet i terminaler",
+        "description": "La container-panelet åpne ved siden av SSH-terminalen for denne verten."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Åpne container-panelet med nye terminaler",
+        "description": "Vis container-panelet ved siden av hver SSH-terminal som har Docker på. Du kan fortsatt åpne og lukke det fra knappen på høyre kant."
+      },
+      "companionSide": {
+        "label": "Plassering av container-panelet",
+        "description": "Hvor container-panelet vises i forhold til en terminal.",
+        "right": "Høyre",
+        "left": "Venstre",
+        "bottom": "Bunn"
+      },
+      "companionSize": {
+        "label": "Størrelse på container-panelet",
+        "description": "Bredde i piksler, eller høyde når det er nederst. Du kan også dra i kanten."
+      },
+      "companionEdgeButton": {
+        "label": "Vis panelknapp",
+        "description": "Vis en liten knapp på høyre kant av en terminal som åpner container-panelet."
       }
     }
   },
@@ -154,5 +180,9 @@
   "common": {
     "remove": "Fjern",
     "cancel": "Avbryt"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Administrer Docker- og Podman-containere på vertene dine via SSH, med logger, statistikk og en konsoll."
   }
 }

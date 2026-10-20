@@ -117,7 +117,8 @@
     "errorCode": "Fehlercode: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-Panel"
   },
   "terminal": {
     "clipboardReadFailed": "Fehler beim Lesen aus der Zwischenablage. Stellen Sie sicher, dass die Berechtigungen für die Zwischenablage erteilt wurden.",
@@ -140,6 +141,31 @@
         "description": "Wählen Sie die CLI aus, die für das Container-Management auf diesem Host verwendet wird.",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Container-Panel in Terminals anzeigen",
+        "description": "Lässt das Container-Panel neben dem SSH-Terminal dieses Hosts öffnen."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Container-Panel mit neuen Terminals öffnen",
+        "description": "Zeigt das Container-Panel neben jedem SSH-Terminal an, auf dem Docker läuft. Du kannst es weiterhin über die Schaltfläche am rechten Rand öffnen und schließen."
+      },
+      "companionSide": {
+        "label": "Position des Container-Panels",
+        "description": "Wo das Container-Panel neben einem Terminal angezeigt wird.",
+        "right": "Rechts",
+        "left": "Links",
+        "bottom": "Unten"
+      },
+      "companionSize": {
+        "label": "Größe des Container-panels",
+        "description": "Breite in Pixeln, oder Höhe, wenn es unten angezeigt wird. Sie können auch den Rand ziehen."
+      },
+      "companionEdgeButton": {
+        "label": "Panel-Schaltfläche anzeigen",
+        "description": "Zeigt eine kleine Schaltfläche am rechten Rand eines Terminals an, die das Container-Panel öffnet."
       }
     }
   },

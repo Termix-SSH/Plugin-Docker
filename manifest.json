@@ -1,7 +1,7 @@
 {
   "id": "docker",
   "name": "Docker",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
   "author": {
     "name": "Termix"
@@ -17,11 +17,12 @@
     "Live CPU, memory, network and disk stats",
     "Read and download container logs",
     "Open a shell inside a container",
-    "Works with Docker and Podman"
+    "Works with Docker and Podman",
+    "A containers panel beside any SSH terminal"
   ],
   "engine": {
-    "termix": ">=26.10.0",
-    "api": "^1.2"
+    "termix": ">=26.10.3",
+    "api": "^1.9"
   },
   "capabilities": [
     "hosts:read",
@@ -86,9 +87,63 @@
                 "labelKey": "settings.host.containerRuntime.podman"
               }
             ]
+          },
+          {
+            "key": "showPanel",
+            "type": "boolean",
+            "labelKey": "settings.host.showPanel.label",
+            "descriptionKey": "settings.host.showPanel.description",
+            "default": true,
+            "requires": "enableDocker"
           }
         ]
-      }
+      },
+      "user": [
+        {
+          "key": "companionAutoOpen",
+          "type": "boolean",
+          "labelKey": "settings.user.companionAutoOpen.label",
+          "descriptionKey": "settings.user.companionAutoOpen.description",
+          "default": false
+        },
+        {
+          "key": "companionSide",
+          "type": "select",
+          "labelKey": "settings.user.companionSide.label",
+          "descriptionKey": "settings.user.companionSide.description",
+          "default": "right",
+          "options": [
+            {
+              "value": "right",
+              "labelKey": "settings.user.companionSide.right"
+            },
+            {
+              "value": "left",
+              "labelKey": "settings.user.companionSide.left"
+            },
+            {
+              "value": "bottom",
+              "labelKey": "settings.user.companionSide.bottom"
+            }
+          ]
+        },
+        {
+          "key": "companionSize",
+          "type": "number",
+          "labelKey": "settings.user.companionSize.label",
+          "descriptionKey": "settings.user.companionSize.description",
+          "min": 240,
+          "max": 900,
+          "default": 380
+        },
+        {
+          "key": "companionEdgeButton",
+          "type": "boolean",
+          "labelKey": "settings.user.companionEdgeButton.label",
+          "descriptionKey": "settings.user.companionEdgeButton.description",
+          "default": true
+        }
+      ]
     },
     "uiPresets": {
       "simple": {

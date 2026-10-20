@@ -117,7 +117,8 @@
     "errorCode": "Hata kodu: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker paneli"
   },
   "terminal": {
     "clipboardReadFailed": "Panodan okunamadı. Panoya erişim izinlerinin verildiğinden emin olun.",
@@ -140,6 +141,31 @@
         "description": "Bu ana makinede konteyner yönetimi için kullanılan CLI'yi seçin",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Terminalde konteyner panelini göster",
+        "description": "Konteyner panelinin bu ana bilgisayarın SSH terminalinin yanında açılmasına izin ver."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Yeni terminallerle konteyner panelini aç",
+        "description": "Docker'ı etkin olan her SSH terminalinin yanında konteyner panelini göster. Sağ kenardaki düğmeden açmaya ve kapatmaya devam edebilirsiniz."
+      },
+      "companionSide": {
+        "label": "Konteyner paneli konumu",
+        "description": "Konteyner panelinin terminalin yanında nerede duracağını belirler.",
+        "right": "Sağ",
+        "left": "Sol",
+        "bottom": "Alt"
+      },
+      "companionSize": {
+        "label": "Konteyner paneli boyutu",
+        "description": "Genişlik piksel cinsinden veya altta olduğunda yükseklik. Ayrıca kenarını sürükleyerek de ayarlayabilirsiniz."
+      },
+      "companionEdgeButton": {
+        "label": "Panel düğmesini göster",
+        "description": "Konteyner panelini açan küçük bir düğmeyi terminalin sağ kenarında göster."
       }
     }
   },

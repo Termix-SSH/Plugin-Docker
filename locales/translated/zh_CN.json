@@ -116,7 +116,8 @@
     "errorCode": "错误代码：{{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker 面板"
   },
   "terminal": {
     "clipboardReadFailed": "无法从剪贴板读取。请确保已授予剪贴板权限。",
@@ -139,6 +140,31 @@
         "description": "选择在此主机上用于容器管理的 CLI",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "在终端中显示容器面板",
+        "description": "让容器面板在此主机的 SSH 终端旁打开。"
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "在新终端中打开容器面板",
+        "description": "在每个启用了 Docker 的 SSH 终端旁显示容器面板。您仍然可以通过右侧边缘的按钮打开和关闭它。"
+      },
+      "companionSide": {
+        "label": "容器面板位置",
+        "description": "容器面板相对于终端的位置。",
+        "right": "右侧",
+        "left": "左侧",
+        "bottom": "底部"
+      },
+      "companionSize": {
+        "label": "容器面板大小",
+        "description": "宽度（像素），如果面板位于底部则为高度。您也可以拖动其边缘进行调整。"
+      },
+      "companionEdgeButton": {
+        "label": "显示面板按钮",
+        "description": "在终端右侧边缘显示一个小按钮，点击可打开容器面板。"
       }
     }
   },

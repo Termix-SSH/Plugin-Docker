@@ -117,7 +117,8 @@
     "errorCode": "Fejlkode: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-panel"
   },
   "terminal": {
     "clipboardReadFailed": "Kunne ikke læse fra udklipsholder. Sørg for, at tilladelser til udklipsholder er givet.",
@@ -140,6 +141,31 @@
         "description": "Vælg det kommandolinjeværktøj, der bruges til containerhåndtering på denne vært",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Vis containerpanel i terminaler",
+        "description": "Lad containerpanelet åbne ved siden af SSH-terminalen for denne vært."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Åbn containerpanelet med nye terminaler",
+        "description": "Vis containerpanelet ved siden af hver SSH-terminal, der har Docker aktiveret. Du kan stadig åbne og lukke det via knappen på den højre kant."
+      },
+      "companionSide": {
+        "label": "Placering af containerpanel",
+        "description": "Hvor containerpanelet sidder i forhold til en terminal.",
+        "right": "Højre",
+        "left": "Venstre",
+        "bottom": "Nederst"
+      },
+      "companionSize": {
+        "label": "Størrelse på containerpanel",
+        "description": "Bredde i pixels, eller højde når det er placeret nederst. Du kan også trække i kanten."
+      },
+      "companionEdgeButton": {
+        "label": "Vis panelknappen",
+        "description": "Vis en lille knap på højre kant af terminalen, der åbner containerpanelet."
       }
     }
   },

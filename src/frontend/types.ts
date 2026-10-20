@@ -92,6 +92,11 @@ export function dockerEnabled(host: object | null | undefined): boolean {
   return dockerSettings(host).enableDocker === true;
 }
 
+/** Whether the side panel may open beside this host's terminal. */
+export function dockerPanelEnabled(host: object | null | undefined): boolean {
+  return dockerEnabled(host) && dockerSettings(host).showPanel !== false;
+}
+
 export function hostTitle(host: DockerHost): string {
   return host.name || `${host.username ?? ""}@${host.ip}`;
 }

@@ -118,7 +118,8 @@
     "errorCode": "Code d'erreur : {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panneau Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Échec de la lecture du presse-papiers. Assurez-vous que les autorisations du presse-papiers sont accordées.",
@@ -141,6 +142,31 @@
         "description": "Choisissez l'outil en ligne de commande utilisé pour la gestion des conteneurs sur cet hôte",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Afficher le panneau des conteneurs dans les terminaux",
+        "description": "Laisser le panneau des conteneurs s'ouvrir à côté du terminal SSH de cet hôte."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Ouvrir le panneau des conteneurs avec les nouveaux terminaux",
+        "description": "Afficher le panneau des conteneurs à côté de chaque terminal SSH disposant de Docker. Vous pouvez toujours l'ouvrir et le fermer via le bouton sur le bord droit."
+      },
+      "companionSide": {
+        "label": "Position du panneau des conteneurs",
+        "description": "Emplacement du panneau des conteneurs par rapport à un terminal.",
+        "right": "Droite",
+        "left": "Gauche",
+        "bottom": "Bas"
+      },
+      "companionSize": {
+        "label": "Taille du panneau des conteneurs",
+        "description": "Largeur en pixels, ou hauteur lorsqu'il est en bas. Vous pouvez également faire glisser son bord."
+      },
+      "companionEdgeButton": {
+        "label": "Afficher le bouton du panneau",
+        "description": "Affiche un petit bouton sur le bord droit d'un terminal qui ouvre le panneau des conteneurs."
       }
     }
   },

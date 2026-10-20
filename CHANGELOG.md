@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+### Added
+
+- A containers panel beside any SSH terminal on a host with Docker on. See and start, stop or restart containers, and open their logs, stats and console, without leaving the terminal
+- Settings for the panel: open it with new terminals, which side it sits on, its size and the edge button
+- Show containers panel in terminals, per host
+
 ## 1.0.2
 
 ### Changed

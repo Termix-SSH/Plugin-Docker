@@ -117,7 +117,8 @@
     "errorCode": "Virhekoodi: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-paneeli"
   },
   "terminal": {
     "clipboardReadFailed": "Leikepöydän lukeminen epäonnistui. Varmista, että leikepöydän käyttöoikeudet on myönnetty.",
@@ -140,6 +141,31 @@
         "description": "Valitse komentorivityökalu, jota käytetään konttien hallintaan tässä isäntäpalvelimessa",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Näytä konttien paneeli terminaaleissa",
+        "description": "Salli konttien paneelin avautuminen tämän isäntäpalvelimen SSH-terminaalin viereen."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Avaa konttien paneeli uusien terminaalien kanssa",
+        "description": "Näytä konttien paneeli jokaisen SSH-terminaalin viereen, jossa Docker on käytössä. Voit silti avata ja sulkea sen oikean reunan painikkeesta."
+      },
+      "companionSide": {
+        "label": "Konttien paneelin sijainti",
+        "description": "Missä konttien paneeli sijaitsee terminaalin vieressä.",
+        "right": "Oikealla",
+        "left": "Vasemmalla",
+        "bottom": "Alareunassa"
+      },
+      "companionSize": {
+        "label": "Konttien paneelin koko",
+        "description": "Leveys pikseleinä tai korkeus, kun paneeli on alareunassa. Voit myös vetää sen reuna-a."
+      },
+      "companionEdgeButton": {
+        "label": "Näytä paneelin painike",
+        "description": "Näytä pieni painike terminaalin oikeassa reunassa, joka avaa konttien paneelin."
       }
     }
   },

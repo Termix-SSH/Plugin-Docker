@@ -117,7 +117,8 @@
     "errorCode": "Felkod: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker-panel"
   },
   "terminal": {
     "clipboardReadFailed": "Kunde inte läsa ur urklipp. Se till att behörigheter för urklipp är beviljade.",
@@ -140,6 +141,31 @@
         "description": "Välj kommandoradsverktyget som används för behållarhantering på denna värd",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Visa behållarpanelen i terminaler",
+        "description": "Låt behållarpanelen öppnas bredvid SSH-terminalen för denna värd."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Öppna behållarpanelen med nya terminaler",
+        "description": "Visa behållarpanelen bredvid varje SSH-terminal som har Docker aktiverat. Du kan fortfarande öppna och stänga den via knappen på höger kant."
+      },
+      "companionSide": {
+        "label": "Placering för behållarpanelen",
+        "description": "Var behållarpanelen visas bredvid en terminal.",
+        "right": "Höger",
+        "left": "Vänster",
+        "bottom": "Botten"
+      },
+      "companionSize": {
+        "label": "Storlek på behållarpanelen",
+        "description": "Bredd i pixlar, eller höjd när den visas längst ner. Du kan också dra i kanten för att ändra storlek."
+      },
+      "companionEdgeButton": {
+        "label": "Visa panelknappen",
+        "description": "Visa en liten knapp på höger kant av en terminal som öppnar behållarpanelen."
       }
     }
   },

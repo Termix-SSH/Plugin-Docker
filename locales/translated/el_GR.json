@@ -117,7 +117,8 @@
     "errorCode": "Κωδικός σφάλματος: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Πίνακας Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Αποτυχία ανάγνωσης από το πρόχειρο. Βεβαιωθείτε ότι έχουν χορηγηθεί οι άδειες του προχείρου.",
@@ -140,6 +141,31 @@
         "description": "Επιλέξτε το CLI που χρησιμοποιείται για τη διαχείριση containers σε αυτόν τον host",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Εμφάνιση πίνακα containers στα terminals",
+        "description": "Αφήστε τον πίνακα containers ανοιχτό δίπλα στο SSH terminal αυτού του host."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Άνοιγμα πίνακα containers με νέα terminals",
+        "description": "Εμφάνιση του πίνακα containers δίπλα σε κάθε SSH terminal που έχει ενεργοποιημένο το Docker. Μπορείτε πάντα να τον ανοίγετε και να τον κλείνετε από το κουμπί στο δεξί άκρο."
+      },
+      "companionSide": {
+        "label": "Θέση πίνακα containers",
+        "description": "Πού θα εμφανίζεται ο πίνακας containers δίπλα σε ένα terminal.",
+        "right": "Δεξιά",
+        "left": "Αριστερά",
+        "bottom": "Κάτω"
+      },
+      "companionSize": {
+        "label": "Μέγεθος πάνελ δοχείων",
+        "description": "Πλάτος σε pixels, ή ύψος όταν βρίσκεται στο κάτω μέρος. Μπορείτε επίσης να σύρετε το άκρο του."
+      },
+      "companionEdgeButton": {
+        "label": "Εμφάνιση κουμπιού πάνελ",
+        "description": "Εμφάνιση μικρού κουμπιού στο δεξί άκρο ενός τερματικού που ανοίγει το πάνελ δοχείων."
       }
     }
   },

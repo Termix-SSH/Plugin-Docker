@@ -116,7 +116,8 @@
     "errorCode": "Mã lỗi: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Bảng Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Không thể đọc từ clipboard. Hãy đảm bảo đã cấp quyền cho clipboard.",
@@ -139,6 +140,31 @@
         "description": "Chọn CLI được sử dụng để quản lý container trên host này",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Hiển thị bảng containers trong terminal",
+        "description": "Cho phép bảng containers mở bên cạnh terminal SSH của host này."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Mở bảng containers cùng với terminal mới",
+        "description": "Hiển thị bảng containers bên cạnh mọi terminal SSH có Docker đang chạy. Bạn vẫn có thể mở và đóng nó từ nút ở cạnh phải."
+      },
+      "companionSide": {
+        "label": "Vị trí bảng containers",
+        "description": "Nơi bảng containers đặt bên cạnh terminal.",
+        "right": "Phải",
+        "left": "Trái",
+        "bottom": "Dưới"
+      },
+      "companionSize": {
+        "label": "Kích thước bảng containers",
+        "description": "Chiều rộng tính bằng pixel, hoặc chiều cao khi nó ở phía dưới. Bạn cũng có thể kéo cạnh của nó."
+      },
+      "companionEdgeButton": {
+        "label": "Hiển thị nút bảng",
+        "description": "Hiển thị một nút nhỏ ở cạnh phải của terminal để mở bảng containers."
       }
     }
   },

@@ -117,7 +117,8 @@
     "errorCode": "Hibakód: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker panel"
   },
   "terminal": {
     "clipboardReadFailed": "Nem sikerült olvasni a vágólapról. Győződjön meg róla, hogy a vágólap engedélyek megvannak.",
@@ -140,6 +141,31 @@
         "description": "Válassza ki a CLI-t, amelyet a konténerek kezelésére használ ezen a hoszon",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Konténerek panel megjelenítése a terminálokban",
+        "description": "Hagyja, hogy a konténerek panel nyitva maradjon ezen a hoszon az SSH terminál mellett."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Konténerek panel megnyitása az új terminálokkal",
+        "description": "Mutasd a konténerek panelt minden olyan SSH terminál mellett, amelyen a Docker be van kapcsolva. A jobb szélen található gombbal továbbra is megnyithatja és bezárhatja."
+      },
+      "companionSide": {
+        "label": "Konténerek panel oldala",
+        "description": "Ahol a konténerek panel a terminál mellett helyezkedik el.",
+        "right": "Jobb",
+        "left": "Bal",
+        "bottom": "Alsó"
+      },
+      "companionSize": {
+        "label": "Konténerek panel mérete",
+        "description": "Szélesség pixelben, vagy magasság, ha alul van. A szélét is húzhatja."
+      },
+      "companionEdgeButton": {
+        "label": "Panel gomb megjelenítése",
+        "description": "Egy kis gomb megjelenítése a terminál jobb szélén, amely megnyitja a konténerek panelt."
       }
     }
   },
@@ -154,5 +180,9 @@
   "common": {
     "remove": "Eltávolítás",
     "cancel": "Mégse"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Docker és Podman konténerek kezelése a hoszok között SSH-n keresztül, naplókkal, statisztikákkal és konzollal."
   }
 }

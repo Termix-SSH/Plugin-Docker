@@ -33,6 +33,7 @@ import {
   type DockerValidation,
 } from "./types";
 import { ContainerList } from "./components/ContainerList.tsx";
+import { CompactContainerList } from "./components/CompactContainerList.tsx";
 import { ContainerTable } from "./components/ContainerTable.tsx";
 import { ContainerDetail } from "./components/ContainerDetail.tsx";
 import { docsUrl } from "./docs";
@@ -43,6 +44,8 @@ interface DockerManagerProps {
   isVisible?: boolean;
   isTopbarOpen?: boolean;
   embedded?: boolean;
+  /** Narrow side panel: one column list and a short toolbar. */
+  compact?: boolean;
   onClose?: () => void;
 }
 
@@ -66,6 +69,7 @@ function DockerManagerInner({
   isVisible = true,
   isTopbarOpen = true,
   embedded = false,
+  compact = false,
   onClose,
 }: DockerManagerProps): React.ReactElement {
   const { t } = useTranslation();
@@ -331,7 +335,9 @@ function DockerManagerInner({
   }, []);
 
   const closeTab = () => {
-    if (currentTab !== null) removeTab(currentTab);
+    // In a side panel the current tab is the terminal, which stays open.
+    if (compact) onClose?.();
+    else if (currentTab !== null) removeTab(currentTab);
   };
 
   const handleTotpSubmit = async (code: string) => {
@@ -542,7 +548,7 @@ function DockerManagerInner({
         ) : (
           <PanelShell
             icon={<Box className="size-4" />}
-            title={title}
+            title={compact ? t("docker.manager") : title}
             status={
               dockerValidation?.version
                 ? t("docker.version", {
@@ -568,15 +574,17 @@ function DockerManagerInner({
                     className={`size-4 ${isLoadingContainers ? "animate-spin" : ""}`}
                   />
                 </Button>
-                <a
-                  href={docsUrl()}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
-                  title={t("hosts.docsLink")}
-                >
-                  <ExternalLink className="size-4" />
-                </a>
+                {!compact && (
+                  <a
+                    href={docsUrl()}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                    title={t("hosts.docsLink")}
+                  >
+                    <ExternalLink className="size-4" />
+                  </a>
+                )}
               </>
             }
             toolbar={
@@ -586,18 +594,42 @@ function DockerManagerInner({
                   onChange={setSearch}
                   placeholder={t("docker.searchPlaceholder")}
                 />
-                <Segmented
-                  value={statusFilter}
-                  onChange={setStatusFilter}
-                  options={[
-                    { value: "all", label: t("docker.allStatuses") },
-                    { value: "running", label: t("docker.stateRunning") },
-                    { value: "paused", label: t("docker.statePaused") },
-                    { value: "exited", label: t("docker.stateExited") },
-                    { value: "restarting", label: t("docker.stateRestarting") },
-                  ]}
-                />
-                <div className="ml-auto flex items-center gap-2">
+                {compact ? (
+                  <select
+                    value={statusFilter}
+                    onChange={(event) => setStatusFilter(event.target.value)}
+                    aria-label={t("docker.allStatuses")}
+                    className="h-8 border border-border bg-background px-2 text-xs"
+                  >
+                    <option value="all">{t("docker.allStatuses")}</option>
+                    <option value="running">{t("docker.stateRunning")}</option>
+                    <option value="paused">{t("docker.statePaused")}</option>
+                    <option value="exited">{t("docker.stateExited")}</option>
+                    <option value="restarting">
+                      {t("docker.stateRestarting")}
+                    </option>
+                  </select>
+                ) : (
+                  <Segmented
+                    value={statusFilter}
+                    onChange={setStatusFilter}
+                    options={[
+                      { value: "all", label: t("docker.allStatuses") },
+                      { value: "running", label: t("docker.stateRunning") },
+                      { value: "paused", label: t("docker.statePaused") },
+                      { value: "exited", label: t("docker.stateExited") },
+                      {
+                        value: "restarting",
+                        label: t("docker.stateRestarting"),
+                      },
+                    ]}
+                  />
+                )}
+                <div
+                  className={
+                    compact ? "hidden" : "ml-auto flex items-center gap-2"
+                  }
+                >
                   <ViewToggle
                     view={containerLayout === "table" ? "list" : "grid"}
                     onView={(next) =>
@@ -619,6 +651,19 @@ function DockerManagerInner({
                     {t("docker.loadingContainers")}
                   </span>
                 </div>
+              ) : compact ? (
+                <CompactContainerList
+                  containers={containers}
+                  sessionId={sessionId}
+                  onSelectContainer={(id) => {
+                    setSelectedContainer(id);
+                    setDetailInitialTab("logs");
+                    setViewMode("detail");
+                  }}
+                  onRefresh={refreshContainers}
+                  search={search}
+                  statusFilter={statusFilter}
+                />
               ) : containerLayout === "table" ? (
                 <ContainerTable
                   containers={containers}

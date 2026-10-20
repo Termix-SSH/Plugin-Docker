@@ -117,7 +117,8 @@
     "errorCode": "Error code: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker panel"
   },
   "terminal": {
     "clipboardReadFailed": "Failed to read from clipboard. Make sure clipboard permissions are granted.",
@@ -140,6 +141,31 @@
         "description": "Choose the CLI used for container management on this host",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Show containers panel in terminals",
+        "description": "Let the containers panel open beside this host's SSH terminal."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Open the containers panel with new terminals",
+        "description": "Show the containers panel beside every SSH terminal that has Docker on. You can still open and close it from the button on the right edge."
+      },
+      "companionSide": {
+        "label": "Containers panel side",
+        "description": "Where the containers panel sits next to a terminal.",
+        "right": "Right",
+        "left": "Left",
+        "bottom": "Bottom"
+      },
+      "companionSize": {
+        "label": "Containers panel size",
+        "description": "Width in pixels, or height when it is at the bottom. You can also drag its edge."
+      },
+      "companionEdgeButton": {
+        "label": "Show the panel button",
+        "description": "Show a small button on the right edge of a terminal that opens the containers panel."
       }
     }
   },

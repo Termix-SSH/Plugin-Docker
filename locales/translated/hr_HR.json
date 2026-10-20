@@ -118,7 +118,8 @@
     "errorCode": "Kod greške: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker ploča"
   },
   "terminal": {
     "clipboardReadFailed": "Neuspješno čitanje iz međuspremnika. Provjerite jesu li odobrene dozvole za međuspremnik.",
@@ -141,6 +142,31 @@
         "description": "Odaberite CLI koji se koristi za upravljanje kontejnerima na ovom hostu",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Prikaži ploču s kontejnerima u terminalima",
+        "description": "Otvori ploču s kontejnerima uz SSH terminal ovog hosta."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Otvori ploču s kontejnerima uz nove terminale",
+        "description": "Prikaži ploču s kontejnerima uz svaki SSH terminal koji ima uključen Docker. I dalje je možete otvoriti i zatvoriti putem gumba na desnoj ivici."
+      },
+      "companionSide": {
+        "label": "Položaj ploče s kontejnerima",
+        "description": "Gdje se ploča s kontejnerima nalazi uz terminal.",
+        "right": "Desno",
+        "left": "Lijevo",
+        "bottom": "Dolje"
+      },
+      "companionSize": {
+        "label": "Veličina ploče za kontejnere",
+        "description": "Širina u pikselima, odnosno visina kada je na dnu. Rub možete i povući mišem."
+      },
+      "companionEdgeButton": {
+        "label": "Prikaži gumb za ploču",
+        "description": "Prikaži mali gumb na desnom rubu terminala koji otvara ploču za kontejnere."
       }
     }
   },

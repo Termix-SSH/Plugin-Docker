@@ -116,7 +116,8 @@
     "errorCode": "エラーコード: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker パネル"
   },
   "terminal": {
     "clipboardReadFailed": "クリップボードからの読み取りに失敗しました。クリップボードの権限が付与されていることを確認してください。",
@@ -139,6 +140,31 @@
         "description": "このホストでのコンテナ管理に使用する CLI を選択します",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "ターミナルにコンテナパネルを表示する",
+        "description": "このホストの SSH ターミナルの横にコンテナパネルを開きます。"
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "新しいターミナルでコンテナパネルを開く",
+        "description": "Docker が有効なすべての SSH ターミナルの横にコンテナパネルを表示します。右端のボタンからいつでも開閉できます。"
+      },
+      "companionSide": {
+        "label": "コンテナパネルの配置位置",
+        "description": "ターミナルの横にコンテナパネルを表示する位置です。",
+        "right": "右",
+        "left": "左",
+        "bottom": "下"
+      },
+      "companionSize": {
+        "label": "コンテナパネルのサイズ",
+        "description": "ピクセル単位の幅、または下側配置時の高さです。エッジをドラッグして調整することもできます。"
+      },
+      "companionEdgeButton": {
+        "label": "パネルボタンを表示する",
+        "description": "ターミナルの右端に、コンテナパネルを開く小さなボタンを表示します。"
       }
     }
   },
@@ -153,5 +179,9 @@
   "common": {
     "remove": "削除",
     "cancel": "キャンセル"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "SSH を介してホスト上の Docker および Podman コンテナを管理し、ログ、統計情報、コンソールを提供します。"
   }
 }

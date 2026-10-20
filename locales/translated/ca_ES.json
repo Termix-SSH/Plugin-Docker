@@ -118,7 +118,8 @@
     "errorCode": "Codi d'error: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panell de Docker"
   },
   "terminal": {
     "clipboardReadFailed": "No s'ha pogut llegir del porta-retalls. Assegureu-vos que els permisos del porta-retalls estan concedits.",
@@ -141,6 +142,31 @@
         "description": "Tria la interfície de línia d'ordres utilitzada per gestionar contenidors en aquest host",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Mostra el panell de contenidors als terminals",
+        "description": "Permet que el panell de contenidors s'obri al costat del terminal SSH d'aquest amfitrió."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Obre el panell de contenidors amb els nous terminals",
+        "description": "Mostra el panell de contenidors al costat de cada terminal SSH que tingui Docker activat. Sempre el pots obrir i tancar des del botó del costat dret."
+      },
+      "companionSide": {
+        "label": "Posició del panell de contenidors",
+        "description": "On es troba el panell de contenidors al costat d'un terminal.",
+        "right": "Dreta",
+        "left": "Esquerra",
+        "bottom": "Inferior"
+      },
+      "companionSize": {
+        "label": "Mida del panell de contenidors",
+        "description": "Amplada en píxels, o alçada quan està a la part inferior. També podeu arrossegar-ne el vora."
+      },
+      "companionEdgeButton": {
+        "label": "Mostra el botó del panell",
+        "description": "Mostra un botó petit a la vora dreta d'un terminal que obre el panell de contenidors."
       }
     }
   },

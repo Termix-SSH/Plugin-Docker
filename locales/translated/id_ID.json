@@ -116,7 +116,8 @@
     "errorCode": "Kode kesalahan: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panel Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Gagal membaca dari clipboard. Pastikan izin clipboard telah diberikan.",
@@ -139,6 +140,31 @@
         "description": "Pilih CLI yang digunakan untuk pengelolaan kontainer di host ini",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Tampilkan panel kontainer di terminal",
+        "description": "Biarkan panel kontainer terbuka di samping terminal SSH host ini."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Buka panel kontainer bersama terminal baru",
+        "description": "Tampilkan panel kontainer di samping setiap terminal SSH yang memiliki Docker aktif. Anda tetap bisa membukanya dan menutupnya dari tombol di tepi kanan."
+      },
+      "companionSide": {
+        "label": "Posisi panel kontainer",
+        "description": "Di mana panel kontainer berada di samping terminal.",
+        "right": "Kanan",
+        "left": "Kiri",
+        "bottom": "Bawah"
+      },
+      "companionSize": {
+        "label": "Ukuran panel kontainer",
+        "description": "Lebar dalam piksel, atau tinggi saat berada di bawah. Anda juga bisa menyeret tepinya."
+      },
+      "companionEdgeButton": {
+        "label": "Tampilkan tombol panel",
+        "description": "Tampilkan tombol kecil di tepi kanan terminal yang membuka panel kontainer."
       }
     }
   },

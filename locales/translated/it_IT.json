@@ -118,7 +118,8 @@
     "errorCode": "Codice errore: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Pannello Docker"
   },
   "terminal": {
     "clipboardReadFailed": "Impossibile leggere dagli appunti. Assicurati che i permessi per gli appunti siano concessi.",
@@ -141,6 +142,31 @@
         "description": "Scegli la CLI utilizzata per la gestione dei container su questo host",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Mostra il pannello dei contenitori nei terminal",
+        "description": "Consenti al pannello dei contenitori di aprirsi accanto al terminale SSH di questo host."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Apri il pannello dei contenitori con i nuovi terminal",
+        "description": "Mostra il pannello dei contenitori accanto a ogni terminale SSH con Docker attivo. Puoi comunque aprirlo e chiuderlo dal pulsante sul bordo destro."
+      },
+      "companionSide": {
+        "label": "Posizione del pannello dei contenitori",
+        "description": "Dove si trova il pannello dei contenitori accanto a un terminale.",
+        "right": "Destra",
+        "left": "Sinistra",
+        "bottom": "In basso"
+      },
+      "companionSize": {
+        "label": "Dimensione del pannello dei contenitori",
+        "description": "Larghezza in pixel, o altezza quando è in basso. Puoi anche trascinare il suo bordo."
+      },
+      "companionEdgeButton": {
+        "label": "Mostra il pulsante del pannello",
+        "description": "Mostra un piccolo pulsante sul bordo destro di un terminale che apre il pannello dei contenitori."
       }
     }
   },
@@ -155,5 +181,9 @@
   "common": {
     "remove": "Rimuovi",
     "cancel": "Annulla"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Gestisci i contenitori Docker e Podman sui tuoi host tramite SSH, con log, statistiche e console."
   }
 }

@@ -118,7 +118,8 @@
     "errorCode": "קוד שגיאה: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "לוח Docker"
   },
   "terminal": {
     "clipboardReadFailed": "נכשל בקריאה מהלוח. ודא שהרשאות הלוח מוענקות.",
@@ -141,6 +142,31 @@
         "description": "בחר את שורת הפקודה המשמשת לניהול מיכלים במארח זה",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "הצג את לוח המיכלים בטרמינלים",
+        "description": "אפשר לפתוח את לוח המיכלים לצד הטרמינל של SSH עבור מארח זה."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "פתח את לוח המיכלים עם טרמינלים חדשים",
+        "description": "הצג את לוח המיכלים לצד כל טרמינל SSH שיש לו Docker פעיל. עדיין תוכל לפתוח ולסגור אותו באמצעות הכפתור בקצה הימני."
+      },
+      "companionSide": {
+        "label": "צד לוח המיכלים",
+        "description": "איפה לוח המיכלים ממוקם ליד הטרמינל.",
+        "right": "ימין",
+        "left": "שמאל",
+        "bottom": "תחתון"
+      },
+      "companionSize": {
+        "label": "גודל לוח המיכלים",
+        "description": "רוחב בפיקסלים, או גובה כשהוא בתחתית. ניתן גם לגרור את הקצה שלו."
+      },
+      "companionEdgeButton": {
+        "label": "הצג את כפתור הלוח",
+        "description": "הצג כפתור קטן בקצה הימני של הטרמינל שפותח את לוח המיכלים."
       }
     }
   },

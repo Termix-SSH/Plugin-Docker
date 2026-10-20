@@ -119,7 +119,8 @@
     "errorCode": "Kód chyby: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panel Dockeru"
   },
   "terminal": {
     "clipboardReadFailed": "Nepodarilo sa čítať zo schránky. Uistite sa, že sú udelené oprávnenia pre schránku.",
@@ -142,6 +143,31 @@
         "description": "Vyberte príkazový riadok používaný na správu kontajnerov na tomto hostiteľovi",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Zobraziť panel kontajnerov v termináloch",
+        "description": "Nechajte panel kontajnerov otvorený vedľa SSH terminálu tohto hostiteľa."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Otvoriť panel kontajnerov s novými terminálmi",
+        "description": "Zobraziť panel kontajnerov vedľa každého SSH terminálu, ktorý má Docker zapnutý. Stále ho môžete otvárať a zatvárať pomocou tlačidla na pravom okraji."
+      },
+      "companionSide": {
+        "label": "Poloha panela kontajnerov",
+        "description": "Kde sa nachádza panel kontajnerov vedľa terminálu.",
+        "right": "Vpravo",
+        "left": "Vľavo",
+        "bottom": "Dole"
+      },
+      "companionSize": {
+        "label": "Veľkosť panela kontajnerov",
+        "description": "Šírka v pixeloch, alebo výška, keď je umiestnený dole. Môžete tiež pretiahnuť jeho okraj."
+      },
+      "companionEdgeButton": {
+        "label": "Zobraziť tlačidlo panela",
+        "description": "Zobraziť malé tlačidlo na pravom okraji terminálu, ktoré otvorí panel kontajnerov."
       }
     }
   },

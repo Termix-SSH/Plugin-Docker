@@ -118,7 +118,8 @@
     "errorCode": "Kļūdas kods: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker panelis"
   },
   "terminal": {
     "clipboardReadFailed": "Neizdevās lasīt no starpliktuves. Pārliecinieties, ka ir piešķirtas starpliktuves atļaujas.",
@@ -141,6 +142,31 @@
         "description": "Izvēlieties komandrindu, kas tiek izmantota konteineru pārvaldībai šajā serverī",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Rādīt konteineru paneli termināļos",
+        "description": "Ļaujiet konteineru panelim atvērties blakus šī hosta SSH terminālim."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Atvērt konteineru paneli kopā ar jauniem termināļiem",
+        "description": "Rādīt konteineru paneli blakus katram SSH terminālim, kurā ir ieslēgts Docker. Jūs joprojām varat to atvērt un aizvērt, izmantojot pogu labajā malā."
+      },
+      "companionSide": {
+        "label": "Konteineru paneļa puse",
+        "description": "Kur atrodas konteineru panelis blakus terminālim.",
+        "right": "Labajā pusē",
+        "left": "Kreisajā pusē",
+        "bottom": "Apakšā"
+      },
+      "companionSize": {
+        "label": "Konteineru paneļa izmērs",
+        "description": "Platums pikseļos vai augstums, ja tas ir apakšā. Jūs varat arī vilkt tā malu."
+      },
+      "companionEdgeButton": {
+        "label": "Rādīt paneļa pogu",
+        "description": "Rādīt mazu pogu termināļa labajā malā, kas atver konteineru paneli."
       }
     }
   },
@@ -155,5 +181,9 @@
   "common": {
     "remove": "Noņemt",
     "cancel": "Atcelt"
+  },
+  "plugin": {
+    "name": "Docker",
+    "description": "Pārvaldiet Docker un Podman konteinerus savos hostos caur SSH, ar žurnāliem, statistiku un konsole."
   }
 }

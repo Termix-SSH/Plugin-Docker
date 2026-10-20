@@ -119,7 +119,8 @@
     "errorCode": "Koda napake: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Docker plošča"
   },
   "terminal": {
     "clipboardReadFailed": "Napaka pri branju iz odložišča. Preverite, ali so dovoljenja za odložišče podeljena.",
@@ -142,6 +143,31 @@
         "description": "Izberite ukazno vrstico, ki se uporablja za upravljanje kontejnerjev na tem gostitelju",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Prikaži ploščo kontejnerjev v terminalih",
+        "description": "Omogoči odpiranje plošče kontejnerjev ob SSH terminalu tega gostitelja."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Odpri ploščo kontejnerjev z novimi terminali",
+        "description": "Prikaži ploščo kontejnerjev ob vsakem SSH terminalu, ki ima vklopljen Docker. Ploščo lahko še vedno odprete in zaprete s gumbom na desnem robu."
+      },
+      "companionSide": {
+        "label": "Stran plošče kontejnerjev",
+        "description": "Kje se plošča kontejnerjev nahaja ob terminalu.",
+        "right": "Desno",
+        "left": "Levo",
+        "bottom": "Spodaj"
+      },
+      "companionSize": {
+        "label": "Velikost plošče kontejnerjev",
+        "description": "Širina v slikovnih točkah ali višina, ko je na dnu. Rob lahko tudi povlečete."
+      },
+      "companionEdgeButton": {
+        "label": "Prikaži gumb za ploščo",
+        "description": "Prikaži majhen gumb na desnem robu terminala, ki odpre ploščo kontejnerjev."
       }
     }
   },

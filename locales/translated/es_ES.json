@@ -118,7 +118,8 @@
     "errorCode": "Código de error: {{code}}"
   },
   "nav": {
-    "docker": "Docker"
+    "docker": "Docker",
+    "togglePanel": "Panel de Docker"
   },
   "terminal": {
     "clipboardReadFailed": "No se ha podido leer del portapapeles. Asegúrate de que se han concedido los permisos del portapapeles.",
@@ -141,6 +142,31 @@
         "description": "Selecciona la CLI utilizada para la gestión de contenedores en este host",
         "docker": "Docker",
         "podman": "Podman"
+      },
+      "showPanel": {
+        "label": "Mostrar el panel de contenedores en las terminales",
+        "description": "Permite que el panel de contenedores se abra junto a la terminal SSH de este host."
+      }
+    },
+    "user": {
+      "companionAutoOpen": {
+        "label": "Abrir el panel de contenedores con las nuevas terminales",
+        "description": "Muestra el panel de contenedores junto a cada terminal SSH que tenga Docker activado. Siempre podrás abrirlo y cerrarlo desde el botón en el borde derecho."
+      },
+      "companionSide": {
+        "label": "Posición del panel de contenedores",
+        "description": "Dónde se sitúa el panel de contenedores junto a una terminal.",
+        "right": "Derecha",
+        "left": "Izquierda",
+        "bottom": "Abajo"
+      },
+      "companionSize": {
+        "label": "Tamaño del panel de contenedores",
+        "description": "Ancho en píxeles, o alto cuando está en la parte inferior. También puedes arrastrar su borde."
+      },
+      "companionEdgeButton": {
+        "label": "Mostrar el botón del panel",
+        "description": "Muestra un pequeño botón en el borde derecho de una terminal que abre el panel de contenedores."
       }
     }
   },
