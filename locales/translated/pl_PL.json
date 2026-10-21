@@ -116,7 +116,119 @@
     "notEnabledHint": "Włącz Docker w ustawieniach tego hosta, aby zarządzać jego kontenerami.",
     "shellChanged": "Powłoka „{{requested}}” nie jest dostępna. Zamiast niej użyto „{{shell}}”.",
     "failedToConnectWithError": "Nie udało się połączyć: {{error}}",
-    "errorCode": "Kod błędu: {{code}}"
+    "errorCode": "Kod błędu: {{code}}",
+    "stacks": {
+      "title": "Stosy",
+      "current": "Kontenery",
+      "manage": "Stosy",
+      "new": "Nowy stos",
+      "create": "Utwórz stos",
+      "search": "Szukaj stosów...",
+      "loading": "Ładowanie stosów...",
+      "empty": "Brak stosów. Stosy znajdują się w {{root}} na tym hoście, każdy w osobnym folderze.",
+      "noMatches": "Brak pasujących stosów.",
+      "external": "Na zewnątrz folderu ze stosami",
+      "servicesRunning": "{{running}} z {{total}} uruchomionych",
+      "listFailed": "Nie udało się załadować stosów",
+      "loadFailed": "Nie udało się załadować stosu",
+      "notFound": "Ten stos już nie istnieje.",
+      "state": {
+        "running": "Uruchomiony",
+        "partial": "Częściowy",
+        "stopped": "Zatrzymany",
+        "paused": "Wstrzymany",
+        "not-deployed": "Nie wdrożony"
+      },
+      "name": "Nazwa",
+      "nameHint": "Utworzony w {{root}}. Użyj małych liter, cyfr, - i _.",
+      "nameInvalid": "Użyj tylko małych liter, cyfr, - i _.",
+      "envOptional": "Plik środowiskowy (opcjonalnie)",
+      "created": "Stos {{name}} utworzony",
+      "createFailed": "Nie udało się utworzyć stosu",
+      "overview": "Przegląd",
+      "compose": "Compose",
+      "env": "Środowisko",
+      "deploy": "Wdrożenie",
+      "redeploy": "Pobierz i wdroż",
+      "pull": "Pobierz",
+      "down": "Zatrzymaj",
+      "destroy": "Zniszcz",
+      "deleteFiles": "Usuń pliki",
+      "keepFiles": "Zachowaj pliki",
+      "confirm": {
+        "down": "Zatrzymać i usunąć kontenery stosu {{name}}? Woluminy zostaną zachowane.",
+        "destroy": "Zniszczyć stos {{name}}? Spowoduje to usunięcie jego kontenerów, sieci i woluminów.",
+        "deleteFiles": "Usunąć również folder stosu {{name}} z hosta?"
+      },
+      "done": {
+        "deploy": "{{name}} wdrożony",
+        "redeploy": "{{name}} zaktualizowany",
+        "pull": "Obrazy pobrane dla {{name}}",
+        "start": "Uruchomiony",
+        "stop": "Zatrzymany",
+        "restart": "Restartowany",
+        "pause": "Wstrzymany",
+        "unpause": "Wznowiony",
+        "down": "{{name}} zatrzymany",
+        "destroy": "{{name}} zniszczony"
+      },
+      "actionFailed": "Akcja nie powiodła się",
+      "saved": "Zapisano",
+      "saveFailed": "Nie udało się zapisać",
+      "saveDeploy": "Zapisz i wdroż",
+      "validate": "Sprawdź",
+      "validateFailed": "Nie udało się sprawdzić pliku",
+      "valid": "Plik compose jest poprawny.",
+      "invalid": "Plik compose jest niepoprawny.",
+      "unsaved": "Niezapisane zmiany",
+      "noServices": "Ten stos nie ma usług.",
+      "notCreated": "Nie utworzony",
+      "noRunning": "Żadna usługa nie jest uruchomiona.",
+      "service": "Usługa",
+      "allServices": "Wszystkie usługi",
+      "follow": "Śledź",
+      "noLogs": "Brak logów.",
+      "logsFailed": "Nie udało się załadować logów",
+      "envTable": "Tabela",
+      "envRaw": "Surowe",
+      "addVariable": "Dodaj zmienną",
+      "noVariables": "Brak zmiennych.",
+      "variableName": "NAZWA",
+      "variableValue": "wartość",
+      "reveal": "Pokaż lub ukryj wartość",
+      "events": "Zdarzenia",
+      "eventsHint": "Akcje uruchomione przez Ciebie oraz zmiany w usługach podczas otwarcia tej stosu.",
+      "noEvents": "Nic jeszcze. Tutaj pojawią się akcje i zmiany w usługach.",
+      "clearEvents": "Wyczyść",
+      "showOutput": "Pokaż wynik",
+      "eventState": "{{service}}: z {{from}} na {{to}}",
+      "eventRemoved": "{{service}} zostało usunięte",
+      "eventFailed": "Nieudane: {{action}}",
+      "event": {
+        "deploy": "Wdrożono {{service}}",
+        "redeploy": "Pobrano i wdrożono {{service}}",
+        "pull": "Pobrano obrazy dla {{service}}",
+        "start": "Uruchomiono {{service}}",
+        "stop": "Zatrzymano {{service}}",
+        "restart": "Uruchomiono ponownie {{service}}",
+        "pause": "Wstrzymano {{service}}",
+        "unpause": "Wznowiono {{service}}",
+        "down": "Zatrzymano {{name}}",
+        "destroy": "Usunięto {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Aktualizacja",
+      "update": "Aktualizuj kontener",
+      "check": "Sprawdź aktualizacje",
+      "available": "Dostępne są {{count}} aktualizacji. Sprawdź ponownie",
+      "found": "{{count}} obrazów ma aktualizacje",
+      "none": "Wszystkie obrazy są aktualne",
+      "checkFailed": "Nie udało się sprawdzić aktualizacji",
+      "updated": "{{name}} zaktualizowano",
+      "pulled": "Obraz pobrany dla {{name}}. Odtwórz kontener, aby go użyć.",
+      "failed": "Nie udało się zaktualizować {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -147,6 +259,14 @@
       "showPanel": {
         "label": "Pokaż panel kontenerów w terminalach",
         "description": "Pozwól, aby panel kontenerów otwierał się obok terminala SSH tego hosta."
+      },
+      "enableStacks": {
+        "label": "Zarządzanie stosami",
+        "description": "Zarządzaj stosami Compose na tym hoście. Administrator musi to również zezwolić."
+      },
+      "stacksRoot": {
+        "label": "Folder ze stosami",
+        "description": "Folder na hoście, w którym każdy stos ma swój własny folder z plikiem Compose."
       }
     },
     "user": {
@@ -169,6 +289,12 @@
         "label": "Pokaż przycisk panelu",
         "description": "Pokazuj mały przycisk na prawej krawędzi terminala, który otwiera panel kontenerów."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Zarządzanie stosami",
+        "description": "Zezwól hostom na używanie zarządzania stosami Compose. Gdy ta opcja jest wyłączona, funkcja jest ukryta i zablokowana dla wszystkich."
+      }
     }
   },
   "errors": {
@@ -181,7 +307,8 @@
   },
   "common": {
     "remove": "Usuń",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "save": "Zapisz"
   },
   "plugin": {
     "name": "Docker",

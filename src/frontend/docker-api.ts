@@ -9,6 +9,10 @@ import type {
   DockerLogOptions,
   DockerStats,
   DockerValidation,
+  ImageUpdate,
+  StackAction,
+  StackDetailData,
+  StackSummary,
 } from "./types";
 
 export interface ApiConnectionLog {
@@ -157,6 +161,79 @@ function createDockerApi(api: PluginApiClient) {
     stats: (sessionId: string, containerId: string) =>
       call<DockerStats>("load container stats", () =>
         api.get(`/containers/${sessionId}/${containerId}/stats`),
+      ),
+
+    checkUpdates: (sessionId: string, refresh = false) =>
+      call<{ checkedAt: number; images: Record<string, ImageUpdate> }>(
+        "check for updates",
+        () => api.get(`/updates/${sessionId}`, { params: { refresh } }),
+      ),
+
+    updateContainer: (sessionId: string, containerId: string) =>
+      call<{ success: boolean; recreated: boolean; output: string }>(
+        "update the container",
+        () => api.post(`/updates/${sessionId}/${containerId}`),
+      ),
+
+    stacksStatus: () =>
+      call<{ enabled: boolean }>("load stack status", () =>
+        api.get("/stacks-status"),
+      ),
+
+    listStacks: (sessionId: string) =>
+      call<{ root: string; stacks: StackSummary[] }>("list stacks", () =>
+        api.get(`/stacks/${sessionId}`),
+      ),
+
+    createStack: (
+      sessionId: string,
+      stack: { name: string; compose: string; env?: string },
+    ) =>
+      call<{ success: boolean; name: string }>("create the stack", () =>
+        api.post(`/stacks/${sessionId}`, stack),
+      ),
+
+    getStack: (sessionId: string, name: string) =>
+      call<StackDetailData>("load the stack", () =>
+        api.get(`/stacks/${sessionId}/${name}`),
+      ),
+
+    saveStackFile: (
+      sessionId: string,
+      name: string,
+      kind: "compose" | "env",
+      content: string,
+    ) =>
+      call<{ success: boolean }>("save the file", () =>
+        api.put(`/stacks/${sessionId}/${name}/${kind}`, { content }),
+      ),
+
+    validateStack: (sessionId: string, compose: string, name?: string) =>
+      call<{ valid: boolean; output: string }>("check the file", () =>
+        api.post(`/stacks/${sessionId}/validate`, { compose, name }),
+      ),
+
+    stackAction: (
+      sessionId: string,
+      name: string,
+      body: {
+        action: StackAction;
+        service?: string;
+        removeVolumes?: boolean;
+        removeFiles?: boolean;
+      },
+    ) =>
+      call<{ success: boolean; output: string }>("run the action", () =>
+        api.post(`/stacks/${sessionId}/${name}/action`, body),
+      ),
+
+    stackLogs: (
+      sessionId: string,
+      name: string,
+      options?: { service?: string; tail?: number },
+    ) =>
+      call<{ logs: string }>("load stack logs", () =>
+        api.get(`/stacks/${sessionId}/${name}/logs`, { params: options }),
       ),
   };
 }

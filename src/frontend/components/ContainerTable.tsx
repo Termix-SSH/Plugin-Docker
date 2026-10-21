@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useDockerApi } from "../docker-api";
 import { DockerBadge } from "./ContainerCard.tsx";
+import { UpdateBadge, UpdateButton } from "../updates";
 
 type DetailTab = "logs" | "stats" | "console";
 
@@ -171,7 +172,10 @@ export function ContainerTable({
                     </span>
                   </td>
                   <td className="px-3 py-2">
-                    <DockerBadge state={container.state} />
+                    <div className="flex items-center gap-1">
+                      <DockerBadge state={container.state} />
+                      <UpdateBadge image={container.image} />
+                    </div>
                   </td>
                   <td className="px-3 py-2 max-w-[200px]">
                     {portsList.length > 0 ? (
@@ -204,6 +208,7 @@ export function ContainerTable({
                       className="flex items-center justify-end gap-1"
                       onClick={(e) => e.stopPropagation()}
                     >
+                      <UpdateButton container={container} />
                       <Button
                         variant="ghost"
                         size="icon-xs"

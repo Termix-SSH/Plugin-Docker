@@ -115,7 +115,119 @@
     "notEnabledHint": "Activeu Docker a la configuració d'aquest amfitrió per gestionar els seus contenidors.",
     "shellChanged": "La shell \"{{requested}}\" no està disponible. S'utilitzarà \"{{shell}}\" en el seu lloc.",
     "failedToConnectWithError": "No s'ha pogut connectar: {{error}}",
-    "errorCode": "Codi d'error: {{code}}"
+    "errorCode": "Codi d'error: {{code}}",
+    "stacks": {
+      "title": "Piles",
+      "current": "Contenidors",
+      "manage": "Piles",
+      "new": "Pila nova",
+      "create": "Crear pila",
+      "search": "Cercar piles...",
+      "loading": "Carregant piles...",
+      "empty": "Encara no hi ha piles. Les piles es troben a {{root}} en aquest host, amb una carpeta per a cadascuna.",
+      "noMatches": "Cap pila no coincideix.",
+      "external": "Fora de la carpeta de piles",
+      "servicesRunning": "{{running}} de {{total}} en execució",
+      "listFailed": "No s'han pogut carregar les piles",
+      "loadFailed": "No s'ha pogut carregar la pila",
+      "notFound": "Aquesta pila ja no existeix.",
+      "state": {
+        "running": "En execució",
+        "partial": "Parcial",
+        "stopped": "Aturada",
+        "paused": "En pausa",
+        "not-deployed": "No implementada"
+      },
+      "name": "Nom",
+      "nameHint": "Creat a {{root}}. Utilitza minúscules, números, - i _.",
+      "nameInvalid": "Utilitza només minúscules, números, - i _.",
+      "envOptional": "Fitxer d'entorn (opcional)",
+      "created": "Pila {{name}} creada",
+      "createFailed": "No s'ha pogut crear la pila",
+      "overview": "Vista general",
+      "compose": "Compose",
+      "env": "Entorn",
+      "deploy": "Implementar",
+      "redeploy": "Descarregar i implementar",
+      "pull": "Descarregar",
+      "down": "Aturar",
+      "destroy": "Destruir",
+      "deleteFiles": "Eliminar fitxers",
+      "keepFiles": "Conservar fitxers",
+      "confirm": {
+        "down": "Aturar i eliminar els contenidors de {{name}}? Els volums es conserven.",
+        "destroy": "Destruir {{name}}? Això eliminarà els seus contenidors, xarxes i volums.",
+        "deleteFiles": "Voleu eliminar també la carpeta de la pila de {{name}} de l'host?"
+      },
+      "done": {
+        "deploy": "{{name}} implementada",
+        "redeploy": "{{name}} actualitzada",
+        "pull": "Imatges descarregades per a {{name}}",
+        "start": "Iniciat",
+        "stop": "Aturat",
+        "restart": "Reiniciat",
+        "pause": "En pausa",
+        "unpause": "Reprès",
+        "down": "{{name}} aturada",
+        "destroy": "{{name}} destruïda"
+      },
+      "actionFailed": "L'acció ha fallat",
+      "saved": "Desat",
+      "saveFailed": "No s'ha pogut desar",
+      "saveDeploy": "Desar i implementar",
+      "validate": "Comprovar",
+      "validateFailed": "No s'ha pogut comprovar el fitxer",
+      "valid": "El fitxer compose és vàlid.",
+      "invalid": "El fitxer compose no és vàlid.",
+      "unsaved": "Canvis no desats",
+      "noServices": "Aquesta pila no té serveis.",
+      "notCreated": "No creada",
+      "noRunning": "Cap servei no està en execució.",
+      "service": "Servei",
+      "allServices": "Tots els serveis",
+      "follow": "Seguir",
+      "noLogs": "Encara no hi ha registres.",
+      "logsFailed": "No s'han pogut carregar els registres",
+      "envTable": "Taula",
+      "envRaw": "En brut",
+      "addVariable": "Afegir variable",
+      "noVariables": "Encara no hi ha variables.",
+      "variableName": "NOM",
+      "variableValue": "valor",
+      "reveal": "Mostra o amaga el valor",
+      "events": "Esdeveniments",
+      "eventsHint": "Accions que executeu i canvis als serveis mentre aquesta pila està oberta.",
+      "noEvents": "Encara res. Les accions i els canvis de servei s'hi mostren aquí.",
+      "clearEvents": "Netejar",
+      "showOutput": "Mostra la sortida",
+      "eventState": "{{service}}: de {{from}} a {{to}}",
+      "eventRemoved": "{{service}} s'ha eliminat",
+      "eventFailed": "Ha fallat: {{action}}",
+      "event": {
+        "deploy": "{{service}} s'ha implementat",
+        "redeploy": "{{service}} s'ha tret i implementat",
+        "pull": "Imatges per a {{service}} s'han tret",
+        "start": "{{service}} s'ha iniciat",
+        "stop": "{{service}} s'ha aturat",
+        "restart": "{{service}} s'ha reiniciat",
+        "pause": "{{service}} s'ha posat en pausa",
+        "unpause": "{{service}} s'ha reprès",
+        "down": "{{name}} s'ha aturat",
+        "destroy": "{{name}} s'ha destruït"
+      }
+    },
+    "updates": {
+      "badge": "Actualització",
+      "update": "Actualitza el contenidor",
+      "check": "Comprova si hi ha actualitzacions",
+      "available": "{{count}} actualitzacions disponibles. Comprova-ho de nou",
+      "found": "{{count}} imatges tenen actualitzacions",
+      "none": "Totes les imatges estan actualitzades",
+      "checkFailed": "No s'han pogut comprovar les actualitzacions",
+      "updated": "{{name}} actualitzat",
+      "pulled": "Imatge tret per a {{name}}. Recreeu el contenidor per utilitzar-la.",
+      "failed": "No s'ha pogut actualitzar {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Mostra el panell de contenidors als terminals",
         "description": "Permet que el panell de contenidors s'obri al costat del terminal SSH d'aquest amfitrió."
+      },
+      "enableStacks": {
+        "label": "Gestió de piles",
+        "description": "Gestioneu les piles de compose en aquest amfitrió. Un administrador també ha de permetre-ho."
+      },
+      "stacksRoot": {
+        "label": "Carpeta de piles",
+        "description": "La carpeta de l'amfitrió on cada pila té la seva pròpia carpeta amb un fitxer de compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Mostra el botó del panell",
         "description": "Mostra un botó petit a la vora dreta d'un terminal que obre el panell de contenidors."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Gestió de piles",
+        "description": "Permeteu als amfitrions utilitzar la gestió de piles de compose. Mentre això està desactivat, queda amagat i bloquejat per a tothom."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Elimina",
-    "cancel": "Cancel·la"
+    "cancel": "Cancel·la",
+    "save": "Desa"
   },
   "plugin": {
     "name": "Docker",

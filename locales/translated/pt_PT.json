@@ -115,7 +115,119 @@
     "notEnabledHint": "Ative o Docker nas definições deste host para gerir os seus contentores.",
     "shellChanged": "O shell \"{{requested}}\" não está disponível. A usar \"{{shell}}\" em vez disso.",
     "failedToConnectWithError": "Falha ao ligar: {{error}}",
-    "errorCode": "Código de erro: {{code}}"
+    "errorCode": "Código de erro: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Contentores",
+      "manage": "Stacks",
+      "new": "Nova stack",
+      "create": "Criar stack",
+      "search": "Pesquisar stacks...",
+      "loading": "A carregar stacks...",
+      "empty": "Ainda não há stacks. As stacks ficam em {{root}} neste host, uma pasta para cada.",
+      "noMatches": "Nenhuma stack corresponde.",
+      "external": "Fora da pasta de stacks",
+      "servicesRunning": "{{running}} de {{total}} em execução",
+      "listFailed": "Não foi possível carregar as stacks",
+      "loadFailed": "Não foi possível carregar a stack",
+      "notFound": "Esta stack já não existe.",
+      "state": {
+        "running": "Em execução",
+        "partial": "Parcial",
+        "stopped": "Parado",
+        "paused": "Em pausa",
+        "not-deployed": "Não implementado"
+      },
+      "name": "Nome",
+      "nameHint": "Criado em {{root}}. Use letras minúsculas, números, - e _.",
+      "nameInvalid": "Use apenas letras minúsculas, números, - e _.",
+      "envOptional": "Ficheiro de ambiente (opcional)",
+      "created": "Stack {{name}} criada",
+      "createFailed": "Não foi possível criar a stack",
+      "overview": "Visão geral",
+      "compose": "Compose",
+      "env": "Ambiente",
+      "deploy": "Implementar",
+      "redeploy": "Obter e implementar",
+      "pull": "Obter",
+      "down": "Parar",
+      "destroy": "Destruir",
+      "deleteFiles": "Eliminar ficheiros",
+      "keepFiles": "Manter ficheiros",
+      "confirm": {
+        "down": "Parar e remover os contentores de {{name}}? Os volumes são mantidos.",
+        "destroy": "Destruir {{name}}? Isto remove os seus contentores, redes e volumes.",
+        "deleteFiles": "Eliminar também a pasta da stack de {{name}} do host?"
+      },
+      "done": {
+        "deploy": "{{name}} implementado",
+        "redeploy": "{{name}} atualizado",
+        "pull": "Imagens obtidas para {{name}}",
+        "start": "Iniciado",
+        "stop": "Parado",
+        "restart": "Reiniciado",
+        "pause": "Em pausa",
+        "unpause": "Retomado",
+        "down": "{{name}} parado",
+        "destroy": "{{name}} destruído"
+      },
+      "actionFailed": "A ação falhou",
+      "saved": "Guardado",
+      "saveFailed": "Não foi possível guardar",
+      "saveDeploy": "Guardar e implementar",
+      "validate": "Verificar",
+      "validateFailed": "Não foi possível verificar o ficheiro",
+      "valid": "O ficheiro compose é válido.",
+      "invalid": "O ficheiro compose não é válido.",
+      "unsaved": "Alterações não guardadas",
+      "noServices": "Esta stack não tem serviços.",
+      "notCreated": "Não criado",
+      "noRunning": "Nenhum serviço está em execução.",
+      "service": "Serviço",
+      "allServices": "Todos os serviços",
+      "follow": "Seguir",
+      "noLogs": "Ainda não há registos.",
+      "logsFailed": "Não foi possível carregar os registos",
+      "envTable": "Tabela",
+      "envRaw": "Cru",
+      "addVariable": "Adicionar variável",
+      "noVariables": "Ainda não há variáveis.",
+      "variableName": "NOME",
+      "variableValue": "valor",
+      "reveal": "Mostrar ou ocultar valor",
+      "events": "Eventos",
+      "eventsHint": "Ações que executas e alterações nos serviços enquanto esta stack está aberta.",
+      "noEvents": "Ainda nada. As ações e alterações nos serviços aparecem aqui.",
+      "clearEvents": "Limpar",
+      "showOutput": "Mostrar saída",
+      "eventState": "{{service}}: de {{from}} para {{to}}",
+      "eventRemoved": "{{service}} foi removido",
+      "eventFailed": "Falhou: {{action}}",
+      "event": {
+        "deploy": "{{service}} implementado",
+        "redeploy": "{{service}} atualizado e implementado",
+        "pull": "Imagens de {{service}} atualizadas",
+        "start": "{{service}} iniciado",
+        "stop": "{{service}} parado",
+        "restart": "{{service}} reiniciado",
+        "pause": "{{service}} em pausa",
+        "unpause": "{{service}} retomado",
+        "down": "{{name}} desativado",
+        "destroy": "{{name}} destruído"
+      }
+    },
+    "updates": {
+      "badge": "Atualização",
+      "update": "Atualizar contentor",
+      "check": "Verificar atualizações",
+      "available": "{{count}} atualizações disponíveis. Verificar novamente",
+      "found": "{{count}} imagens têm atualizações",
+      "none": "Todas as imagens estão atualizadas",
+      "checkFailed": "Não foi possível verificar atualizações",
+      "updated": "{{name}} atualizado",
+      "pulled": "Imagem atualizada para {{name}}. Recria o contentor para a utilizar.",
+      "failed": "Não foi possível atualizar {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Mostrar painel de contentores nos terminais",
         "description": "Permitir que o painel de contentores abra ao lado do terminal SSH deste host."
+      },
+      "enableStacks": {
+        "label": "Gestão de stacks",
+        "description": "Gerir stacks do compose neste host. Um administrador também tem de o permitir."
+      },
+      "stacksRoot": {
+        "label": "Pasta de stacks",
+        "description": "A pasta no host onde cada stack tem a sua própria pasta com um ficheiro compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Mostrar o botão do painel",
         "description": "Mostrar um pequeno botão na borda direita de um terminal que abre o painel de contentores."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Gestão de stacks",
+        "description": "Permitir que os hosts utilizem a gestão de stacks do compose. Enquanto isto estiver desativado, fica oculto e bloqueado para todos."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Remover",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "save": "Guardar"
   },
   "plugin": {
     "name": "Docker",

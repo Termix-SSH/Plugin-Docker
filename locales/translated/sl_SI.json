@@ -116,7 +116,119 @@
     "notEnabledHint": "Vklopite Docker v nastavitvah tega gostitelja za upravljanje njegovih posod.",
     "shellChanged": "Lupina \"{{requested}}\" ni na voljo. Uporaba \"{{shell}}\" namesto tega.",
     "failedToConnectWithError": "Povezava ni uspela: {{error}}",
-    "errorCode": "Koda napake: {{code}}"
+    "errorCode": "Koda napake: {{code}}",
+    "stacks": {
+      "title": "Stacki",
+      "current": "Posode",
+      "manage": "Stacki",
+      "new": "Nov stack",
+      "create": "Ustvari stack",
+      "search": "Išči stacke...",
+      "loading": "Nalaganje stackov...",
+      "empty": "Še ni stackov. Stacki so v mapi {{root}} na tem gostitelju, vsak v svoji mapi.",
+      "noMatches": "Ni ujemajočih se stackov.",
+      "external": "Zunaj mape za stacke",
+      "servicesRunning": "{{running}} od {{total}} deluje",
+      "listFailed": "Stackov ni bilo mogoče naložiti",
+      "loadFailed": "Stacka ni bilo mogoče naložiti",
+      "notFound": "Ta stack ne obstaja več.",
+      "state": {
+        "running": "Deluje",
+        "partial": "Delno",
+        "stopped": "Ustavljeno",
+        "paused": "Začasno ustavljeno",
+        "not-deployed": "Ni razporejeno"
+      },
+      "name": "Ime",
+      "nameHint": "Ustvarjeno v {{root}}. Uporabite male črke, številke, - in _.",
+      "nameInvalid": "Uporabite samo male črke, številke, - in _.",
+      "envOptional": "Datoteka okolja (opcijsko)",
+      "created": "Stack {{name}} je bil ustvarjen",
+      "createFailed": "Stacka ni bilo mogoče ustvariti",
+      "overview": "Pregled",
+      "compose": "Compose",
+      "env": "Okolje",
+      "deploy": "Razporedi",
+      "redeploy": "Povleči in razporedi",
+      "pull": "Povleči",
+      "down": "Ustavi",
+      "destroy": "Uniči",
+      "deleteFiles": "Izbriši datoteke",
+      "keepFiles": "Obdrži datoteke",
+      "confirm": {
+        "down": "Ustaviti in odstraniti posode za {{name}}? Prostorske enote bodo ohranjene.",
+        "destroy": "Uničiti {{name}}? To bo odstranilo njegove posode, omrežja in prostorske enote.",
+        "deleteFiles": "Tudi izbrisati mapo stacka za {{name}} z gostitelja?"
+      },
+      "done": {
+        "deploy": "{{name}} je bil razporejen",
+        "redeploy": "{{name}} je bil posodobljen",
+        "pull": "Slike za {{name}} so bile povlečene",
+        "start": "Zažeto",
+        "stop": "Ustavljeno",
+        "restart": "Ponovno zažeto",
+        "pause": "Začasno ustavljeno",
+        "unpause": "Nadaljeno",
+        "down": "{{name}} je bil ustavljen",
+        "destroy": "{{name}} je bil uničen"
+      },
+      "actionFailed": "Dejanje ni uspelo",
+      "saved": "Shranjeno",
+      "saveFailed": "Shranjevanje ni uspelo",
+      "saveDeploy": "Shrani in razporedi",
+      "validate": "Preveri",
+      "validateFailed": "Datoteke ni bilo mogoče preveriti",
+      "valid": "Compose datoteka je veljavna.",
+      "invalid": "Compose datoteka ni veljavna.",
+      "unsaved": "Neshranjene spremembe",
+      "noServices": "Ta stack nima storitev.",
+      "notCreated": "Ni ustvarjeno",
+      "noRunning": "Nobena storitev ne deluje.",
+      "service": "Storitev",
+      "allServices": "Vse storitve",
+      "follow": "Sledi",
+      "noLogs": "Zapisnikov še ni.",
+      "logsFailed": "Zapisnikov ni bilo mogoče naložiti",
+      "envTable": "Tabela",
+      "envRaw": "Surovo",
+      "addVariable": "Dodaj spremenljivko",
+      "noVariables": "Spremenljivk še ni.",
+      "variableName": "IME",
+      "variableValue": "vrednost",
+      "reveal": "Prikaži ali skrij vrednost",
+      "events": "Dogodki",
+      "eventsHint": "Dejanja, ki jih izvedete, in spremembe storitev, medtem ko je ta sklad odprt.",
+      "noEvents": "Še ničesar. Tukaj se prikažejo dejanja in spremembe storitev.",
+      "clearEvents": "Počisti",
+      "showOutput": "Prikaži izhod",
+      "eventState": "{{service}}: od {{from}} do {{to}}",
+      "eventRemoved": "{{service}} je bil odstranjen",
+      "eventFailed": "Napaka: {{action}}",
+      "event": {
+        "deploy": "Uvedena storitev {{service}}",
+        "redeploy": "Povlečena in uvedena storitev {{service}}",
+        "pull": "Povlečene slike za {{service}}",
+        "start": "Zagnana storitev {{service}}",
+        "stop": "Ustavljena storitev {{service}}",
+        "restart": "Ponovno zagnana storitev {{service}}",
+        "pause": "Začasno ustavljena storitev {{service}}",
+        "unpause": "Nadaljevana storitev {{service}}",
+        "down": "Ukinjen {{name}}",
+        "destroy": "Uničen {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Posodobitev",
+      "update": "Posodobi posode",
+      "check": "Preveri posodobitve",
+      "available": "Na voljo je {{count}} posodobitev. Preveri znova",
+      "found": "{{count}} slik ima posodobitve",
+      "none": "Vse slike so posodobljene",
+      "checkFailed": "Posodobitev ni bilo mogoče preveriti",
+      "updated": "{{name}} posodobljen",
+      "pulled": "Slika za {{name}} je bila povlečena. Za uporabo ponovno ustvarite posodo.",
+      "failed": "Posodobitev {{name}} ni uspela: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -147,6 +259,14 @@
       "showPanel": {
         "label": "Prikaži ploščo kontejnerjev v terminalih",
         "description": "Omogoči odpiranje plošče kontejnerjev ob SSH terminalu tega gostitelja."
+      },
+      "enableStacks": {
+        "label": "Upravljanje skladov",
+        "description": "Upravljajte sklade compose na tem gostitelju. Dovoliti mora tudi skrbnik."
+      },
+      "stacksRoot": {
+        "label": "Mapa skladov",
+        "description": "Mapa na gostitelju, kjer ima vsak sklad svojo mapo z datoteko compose."
       }
     },
     "user": {
@@ -169,6 +289,12 @@
         "label": "Prikaži gumb za ploščo",
         "description": "Prikaži majhen gumb na desnem robu terminala, ki odpre ploščo kontejnerjev."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Upravljanje skladov",
+        "description": "Dovoli gostiteljem uporabo upravljanja skladov compose. Ko je to izklopljeno, je za vse skrito in onemogočeno."
+      }
     }
   },
   "errors": {
@@ -181,7 +307,8 @@
   },
   "common": {
     "remove": "Odstrani",
-    "cancel": "Prekliči"
+    "cancel": "Prekliči",
+    "save": "Shrani"
   },
   "plugin": {
     "name": "Docker",

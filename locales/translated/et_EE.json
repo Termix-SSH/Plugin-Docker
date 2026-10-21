@@ -114,7 +114,119 @@
     "notEnabledHint": "Lülitage sisse Docker selle hosti seadetes, et hallata selle konteinereid.",
     "shellChanged": "Shell \"{{requested}}\" ei ole saadaval. Kasutan selle asemel \"{{shell}}\".",
     "failedToConnectWithError": "Ühenduse loomine ebaõnnestus: {{error}}",
-    "errorCode": "Vigakood: {{code}}"
+    "errorCode": "Vigakood: {{code}}",
+    "stacks": {
+      "title": "Stackid",
+      "current": "Konteinerid",
+      "manage": "Stackid",
+      "new": "Uus stack",
+      "create": "Loo stack",
+      "search": "Otsi stacke...",
+      "loading": "Stackide laadimine...",
+      "empty": "Stacke veel pole. Stackid asuvad sellel hostil kaustas {{root}}, igaüks oma kaustas.",
+      "noMatches": "Ühtegi stacki ei leitud.",
+      "external": "Stackide kausta väljaspool",
+      "servicesRunning": "{{running}}/{{total}} töötab",
+      "listFailed": "Stackide laadimine ebaõnnestus",
+      "loadFailed": "Stacki laadimine ebaõnnestus",
+      "notFound": "Seda stacki enam ei eksisteeri.",
+      "state": {
+        "running": "Töötab",
+        "partial": "Osaline",
+        "stopped": "Peatatud",
+        "paused": "Pausil",
+        "not-deployed": "Pole paigaldatud"
+      },
+      "name": "Nimi",
+      "nameHint": "Loodud kausta {{root}}. Kasuta väiketähti, numbreid, - ja _.",
+      "nameInvalid": "Kasuta ainult väiketähti, numbreid, - ja _.",
+      "envOptional": "Keskkonna fail (valikuline)",
+      "created": "Stack {{name}} loodud",
+      "createFailed": "Stacki loomine ebaõnnestus",
+      "overview": "Ülevaade",
+      "compose": "Compose",
+      "env": "Keskkond",
+      "deploy": "Paigalda",
+      "redeploy": "Tõmba ja paigalda",
+      "pull": "Tõmba",
+      "down": "Peata",
+      "destroy": "Hävita",
+      "deleteFiles": "Kustuta failid",
+      "keepFiles": "Jäta failid alles",
+      "confirm": {
+        "down": "Kas peatada ja eemaldada {{name}} konteinerid? Mahtude säilitatakse.",
+        "destroy": "Kas hävitada {{name}}? See eemaldab selle konteinerid, võrgud ja mahud.",
+        "deleteFiles": "Kas kustutada ka {{name}} stacki kaust hostilt?"
+      },
+      "done": {
+        "deploy": "{{name}} paigaldatud",
+        "redeploy": "{{name}} uuendatud",
+        "pull": "{{name}} pildid tõmmatud",
+        "start": "Käivitatud",
+        "stop": "Peatatud",
+        "restart": "Taaskäivitatud",
+        "pause": "Pausil",
+        "unpause": "Jätkatud",
+        "down": "{{name}} peatatud",
+        "destroy": "{{name}} hävitatud"
+      },
+      "actionFailed": "Tegevus ebaõnnestus",
+      "saved": "Salvestatud",
+      "saveFailed": "Salvestamine ebaõnnestus",
+      "saveDeploy": "Salvesta ja paigalda",
+      "validate": "Kontrolli",
+      "validateFailed": "Faili kontrollimine ebaõnnestus",
+      "valid": "Compose fail on kehtiv.",
+      "invalid": "Compose fail ei ole kehtiv.",
+      "unsaved": "Salvestamata muudatused",
+      "noServices": "Sellel stackil pole teenuseid.",
+      "notCreated": "Pole loodud",
+      "noRunning": "Ükski teenus ei tööta.",
+      "service": "Teenus",
+      "allServices": "Kõik teenused",
+      "follow": "Jälgi",
+      "noLogs": "Logisid veel ei ole.",
+      "logsFailed": "Logide laadimine ei õnnestunud",
+      "envTable": "Tabel",
+      "envRaw": "Toorandmed",
+      "addVariable": "Lisa muutuja",
+      "noVariables": "Muutujaid veel ei ole.",
+      "variableName": "NIMI",
+      "variableValue": "väärtus",
+      "reveal": "Kuva või peida väärtus",
+      "events": "Sündmused",
+      "eventsHint": "Tegevused, mida sa sooritasid, ja teenuste muutused, kui see stack on avatud.",
+      "noEvents": "Veel midagi pole. Tegevused ja teenuste muutused kuvatakse siin.",
+      "clearEvents": "Tühjenda",
+      "showOutput": "Kuva väljund",
+      "eventState": "{{service}}: {{from}} → {{to}}",
+      "eventRemoved": "{{service}} eemaldati",
+      "eventFailed": "Ebaõnnestus: {{action}}",
+      "event": {
+        "deploy": "{{service}} paigaldati",
+        "redeploy": "{{service}} laaditi ja paigaldati",
+        "pull": "{{service}} pildid laaditi",
+        "start": "{{service}} käivitati",
+        "stop": "{{service}} peatati",
+        "restart": "{{service}} taaskäivitati",
+        "pause": "{{service}} peatati ajutiselt",
+        "unpause": "{{service}} jätkati",
+        "down": "{{name}} lõpetati",
+        "destroy": "{{name}} hävitati"
+      }
+    },
+    "updates": {
+      "badge": "Uuendus",
+      "update": "Uuenda konteinerit",
+      "check": "Kontrolli uuendusi",
+      "available": "Uuendusi on saadaval {{count}}. Kontrolli uuesti",
+      "found": "Uuendusi on {{count}} pildil",
+      "none": "Kõik pildid on ajakohased",
+      "checkFailed": "Uuenduste kontrollimine ei õnnestunud",
+      "updated": "{{name}} uuendati",
+      "pulled": "{{name}} pilt laaditi. Kasutamiseks loo konteiner uuesti.",
+      "failed": "{{name}} uuendamine ei õnnestunud: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Kuvage konteineride paneel terminaalides",
         "description": "Luba konteineride paneel avada selle hosti SSH-terminaali kõrval."
+      },
+      "enableStacks": {
+        "label": "Stackide haldus",
+        "description": "Halda selle hosti compose-stacke. Haldaja peab selle lubama."
+      },
+      "stacksRoot": {
+        "label": "Stackide kaust",
+        "description": "Kaust hostil, kus iga stackil on oma kaust koos compose-failiga."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Kuva paneeli nupp",
         "description": "Kuva terminali paremal serval väike nupp, mis avab konteinerite paneeli."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stackide haldus",
+        "description": "Luba hostidel kasutada compose-stackide haldust. Kui see on väljalülitatud, on see kõigile peidetud ja blokeeritud."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Eemalda",
-    "cancel": "Tühista"
+    "cancel": "Tühista",
+    "save": "Salvesta"
   },
   "plugin": {
     "name": "Docker",

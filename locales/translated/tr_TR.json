@@ -114,7 +114,119 @@
     "notEnabledHint": "Konteynerlerini yönetmek için bu sunucunun ayarlarında Docker'ı açın.",
     "shellChanged": "\"{{requested}}\" kabuğu mevcut değil. Bunun yerine \"{{shell}}\" kullanılıyor.",
     "failedToConnectWithError": "Bağlanılamadı: {{error}}",
-    "errorCode": "Hata kodu: {{code}}"
+    "errorCode": "Hata kodu: {{code}}",
+    "stacks": {
+      "title": "Stack'ler",
+      "current": "Konteynerler",
+      "manage": "Stack'ler",
+      "new": "Yeni stack",
+      "create": "Stack oluştur",
+      "search": "Stack'lerde ara...",
+      "loading": "Stack'ler yükleniyor...",
+      "empty": "Henüz stack yok. Stack'ler bu ana makinede {{root}} dizininde, her biri ayrı bir klasörde bulunur.",
+      "noMatches": "Eşleşen stack bulunamadı.",
+      "external": "Stack klasörünün dışında",
+      "servicesRunning": "{{total}} üzerinden {{running}} çalışıyor",
+      "listFailed": "Stack'ler yüklenemedi",
+      "loadFailed": "Stack yüklenemedi",
+      "notFound": "Bu stack artık mevcut değil.",
+      "state": {
+        "running": "Çalışıyor",
+        "partial": "Kısmi",
+        "stopped": "Durduruldu",
+        "paused": "Duraklatıldı",
+        "not-deployed": "Dağıtılmadı"
+      },
+      "name": "Ad",
+      "nameHint": "{{root}} dizininde oluşturuldu. Küçük harf, rakam, - ve _ kullanın.",
+      "nameInvalid": "Sadece küçük harf, rakam, - ve _ kullanın.",
+      "envOptional": "Ortam dosyası (isteğe bağlı)",
+      "created": "{{name}} stack'i oluşturuldu",
+      "createFailed": "Stack oluşturulamadı",
+      "overview": "Genel Bakış",
+      "compose": "Compose",
+      "env": "Ortam",
+      "deploy": "Dağıt",
+      "redeploy": "Çek ve dağıt",
+      "pull": "Çek",
+      "down": "Kaldır",
+      "destroy": "Yok et",
+      "deleteFiles": "Dosyaları sil",
+      "keepFiles": "Dosyaları koru",
+      "confirm": {
+        "down": "{{name}} stack'inin konteynerleri durdurulsun ve kaldırılsın mı? Depolama alanları korunur.",
+        "destroy": "{{name}} stack'i yok edilsin mi? Bu işlem konteynerleri, ağları ve depolama alanlarını kaldırır.",
+        "deleteFiles": "{{name}} stack'inin klasörü de ana makineden silinsin mi?"
+      },
+      "done": {
+        "deploy": "{{name}} dağıtıldı",
+        "redeploy": "{{name}} güncellendi",
+        "pull": "{{name}} için görüntüler çekildi",
+        "start": "Başlatıldı",
+        "stop": "Durduruldu",
+        "restart": "Yeniden başlatıldı",
+        "pause": "Duraklatıldı",
+        "unpause": "Devam ettirildi",
+        "down": "{{name}} kaldırıldı",
+        "destroy": "{{name}} yok edildi"
+      },
+      "actionFailed": "İşlem başarısız oldu",
+      "saved": "Kaydedildi",
+      "saveFailed": "Kaydedilemedi",
+      "saveDeploy": "Kaydet ve dağıt",
+      "validate": "Kontrol et",
+      "validateFailed": "Dosya kontrol edilemedi",
+      "valid": "Compose dosyası geçerli.",
+      "invalid": "Compose dosyası geçerli değil.",
+      "unsaved": "Kaydedilmemiş değişiklikler",
+      "noServices": "Bu stack'te hizmet bulunmuyor.",
+      "notCreated": "Oluşturulmadı",
+      "noRunning": "Hiçbir hizmet çalışmıyor.",
+      "service": "Hizmet",
+      "allServices": "Tüm hizmetler",
+      "follow": "Takip et",
+      "noLogs": "Henüz günlük yok.",
+      "logsFailed": "Günlükler yüklenemedi",
+      "envTable": "Tablo",
+      "envRaw": "Ham",
+      "addVariable": "Değişken ekle",
+      "noVariables": "Henüz değişken yok.",
+      "variableName": "AD",
+      "variableValue": "değer",
+      "reveal": "Değeri göster veya gizle",
+      "events": "Olaylar",
+      "eventsHint": "Bu yığın açıkken çalıştırdığınız işlemler ve hizmetlerdeki değişiklikler.",
+      "noEvents": "Henüz bir şey yok. İşlemler ve hizmet değişiklikleri burada görünür.",
+      "clearEvents": "Temizle",
+      "showOutput": "Çıktıyı göster",
+      "eventState": "{{service}}: {{from}}'dan {{to}}'a",
+      "eventRemoved": "{{service}} kaldırıldı",
+      "eventFailed": "Başarısız: {{action}}",
+      "event": {
+        "deploy": "{{service}} dağıtıldı",
+        "redeploy": "{{service}} çekildi ve dağıtıldı",
+        "pull": "{{service}} için görüntüler çekildi",
+        "start": "{{service}} başlatıldı",
+        "stop": "{{service}} durduruldu",
+        "restart": "{{service}} yeniden başlatıldı",
+        "pause": "{{service}} duraklatıldı",
+        "unpause": "{{service}} devam ettirildi",
+        "down": "{{name}} kapatıldı",
+        "destroy": "{{name}} yok edildi"
+      }
+    },
+    "updates": {
+      "badge": "Güncelleme",
+      "update": "Konteyneri güncelle",
+      "check": "Güncellemeleri kontrol et",
+      "available": "{{count}} güncelleme mevcut. Tekrar kontrol et",
+      "found": "{{count}} görüntü güncelleme bekliyor",
+      "none": "Tüm görüntüler güncel",
+      "checkFailed": "Güncellemeler kontrol edilemedi",
+      "updated": "{{name}} güncellendi",
+      "pulled": "{{name}} için görüntü çekildi. Kullanmak için konteyneri yeniden oluşturun.",
+      "failed": "{{name}} güncellenemedi: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Terminalde konteyner panelini göster",
         "description": "Konteyner panelinin bu ana bilgisayarın SSH terminalinin yanında açılmasına izin ver."
+      },
+      "enableStacks": {
+        "label": "Yığın yönetimi",
+        "description": "Bu ana makinede compose yığınlarını yönetin. Bir yöneticinin de buna izin vermesi gerekir."
+      },
+      "stacksRoot": {
+        "label": "Yığınlar klasörü",
+        "description": "Her yığının kendi compose dosyasıyla bir klasöre sahip olduğu ana makinedeki klasör."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Panel düğmesini göster",
         "description": "Konteyner panelini açan küçük bir düğmeyi terminalin sağ kenarında göster."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Yığın yönetimi",
+        "description": "Ana makinelerin compose yığın yönetimini kullanmasına izin verin. Bu kapalıyken, herkes için gizli ve engellenmiş olur."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Kaldır",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "save": "Kaydet"
   },
   "plugin": {
     "name": "Docker",

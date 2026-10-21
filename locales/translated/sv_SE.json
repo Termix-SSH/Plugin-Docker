@@ -114,7 +114,119 @@
     "notEnabledHint": "Aktivera Docker i denna värdens inställningar för att hantera dess behållare.",
     "shellChanged": "Skal \"{{requested}}\" är inte tillgängligt. Använder \"{{shell}}\" istället.",
     "failedToConnectWithError": "Kunde inte ansluta: {{error}}",
-    "errorCode": "Felkod: {{code}}"
+    "errorCode": "Felkod: {{code}}",
+    "stacks": {
+      "title": "Stackar",
+      "current": "Behållare",
+      "manage": "Stackar",
+      "new": "Ny stack",
+      "create": "Skapa stack",
+      "search": "Sök bland stackar...",
+      "loading": "Laddar stackar...",
+      "empty": "Inga stackar ännu. Stackar finns i {{root}} på denna värd, en mapp för varje.",
+      "noMatches": "Inga stackar matchar.",
+      "external": "Utanför stackmappen",
+      "servicesRunning": "{{running}} av {{total}} körs",
+      "listFailed": "Kunde inte ladda stackar",
+      "loadFailed": "Kunde inte ladda stacken",
+      "notFound": "Denna stack finns inte längre.",
+      "state": {
+        "running": "Körs",
+        "partial": "Delvis",
+        "stopped": "Stoppad",
+        "paused": "Pausad",
+        "not-deployed": "Inte distribuerad"
+      },
+      "name": "Namn",
+      "nameHint": "Skapad i {{root}}. Använd små bokstäver, siffror, - och _.",
+      "nameInvalid": "Använd endast små bokstäver, siffror, - och _.",
+      "envOptional": "Miljöfil (valfritt)",
+      "created": "Stacken {{name}} skapad",
+      "createFailed": "Kunde inte skapa stacken",
+      "overview": "Översikt",
+      "compose": "Compose",
+      "env": "Miljö",
+      "deploy": "Distribuera",
+      "redeploy": "Hämta och distribuera",
+      "pull": "Hämta",
+      "down": "Ta ner",
+      "destroy": "Ta bort",
+      "deleteFiles": "Ta bort filer",
+      "keepFiles": "Behåll filer",
+      "confirm": {
+        "down": "Vill du stoppa och ta bort behållarna för {{name}}? Volymerna behålls.",
+        "destroy": "Vill du ta bort {{name}}? Detta tar bort dess behållare, nätverk och volymer.",
+        "deleteFiles": "Vill du också ta bort stackmappen för {{name}} från värden?"
+      },
+      "done": {
+        "deploy": "{{name}} distribuerad",
+        "redeploy": "{{name}} uppdaterad",
+        "pull": "Avbilder hämtade för {{name}}",
+        "start": "Startad",
+        "stop": "Stoppad",
+        "restart": "Startad om",
+        "pause": "Pausad",
+        "unpause": "Återupptagen",
+        "down": "{{name}} tagen ner",
+        "destroy": "{{name}} borttagen"
+      },
+      "actionFailed": "Åtgärden misslyckades",
+      "saved": "Sparad",
+      "saveFailed": "Kunde inte spara",
+      "saveDeploy": "Spara och distribuera",
+      "validate": "Kontrollera",
+      "validateFailed": "Kunde inte kontrollera filen",
+      "valid": "Compose-filen är giltig.",
+      "invalid": "Compose-filen är inte giltig.",
+      "unsaved": "Osparade ändringar",
+      "noServices": "Denna stack har inga tjänster.",
+      "notCreated": "Inte skapad",
+      "noRunning": "Ingen tjänst körs.",
+      "service": "Tjänst",
+      "allServices": "Alla tjänster",
+      "follow": "Följ",
+      "noLogs": "Inga loggar ännu.",
+      "logsFailed": "Kunde inte läsa in loggar",
+      "envTable": "Tabell",
+      "envRaw": "Rådata",
+      "addVariable": "Lägg till variabel",
+      "noVariables": "Inga variabler ännu.",
+      "variableName": "NAMN",
+      "variableValue": "värde",
+      "reveal": "Visa eller dölj värde",
+      "events": "Händelser",
+      "eventsHint": "Åtgärder du utför och ändringar av tjänster medan denna stack är öppen.",
+      "noEvents": "Inget ännu. Åtgärder och tjänsteändringar visas här.",
+      "clearEvents": "Rensa",
+      "showOutput": "Visa utdata",
+      "eventState": "{{service}}: {{from}} till {{to}}",
+      "eventRemoved": "{{service}} togs bort",
+      "eventFailed": "Misslyckades: {{action}}",
+      "event": {
+        "deploy": "Distribuerade {{service}}",
+        "redeploy": "Hämtade och distribuerade {{service}}",
+        "pull": "Hämtade bilder för {{service}}",
+        "start": "Startade {{service}}",
+        "stop": "Stängde av {{service}}",
+        "restart": "Startade om {{service}}",
+        "pause": "Pausade {{service}}",
+        "unpause": "Återupptog {{service}}",
+        "down": "Tog ner {{name}}",
+        "destroy": "Destruerade {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Uppdatering",
+      "update": "Uppdatera behållare",
+      "check": "Sök efter uppdateringar",
+      "available": "{{count}} uppdateringar tillgängliga. Kontrollera igen",
+      "found": "{{count}} bilder har uppdateringar",
+      "none": "Alla bilder är uppdaterade",
+      "checkFailed": "Kunde inte söka efter uppdateringar",
+      "updated": "{{name}} uppdaterad",
+      "pulled": "Bild hämtad för {{name}}. Skapa om behållaren för att använda den.",
+      "failed": "Kunde inte uppdatera {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Visa behållarpanelen i terminaler",
         "description": "Låt behållarpanelen öppnas bredvid SSH-terminalen för denna värd."
+      },
+      "enableStacks": {
+        "label": "Stackhantering",
+        "description": "Hantera compose-stacks på denna värd. En administratör måste också tillåta det."
+      },
+      "stacksRoot": {
+        "label": "Stackmapp",
+        "description": "Mappen på värden där varje stack har sin egen mapp med en compose-fil."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Visa panelknappen",
         "description": "Visa en liten knapp på höger kant av en terminal som öppnar behållarpanelen."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stackhantering",
+        "description": "Tillåt att värdar använder compose-stackhantering. När detta är inaktiverat är det dolt och blockerat för alla."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Ta bort",
-    "cancel": "Avbryt"
+    "cancel": "Avbryt",
+    "save": "Spara"
   },
   "plugin": {
     "name": "Docker",

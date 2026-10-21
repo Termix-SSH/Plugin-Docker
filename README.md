@@ -18,7 +18,7 @@
 
 ## Overview
 
-Docker manages the containers running on your hosts over SSH. It is not meant to replace Portainer or Dockge, just to handle the containers you already have.
+Docker is mostly a view into the containers running on your hosts over SSH, with their logs, stats and a console. You can restart a container or find out why it crashed without leaving Termix. Turn on stack management and it can also run compose stacks, which is enough to manage a light homelab setup.
 
 Read the [docs](https://docs.termix.site/plugins/docker) to set it up and use it.
 
@@ -31,6 +31,8 @@ Read the [docs](https://docs.termix.site/plugins/docker) to set it up and use it
 - Read and download container logs
 - Open a shell inside a container
 - Works with Docker and Podman
+- Optional stack management for compose projects
+- Image update checks and one click updates
 
 <br />
 

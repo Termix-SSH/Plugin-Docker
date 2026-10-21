@@ -115,7 +115,119 @@
     "notEnabledHint": "Activa Docker en la configuración de este host para gestionar sus contenedores.",
     "shellChanged": "El shell «{{requested}}» no está disponible. Se usará «{{shell}}» en su lugar.",
     "failedToConnectWithError": "No se ha podido conectar: {{error}}",
-    "errorCode": "Código de error: {{code}}"
+    "errorCode": "Código de error: {{code}}",
+    "stacks": {
+      "title": "Pilas",
+      "current": "Contenedores",
+      "manage": "Pilas",
+      "new": "Nueva pila",
+      "create": "Crear pila",
+      "search": "Buscar pilas...",
+      "loading": "Cargando pilas...",
+      "empty": "Aún no hay pilas. Las pilas se almacenan en {{root}} en este host, una carpeta por pila.",
+      "noMatches": "No se encontraron pilas coincidentes.",
+      "external": "Fuera de la carpeta de pilas",
+      "servicesRunning": "{{running}} de {{total}} en ejecución",
+      "listFailed": "No se pudieron cargar las pilas",
+      "loadFailed": "No se pudo cargar la pila",
+      "notFound": "Esta pila ya no existe.",
+      "state": {
+        "running": "En ejecución",
+        "partial": "Parcial",
+        "stopped": "Detenido",
+        "paused": "En pausa",
+        "not-deployed": "No implementado"
+      },
+      "name": "Nombre",
+      "nameHint": "Creado en {{root}}. Usa letras minúsculas, números, - y _.",
+      "nameInvalid": "Usa solo letras minúsculas, números, - y _.",
+      "envOptional": "Archivo de entorno (opcional)",
+      "created": "Pila {{name}} creada",
+      "createFailed": "No se pudo crear la pila",
+      "overview": "Vista general",
+      "compose": "Compose",
+      "env": "Entorno",
+      "deploy": "Implementar",
+      "redeploy": "Descargar e implementar",
+      "pull": "Descargar",
+      "down": "Detener",
+      "destroy": "Destruir",
+      "deleteFiles": "Eliminar archivos",
+      "keepFiles": "Conservar archivos",
+      "confirm": {
+        "down": "¿Detener y eliminar los contenedores de {{name}}? Los volúmenes se conservan.",
+        "destroy": "¿Destruir {{name}}? Esto eliminará sus contenedores, redes y volúmenes.",
+        "deleteFiles": "¿También eliminar la carpeta de la pila de {{name}} del host?"
+      },
+      "done": {
+        "deploy": "{{name}} implementado",
+        "redeploy": "{{name}} actualizado",
+        "pull": "Imágenes descargadas para {{name}}",
+        "start": "Iniciado",
+        "stop": "Detenido",
+        "restart": "Reiniciado",
+        "pause": "En pausa",
+        "unpause": "Reanudado",
+        "down": "{{name}} detenido",
+        "destroy": "{{name}} destruido"
+      },
+      "actionFailed": "La acción falló",
+      "saved": "Guardado",
+      "saveFailed": "No se pudo guardar",
+      "saveDeploy": "Guardar e implementar",
+      "validate": "Comprobar",
+      "validateFailed": "No se pudo comprobar el archivo",
+      "valid": "El archivo compose es válido.",
+      "invalid": "El archivo compose no es válido.",
+      "unsaved": "Cambios sin guardar",
+      "noServices": "Esta pila no tiene servicios.",
+      "notCreated": "No creado",
+      "noRunning": "Ningún servicio está en ejecución.",
+      "service": "Servicio",
+      "allServices": "Todos los servicios",
+      "follow": "Seguir",
+      "noLogs": "Aún no hay registros.",
+      "logsFailed": "No se pudieron cargar los registros",
+      "envTable": "Tabla",
+      "envRaw": "Sin formato",
+      "addVariable": "Añadir variable",
+      "noVariables": "Aún no hay variables.",
+      "variableName": "NOMBRE",
+      "variableValue": "valor",
+      "reveal": "Mostrar u ocultar valor",
+      "events": "Eventos",
+      "eventsHint": "Acciones que ejecutes y cambios en los servicios mientras esta pila esté abierta.",
+      "noEvents": "Aún nada. Las acciones y los cambios de servicios aparecerán aquí.",
+      "clearEvents": "Borrar",
+      "showOutput": "Mostrar salida",
+      "eventState": "{{service}}: de {{from}} a {{to}}",
+      "eventRemoved": "{{service}} se ha eliminado",
+      "eventFailed": "Error: {{action}}",
+      "event": {
+        "deploy": "{{service}} implementado",
+        "redeploy": "{{service}} actualizado e implementado",
+        "pull": "Imágenes de {{service}} actualizadas",
+        "start": "{{service}} iniciado",
+        "stop": "{{service}} detenido",
+        "restart": "{{service}} reiniciado",
+        "pause": "{{service}} en pausa",
+        "unpause": "{{service}} reanudado",
+        "down": "{{name}} detenido",
+        "destroy": "{{name}} destruido"
+      }
+    },
+    "updates": {
+      "badge": "Actualizar",
+      "update": "Actualizar contenedor",
+      "check": "Buscar actualizaciones",
+      "available": "{{count}} actualizaciones disponibles. Volver a comprobar",
+      "found": "{{count}} imágenes tienen actualizaciones",
+      "none": "Todas las imágenes están actualizadas",
+      "checkFailed": "No se pudieron buscar actualizaciones",
+      "updated": "{{name}} actualizado",
+      "pulled": "Imagen descargada para {{name}}. Vuelve a crear el contenedor para usarla.",
+      "failed": "No se pudo actualizar {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Mostrar el panel de contenedores en las terminales",
         "description": "Permite que el panel de contenedores se abra junto a la terminal SSH de este host."
+      },
+      "enableStacks": {
+        "label": "Gestión de pilas",
+        "description": "Gestiona las pilas de compose en este host. Un administrador también debe permitirlo."
+      },
+      "stacksRoot": {
+        "label": "Carpeta de pilas",
+        "description": "La carpeta en el host donde cada pila tiene su propia carpeta con un archivo de compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Mostrar el botón del panel",
         "description": "Muestra un pequeño botón en el borde derecho de una terminal que abre el panel de contenedores."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Gestión de pilas",
+        "description": "Permite que los hosts usen la gestión de pilas de compose. Mientras esté desactivado, estará oculto y bloqueado para todos."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Eliminar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "save": "Guardar"
   },
   "plugin": {
     "name": "Docker",

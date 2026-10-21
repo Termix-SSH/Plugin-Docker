@@ -6,6 +6,7 @@ import { Button } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerContainer } from "../types";
 import { useDockerApi } from "../docker-api";
 import { getErrorMessage } from "../error-message";
+import { UpdateBadge, UpdateButton } from "../updates";
 
 interface CompactContainerListProps {
   containers: DockerContainer[];
@@ -97,12 +98,16 @@ export function CompactContainerList({
               title={container.state}
             />
             <div className="min-w-0 flex-1">
-              <div className="truncate text-xs font-semibold">{name}</div>
+              <div className="flex items-center gap-1">
+                <span className="truncate text-xs font-semibold">{name}</span>
+                <UpdateBadge image={container.image} />
+              </div>
               <div className="truncate font-mono text-[10px] text-muted-foreground">
                 {container.image}
               </div>
             </div>
             <div className="flex shrink-0 items-center">
+              <UpdateButton container={container} />
               <Button
                 variant="ghost"
                 size="icon-xs"

@@ -113,7 +113,119 @@
     "notEnabledHint": "Aktifkan Docker di pengaturan host ini untuk mengelola container-nya.",
     "shellChanged": "Shell \"{{requested}}\" tidak tersedia. Menggunakan \"{{shell}}\" sebagai gantinya.",
     "failedToConnectWithError": "Gagal terhubung: {{error}}",
-    "errorCode": "Kode kesalahan: {{code}}"
+    "errorCode": "Kode kesalahan: {{code}}",
+    "stacks": {
+      "title": "Stack",
+      "current": "Kontainer",
+      "manage": "Stack",
+      "new": "Stack baru",
+      "create": "Buat stack",
+      "search": "Cari stack...",
+      "loading": "Memuat stack...",
+      "empty": "Belum ada stack. Stack disimpan di {{root}} pada host ini, satu folder untuk setiap stack.",
+      "noMatches": "Tidak ada stack yang cocok.",
+      "external": "Di luar folder stack",
+      "servicesRunning": "{{running}} dari {{total}} berjalan",
+      "listFailed": "Gagal memuat stack",
+      "loadFailed": "Gagal memuat stack",
+      "notFound": "Stack ini tidak lagi ada.",
+      "state": {
+        "running": "Berjalan",
+        "partial": "Sebagian",
+        "stopped": "Berhenti",
+        "paused": "Dijeda",
+        "not-deployed": "Belum dikerahkan"
+      },
+      "name": "Nama",
+      "nameHint": "Dibuat di {{root}}. Gunakan huruf kecil, angka, - dan _.",
+      "nameInvalid": "Gunakan hanya huruf kecil, angka, - dan _.",
+      "envOptional": "File lingkungan (opsional)",
+      "created": "Stack {{name}} dibuat",
+      "createFailed": "Gagal membuat stack",
+      "overview": "Ikhtisar",
+      "compose": "Compose",
+      "env": "Lingkungan",
+      "deploy": "Kerahkan",
+      "redeploy": "Ambil dan kerahkan",
+      "pull": "Ambil",
+      "down": "Hentikan",
+      "destroy": "Hancurkan",
+      "deleteFiles": "Hapus file",
+      "keepFiles": "Simpan file",
+      "confirm": {
+        "down": "Hentikan dan hapus kontainer dari {{name}}? Volume akan tetap disimpan.",
+        "destroy": "Hancurkan {{name}}? Ini akan menghapus kontainer, jaringan, dan volumenya.",
+        "deleteFiles": "Hapus juga folder stack {{name}} dari host?"
+      },
+      "done": {
+        "deploy": "{{name}} dikerahkan",
+        "redeploy": "{{name}} diperbarui",
+        "pull": "Gambar diambil untuk {{name}}",
+        "start": "Dijalankan",
+        "stop": "Dihentikan",
+        "restart": "Diuji ulang",
+        "pause": "Dijeda",
+        "unpause": "Dilanjutkan",
+        "down": "{{name}} dihentikan",
+        "destroy": "{{name}} dihancurkan"
+      },
+      "actionFailed": "Tindakan gagal",
+      "saved": "Disimpan",
+      "saveFailed": "Gagal menyimpan",
+      "saveDeploy": "Simpan dan kerahkan",
+      "validate": "Periksa",
+      "validateFailed": "Gagal memeriksa file",
+      "valid": "File compose valid.",
+      "invalid": "File compose tidak valid.",
+      "unsaved": "Perubahan belum disimpan",
+      "noServices": "Stack ini tidak memiliki layanan.",
+      "notCreated": "Belum dibuat",
+      "noRunning": "Tidak ada layanan yang berjalan.",
+      "service": "Layanan",
+      "allServices": "Semua layanan",
+      "follow": "Ikuti",
+      "noLogs": "Belum ada log.",
+      "logsFailed": "Gagal memuat log",
+      "envTable": "Tabel",
+      "envRaw": "Mentah",
+      "addVariable": "Tambahkan variabel",
+      "noVariables": "Belum ada variabel.",
+      "variableName": "NAMA",
+      "variableValue": "nilai",
+      "reveal": "Tampilkan atau sembunyikan nilai",
+      "events": "Peristiwa",
+      "eventsHint": "Tindakan yang Anda jalankan dan perubahan pada layanan saat stack ini terbuka.",
+      "noEvents": "Belum ada. Tindakan dan perubahan layanan akan muncul di sini.",
+      "clearEvents": "Bersihkan",
+      "showOutput": "Tampilkan output",
+      "eventState": "{{service}}: {{from}} ke {{to}}",
+      "eventRemoved": "{{service}} telah dihapus",
+      "eventFailed": "Gagal: {{action}}",
+      "event": {
+        "deploy": "{{service}} telah dideploy",
+        "redeploy": "{{service}} telah ditarik dan dideploy",
+        "pull": "Gambar untuk {{service}} telah ditarik",
+        "start": "{{service}} telah dimulai",
+        "stop": "{{service}} telah dihentikan",
+        "restart": "{{service}} telah dimulai ulang",
+        "pause": "{{service}} telah dijeda",
+        "unpause": "{{service}} telah dilanjutkan",
+        "down": "{{name}} telah dihentikan",
+        "destroy": "{{name}} telah dihancurkan"
+      }
+    },
+    "updates": {
+      "badge": "Pembaruan",
+      "update": "Perbarui kontainer",
+      "check": "Periksa pembaruan",
+      "available": "{{count}} pembaruan tersedia. Periksa lagi",
+      "found": "{{count}} gambar memiliki pembaruan",
+      "none": "Semua gambar sudah terbaru",
+      "checkFailed": "Gagal memeriksa pembaruan",
+      "updated": "{{name}} telah diperbarui",
+      "pulled": "Gambar untuk {{name}} telah ditarik. Buat ulang kontainer untuk menggunakannya.",
+      "failed": "Gagal memperbarui {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -144,6 +256,14 @@
       "showPanel": {
         "label": "Tampilkan panel kontainer di terminal",
         "description": "Biarkan panel kontainer terbuka di samping terminal SSH host ini."
+      },
+      "enableStacks": {
+        "label": "Manajemen stack",
+        "description": "Kelola stack compose di host ini. Administrator juga harus mengizinkannya."
+      },
+      "stacksRoot": {
+        "label": "Folder stack",
+        "description": "Folder di host tempat setiap stack memiliki foldernya sendiri dengan file compose."
       }
     },
     "user": {
@@ -166,6 +286,12 @@
         "label": "Tampilkan tombol panel",
         "description": "Tampilkan tombol kecil di tepi kanan terminal yang membuka panel kontainer."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Manajemen stack",
+        "description": "Izinkan host menggunakan manajemen stack compose. Saat ini dinonaktifkan, fitur ini disembunyikan dan diblokir untuk semua orang."
+      }
     }
   },
   "errors": {
@@ -178,7 +304,8 @@
   },
   "common": {
     "remove": "Hapus",
-    "cancel": "Batal"
+    "cancel": "Batal",
+    "save": "Simpan"
   },
   "plugin": {
     "name": "Docker",

@@ -114,7 +114,119 @@
     "notEnabledHint": "Ota Docker käyttöön tämän isännän asetuksista hallitaksesi sen kontteja.",
     "shellChanged": "Shell \"{{requested}}\" ei ole saatavilla. Käytetään sen sijaan \"{{shell}}\".",
     "failedToConnectWithError": "Yhteys epäonnistui: {{error}}",
-    "errorCode": "Virhekoodi: {{code}}"
+    "errorCode": "Virhekoodi: {{code}}",
+    "stacks": {
+      "title": "Stackit",
+      "current": "Kontit",
+      "manage": "Stackit",
+      "new": "Uusi stacki",
+      "create": "Luo stacki",
+      "search": "Hae stackeja...",
+      "loading": "Ladataan stackeja...",
+      "empty": "Stackejä ei vielä ole. Stackit sijaitsevat polussa {{root}} tässä isäntälaitteessa, jokainen omassa kansiossaan.",
+      "noMatches": "Stackejä ei löytynyt.",
+      "external": "Stackikansion ulkopuolella",
+      "servicesRunning": "{{running}}/{{total}} käynnissä",
+      "listFailed": "Stackejä ei voitu ladata",
+      "loadFailed": "Stackia ei voitu ladata",
+      "notFound": "Tätä stackia ei enää ole olemassa.",
+      "state": {
+        "running": "Käynnissä",
+        "partial": "Osittainen",
+        "stopped": "Pysäytetty",
+        "paused": "Keskeytetty",
+        "not-deployed": "Ei julkaistu"
+      },
+      "name": "Nimi",
+      "nameHint": "Luotu polkuun {{root}}. Käytä pieniä kirjaimia, numeroita, - ja _.",
+      "nameInvalid": "Käytä vain pieniä kirjaimia, numeroita, - ja _.",
+      "envOptional": "Ympäristötiedosto (valinnainen)",
+      "created": "Stacki {{name}} luotu",
+      "createFailed": "Stackia ei voitu luoda",
+      "overview": "Yleiskatsaus",
+      "compose": "Compose",
+      "env": "Ympäristö",
+      "deploy": "Julkaise",
+      "redeploy": "Hae ja julkaise",
+      "pull": "Hae",
+      "down": "Pura",
+      "destroy": "Tuhoa",
+      "deleteFiles": "Poista tiedostot",
+      "keepFiles": "Säilytä tiedostot",
+      "confirm": {
+        "down": "Pysäytetäänkö ja poistetaanko stackin {{name}} kontit? Volyymit säilytetään.",
+        "destroy": "Tuhotetaanko stacki {{name}}? Tämä poistaa sen kontit, verkot ja volyymit.",
+        "deleteFiles": "Poistetaanko myös stackin {{name}} kansi isäntälaitteelta?"
+      },
+      "done": {
+        "deploy": "Stacki {{name}} julkaistu",
+        "redeploy": "Stacki {{name}} päivitetty",
+        "pull": "Kuvat haettu stackille {{name}}",
+        "start": "Käynnistetty",
+        "stop": "Pysäytetty",
+        "restart": "Uudelleenkäynnistetty",
+        "pause": "Keskeytetty",
+        "unpause": "Jatkettu",
+        "down": "Stacki {{name}} purettu",
+        "destroy": "Stacki {{name}} tuhottu"
+      },
+      "actionFailed": "Toiminto epäonnistui",
+      "saved": "Tallennettu",
+      "saveFailed": "Tallennus epäonnistui",
+      "saveDeploy": "Tallenna ja julkaise",
+      "validate": "Tarkista",
+      "validateFailed": "Tiedostoa ei voitu tarkistaa",
+      "valid": "Compose-tiedosto on kelvollinen.",
+      "invalid": "Compose-tiedosto ei ole kelvollinen.",
+      "unsaved": "Tallentamattomat muutokset",
+      "noServices": "Tässä stackissa ei ole palveluita.",
+      "notCreated": "Ei luotu",
+      "noRunning": "Yhtään palvelua ei ole käynnissä.",
+      "service": "Palvelu",
+      "allServices": "Kaikki palvelut",
+      "follow": "Seuraa",
+      "noLogs": "Lokitietoja ei vielä ole.",
+      "logsFailed": "Lokitietoja ei voitu ladata",
+      "envTable": "Taulukko",
+      "envRaw": "Raaka",
+      "addVariable": "Lisää muuttuja",
+      "noVariables": "Muuttujia ei vielä ole.",
+      "variableName": "NIMI",
+      "variableValue": "arvo",
+      "reveal": "Näytä tai piilota arvo",
+      "events": "Tapahtumat",
+      "eventsHint": "Toiminnot, jotka suoritat, ja palveluihin tehdyt muutokset, kun tämä stack on auki.",
+      "noEvents": "Ei vielä mitään. Toiminnot ja palvelumuutokset näkyvät täällä.",
+      "clearEvents": "Tyhjennä",
+      "showOutput": "Näytä tuloste",
+      "eventState": "{{service}}: {{from}} → {{to}}",
+      "eventRemoved": "{{service}} poistettiin",
+      "eventFailed": "Epäonnistui: {{action}}",
+      "event": {
+        "deploy": "{{service}} otettiin käyttöön",
+        "redeploy": "{{service}} haettiin ja otettiin käyttöön",
+        "pull": "{{service}}:n kuvat haettiin",
+        "start": "{{service}} käynnistettiin",
+        "stop": "{{service}} pysäytettiin",
+        "restart": "{{service}} käynnistettiin uudelleen",
+        "pause": "{{service}} keskeytettiin",
+        "unpause": "{{service}} jatkettiin",
+        "down": "{{name}} sammutettiin",
+        "destroy": "{{name}} tuhottiin"
+      }
+    },
+    "updates": {
+      "badge": "Päivitys",
+      "update": "Päivitä kontti",
+      "check": "Tarkista päivitykset",
+      "available": "{{count}} päivitystä saatavilla. Tarkista uudelleen",
+      "found": "{{count}} kuvalla on päivityksiä",
+      "none": "Kaikki kuvat ovat ajan tasalla",
+      "checkFailed": "Päivityksiä ei voitu tarkistaa",
+      "updated": "{{name}} päivitetty",
+      "pulled": "{{name}}:n kuva haettu. Luo kontti uudelleen käyttääksesi sitä.",
+      "failed": "{{name}}:n päivitys epäonnistui: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Näytä konttien paneeli terminaaleissa",
         "description": "Salli konttien paneelin avautuminen tämän isäntäpalvelimen SSH-terminaalin viereen."
+      },
+      "enableStacks": {
+        "label": "Stack-hallinta",
+        "description": "Hallitse compose-stackeja tässä isäntäpalvelimessa. Ylläpitäjän on myös sallittava se."
+      },
+      "stacksRoot": {
+        "label": "Stack-kansio",
+        "description": "Isäntäpalvelimen kansio, jossa jokaisella stackilla on oma kansionsa ja compose-tiedostonsa."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Näytä paneelin painike",
         "description": "Näytä pieni painike terminaalin oikeassa reunassa, joka avaa konttien paneelin."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stack-hallinta",
+        "description": "Salli isäntäpalvelimien käyttää compose-stack-hallintaa. Kun tämä on pois päältä, se on piilotettu ja estetty kaikilta."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Poista",
-    "cancel": "Peruuta"
+    "cancel": "Peruuta",
+    "save": "Tallenna"
   },
   "plugin": {
     "name": "Docker",

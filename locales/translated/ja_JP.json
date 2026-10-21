@@ -113,7 +113,119 @@
     "notEnabledHint": "このホストの設定で Docker を有効にして、コンテナを管理してください。",
     "shellChanged": "シェル \"{{requested}}\" は利用できません。代わりに \"{{shell}}\" を使用します。",
     "failedToConnectWithError": "接続に失敗しました: {{error}}",
-    "errorCode": "エラーコード: {{code}}"
+    "errorCode": "エラーコード: {{code}}",
+    "stacks": {
+      "title": "スタック",
+      "current": "コンテナ",
+      "manage": "スタック",
+      "new": "新しいスタック",
+      "create": "スタックを作成",
+      "search": "スタックを検索...",
+      "loading": "スタックを読み込んでいます...",
+      "empty": "まだスタックがありません。スタックはこのホストの {{root}} にあり、それぞれ1つのフォルダとして存在します。",
+      "noMatches": "一致するスタックがありません。",
+      "external": "スタックフォルダの外",
+      "servicesRunning": "{{total}} 件中 {{running}} 件が実行中",
+      "listFailed": "スタックを読み込めませんでした",
+      "loadFailed": "スタックを読み込めませんでした",
+      "notFound": "このスタックはもう存在しません。",
+      "state": {
+        "running": "実行中",
+        "partial": "部分的",
+        "stopped": "停止中",
+        "paused": "一時停止中",
+        "not-deployed": "未デプロイ"
+      },
+      "name": "名前",
+      "nameHint": "{{root}} で作成されます。小文字、数字、-、_ を使用してください。",
+      "nameInvalid": "小文字、数字、-、_ のみを使用してください。",
+      "envOptional": "環境ファイル（オプション）",
+      "created": "スタック {{name}} が作成されました",
+      "createFailed": "スタックを作成できませんでした",
+      "overview": "概要",
+      "compose": "Compose",
+      "env": "環境",
+      "deploy": "デプロイ",
+      "redeploy": "Pull してデプロイ",
+      "pull": "Pull",
+      "down": "停止",
+      "destroy": "破棄",
+      "deleteFiles": "ファイルを削除",
+      "keepFiles": "ファイルを保持",
+      "confirm": {
+        "down": "{{name}} のコンテナを停止して削除しますか？ボリュームは保持されます。",
+        "destroy": "{{name}} を破棄しますか？これにより、コンテナ、ネットワーク、ボリュームが削除されます。",
+        "deleteFiles": "{{name}} のスタックフォルダもホストから削除しますか？"
+      },
+      "done": {
+        "deploy": "{{name}} がデプロイされました",
+        "redeploy": "{{name}} が更新されました",
+        "pull": "{{name}} のイメージが Pull されました",
+        "start": "開始しました",
+        "stop": "停止しました",
+        "restart": "再起動しました",
+        "pause": "一時停止しました",
+        "unpause": "再開しました",
+        "down": "{{name}} が停止されました",
+        "destroy": "{{name}} が破棄されました"
+      },
+      "actionFailed": "アクションに失敗しました",
+      "saved": "保存しました",
+      "saveFailed": "保存できませんでした",
+      "saveDeploy": "保存してデプロイ",
+      "validate": "チェック",
+      "validateFailed": "ファイルをチェックできませんでした",
+      "valid": "Compose ファイルは有効です。",
+      "invalid": "Compose ファイルは無効です。",
+      "unsaved": "未保存の変更",
+      "noServices": "このスタックにはサービスがありません。",
+      "notCreated": "未作成",
+      "noRunning": "実行中のサービスがありません。",
+      "service": "サービス",
+      "allServices": "すべてのサービス",
+      "follow": "追従",
+      "noLogs": "まだログがありません。",
+      "logsFailed": "ログを読み込めませんでした",
+      "envTable": "テーブル",
+      "envRaw": "生データ",
+      "addVariable": "変数を追加",
+      "noVariables": "まだ変数はありません。",
+      "variableName": "名前",
+      "variableValue": "値",
+      "reveal": "値を表示または非表示",
+      "events": "イベント",
+      "eventsHint": "このスタックが開いている間に実行した操作や、サービスの変更履歴です。",
+      "noEvents": "まだ何もありません。操作やサービスの変更がここに表示されます。",
+      "clearEvents": "クリア",
+      "showOutput": "出力を表示",
+      "eventState": "{{service}}: {{from}} → {{to}}",
+      "eventRemoved": "{{service}} が削除されました",
+      "eventFailed": "失敗: {{action}}",
+      "event": {
+        "deploy": "{{service}} をデプロイしました",
+        "redeploy": "{{service}} のイメージを取得し、デプロイしました",
+        "pull": "{{service}} のイメージを取得しました",
+        "start": "{{service}} を開始しました",
+        "stop": "{{service}} を停止しました",
+        "restart": "{{service}} を再起動しました",
+        "pause": "{{service}} を一時停止しました",
+        "unpause": "{{service}} を再開しました",
+        "down": "{{name}} を停止しました",
+        "destroy": "{{name}} を破棄しました"
+      }
+    },
+    "updates": {
+      "badge": "更新",
+      "update": "コンテナを更新",
+      "check": "更新を確認",
+      "available": "{{count}} 件の更新があります。再確認",
+      "found": "{{count}} 件のイメージに更新があります",
+      "none": "すべてのイメージは最新です",
+      "checkFailed": "更新を確認できませんでした",
+      "updated": "{{name}} が更新されました",
+      "pulled": "{{name}} のイメージを取得しました。コンテナを再作成して適用してください。",
+      "failed": "{{name}} の更新に失敗しました: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -144,6 +256,14 @@
       "showPanel": {
         "label": "ターミナルにコンテナパネルを表示する",
         "description": "このホストの SSH ターミナルの横にコンテナパネルを開きます。"
+      },
+      "enableStacks": {
+        "label": "スタック管理",
+        "description": "このホストで Compose スタックを管理します。管理者による許可も必要です。"
+      },
+      "stacksRoot": {
+        "label": "スタックフォルダ",
+        "description": "各スタックが Compose ファイルを含む独自のフォルダを持つ、ホスト上のフォルダです。"
       }
     },
     "user": {
@@ -166,6 +286,12 @@
         "label": "パネルボタンを表示する",
         "description": "ターミナルの右端に、コンテナパネルを開く小さなボタンを表示します。"
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "スタック管理",
+        "description": "ホストが Compose スタック管理を使用できるようにします。これをオフにすると、すべてのユーザーから非表示になり、使用できなくなります。"
+      }
     }
   },
   "errors": {
@@ -178,7 +304,8 @@
   },
   "common": {
     "remove": "削除",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "save": "保存"
   },
   "plugin": {
     "name": "Docker",

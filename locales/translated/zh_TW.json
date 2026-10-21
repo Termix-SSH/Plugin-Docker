@@ -113,7 +113,119 @@
     "notEnabledHint": "請在此主機的設定中啟用 Docker，以管理其容器。",
     "shellChanged": "Shell \"{{requested}}\" 不可用。改用 \"{{shell}}\"。",
     "failedToConnectWithError": "連線失敗：{{error}}",
-    "errorCode": "錯誤代碼：{{code}}"
+    "errorCode": "錯誤代碼：{{code}}",
+    "stacks": {
+      "title": "堆疊",
+      "current": "容器",
+      "manage": "堆疊",
+      "new": "新增堆疊",
+      "create": "建立堆疊",
+      "search": "搜尋堆疊...",
+      "loading": "載入堆疊中...",
+      "empty": "目前尚無堆疊。堆疊會存放在此主機的 {{root}} 目錄中，每個堆疊佔用一個資料夾。",
+      "noMatches": "沒有符合的堆疊。",
+      "external": "位於堆疊資料夾之外",
+      "servicesRunning": "{{running}} / {{total}} 個正在執行",
+      "listFailed": "無法載入堆疊",
+      "loadFailed": "無法載入此堆疊",
+      "notFound": "此堆疊已不存在。",
+      "state": {
+        "running": "執行中",
+        "partial": "部分執行",
+        "stopped": "已停止",
+        "paused": "已暫停",
+        "not-deployed": "未部署"
+      },
+      "name": "名稱",
+      "nameHint": "建立於 {{root}}。請使用小寫字母、數字、- 和 _。",
+      "nameInvalid": "僅可使用小寫字母、數字、- 和 _。",
+      "envOptional": "環境變數檔案（選填）",
+      "created": "堆疊 {{name}} 已建立",
+      "createFailed": "無法建立堆疊",
+      "overview": "總覽",
+      "compose": "Compose",
+      "env": "環境變數",
+      "deploy": "部署",
+      "redeploy": "拉取並部署",
+      "pull": "拉取",
+      "down": "關閉",
+      "destroy": "銷毀",
+      "deleteFiles": "刪除檔案",
+      "keepFiles": "保留檔案",
+      "confirm": {
+        "down": "要停止並移除 {{name}} 的容器嗎？資料卷將被保留。",
+        "destroy": "要銷毀 {{name}} 嗎？這將移除其容器、網路和資料卷。",
+        "deleteFiles": "也要從主機上刪除 {{name}} 的堆疊資料夾嗎？"
+      },
+      "done": {
+        "deploy": "{{name}} 已部署",
+        "redeploy": "{{name}} 已更新",
+        "pull": "已為 {{name}} 拉取映像檔",
+        "start": "已啟動",
+        "stop": "已停止",
+        "restart": "已重新啟動",
+        "pause": "已暫停",
+        "unpause": "已恢復",
+        "down": "{{name}} 已關閉",
+        "destroy": "{{name}} 已銷毀"
+      },
+      "actionFailed": "操作失敗",
+      "saved": "已儲存",
+      "saveFailed": "無法儲存",
+      "saveDeploy": "儲存並部署",
+      "validate": "檢查",
+      "validateFailed": "無法檢查檔案",
+      "valid": "Compose 檔案有效。",
+      "invalid": "Compose 檔案無效。",
+      "unsaved": "未儲存的變更",
+      "noServices": "此堆疊沒有任何服務。",
+      "notCreated": "未建立",
+      "noRunning": "沒有任何服務正在執行。",
+      "service": "服務",
+      "allServices": "所有服務",
+      "follow": "追蹤",
+      "noLogs": "尚無日誌。",
+      "logsFailed": "無法載入日誌",
+      "envTable": "表格",
+      "envRaw": "原始",
+      "addVariable": "新增變數",
+      "noVariables": "尚無變數。",
+      "variableName": "名稱",
+      "variableValue": "值",
+      "reveal": "顯示或隱藏值",
+      "events": "事件",
+      "eventsHint": "在此堆疊開啟期間，您執行的動作與服務的變更。",
+      "noEvents": "尚無內容。動作與服務變更將顯示於此。",
+      "clearEvents": "清除",
+      "showOutput": "顯示輸出",
+      "eventState": "{{service}}：從 {{from}} 變更為 {{to}}",
+      "eventRemoved": "{{service}} 已移除",
+      "eventFailed": "失敗：{{action}}",
+      "event": {
+        "deploy": "已部署 {{service}}",
+        "redeploy": "已拉取並部署 {{service}}",
+        "pull": "已拉取 {{service}} 的映像",
+        "start": "已啟動 {{service}}",
+        "stop": "已停止 {{service}}",
+        "restart": "已重新啟動 {{service}}",
+        "pause": "已暫停 {{service}}",
+        "unpause": "已恢復 {{service}}",
+        "down": "已關閉 {{name}}",
+        "destroy": "已銷毀 {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "更新",
+      "update": "更新容器",
+      "check": "檢查更新",
+      "available": "有 {{count}} 個更新可用。再次檢查",
+      "found": "{{count}} 個映像有更新",
+      "none": "所有映像皆為最新版本",
+      "checkFailed": "無法檢查更新",
+      "updated": "{{name}} 已更新",
+      "pulled": "已拉取 {{name}} 的映像。請重新建立容器以使用它。",
+      "failed": "無法更新 {{name}}：{{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -144,6 +256,14 @@
       "showPanel": {
         "label": "在終端機中顯示容器面板",
         "description": "讓容器面板在此主機的 SSH 終端機旁開啟。"
+      },
+      "enableStacks": {
+        "label": "堆疊管理",
+        "description": "在此主機上管理 Compose 堆疊。管理員也必須允許此功能。"
+      },
+      "stacksRoot": {
+        "label": "堆疊資料夾",
+        "description": "主機上每個堆疊擁有包含 Compose 檔案之獨立資料夾的目錄。"
       }
     },
     "user": {
@@ -166,6 +286,12 @@
         "label": "顯示面板按鈕",
         "description": "在終端機右側邊緣顯示一個小按鈕，用於開啟容器面板。"
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "堆疊管理",
+        "description": "允許主機使用 Compose 堆疊管理功能。關閉時，此功能將對所有人隱藏並停用。"
+      }
     }
   },
   "errors": {
@@ -178,7 +304,8 @@
   },
   "common": {
     "remove": "移除",
-    "cancel": "取消"
+    "cancel": "取消",
+    "save": "儲存"
   },
   "plugin": {
     "name": "Docker",

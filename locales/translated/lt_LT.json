@@ -116,7 +116,119 @@
     "notEnabledHint": "Įjunkite Docker šio hosto nustatymuose, kad valdytumėte jo konteinerius.",
     "shellChanged": "Shell „{{requested}}“ nepasiekiamas. Vietoj to naudojamas „{{shell}}“.",
     "failedToConnectWithError": "Nepavyko prisijungti: {{error}}",
-    "errorCode": "Klaidos kodas: {{code}}"
+    "errorCode": "Klaidos kodas: {{code}}",
+    "stacks": {
+      "title": "Stackai",
+      "current": "Konteineriai",
+      "manage": "Stackai",
+      "new": "Naujas stackas",
+      "create": "Sukurti stacką",
+      "search": "Ieškoti stackų...",
+      "loading": "Įkeliami stackai...",
+      "empty": "Dar nėra stackų. Stackai yra {{root}} šioje mašinoje, po vieną aplanką kiekvienam.",
+      "noMatches": "Nerasta atitinkančių stackų.",
+      "external": "Už stackų aplanko ribų",
+      "servicesRunning": "Veikia {{running}} iš {{total}}",
+      "listFailed": "Nepavyko įkelti stackų",
+      "loadFailed": "Nepavyko įkelti stacko",
+      "notFound": "Šio stacko nebėra.",
+      "state": {
+        "running": "Veikia",
+        "partial": "Dalinis",
+        "stopped": "Sustabdytas",
+        "paused": "Pristabdytas",
+        "not-deployed": "Neišdėstytas"
+      },
+      "name": "Pavadinimas",
+      "nameHint": "Sukurta {{root}}. Naudokite mažąsias raides, skaičius, - ir _.",
+      "nameInvalid": "Naudokite tik mažąsias raides, skaičius, - ir _.",
+      "envOptional": "Aplinkos failas (nebūtinas)",
+      "created": "Stackas {{name}} sukurtas",
+      "createFailed": "Nepavyko sukurti stacko",
+      "overview": "Apžvalga",
+      "compose": "Compose",
+      "env": "Aplinka",
+      "deploy": "Išdėstyti",
+      "redeploy": "Atsisiųsti ir išdėstyti",
+      "pull": "Atsisiųsti",
+      "down": "Sustabdyti",
+      "destroy": "Sunaikinti",
+      "deleteFiles": "Ištrinti failus",
+      "keepFiles": "Palikti failus",
+      "confirm": {
+        "down": "Sustabdyti ir pašalinti {{name}} konteinerius? Tomes bus išsaugoti.",
+        "destroy": "Sunaikinti {{name}}? Tai pašalins jo konteinerius, tinklus ir tomes.",
+        "deleteFiles": "Ar taip pat ištrinti {{name}} stacko aplanką iš mašinos?"
+      },
+      "done": {
+        "deploy": "{{name}} išdėstytas",
+        "redeploy": "{{name}} atnaujintas",
+        "pull": "{{name}} paveikslėliai atsisiųsti",
+        "start": "Paleista",
+        "stop": "Sustabdyta",
+        "restart": "Perkrauta",
+        "pause": "Pristabdyta",
+        "unpause": "Tęsiama",
+        "down": "{{name}} sustabdytas",
+        "destroy": "{{name}} sunaikintas"
+      },
+      "actionFailed": "Veiksmas nepavyko",
+      "saved": "Išsaugota",
+      "saveFailed": "Nepavyko išsaugoti",
+      "saveDeploy": "Išsaugoti ir išdėstyti",
+      "validate": "Patikrinti",
+      "validateFailed": "Nepavyko patikrinti failo",
+      "valid": "Compose failas yra galiojantis.",
+      "invalid": "Compose failas nėra galiojantis.",
+      "unsaved": "Neišsaugoti pakeitimai",
+      "noServices": "Šis stackas neturi paslaugų.",
+      "notCreated": "Nesukurta",
+      "noRunning": "Nė viena paslauga neveikia.",
+      "service": "Paslauga",
+      "allServices": "Visos paslaugos",
+      "follow": "Sekti",
+      "noLogs": "Dar nėra įrašų.",
+      "logsFailed": "Nepavyko įkelti įrašų",
+      "envTable": "Lentelė",
+      "envRaw": "Žaliavos",
+      "addVariable": "Pridėti kintamąjį",
+      "noVariables": "Dar nėra kintamųjų.",
+      "variableName": "PAVADINIMAS",
+      "variableValue": "reikšmė",
+      "reveal": "Rodyti arba slėpti reikšmę",
+      "events": "Įvykiai",
+      "eventsHint": "Veiksmai, kuriuos atliekate, ir paslaugų pokyčiai, kol šis stekas yra atidarytas.",
+      "noEvents": "Dar nieko. Veiksmai ir paslaugų pokyčiai bus rodomi čia.",
+      "clearEvents": "Išvalyti",
+      "showOutput": "Rodyti išvestį",
+      "eventState": "{{service}}: iš {{from}} į {{to}}",
+      "eventRemoved": "{{service}} buvo pašalinta",
+      "eventFailed": "Nepavyko: {{action}}",
+      "event": {
+        "deploy": "{{service}} išdėstyta",
+        "redeploy": "{{service}} atnaujinta ir išdėstyta",
+        "pull": "{{service}} paveikslėliai atnaujinti",
+        "start": "{{service}} paleista",
+        "stop": "{{service}} sustabdyta",
+        "restart": "{{service}} perkrauta",
+        "pause": "{{service}} pristabdyta",
+        "unpause": "{{service}} tęsiama",
+        "down": "{{name}} sustabdyta",
+        "destroy": "{{name}} sunaikinta"
+      }
+    },
+    "updates": {
+      "badge": "Atnaujinimas",
+      "update": "Atnaujinti konteinerį",
+      "check": "Patikrinti, ar yra atnaujinimų",
+      "available": "Yra {{count}} atnaujinimų. Patikrinti dar kartą",
+      "found": "{{count}} paveikslėlių turi atnaujinimų",
+      "none": "Visi paveikslėliai yra naujausi",
+      "checkFailed": "Nepavyko patikrinti atnaujinimų",
+      "updated": "{{name}} atnaujinta",
+      "pulled": "{{name}} paveikslėlis atnaujintas. Sukurkite konteinerį iš naujo, kad jį naudotumėte.",
+      "failed": "Nepavyko atnaujinti {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -147,6 +259,14 @@
       "showPanel": {
         "label": "Rodyti konteinerių skydelį terminaluose",
         "description": "Leisti konteinerių skydeliui atsiverti šalia šio hosto SSH terminalo."
+      },
+      "enableStacks": {
+        "label": "Stekų valdymas",
+        "description": "Valdyti compose stekus šiame serveryje. Administratorius taip pat turi tai leisti."
+      },
+      "stacksRoot": {
+        "label": "Stekų aplankas",
+        "description": "Aplankas serveryje, kuriame kiekvienas stekas turi savo aplanką su compose failu."
       }
     },
     "user": {
@@ -169,6 +289,12 @@
         "label": "Rodyti skydelio mygtuką",
         "description": "Rodyti mažą mygtuką terminalo dešiniajame krašte, kuris atidaro konteinerių skydelį."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stekų valdymas",
+        "description": "Leisti serveriams naudoti compose stekų valdymą. Kol tai išjungta, tai yra paslėpta ir užblokuota visiems."
+      }
     }
   },
   "errors": {
@@ -181,7 +307,8 @@
   },
   "common": {
     "remove": "Pašalinti",
-    "cancel": "Atšaukti"
+    "cancel": "Atšaukti",
+    "save": "Išsaugoti"
   },
   "plugin": {
     "name": "Docker",

@@ -115,7 +115,119 @@
     "notEnabledHint": "Attiva Docker nelle impostazioni di questo host per gestire i suoi container.",
     "shellChanged": "La shell \"{{requested}}\" non è disponibile. Utilizzo \"{{shell}}\" invece.",
     "failedToConnectWithError": "Connessione non riuscita: {{error}}",
-    "errorCode": "Codice errore: {{code}}"
+    "errorCode": "Codice errore: {{code}}",
+    "stacks": {
+      "title": "Stack",
+      "current": "Contenitori",
+      "manage": "Stack",
+      "new": "Nuovo stack",
+      "create": "Crea stack",
+      "search": "Cerca stack...",
+      "loading": "Caricamento stack...",
+      "empty": "Nessuno stack ancora. Gli stack risiedono in {{root}} su questo host, uno per cartella.",
+      "noMatches": "Nessuno stack corrisponde.",
+      "external": "Fuori dalla cartella degli stack",
+      "servicesRunning": "{{running}} di {{total}} in esecuzione",
+      "listFailed": "Impossibile caricare gli stack",
+      "loadFailed": "Impossibile caricare lo stack",
+      "notFound": "Questo stack non esiste più.",
+      "state": {
+        "running": "In esecuzione",
+        "partial": "Parziale",
+        "stopped": "Fermato",
+        "paused": "In pausa",
+        "not-deployed": "Non distribuito"
+      },
+      "name": "Nome",
+      "nameHint": "Creato in {{root}}. Usa lettere minuscole, numeri, - e _.",
+      "nameInvalid": "Usa solo lettere minuscole, numeri, - e _.",
+      "envOptional": "File di ambiente (opzionale)",
+      "created": "Stack {{name}} creato",
+      "createFailed": "Impossibile creare lo stack",
+      "overview": "Panoramica",
+      "compose": "Compose",
+      "env": "Ambiente",
+      "deploy": "Distribuisci",
+      "redeploy": "Scarica e distribuisci",
+      "pull": "Scarica",
+      "down": "Arresta",
+      "destroy": "Distruggi",
+      "deleteFiles": "Elimina file",
+      "keepFiles": "Mantieni file",
+      "confirm": {
+        "down": "Fermare e rimuovere i contenitori di {{name}}? I volumi verranno mantenuti.",
+        "destroy": "Distruggere {{name}}? Questo rimuoverà i suoi contenitori, reti e volumi.",
+        "deleteFiles": "Eliminare anche la cartella dello stack di {{name}} dall'host?"
+      },
+      "done": {
+        "deploy": "{{name}} distribuito",
+        "redeploy": "{{name}} aggiornato",
+        "pull": "Immagini scaricate per {{name}}",
+        "start": "Avviato",
+        "stop": "Fermato",
+        "restart": "Riavviato",
+        "pause": "In pausa",
+        "unpause": "Ripreso",
+        "down": "{{name}} arrestato",
+        "destroy": "{{name}} distrutto"
+      },
+      "actionFailed": "L'azione non è riuscita",
+      "saved": "Salvato",
+      "saveFailed": "Impossibile salvare",
+      "saveDeploy": "Salva e distribuisci",
+      "validate": "Verifica",
+      "validateFailed": "Impossibile verificare il file",
+      "valid": "Il file compose è valido.",
+      "invalid": "Il file compose non è valido.",
+      "unsaved": "Modifiche non salvate",
+      "noServices": "Questo stack non ha servizi.",
+      "notCreated": "Non creato",
+      "noRunning": "Nessun servizio è in esecuzione.",
+      "service": "Servizio",
+      "allServices": "Tutti i servizi",
+      "follow": "Segui",
+      "noLogs": "Nessun log ancora.",
+      "logsFailed": "Impossibile caricare i log",
+      "envTable": "Tabella",
+      "envRaw": "Grezzo",
+      "addVariable": "Aggiungi variabile",
+      "noVariables": "Nessuna variabile ancora.",
+      "variableName": "NOME",
+      "variableValue": "valore",
+      "reveal": "Mostra o nascondi valore",
+      "events": "Eventi",
+      "eventsHint": "Azioni eseguite e modifiche ai servizi mentre questo stack è aperto.",
+      "noEvents": "Niente ancora. Le azioni e le modifiche ai servizi appariranno qui.",
+      "clearEvents": "Cancella",
+      "showOutput": "Mostra output",
+      "eventState": "{{service}}: da {{from}} a {{to}}",
+      "eventRemoved": "{{service}} è stato rimosso",
+      "eventFailed": "Fallito: {{action}}",
+      "event": {
+        "deploy": "Distribuito {{service}}",
+        "redeploy": "Scaricato e distribuito {{service}}",
+        "pull": "Immagini scaricate per {{service}}",
+        "start": "Avviato {{service}}",
+        "stop": "Fermato {{service}}",
+        "restart": "Riavviato {{service}}",
+        "pause": "Messo in pausa {{service}}",
+        "unpause": "Ripreso {{service}}",
+        "down": "Arrestato {{name}}",
+        "destroy": "Distrutto {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Aggiornamento",
+      "update": "Aggiorna container",
+      "check": "Verifica aggiornamenti",
+      "available": "{{count}} aggiornamenti disponibili. Verifica di nuovo",
+      "found": "{{count}} immagini hanno aggiornamenti",
+      "none": "Tutte le immagini sono aggiornate",
+      "checkFailed": "Impossibile verificare gli aggiornamenti",
+      "updated": "{{name}} aggiornato",
+      "pulled": "Immagine scaricata per {{name}}. Ricrea il container per utilizzarla.",
+      "failed": "Impossibile aggiornare {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Mostra il pannello dei contenitori nei terminal",
         "description": "Consenti al pannello dei contenitori di aprirsi accanto al terminale SSH di questo host."
+      },
+      "enableStacks": {
+        "label": "Gestione stack",
+        "description": "Gestisci stack compose su questo host. Un amministratore deve anche abilitarlo."
+      },
+      "stacksRoot": {
+        "label": "Cartella stack",
+        "description": "La cartella sull'host dove ogni stack ha la propria cartella con un file compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Mostra il pulsante del pannello",
         "description": "Mostra un piccolo pulsante sul bordo destro di un terminale che apre il pannello dei contenitori."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Gestione stack",
+        "description": "Consenti agli host di utilizzare la gestione degli stack compose. Quando disabilitato, è nascosto e bloccato per tutti."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Rimuovi",
-    "cancel": "Annulla"
+    "cancel": "Annulla",
+    "save": "Salva"
   },
   "plugin": {
     "name": "Docker",

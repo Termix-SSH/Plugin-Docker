@@ -116,7 +116,119 @@
     "notEnabledHint": "Zapnite Docker v nastaveniach tohto hostiteľa na správu jeho kontajnerov.",
     "shellChanged": "Shell \"{{requested}}\" nie je dostupný. Namiesto toho sa používa \"{{shell}}\".",
     "failedToConnectWithError": "Nepodarilo sa pripojiť: {{error}}",
-    "errorCode": "Kód chyby: {{code}}"
+    "errorCode": "Kód chyby: {{code}}",
+    "stacks": {
+      "title": "Stohy",
+      "current": "Kontajnery",
+      "manage": "Stohy",
+      "new": "Nový stoh",
+      "create": "Vytvoriť stoh",
+      "search": "Hľadať stohy...",
+      "loading": "Načítavajú sa stohy...",
+      "empty": "Zatiaľ žiadne stohy. Stohy sa nachádzajú v {{root}} na tomto hostiteľovi, každý v samostatnom priečinku.",
+      "noMatches": "Žiadne stohy nevyhovujú.",
+      "external": "Mimo priečinka so stohmi",
+      "servicesRunning": "{{running}} z {{total}} beží",
+      "listFailed": "Nepodarilo sa načítať stohy",
+      "loadFailed": "Nepodarilo sa načítať stoh",
+      "notFound": "Tento stoh už neexistuje.",
+      "state": {
+        "running": "Beží",
+        "partial": "Čiastočne",
+        "stopped": "Zastavené",
+        "paused": "Pozastavené",
+        "not-deployed": "Nenasadené"
+      },
+      "name": "Názov",
+      "nameHint": "Vytvorené v {{root}}. Používajte malé písmená, číslice, - a _.",
+      "nameInvalid": "Používajte iba malé písmená, číslice, - a _.",
+      "envOptional": "Súbor prostredia (voliteľné)",
+      "created": "Stoh {{name}} vytvorený",
+      "createFailed": "Nepodarilo sa vytvoriť stoh",
+      "overview": "Prehľad",
+      "compose": "Compose",
+      "env": "Prostredie",
+      "deploy": "Nasadiť",
+      "redeploy": "Stiahnuť a nasadiť",
+      "pull": "Stiahnuť",
+      "down": "Zrušiť nasadenie",
+      "destroy": "Zničiť",
+      "deleteFiles": "Odstrániť súbory",
+      "keepFiles": "Ponechať súbory",
+      "confirm": {
+        "down": "Zastaviť a odstrániť kontajnery stohu {{name}}? Zvuky sa zachovajú.",
+        "destroy": "Zničiť stoh {{name}}? Tým sa odstránia jeho kontajnery, siete a zvuky.",
+        "deleteFiles": "Odstrániť aj priečinok stohu {{name}} z hostiteľa?"
+      },
+      "done": {
+        "deploy": "{{name}} nasadené",
+        "redeploy": "{{name}} aktualizované",
+        "pull": "Obrazy pre {{name}} stiahnuté",
+        "start": "Spustené",
+        "stop": "Zastavené",
+        "restart": "Reštartované",
+        "pause": "Pozastavené",
+        "unpause": "Obnovené",
+        "down": "{{name}} zrušené nasadenie",
+        "destroy": "{{name}} zničené"
+      },
+      "actionFailed": "Akcia zlyhala",
+      "saved": "Uložené",
+      "saveFailed": "Nepodarilo sa uložiť",
+      "saveDeploy": "Uložiť a nasadiť",
+      "validate": "Skontrolovať",
+      "validateFailed": "Nepodarilo sa skontrolovať súbor",
+      "valid": "Súbor compose je platný.",
+      "invalid": "Súbor compose nie je platný.",
+      "unsaved": "Neuložené zmeny",
+      "noServices": "Tento stoh nemá žiadne služby.",
+      "notCreated": "Nevytvorené",
+      "noRunning": "Žiadna služba nebeží.",
+      "service": "Služba",
+      "allServices": "Všetky služby",
+      "follow": "Sledovať",
+      "noLogs": "Zatiaľ žiadne logy.",
+      "logsFailed": "Nepodarilo sa načítať logy",
+      "envTable": "Tabuľka",
+      "envRaw": "Surové",
+      "addVariable": "Pridať premennú",
+      "noVariables": "Zatiaľ žiadne premenné.",
+      "variableName": "NÁZOV",
+      "variableValue": "hodnota",
+      "reveal": "Zobraziť alebo skryť hodnotu",
+      "events": "Udalosti",
+      "eventsHint": "Akcie, ktoré spúšťate, a zmeny služieb, keď je tento stack otvorený.",
+      "noEvents": "Zatiaľ nič. Tu sa zobrazia akcie a zmeny služieb.",
+      "clearEvents": "Vymazať",
+      "showOutput": "Zobraziť výstup",
+      "eventState": "{{service}}: z {{from}} na {{to}}",
+      "eventRemoved": "{{service}} bola odstránená",
+      "eventFailed": "Zlyhalo: {{action}}",
+      "event": {
+        "deploy": "Nasadená {{service}}",
+        "redeploy": "Stiahnutá a nasadená {{service}}",
+        "pull": "Stiahnuté obrazy pre {{service}}",
+        "start": "Spustená {{service}}",
+        "stop": "Zastavená {{service}}",
+        "restart": "Reštartovaná {{service}}",
+        "pause": "Pozastavená {{service}}",
+        "unpause": "Obnovená {{service}}",
+        "down": "Zrušený {{name}}",
+        "destroy": "Zničený {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Aktualizácia",
+      "update": "Aktualizovať kontajner",
+      "check": "Skontrolovať aktualizácie",
+      "available": "Dostupných {{count}} aktualizácií. Skontrolovať znova",
+      "found": "{{count}} obrazov má aktualizácie",
+      "none": "Všetky obrazy sú aktuálne",
+      "checkFailed": "Nepodarilo sa skontrolovať aktualizácie",
+      "updated": "{{name}} aktualizovaný",
+      "pulled": "Obraz pre {{name}} stiahnutý. Pre jeho použitie vytvorte kontajner znova.",
+      "failed": "Nepodarilo sa aktualizovať {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -147,6 +259,14 @@
       "showPanel": {
         "label": "Zobraziť panel kontajnerov v termináloch",
         "description": "Nechajte panel kontajnerov otvorený vedľa SSH terminálu tohto hostiteľa."
+      },
+      "enableStacks": {
+        "label": "Správa stackov",
+        "description": "Spravujte compose staky na tomto hostiteľovi. Správca to tiež musí povoliť."
+      },
+      "stacksRoot": {
+        "label": "Priečinok stackov",
+        "description": "Priečinok na hostiteľovi, kde má každý stack svoj vlastný priečinok s compose súborom."
       }
     },
     "user": {
@@ -169,6 +289,12 @@
         "label": "Zobraziť tlačidlo panela",
         "description": "Zobraziť malé tlačidlo na pravom okraji terminálu, ktoré otvorí panel kontajnerov."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Správa stackov",
+        "description": "Povoliť hostiteľom používať správu compose stackov. Ak je toto vypnuté, je skryté a blokované pre všetkých."
+      }
     }
   },
   "errors": {
@@ -181,7 +307,8 @@
   },
   "common": {
     "remove": "Odstrániť",
-    "cancel": "Zrušiť"
+    "cancel": "Zrušiť",
+    "save": "Uložiť"
   },
   "plugin": {
     "name": "Docker",

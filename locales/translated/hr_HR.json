@@ -115,7 +115,119 @@
     "notEnabledHint": "Uključite Docker u postavkama ovog hosta za upravljanje njegovim kontejnerima.",
     "shellChanged": "Shell \"{{requested}}\" nije dostupan. Umjesto toga koristi se \"{{shell}}\".",
     "failedToConnectWithError": "Neuspješno povezivanje: {{error}}",
-    "errorCode": "Kod greške: {{code}}"
+    "errorCode": "Kod greške: {{code}}",
+    "stacks": {
+      "title": "Stogovi",
+      "current": "Poslužitelji",
+      "manage": "Stogovi",
+      "new": "Novi stog",
+      "create": "Izradi stog",
+      "search": "Pretraži stogove...",
+      "loading": "Učitavanje stogova...",
+      "empty": "Još nema stogova. Stogovi se nalaze u {{root}} na ovom poslužitelju, svaki u zasebnoj mapi.",
+      "noMatches": "Nema podudarnih stogova.",
+      "external": "Izvan mape stogova",
+      "servicesRunning": "{{running}} od {{total}} pokrenuto",
+      "listFailed": "Nije moguće učitati stogove",
+      "loadFailed": "Nije moguće učitati stog",
+      "notFound": "Ovaj stog više ne postoji.",
+      "state": {
+        "running": "Pokrenuto",
+        "partial": "Djelomično",
+        "stopped": "Zaustavljeno",
+        "paused": "Pauzirano",
+        "not-deployed": "Nije raspoređeno"
+      },
+      "name": "Naziv",
+      "nameHint": "Izrađeno u {{root}}. Koristite mala slova, brojeve, - i _.",
+      "nameInvalid": "Koristite samo mala slova, brojeve, - i _.",
+      "envOptional": "Datoteka okoline (opcionalno)",
+      "created": "Stog {{name}} izrađen",
+      "createFailed": "Nije moguće izraditi stog",
+      "overview": "Pregled",
+      "compose": "Compose",
+      "env": "Okolina",
+      "deploy": "Rasporedi",
+      "redeploy": "Povuci i rasporedi",
+      "pull": "Povuci",
+      "down": "Zaustavi",
+      "destroy": "Uništi",
+      "deleteFiles": "Izbriši datoteke",
+      "keepFiles": "Zadrži datoteke",
+      "confirm": {
+        "down": "Zaustaviti i ukloniti poslužitelje od {{name}}? Volumeni se zadržavaju.",
+        "destroy": "Uništiti {{name}}? Time se uklanjaju njegovi poslužitelji, mreže i volumeni.",
+        "deleteFiles": "Također izbrisati mapu stoga {{name}} s poslužitelja?"
+      },
+      "done": {
+        "deploy": "{{name}} raspoređeno",
+        "redeploy": "{{name}} ažurirano",
+        "pull": "Slike preuzete za {{name}}",
+        "start": "Pokrenuto",
+        "stop": "Zaustavljeno",
+        "restart": "Ponovno pokrenuto",
+        "pause": "Pauzirano",
+        "unpause": "Nastavljeno",
+        "down": "{{name}} zaustavljeno",
+        "destroy": "{{name}} uništeno"
+      },
+      "actionFailed": "Akcija nije uspjela",
+      "saved": "Spremljeno",
+      "saveFailed": "Nije moguće spremiti",
+      "saveDeploy": "Spremi i rasporedi",
+      "validate": "Provjeri",
+      "validateFailed": "Nije moguće provjeriti datoteku",
+      "valid": "Compose datoteka je valjana.",
+      "invalid": "Compose datoteka nije valjana.",
+      "unsaved": "Nespremljene promjene",
+      "noServices": "Ovaj stog nema usluga.",
+      "notCreated": "Nije izrađeno",
+      "noRunning": "Nijedna usluga nije pokrenuta.",
+      "service": "Usluga",
+      "allServices": "Sve usluge",
+      "follow": "Prati",
+      "noLogs": "Još nema dnevnika.",
+      "logsFailed": "Nije moguće učitati dnevnik",
+      "envTable": "Tablica",
+      "envRaw": "Sirovi",
+      "addVariable": "Dodaj varijablu",
+      "noVariables": "Još nema varijabli.",
+      "variableName": "IME",
+      "variableValue": "vrijednost",
+      "reveal": "Prikaži ili sakrij vrijednost",
+      "events": "Događaji",
+      "eventsHint": "Radnje koje pokrenete i promjene usluga dok je ovaj stack otvoren.",
+      "noEvents": "Još ništa. Radnje i promjene usluga prikazuju se ovdje.",
+      "clearEvents": "Očisti",
+      "showOutput": "Prikaži izlaz",
+      "eventState": "{{service}}: {{from}} u {{to}}",
+      "eventRemoved": "{{service}} je uklonjen",
+      "eventFailed": "Neuspješno: {{action}}",
+      "event": {
+        "deploy": "Raspoređeno {{service}}",
+        "redeploy": "Preuzeto i raspoređeno {{service}}",
+        "pull": "Preuzete slike za {{service}}",
+        "start": "Pokrenuto {{service}}",
+        "stop": "Zaustavljeno {{service}}",
+        "restart": "Ponovno pokrenuto {{service}}",
+        "pause": "Pauzirano {{service}}",
+        "unpause": "Nastavljeno {{service}}",
+        "down": "Srušeno {{name}}",
+        "destroy": "Uništeno {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Ažuriranje",
+      "update": "Ažuriraj kontejner",
+      "check": "Provjeri ažuriranja",
+      "available": "Dostupno {{count}} ažuriranja. Provjeri ponovno",
+      "found": "{{count}} slika ima ažuriranja",
+      "none": "Sve slike su ažurne",
+      "checkFailed": "Nije moguće provjeriti ažuriranja",
+      "updated": "{{name}} ažurirano",
+      "pulled": "Slika preuzeta za {{name}}. Ponovno stvorite kontejner da biste je koristili.",
+      "failed": "Nije moguće ažurirati {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Prikaži ploču s kontejnerima u terminalima",
         "description": "Otvori ploču s kontejnerima uz SSH terminal ovog hosta."
+      },
+      "enableStacks": {
+        "label": "Upravljanje stackovima",
+        "description": "Upravljajte compose stackovima na ovom hostu. Administrator također mora to dopustiti."
+      },
+      "stacksRoot": {
+        "label": "Mapa stackova",
+        "description": "Mapa na hostu u kojoj svaki stack ima svoju mapu s compose datotekom."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Prikaži gumb za ploču",
         "description": "Prikaži mali gumb na desnom rubu terminala koji otvara ploču za kontejnere."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Upravljanje stackovima",
+        "description": "Dopusti hostovima korištenje upravljanja compose stackovima. Dok je ovo isključeno, skriveno je i blokirano za sve."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Ukloni",
-    "cancel": "Otkaži"
+    "cancel": "Otkaži",
+    "save": "Spremi"
   },
   "plugin": {
     "name": "Docker",

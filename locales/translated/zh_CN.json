@@ -113,7 +113,119 @@
     "notEnabledHint": "在此主机的设置中启用 Docker 以管理其容器。",
     "shellChanged": "Shell \"{{requested}}\" 不可用。改用 \"{{shell}}\"。",
     "failedToConnectWithError": "连接失败：{{error}}",
-    "errorCode": "错误代码：{{code}}"
+    "errorCode": "错误代码：{{code}}",
+    "stacks": {
+      "title": "堆栈",
+      "current": "容器",
+      "manage": "堆栈",
+      "new": "新建堆栈",
+      "create": "创建堆栈",
+      "search": "搜索堆栈...",
+      "loading": "正在加载堆栈...",
+      "empty": "暂无堆栈。堆栈位于此主机的 {{root}} 目录下，每个堆栈对应一个文件夹。",
+      "noMatches": "没有匹配的堆栈。",
+      "external": "位于堆栈文件夹之外",
+      "servicesRunning": "{{running}} / {{total}} 正在运行",
+      "listFailed": "无法加载堆栈",
+      "loadFailed": "无法加载该堆栈",
+      "notFound": "该堆栈已不存在。",
+      "state": {
+        "running": "运行中",
+        "partial": "部分运行",
+        "stopped": "已停止",
+        "paused": "已暂停",
+        "not-deployed": "未部署"
+      },
+      "name": "名称",
+      "nameHint": "创建于 {{root}}。请使用小写字母、数字、- 和 _。",
+      "nameInvalid": "仅允许使用小写字母、数字、- 和 _。",
+      "envOptional": "环境文件（可选）",
+      "created": "堆栈 {{name}} 已创建",
+      "createFailed": "无法创建堆栈",
+      "overview": "概览",
+      "compose": "Compose",
+      "env": "环境",
+      "deploy": "部署",
+      "redeploy": "拉取并部署",
+      "pull": "拉取",
+      "down": "停止并移除",
+      "destroy": "销毁",
+      "deleteFiles": "删除文件",
+      "keepFiles": "保留文件",
+      "confirm": {
+        "down": "是否停止并移除 {{name}} 的容器？卷将被保留。",
+        "destroy": "是否销毁 {{name}}？这将移除其容器、网络和卷。",
+        "deleteFiles": "是否同时从主机上删除 {{name}} 的堆栈文件夹？"
+      },
+      "done": {
+        "deploy": "{{name}} 已部署",
+        "redeploy": "{{name}} 已更新",
+        "pull": "{{name}} 的镜像已拉取",
+        "start": "已启动",
+        "stop": "已停止",
+        "restart": "已重启",
+        "pause": "已暂停",
+        "unpause": "已恢复",
+        "down": "{{name}} 已停止并移除",
+        "destroy": "{{name}} 已销毁"
+      },
+      "actionFailed": "操作失败",
+      "saved": "已保存",
+      "saveFailed": "无法保存",
+      "saveDeploy": "保存并部署",
+      "validate": "检查",
+      "validateFailed": "无法检查文件",
+      "valid": "Compose 文件有效。",
+      "invalid": "Compose 文件无效。",
+      "unsaved": "未保存的更改",
+      "noServices": "此堆栈没有服务。",
+      "notCreated": "未创建",
+      "noRunning": "没有服务正在运行。",
+      "service": "服务",
+      "allServices": "所有服务",
+      "follow": "跟随",
+      "noLogs": "暂无日志。",
+      "logsFailed": "无法加载日志",
+      "envTable": "表格",
+      "envRaw": "原始",
+      "addVariable": "添加变量",
+      "noVariables": "暂无变量。",
+      "variableName": "名称",
+      "variableValue": "值",
+      "reveal": "显示或隐藏值",
+      "events": "事件",
+      "eventsHint": "在此堆栈打开期间，您执行的操作和服务的变更。",
+      "noEvents": "暂无内容。操作和服务变更将显示在此处。",
+      "clearEvents": "清除",
+      "showOutput": "显示输出",
+      "eventState": "{{service}}：从 {{from}} 到 {{to}}",
+      "eventRemoved": "{{service}} 已移除",
+      "eventFailed": "失败：{{action}}",
+      "event": {
+        "deploy": "已部署 {{service}}",
+        "redeploy": "已拉取并部署 {{service}}",
+        "pull": "已为 {{service}} 拉取镜像",
+        "start": "已启动 {{service}}",
+        "stop": "已停止 {{service}}",
+        "restart": "已重启 {{service}}",
+        "pause": "已暂停 {{service}}",
+        "unpause": "已恢复 {{service}}",
+        "down": "已关闭 {{name}}",
+        "destroy": "已销毁 {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "更新",
+      "update": "更新容器",
+      "check": "检查更新",
+      "available": "有 {{count}} 个更新可用。再次检查",
+      "found": "{{count}} 个镜像有更新",
+      "none": "所有镜像均为最新版本",
+      "checkFailed": "无法检查更新",
+      "updated": "{{name}} 已更新",
+      "pulled": "已为 {{name}} 拉取镜像。请重建容器以使用新镜像。",
+      "failed": "无法更新 {{name}}：{{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -144,6 +256,14 @@
       "showPanel": {
         "label": "在终端中显示容器面板",
         "description": "让容器面板在此主机的 SSH 终端旁打开。"
+      },
+      "enableStacks": {
+        "label": "堆栈管理",
+        "description": "在此主机上管理 Compose 堆栈。管理员也必须允许此功能。"
+      },
+      "stacksRoot": {
+        "label": "堆栈文件夹",
+        "description": "主机上存放堆栈的文件夹，每个堆栈拥有包含 Compose 文件的独立文件夹。"
       }
     },
     "user": {
@@ -166,6 +286,12 @@
         "label": "显示面板按钮",
         "description": "在终端右侧边缘显示一个小按钮，点击可打开容器面板。"
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "堆栈管理",
+        "description": "允许主机使用 Compose 堆栈管理功能。关闭此选项后，该功能将对所有人隐藏并禁用。"
+      }
     }
   },
   "errors": {
@@ -178,7 +304,8 @@
   },
   "common": {
     "remove": "移除",
-    "cancel": "取消"
+    "cancel": "取消",
+    "save": "保存"
   },
   "plugin": {
     "name": "Docker",

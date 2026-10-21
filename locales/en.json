@@ -114,7 +114,119 @@
     "notEnabledHint": "Turn on Docker in this host's settings to manage its containers.",
     "shellChanged": "Shell \"{{requested}}\" is not available. Using \"{{shell}}\" instead.",
     "failedToConnectWithError": "Failed to connect: {{error}}",
-    "errorCode": "Error code: {{code}}"
+    "errorCode": "Error code: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Containers",
+      "manage": "Stacks",
+      "new": "New stack",
+      "create": "Create stack",
+      "search": "Search stacks...",
+      "loading": "Loading stacks...",
+      "empty": "No stacks yet. Stacks live in {{root}} on this host, one folder each.",
+      "noMatches": "No stacks match.",
+      "external": "Outside the stacks folder",
+      "servicesRunning": "{{running}} of {{total}} running",
+      "listFailed": "Could not load stacks",
+      "loadFailed": "Could not load the stack",
+      "notFound": "This stack no longer exists.",
+      "state": {
+        "running": "Running",
+        "partial": "Partial",
+        "stopped": "Stopped",
+        "paused": "Paused",
+        "not-deployed": "Not deployed"
+      },
+      "name": "Name",
+      "nameHint": "Created in {{root}}. Use lowercase letters, numbers, - and _.",
+      "nameInvalid": "Use lowercase letters, numbers, - and _ only.",
+      "envOptional": "Environment file (optional)",
+      "created": "Stack {{name}} created",
+      "createFailed": "Could not create the stack",
+      "overview": "Overview",
+      "compose": "Compose",
+      "env": "Environment",
+      "deploy": "Deploy",
+      "redeploy": "Pull and deploy",
+      "pull": "Pull",
+      "down": "Take down",
+      "destroy": "Destroy",
+      "deleteFiles": "Delete files",
+      "keepFiles": "Keep files",
+      "confirm": {
+        "down": "Stop and remove the containers of {{name}}? Volumes are kept.",
+        "destroy": "Destroy {{name}}? This removes its containers, networks and volumes.",
+        "deleteFiles": "Also delete the stack folder of {{name}} from the host?"
+      },
+      "done": {
+        "deploy": "{{name}} deployed",
+        "redeploy": "{{name}} updated",
+        "pull": "Images pulled for {{name}}",
+        "start": "Started",
+        "stop": "Stopped",
+        "restart": "Restarted",
+        "pause": "Paused",
+        "unpause": "Resumed",
+        "down": "{{name}} taken down",
+        "destroy": "{{name}} destroyed"
+      },
+      "actionFailed": "The action failed",
+      "saved": "Saved",
+      "saveFailed": "Could not save",
+      "saveDeploy": "Save and deploy",
+      "validate": "Check",
+      "validateFailed": "Could not check the file",
+      "valid": "The compose file is valid.",
+      "invalid": "The compose file is not valid.",
+      "unsaved": "Unsaved changes",
+      "noServices": "This stack has no services.",
+      "notCreated": "Not created",
+      "noRunning": "No service is running.",
+      "service": "Service",
+      "allServices": "All services",
+      "follow": "Follow",
+      "noLogs": "No logs yet.",
+      "logsFailed": "Could not load logs",
+      "envTable": "Table",
+      "envRaw": "Raw",
+      "addVariable": "Add variable",
+      "noVariables": "No variables yet.",
+      "variableName": "NAME",
+      "variableValue": "value",
+      "reveal": "Show or hide value",
+      "events": "Events",
+      "eventsHint": "Actions you run and changes to services while this stack is open.",
+      "noEvents": "Nothing yet. Actions and service changes show up here.",
+      "clearEvents": "Clear",
+      "showOutput": "Show output",
+      "eventState": "{{service}}: {{from}} to {{to}}",
+      "eventRemoved": "{{service}} was removed",
+      "eventFailed": "Failed: {{action}}",
+      "event": {
+        "deploy": "Deployed {{service}}",
+        "redeploy": "Pulled and deployed {{service}}",
+        "pull": "Pulled images for {{service}}",
+        "start": "Started {{service}}",
+        "stop": "Stopped {{service}}",
+        "restart": "Restarted {{service}}",
+        "pause": "Paused {{service}}",
+        "unpause": "Resumed {{service}}",
+        "down": "Took down {{name}}",
+        "destroy": "Destroyed {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Update",
+      "update": "Update container",
+      "check": "Check for updates",
+      "available": "{{count}} updates available. Check again",
+      "found": "{{count}} images have updates",
+      "none": "All images are up to date",
+      "checkFailed": "Could not check for updates",
+      "updated": "{{name}} updated",
+      "pulled": "Image pulled for {{name}}. Recreate the container to use it.",
+      "failed": "Could not update {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Show containers panel in terminals",
         "description": "Let the containers panel open beside this host's SSH terminal."
+      },
+      "enableStacks": {
+        "label": "Stack management",
+        "description": "Manage compose stacks on this host. An administrator also has to allow it."
+      },
+      "stacksRoot": {
+        "label": "Stacks folder",
+        "description": "The folder on the host where each stack has its own folder with a compose file."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Show the panel button",
         "description": "Show a small button on the right edge of a terminal that opens the containers panel."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stack management",
+        "description": "Let hosts use compose stack management. While this is off, it is hidden and blocked for everyone."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Remove",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "save": "Save"
   },
   "plugin": {
     "name": "Docker",

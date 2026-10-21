@@ -114,7 +114,119 @@
     "notEnabledHint": "Ενεργοποιήστε το Docker στις ρυθμίσεις αυτού του host για να διαχειριστείτε τα δοχεία του.",
     "shellChanged": "Το shell \"{{requested}}\" δεν είναι διαθέσιμο. Χρήση του \"{{shell}}\" αντί αυτού.",
     "failedToConnectWithError": "Αποτυχία σύνδεσης: {{error}}",
-    "errorCode": "Κωδικός σφάλματος: {{code}}"
+    "errorCode": "Κωδικός σφάλματος: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Containers",
+      "manage": "Stacks",
+      "new": "Νέο stack",
+      "create": "Δημιουργία stack",
+      "search": "Αναζήτηση stacks...",
+      "loading": "Φόρτωση stacks...",
+      "empty": "Δεν υπάρχουν stacks ακόμα. Τα stacks βρίσκονται στο {{root}} σε αυτόν τον host, ένα φάκελο το καθένα.",
+      "noMatches": "Δεν βρέθηκαν stacks.",
+      "external": "Εξωτερικά του φακέλου stacks",
+      "servicesRunning": "{{running}} από {{total}} εκτελούνται",
+      "listFailed": "Αδυναμία φόρτωσης stacks",
+      "loadFailed": "Αδυναμία φόρτωσης του stack",
+      "notFound": "Αυτό το stack δεν υπάρχει πλέον.",
+      "state": {
+        "running": "Εν ενεργεία",
+        "partial": "Μερικά",
+        "stopped": "Σταματημένο",
+        "paused": "Σε παύση",
+        "not-deployed": "Μη αναπτυγμένο"
+      },
+      "name": "Όνομα",
+      "nameHint": "Δημιουργήθηκε στο {{root}}. Χρησιμοποιήστε πεζά γράμματα, αριθμούς, - και _.",
+      "nameInvalid": "Χρησιμοποιήστε μόνο πεζά γράμματα, αριθμούς, - και _.",
+      "envOptional": "Αρχείο περιβάλλοντος (προαιρετικό)",
+      "created": "Το stack {{name}} δημιουργήθηκε",
+      "createFailed": "Αδυναμία δημιουργίας του stack",
+      "overview": "Επισκόπηση",
+      "compose": "Compose",
+      "env": "Περιβάλλον",
+      "deploy": "Ανάπτυξη",
+      "redeploy": "Λήψη και ανάπτυξη",
+      "pull": "Λήψη",
+      "down": "Κατεδάφιση",
+      "destroy": "Καταστροφή",
+      "deleteFiles": "Διαγραφή αρχείων",
+      "keepFiles": "Διατήρηση αρχείων",
+      "confirm": {
+        "down": "Στάση και αφαίρεση των containers του {{name}}; Τα volumes διατηρούνται.",
+        "destroy": "Καταστροφή του {{name}}; Αυτό αφαιρεί τα containers, τα δίκτυα και τα volumes του.",
+        "deleteFiles": "Να διαγραφεί επίσης ο φάκελος του stack {{name}} από τον host;"
+      },
+      "done": {
+        "deploy": "Το {{name}} αναπτύχθηκε",
+        "redeploy": "Το {{name}} ενημερώθηκε",
+        "pull": "Εικόνες λήφθηκαν για το {{name}}",
+        "start": "Εκκινήθηκε",
+        "stop": "Σταματήθηκε",
+        "restart": "Επανεκκινήθηκε",
+        "pause": "Σε παύση",
+        "unpause": "Συνεχίστηκε",
+        "down": "Το {{name}} κατεδαφίστηκε",
+        "destroy": "Το {{name}} καταστράφηκε"
+      },
+      "actionFailed": "Η ενέργεια απέτυχε",
+      "saved": "Αποθηκεύτηκε",
+      "saveFailed": "Αδυναμία αποθήκευσης",
+      "saveDeploy": "Αποθήκευση και ανάπτυξη",
+      "validate": "Έλεγχος",
+      "validateFailed": "Αδυναμία ελέγχου του αρχείου",
+      "valid": "Το αρχείο compose είναι έγκυρο.",
+      "invalid": "Το αρχείο compose δεν είναι έγκυρο.",
+      "unsaved": "Μη αποθηκευμένες αλλαγές",
+      "noServices": "Αυτό το stack δεν έχει υπηρεσίες.",
+      "notCreated": "Μη δημιουργημένο",
+      "noRunning": "Καμία υπηρεσία δεν εκτελείται.",
+      "service": "Υπηρεσία",
+      "allServices": "Όλες οι υπηρεσίες",
+      "follow": "Ακολούθηση",
+      "noLogs": "Δεν υπάρχουν αρχεία καταγραφής ακόμη.",
+      "logsFailed": "Αδυναμία φόρτωσης αρχείων καταγραφής",
+      "envTable": "Πίνακας",
+      "envRaw": "Μη επεξεργασμένο",
+      "addVariable": "Προσθήκη μεταβλητής",
+      "noVariables": "Δεν υπάρχουν μεταβλητές ακόμη.",
+      "variableName": "ΟΝΟΜΑ",
+      "variableValue": "τιμή",
+      "reveal": "Εμφάνιση ή απόκρυψη τιμής",
+      "events": "Γεγονότα",
+      "eventsHint": "Ενέργειες που εκτελείτε και αλλαγές στις υπηρεσίες ενώ αυτό το stack είναι ανοιχτό.",
+      "noEvents": "Τίποτα ακόμη. Οι ενέργειες και οι αλλαγές στις υπηρεσίες εμφανίζονται εδώ.",
+      "clearEvents": "Εκκαθάριση",
+      "showOutput": "Εμφάνιση αποτελέσματος",
+      "eventState": "{{service}}: από {{from}} σε {{to}}",
+      "eventRemoved": "Η {{service}} αφαιρέθηκε",
+      "eventFailed": "Αποτυχία: {{action}}",
+      "event": {
+        "deploy": "Επιδείχθηκε η {{service}}",
+        "redeploy": "Λήψη και επίδειξη της {{service}}",
+        "pull": "Λήψη εικόνων για την {{service}}",
+        "start": "Έναρξη της {{service}}",
+        "stop": "Διακοπή της {{service}}",
+        "restart": "Επανεκκίνηση της {{service}}",
+        "pause": "Παύση της {{service}}",
+        "unpause": "Συνέχεια της {{service}}",
+        "down": "Τερματισμός του {{name}}",
+        "destroy": "Καταστροφή του {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Ενημέρωση",
+      "update": "Ενημέρωση container",
+      "check": "Έλεγχος για ενημερώσεις",
+      "available": "{{count}} ενημερώσεις διαθέσιμες. Έλεγχος ξανά",
+      "found": "{{count}} εικόνες έχουν ενημερώσεις",
+      "none": "Όλες οι εικόνες είναι ενημερωμένες",
+      "checkFailed": "Αδυναμία ελέγχου για ενημερώσεις",
+      "updated": "Η {{name}} ενημερώθηκε",
+      "pulled": "Λήψη εικόνας για το {{name}}. Δημιουργήστε ξανά το container για να τη χρησιμοποιήσετε.",
+      "failed": "Αδυναμία ενημέρωσης του {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Εμφάνιση πίνακα containers στα terminals",
         "description": "Αφήστε τον πίνακα containers ανοιχτό δίπλα στο SSH terminal αυτού του host."
+      },
+      "enableStacks": {
+        "label": "Διαχείριση stacks",
+        "description": "Διαχείριση compose stacks σε αυτόν τον host. Ένας διαχειριστής πρέπει επίσης να το επιτρέψει."
+      },
+      "stacksRoot": {
+        "label": "Φάκελος stacks",
+        "description": "Ο φάκελος στον host όπου κάθε stack έχει τον δικό του φάκελο με ένα αρχείο compose."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Εμφάνιση κουμπιού πάνελ",
         "description": "Εμφάνιση μικρού κουμπιού στο δεξί άκρο ενός τερματικού που ανοίγει το πάνελ δοχείων."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Διαχείριση stacks",
+        "description": "Επιτρέψτε στους hosts να χρησιμοποιούν τη διαχείριση compose stacks. Όταν αυτό είναι απενεργοποιημένο, κρύβεται και μπλοκάρεται για όλους."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Αφαίρεση",
-    "cancel": "Ακύρωση"
+    "cancel": "Ακύρωση",
+    "save": "Αποθήκευση"
   },
   "plugin": {
     "name": "Docker",

@@ -115,7 +115,119 @@
     "notEnabledHint": "הפעל את Docker בהגדרות המארח הזה כדי לנהל את המיכלים שלו.",
     "shellChanged": "המעטפת \"{{requested}}\" אינה זמינה. משתמשים ב-\"{{shell}}\" במקום.",
     "failedToConnectWithError": "נכשל בחיבור: {{error}}",
-    "errorCode": "קוד שגיאה: {{code}}"
+    "errorCode": "קוד שגיאה: {{code}}",
+    "stacks": {
+      "title": "סטקים",
+      "current": "מיכלים",
+      "manage": "סטקים",
+      "new": "סטק חדש",
+      "create": "צור סטק",
+      "search": "חיפוש סטקים...",
+      "loading": "טוען סטקים...",
+      "empty": "אין סטקים עדיין. סטקים נמצאים ב-{{root}} במארח זה, תיקיה לכל אחד.",
+      "noMatches": "אין סטקים תואמים.",
+      "external": "מחוץ לתיקיית הסטקים",
+      "servicesRunning": "{{running}} מתוך {{total}} פעילים",
+      "listFailed": "לא ניתן לטעון את הסטקים",
+      "loadFailed": "לא ניתן לטעון את הסטק",
+      "notFound": "סטק זה אינו קיים עוד.",
+      "state": {
+        "running": "פעיל",
+        "partial": "חלקי",
+        "stopped": "עצור",
+        "paused": "מושהה",
+        "not-deployed": "לא פרוס"
+      },
+      "name": "שם",
+      "nameHint": "נוצר ב-{{root}}. השתמש באותיות קטנות, מספרים, - ו-_.",
+      "nameInvalid": "השתמש רק באותיות קטנות, מספרים, - ו-_.",
+      "envOptional": "קובץ סביבה (אופציונלי)",
+      "created": "הסטק {{name}} נוצר",
+      "createFailed": "לא ניתן ליצור את הסטק",
+      "overview": "סקירה כללית",
+      "compose": "Compose",
+      "env": "סביבה",
+      "deploy": "פרוס",
+      "redeploy": "משוך ופרוס",
+      "pull": "משוך",
+      "down": "הורד",
+      "destroy": "השמד",
+      "deleteFiles": "מחק קבצים",
+      "keepFiles": "שמור קבצים",
+      "confirm": {
+        "down": "לעצור ולהסיר את המיכלים של {{name}}? כרכים נשמרים.",
+        "destroy": "להשמיד את {{name}}? פעולה זו תסיר את המיכלים, הרשתות והכרכים שלו.",
+        "deleteFiles": "למחוק גם את תיקיית הסטק של {{name}} מהמארח?"
+      },
+      "done": {
+        "deploy": "{{name}} פרוס",
+        "redeploy": "{{name}} עודכן",
+        "pull": "הדגמים נמשכו עבור {{name}}",
+        "start": "הופעל",
+        "stop": "הופסק",
+        "restart": "הופעל מחדש",
+        "pause": "מושהה",
+        "unpause": "התחדש",
+        "down": "{{name}} הורד",
+        "destroy": "{{name}} הושמד"
+      },
+      "actionFailed": "הפעולה נכשלה",
+      "saved": "נשמר",
+      "saveFailed": "לא ניתן לשמור",
+      "saveDeploy": "שמור ופרוס",
+      "validate": "בדוק",
+      "validateFailed": "לא ניתן לבדוק את הקובץ",
+      "valid": "קובץ ה-Compose תקין.",
+      "invalid": "קובץ ה-Compose אינו תקין.",
+      "unsaved": "שינויים שלא נשמרו",
+      "noServices": "סטק זה אינו מכיל שירותים.",
+      "notCreated": "לא נוצר",
+      "noRunning": "אף שירות אינו פעיל.",
+      "service": "שירות",
+      "allServices": "כל השירותים",
+      "follow": "מעקב",
+      "noLogs": "אין יומנים עדיין.",
+      "logsFailed": "לא ניתן לטעון יומנים",
+      "envTable": "טבלה",
+      "envRaw": "גולמי",
+      "addVariable": "הוסף משתנה",
+      "noVariables": "אין משתנים עדיין.",
+      "variableName": "שם",
+      "variableValue": "ערך",
+      "reveal": "הצג או הסתר ערך",
+      "events": "אירועים",
+      "eventsHint": "פעולות שביצעת ושינויים בשירותים בזמן שהסטאק פתוח.",
+      "noEvents": "אין עדיין. פעולות ושינויים בשירותים יופיעו כאן.",
+      "clearEvents": "נקה",
+      "showOutput": "הצג פלט",
+      "eventState": "{{service}}: מ-{{from}} ל-{{to}}",
+      "eventRemoved": "{{service}} הוסר",
+      "eventFailed": "נכשל: {{action}}",
+      "event": {
+        "deploy": "הוצא לפועל {{service}}",
+        "redeploy": "משך והוצא לפועל {{service}}",
+        "pull": "משך תמונות עבור {{service}}",
+        "start": "התחיל {{service}}",
+        "stop": "עצר {{service}}",
+        "restart": "הפעיל מחדש {{service}}",
+        "pause": "השהה {{service}}",
+        "unpause": "המשך {{service}}",
+        "down": "הורד {{name}}",
+        "destroy": "הרס {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "עדכון",
+      "update": "עדכן מיכל",
+      "check": "בדוק עדכונים",
+      "available": "זמינים {{count}} עדכונים. בדוק שוב",
+      "found": "ל-{{count}} תמונות יש עדכונים",
+      "none": "כל התמונות מעודכנות",
+      "checkFailed": "לא ניתן לבדוק עדכונים",
+      "updated": "{{name}} עודכן",
+      "pulled": "תמונה נמשכה עבור {{name}}. צור מחדש את המיכל כדי להשתמש בה.",
+      "failed": "לא ניתן לעדכן את {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "הצג את לוח המיכלים בטרמינלים",
         "description": "אפשר לפתוח את לוח המיכלים לצד הטרמינל של SSH עבור מארח זה."
+      },
+      "enableStacks": {
+        "label": "ניהול סטאקים",
+        "description": "נהל סטאקים של Compose במארח זה. מנהל מערכת חייב גם לאפשר זאת."
+      },
+      "stacksRoot": {
+        "label": "תיקיית סטאקים",
+        "description": "התיקייה במארח שבה לכל סטאק יש תיקייה משלו עם קובץ Compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "הצג את כפתור הלוח",
         "description": "הצג כפתור קטן בקצה הימני של הטרמינל שפותח את לוח המיכלים."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "ניהול סטאקים",
+        "description": "אפשר למארחים להשתמש בניהול סטאקים של Compose. כשזה כבוי, זה מוסתר וחסום לכולם."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "הסר",
-    "cancel": "ביטול"
+    "cancel": "ביטול",
+    "save": "שמור"
   },
   "plugin": {
     "name": "Docker",

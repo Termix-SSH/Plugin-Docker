@@ -118,7 +118,119 @@
     "notEnabledHint": "قم بتشغيل Docker في إعدادات هذا المضيف لإدارة حاوياته.",
     "shellChanged": "Shell \"{{requested}}\" غير متاح. سيتم استخدام \"{{shell}}\" بدلاً منه.",
     "failedToConnectWithError": "فشل في الاتصال: {{error}}",
-    "errorCode": "رمز الخطأ: {{code}}"
+    "errorCode": "رمز الخطأ: {{code}}",
+    "stacks": {
+      "title": "المكدسات",
+      "current": "الحاويات",
+      "manage": "المكدسات",
+      "new": "مكدس جديد",
+      "create": "إنشاء مكدس",
+      "search": "البحث في المكدسات...",
+      "loading": "جارٍ تحميل المكدسات...",
+      "empty": "لا توجد مكدسات بعد. توجد المكدسات في {{root}} على هذا المضيف، مكدس واحد في كل مجلد.",
+      "noMatches": "لا توجد مكدسات مطابقة.",
+      "external": "خارج مجلد المكدسات",
+      "servicesRunning": "{{running}} من أصل {{total}} قيد التشغيل",
+      "listFailed": "تعذر تحميل المكدسات",
+      "loadFailed": "تعذر تحميل المكدس",
+      "notFound": "هذا المكدس لم يعد موجوداً.",
+      "state": {
+        "running": "قيد التشغيل",
+        "partial": "جزئي",
+        "stopped": "متوقف",
+        "paused": "متوقف مؤقتاً",
+        "not-deployed": "غير مُنفَّذ"
+      },
+      "name": "الاسم",
+      "nameHint": "تم إنشاؤه في {{root}}. استخدم الأحرف الصغيرة والأرقام و - و _.",
+      "nameInvalid": "استخدم الأحرف الصغيرة والأرقام و - و _ فقط.",
+      "envOptional": "ملف البيئة (اختياري)",
+      "created": "تم إنشاء المكدس {{name}}",
+      "createFailed": "تعذر إنشاء المكدس",
+      "overview": "نظرة عامة",
+      "compose": "Compose",
+      "env": "البيئة",
+      "deploy": "نشر",
+      "redeploy": "سحب ونشر",
+      "pull": "سحب",
+      "down": "إيقاف",
+      "destroy": "تدمير",
+      "deleteFiles": "حذف الملفات",
+      "keepFiles": "إبقاء الملفات",
+      "confirm": {
+        "down": "هل تريد إيقاف وإزالة حاويات {{name}}؟ سيتم الإبقاء على الأحجام.",
+        "destroy": "هل تريد تدمير {{name}}؟ سيؤدي ذلك إلى إزالة حاوياته وشبكاته وأحجامه.",
+        "deleteFiles": "هل تريد أيضاً حذف مجلد المكدس الخاص بـ {{name}} من المضيف؟"
+      },
+      "done": {
+        "deploy": "تم نشر {{name}}",
+        "redeploy": "تم تحديث {{name}}",
+        "pull": "تم سحب الصور لـ {{name}}",
+        "start": "تم البدء",
+        "stop": "تم الإيقاف",
+        "restart": "تم إعادة التشغيل",
+        "pause": "تم الإيقاف المؤقت",
+        "unpause": "تم الاستئناف",
+        "down": "تم إيقاف {{name}}",
+        "destroy": "تم تدمير {{name}}"
+      },
+      "actionFailed": "فشلت العملية",
+      "saved": "تم الحفظ",
+      "saveFailed": "تعذر الحفظ",
+      "saveDeploy": "حفظ ونشر",
+      "validate": "فحص",
+      "validateFailed": "تعذر فحص الملف",
+      "valid": "ملف Compose صالح.",
+      "invalid": "ملف Compose غير صالح.",
+      "unsaved": "تغييرات غير محفوظة",
+      "noServices": "لا يحتوي هذا المكدس على أي خدمات.",
+      "notCreated": "لم يتم إنشاؤه",
+      "noRunning": "لا توجد خدمة قيد التشغيل.",
+      "service": "خدمة",
+      "allServices": "جميع الخدمات",
+      "follow": "متابعة",
+      "noLogs": "لا توجد سجلات بعد.",
+      "logsFailed": "تعذر تحميل السجلات",
+      "envTable": "جدول",
+      "envRaw": "خام",
+      "addVariable": "إضافة متغير",
+      "noVariables": "لا توجد متغيرات بعد.",
+      "variableName": "الاسم",
+      "variableValue": "القيمة",
+      "reveal": "إظهار أو إخفاء القيمة",
+      "events": "الأحداث",
+      "eventsHint": "الإجراءات التي تقوم بتشغيلها والتغييرات التي تطرأ على الخدمات أثناء بقاء هذه المكدسة مفتوحة.",
+      "noEvents": "لا شيء بعد. ستظهر هنا الإجراءات والتغييرات التي تطرأ على الخدمات.",
+      "clearEvents": "مسح",
+      "showOutput": "إظهار المخرجات",
+      "eventState": "{{service}}: من {{from}} إلى {{to}}",
+      "eventRemoved": "تمت إزالة {{service}}",
+      "eventFailed": "فشل: {{action}}",
+      "event": {
+        "deploy": "تم نشر {{service}}",
+        "redeploy": "تم سحب ونشر {{service}}",
+        "pull": "تم سحب الصور لـ {{service}}",
+        "start": "تم تشغيل {{service}}",
+        "stop": "تم إيقاف {{service}}",
+        "restart": "تم إعادة تشغيل {{service}}",
+        "pause": "تم إيقاف {{service}} مؤقتاً",
+        "unpause": "تم استئناف {{service}}",
+        "down": "تم إيقاف {{name}}",
+        "destroy": "تم تدمير {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "تحديث",
+      "update": "تحديث الحاوية",
+      "check": "التحقق من وجود تحديثات",
+      "available": "هناك {{count}} تحديثات متاحة. تحقق مرة أخرى",
+      "found": "هناك تحديثات لـ {{count}} صور",
+      "none": "جميع الصور محدثة",
+      "checkFailed": "تعذر التحقق من وجود تحديثات",
+      "updated": "تم تحديث {{name}}",
+      "pulled": "تم سحب الصورة لـ {{name}}. أعد إنشاء الحاوية لاستخدامها.",
+      "failed": "تعذر تحديث {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -149,6 +261,14 @@
       "showPanel": {
         "label": "إظهار لوحة الحاويات في الطرفيات",
         "description": "اترك لوحة الحاويات مفتوحة بجانب طرفية SSH الخاصة بهذا المضيف."
+      },
+      "enableStacks": {
+        "label": "إدارة المكدسات",
+        "description": "إدارة مكدسات Compose على هذا المضيف. يجب أيضاً أن يسمح المسؤول بذلك."
+      },
+      "stacksRoot": {
+        "label": "مجلد المكدسات",
+        "description": "المجلد على المضيف حيث يحتوي كل مكدس على مجلد خاص به مع ملف Compose."
       }
     },
     "user": {
@@ -171,6 +291,12 @@
         "label": "إظهار زر اللوحة",
         "description": "إظهار زر صغير على الحافة اليمنى للمحطة الافتراضية يفتح لوحة الحاويات."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "إدارة المكدسات",
+        "description": "السماح للمضيفين باستخدام إدارة مكدسات Compose. عندما يكون هذا معطلاً، يكون مخفياً وممنوعاً للجميع."
+      }
     }
   },
   "errors": {
@@ -183,7 +309,8 @@
   },
   "common": {
     "remove": "إزالة",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "save": "حفظ"
   },
   "plugin": {
     "name": "Docker",

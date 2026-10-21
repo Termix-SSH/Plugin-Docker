@@ -113,7 +113,119 @@
     "notEnabledHint": "Bật Docker trong cài đặt của host này để quản lý các container của nó.",
     "shellChanged": "Shell \"{{requested}}\" không khả dụng. Đang sử dụng \"{{shell}}\" thay thế.",
     "failedToConnectWithError": "Không thể kết nối: {{error}}",
-    "errorCode": "Mã lỗi: {{code}}"
+    "errorCode": "Mã lỗi: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Containers",
+      "manage": "Stacks",
+      "new": "Stack mới",
+      "create": "Tạo stack",
+      "search": "Tìm kiếm stacks...",
+      "loading": "Đang tải stacks...",
+      "empty": "Chưa có stack nào. Stacks nằm trong {{root}} trên host này, mỗi stack một thư mục.",
+      "noMatches": "Không tìm thấy stack phù hợp.",
+      "external": "Bên ngoài thư mục stacks",
+      "servicesRunning": "{{running}}/{{total}} đang chạy",
+      "listFailed": "Không thể tải danh sách stacks",
+      "loadFailed": "Không thể tải stack",
+      "notFound": "Stack này không còn tồn tại.",
+      "state": {
+        "running": "Đang chạy",
+        "partial": "Một phần",
+        "stopped": "Đã dừng",
+        "paused": "Đã tạm dừng",
+        "not-deployed": "Chưa triển khai"
+      },
+      "name": "Tên",
+      "nameHint": "Được tạo trong {{root}}. Sử dụng chữ thường, số, - và _.",
+      "nameInvalid": "Chỉ sử dụng chữ thường, số, - và _.",
+      "envOptional": "Tệp môi trường (tùy chọn)",
+      "created": "Đã tạo stack {{name}}",
+      "createFailed": "Không thể tạo stack",
+      "overview": "Tổng quan",
+      "compose": "Compose",
+      "env": "Môi trường",
+      "deploy": "Triển khai",
+      "redeploy": "Kéo và triển khai",
+      "pull": "Kéo",
+      "down": "Dừng và xóa",
+      "destroy": "Hủy bỏ",
+      "deleteFiles": "Xóa tệp",
+      "keepFiles": "Giữ lại tệp",
+      "confirm": {
+        "down": "Dừng và xóa các container của {{name}}? Dữ liệu (volumes) sẽ được giữ lại.",
+        "destroy": "Hủy bỏ {{name}}? Thao tác này sẽ xóa các container, mạng và volumes của nó.",
+        "deleteFiles": "Đồng thời xóa thư mục stack của {{name}} khỏi host?"
+      },
+      "done": {
+        "deploy": "Đã triển khai {{name}}",
+        "redeploy": "Đã cập nhật {{name}}",
+        "pull": "Đã kéo hình ảnh cho {{name}}",
+        "start": "Đã khởi động",
+        "stop": "Đã dừng",
+        "restart": "Đã khởi động lại",
+        "pause": "Đã tạm dừng",
+        "unpause": "Đã tiếp tục",
+        "down": "Đã dừng và xóa {{name}}",
+        "destroy": "Đã hủy bỏ {{name}}"
+      },
+      "actionFailed": "Thao tác thất bại",
+      "saved": "Đã lưu",
+      "saveFailed": "Không thể lưu",
+      "saveDeploy": "Lưu và triển khai",
+      "validate": "Kiểm tra",
+      "validateFailed": "Không thể kiểm tra tệp",
+      "valid": "Tệp compose hợp lệ.",
+      "invalid": "Tệp compose không hợp lệ.",
+      "unsaved": "Thay đổi chưa lưu",
+      "noServices": "Stack này không có dịch vụ nào.",
+      "notCreated": "Chưa được tạo",
+      "noRunning": "Không có dịch vụ nào đang chạy.",
+      "service": "Dịch vụ",
+      "allServices": "Tất cả dịch vụ",
+      "follow": "Theo dõi",
+      "noLogs": "Chưa có nhật ký.",
+      "logsFailed": "Không thể tải nhật ký",
+      "envTable": "Bảng",
+      "envRaw": "Gốc",
+      "addVariable": "Thêm biến",
+      "noVariables": "Chưa có biến.",
+      "variableName": "TÊN",
+      "variableValue": "giá trị",
+      "reveal": "Hiển thị hoặc ẩn giá trị",
+      "events": "Sự kiện",
+      "eventsHint": "Các hành động bạn thực hiện và những thay đổi đối với dịch vụ khi ngăn xếp này đang mở.",
+      "noEvents": "Chưa có gì. Các hành động và thay đổi dịch vụ sẽ hiển thị ở đây.",
+      "clearEvents": "Xóa",
+      "showOutput": "Hiển thị kết quả",
+      "eventState": "{{service}}: từ {{from}} sang {{to}}",
+      "eventRemoved": "{{service}} đã bị xóa",
+      "eventFailed": "Thất bại: {{action}}",
+      "event": {
+        "deploy": "Đã triển khai {{service}}",
+        "redeploy": "Đã kéo và triển khai {{service}}",
+        "pull": "Đã kéo hình ảnh cho {{service}}",
+        "start": "Đã khởi động {{service}}",
+        "stop": "Đã dừng {{service}}",
+        "restart": "Đã khởi động lại {{service}}",
+        "pause": "Đã tạm dừng {{service}}",
+        "unpause": "Đã tiếp tục {{service}}",
+        "down": "Đã hạ {{name}}",
+        "destroy": "Đã hủy {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Cập nhật",
+      "update": "Cập nhật container",
+      "check": "Kiểm tra cập nhật",
+      "available": "Có {{count}} bản cập nhật. Kiểm tra lại",
+      "found": "{{count}} hình ảnh có bản cập nhật",
+      "none": "Tất cả hình ảnh đều đã cập nhật",
+      "checkFailed": "Không thể kiểm tra cập nhật",
+      "updated": "{{name}} đã được cập nhật",
+      "pulled": "Đã kéo hình ảnh cho {{name}}. Tạo lại container để sử dụng.",
+      "failed": "Không thể cập nhật {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -144,6 +256,14 @@
       "showPanel": {
         "label": "Hiển thị bảng containers trong terminal",
         "description": "Cho phép bảng containers mở bên cạnh terminal SSH của host này."
+      },
+      "enableStacks": {
+        "label": "Quản lý ngăn xếp",
+        "description": "Quản lý ngăn xếp compose trên máy chủ này. Quản trị viên cũng phải cho phép."
+      },
+      "stacksRoot": {
+        "label": "Thư mục ngăn xếp",
+        "description": "Thư mục trên máy chủ nơi mỗi ngăn xếp có thư mục riêng với tệp compose."
       }
     },
     "user": {
@@ -166,6 +286,12 @@
         "label": "Hiển thị nút bảng",
         "description": "Hiển thị một nút nhỏ ở cạnh phải của terminal để mở bảng containers."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Quản lý ngăn xếp",
+        "description": "Cho phép máy chủ sử dụng quản lý ngăn xếp compose. Khi tắt, tính năng này sẽ bị ẩn và chặn đối với mọi người."
+      }
     }
   },
   "errors": {
@@ -178,7 +304,8 @@
   },
   "common": {
     "remove": "Xóa",
-    "cancel": "Hủy"
+    "cancel": "Hủy",
+    "save": "Lưu"
   },
   "plugin": {
     "name": "Docker",

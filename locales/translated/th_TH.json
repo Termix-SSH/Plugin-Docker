@@ -113,7 +113,119 @@
     "notEnabledHint": "เปิดใช้งาน Docker ในการตั้งค่าของโฮสต์นี้เพื่อจัดการคอนเทนเนอร์",
     "shellChanged": "Shell \"{{requested}}\" ไม่พร้อมใช้งาน ใช้ \"{{shell}}\" แทน",
     "failedToConnectWithError": "ไม่สามารถเชื่อมต่อได้: {{error}}",
-    "errorCode": "รหัสข้อผิดพลาด: {{code}}"
+    "errorCode": "รหัสข้อผิดพลาด: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Containers",
+      "manage": "Stacks",
+      "new": "สร้าง Stack ใหม่",
+      "create": "สร้าง Stack",
+      "search": "ค้นหา Stacks...",
+      "loading": "กำลังโหลด Stacks...",
+      "empty": "ยังไม่มี Stacks Stacks จะถูกเก็บไว้ใน {{root}} บนโฮสต์นี้ โดยแต่ละ Stack จะอยู่ในโฟลเดอร์ของตัวเอง",
+      "noMatches": "ไม่พบ Stacks ที่ตรงกัน",
+      "external": "อยู่นอกโฟลเดอร์ Stacks",
+      "servicesRunning": "{{running}} จาก {{total}} กำลังทำงาน",
+      "listFailed": "ไม่สามารถโหลด Stacks ได้",
+      "loadFailed": "ไม่สามารถโหลด Stack นี้ได้",
+      "notFound": "Stack นี้ไม่ได้อีกต่อไป",
+      "state": {
+        "running": "กำลังทำงาน",
+        "partial": "บางส่วน",
+        "stopped": "หยุดทำงาน",
+        "paused": "หยุดชั่วคราว",
+        "not-deployed": "ยังไม่ติดตั้ง"
+      },
+      "name": "ชื่อ",
+      "nameHint": "สร้างใน {{root}} ใช้ตัวอักษรพิมพ์เล็ก ตัวเลข - และ _ เท่านั้น",
+      "nameInvalid": "ใช้ตัวอักษรพิมพ์เล็ก ตัวเลข - และ _ เท่านั้น",
+      "envOptional": "ไฟล์ Environment (ไม่บังคับ)",
+      "created": "สร้าง Stack {{name}} เรียบร้อย",
+      "createFailed": "ไม่สามารถสร้าง Stack ได้",
+      "overview": "ภาพรวม",
+      "compose": "Compose",
+      "env": "Environment",
+      "deploy": "ติดตั้ง",
+      "redeploy": "ดึงและติดตั้ง",
+      "pull": "ดึง",
+      "down": "หยุดและลบ",
+      "destroy": "ทำลาย",
+      "deleteFiles": "ลบไฟล์",
+      "keepFiles": "เก็บไฟล์ไว้",
+      "confirm": {
+        "down": "ต้องการหยุดและลบ Containers ของ {{name}} หรือไม่? Volumes จะถูกเก็บไว้",
+        "destroy": "ต้องการทำลาย {{name}} หรือไม่? การดำเนินการนี้จะลบ Containers, Networks และ Volumes ของมัน",
+        "deleteFiles": "ต้องการลบโฟลเดอร์ Stack ของ {{name}} ออกจากโฮสต์ด้วยหรือไม่?"
+      },
+      "done": {
+        "deploy": "ติดตั้ง {{name}} เรียบร้อย",
+        "redeploy": "อัปเดต {{name}} เรียบร้อย",
+        "pull": "ดึง Images สำหรับ {{name}} เรียบร้อย",
+        "start": "เริ่มทำงานแล้ว",
+        "stop": "หยุดทำงานแล้ว",
+        "restart": "รีสตาร์ทแล้ว",
+        "pause": "หยุดชั่วคราวแล้ว",
+        "unpause": "กลับมาทำงานแล้ว",
+        "down": "หยุดและลบ {{name}} เรียบร้อย",
+        "destroy": "ทำลาย {{name}} เรียบร้อย"
+      },
+      "actionFailed": "การดำเนินการล้มเหลว",
+      "saved": "บันทึกแล้ว",
+      "saveFailed": "ไม่สามารถบันทึกได้",
+      "saveDeploy": "บันทึกและติดตั้ง",
+      "validate": "ตรวจสอบ",
+      "validateFailed": "ไม่สามารถตรวจสอบไฟล์ได้",
+      "valid": "ไฟล์ Compose ถูกต้อง",
+      "invalid": "ไฟล์ Compose ไม่ถูกต้อง",
+      "unsaved": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก",
+      "noServices": "Stack นี้ไม่มี Services",
+      "notCreated": "ยังไม่ได้สร้าง",
+      "noRunning": "ไม่มี Service ใดกำลังทำงาน",
+      "service": "บริการ",
+      "allServices": "บริการทั้งหมด",
+      "follow": "ติดตาม",
+      "noLogs": "ยังไม่มีบันทึก",
+      "logsFailed": "ไม่สามารถโหลดบันทึกได้",
+      "envTable": "ตาราง",
+      "envRaw": "ดิบ",
+      "addVariable": "เพิ่มตัวแปร",
+      "noVariables": "ยังไม่มีตัวแปร",
+      "variableName": "ชื่อ",
+      "variableValue": "ค่า",
+      "reveal": "แสดงหรือซ่อนค่า",
+      "events": "เหตุการณ์",
+      "eventsHint": "การดำเนินการที่คุณรันและการเปลี่ยนแปลงของบริการขณะสแต็กนี้เปิดอยู่",
+      "noEvents": "ยังไม่มีอะไร การดำเนินการและการเปลี่ยนแปลงของบริการจะแสดงที่นี่",
+      "clearEvents": "ล้าง",
+      "showOutput": "แสดงผลลัพธ์",
+      "eventState": "{{service}}: จาก {{from}} เป็น {{to}}",
+      "eventRemoved": "{{service}} ถูกลบออก",
+      "eventFailed": "ล้มเหลว: {{action}}",
+      "event": {
+        "deploy": "ปรับใช้ {{service}} แล้ว",
+        "redeploy": "ดึงและปรับใช้ {{service}} แล้ว",
+        "pull": "ดึงภาพสำหรับ {{service}} แล้ว",
+        "start": "เริ่ม {{service}} แล้ว",
+        "stop": "หยุด {{service}} แล้ว",
+        "restart": "รีสตาร์ท {{service}} แล้ว",
+        "pause": "หยุดชั่วคราว {{service}} แล้ว",
+        "unpause": "ดำเนินการต่อ {{service}} แล้ว",
+        "down": "ปิด {{name}} แล้ว",
+        "destroy": "ทำลาย {{name}} แล้ว"
+      }
+    },
+    "updates": {
+      "badge": "อัปเดต",
+      "update": "อัปเดตคอนเทนเนอร์",
+      "check": "ตรวจสอบการอัปเดต",
+      "available": "มี {{count}} การอัปเดตพร้อมใช้งาน ตรวจสอบอีกครั้ง",
+      "found": "ภาพ {{count}} รายการมีการอัปเดต",
+      "none": "ภาพทั้งหมดเป็นเวอร์ชันล่าสุดแล้ว",
+      "checkFailed": "ไม่สามารถตรวจสอบการอัปเดตได้",
+      "updated": "{{name}} อัปเดตแล้ว",
+      "pulled": "ดึงภาพสำหรับ {{name}} แล้ว สร้างคอนเทนเนอร์ใหม่เพื่อใช้งาน",
+      "failed": "ไม่สามารถอัปเดต {{name}} ได้: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -144,6 +256,14 @@
       "showPanel": {
         "label": "แสดงแผงคอนเทนเนอร์ในเทอร์มินัล",
         "description": "เปิดแผงคอนเทนเนอร์ไว้ข้างเทอร์มินัล SSH ของโฮสต์นี้"
+      },
+      "enableStacks": {
+        "label": "การจัดการสแต็ก",
+        "description": "จัดการสแต็ก Compose บนโฮสต์นี้ ผู้ดูแลระบบต้องอนุญาตด้วย"
+      },
+      "stacksRoot": {
+        "label": "โฟลเดอร์สแต็ก",
+        "description": "โฟลเดอร์บนโฮสต์ที่แต่ละสแต็กมีโฟลเดอร์ของตัวเองพร้อมไฟล์ Compose"
       }
     },
     "user": {
@@ -166,6 +286,12 @@
         "label": "แสดงปุ่มแผง",
         "description": "แสดงปุ่มขนาดเล็กที่ขอบด้านขวาของเทอร์มินัลเพื่อเปิดแผงคอนเทนเนอร์"
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "การจัดการสแต็ก",
+        "description": "อนุญาตให้โฮสต์ใช้การจัดการสแต็ก Compose เมื่อปิดอยู่ จะถูกซ่อนและบล็อกสำหรับทุกคน"
+      }
     }
   },
   "errors": {
@@ -178,7 +304,8 @@
   },
   "common": {
     "remove": "ลบ",
-    "cancel": "ยกเลิก"
+    "cancel": "ยกเลิก",
+    "save": "บันทึก"
   },
   "plugin": {
     "name": "Docker",

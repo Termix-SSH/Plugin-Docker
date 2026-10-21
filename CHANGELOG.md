@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0
+
+### Added
+
+- Optional stack management for compose projects, off until an admin turns it on in the plugin settings and a host turns on Stack management
+- A Containers | Stacks switcher in the Docker tab with a list of stacks, search, status filters and a status for each one
+- Create stacks from a compose file, edit the compose file and the environment file, check a file, and save and deploy
+- Deploy, pull, restart, pause, stop, take down or destroy a stack, or run most of these on a single service
+- Logs for a whole stack or one service, and a terminal into any running service
+- Compose projects that already run on the host show up as stacks
+- Update checks for container images, with an Update badge on containers that have a newer image
+- Update a container with one button. Compose containers pull and recreate their service, other containers pull the new image
+
 ## 1.1.0
 
 ### Added

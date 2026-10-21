@@ -6,6 +6,8 @@ import type {
 import { answerConnect, startConnect } from "./connect.js";
 import { containerCommand, getRuntimeLabel } from "./container-runtime.js";
 import { readDockerHostSettings } from "./host-settings.js";
+import { registerStacks } from "./stacks.js";
+import { registerUpdates } from "./updates.js";
 import type { DockerSession, DockerSessions } from "./sessions.js";
 import {
   CONTAINER_ID_RE,
@@ -1018,4 +1020,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
       });
     }
   });
+
+  registerUpdates(router, { sessions, log, sessionOf });
+  registerStacks(router, { ctx, sessions, log, sessionOf });
 }

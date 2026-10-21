@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import { Box, ExternalLink, RefreshCw } from "lucide-react";
+import { ArrowUpCircle, Box, ExternalLink, RefreshCw } from "lucide-react";
 import {
   useConnectionRetry,
   useHost,
@@ -26,6 +26,7 @@ import {
 import { DockerApiError, useDockerApi, type ConnectResult } from "./docker-api";
 import {
   dockerEnabled,
+  stacksEnabledForHost,
   hostTitle,
   toDockerHost,
   type DockerContainer,
@@ -36,6 +37,8 @@ import { ContainerList } from "./components/ContainerList.tsx";
 import { CompactContainerList } from "./components/CompactContainerList.tsx";
 import { ContainerTable } from "./components/ContainerTable.tsx";
 import { ContainerDetail } from "./components/ContainerDetail.tsx";
+import { UpdatesProvider, useUpdateChecker } from "./updates";
+import { StacksView } from "./stacks/StacksView.tsx";
 import { docsUrl } from "./docs";
 
 interface DockerManagerProps {
@@ -89,6 +92,29 @@ function DockerManagerInner({
     [liveRecord, host],
   );
   const enabled = dockerEnabled(currentHost);
+
+  // Stack management stays out of sight until the admin and the host both turn it on.
+  const [stacksAdminOn, setStacksAdminOn] = React.useState(false);
+  const [section, setSection] = React.useState<"current" | "manage">("current");
+  const manageOn =
+    !compact && stacksAdminOn && stacksEnabledForHost(currentHost);
+
+  React.useEffect(() => {
+    let cancelled = false;
+    docker
+      .stacksStatus()
+      .then((status) => {
+        if (!cancelled) setStacksAdminOn(status.enabled);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [docker]);
+
+  React.useEffect(() => {
+    if (!manageOn) setSection("current");
+  }, [manageOn]);
 
   const [sessionId, setSessionId] = React.useState<string | null>(null);
   const [containers, setContainers] = React.useState<DockerContainer[]>([]);
@@ -329,6 +355,12 @@ function DockerManagerInner({
     },
   );
 
+  const updateChecker = useUpdateChecker(
+    sessionId,
+    isVisible && !!dockerValidation?.available,
+    () => void refreshContainers(),
+  );
+
   const handleBack = React.useCallback(() => {
     setViewMode("list");
     setSelectedContainer(null);
@@ -419,6 +451,17 @@ function DockerManagerInner({
     autoStart: false,
   });
   retryRef.current = dockerConnectRetry;
+
+  const switcher = manageOn ? (
+    <Segmented
+      value={section}
+      onChange={(value) => setSection(value as "current" | "manage")}
+      options={[
+        { value: "current", label: t("docker.stacks.current") },
+        { value: "manage", label: t("docker.stacks.manage") },
+      ]}
+    />
+  ) : null;
 
   const topMarginPx = isTopbarOpen ? 74 : 16;
   const leftMarginPx = 8;
@@ -532,171 +575,204 @@ function DockerManagerInner({
 
   return (
     <div style={wrapperStyle} className={`${containerClass} relative`}>
-      <div className="h-full w-full flex flex-col flex-1 min-h-0 overflow-hidden">
-        {viewMode === "detail" &&
-        sessionId &&
-        selectedContainer &&
-        currentHost ? (
-          <ContainerDetail
-            sessionId={sessionId}
-            containerId={selectedContainer}
-            containers={containers}
-            hostConfig={currentHost}
-            onBack={handleBack}
-            initialTab={detailInitialTab}
-          />
-        ) : (
-          <PanelShell
-            icon={<Box className="size-4" />}
-            title={compact ? t("docker.manager") : title}
-            status={
-              dockerValidation?.version
-                ? t("docker.version", {
-                    runtime:
-                      dockerValidation.runtime === "podman"
-                        ? "Podman"
-                        : "Docker",
-                    version: dockerValidation.version,
-                  })
-                : t("docker.manager")
-            }
-            actions={
-              <>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={refreshContainers}
-                  disabled={isLoadingContainers}
-                  title={t("docker.refresh")}
-                  className="text-accent-brand"
-                >
-                  <RefreshCw
-                    className={`size-4 ${isLoadingContainers ? "animate-spin" : ""}`}
-                  />
-                </Button>
-                {!compact && (
-                  <a
-                    href={docsUrl()}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
-                    title={t("hosts.docsLink")}
-                  >
-                    <ExternalLink className="size-4" />
-                  </a>
-                )}
-              </>
-            }
-            toolbar={
-              <>
-                <PanelSearch
-                  value={search}
-                  onChange={setSearch}
-                  placeholder={t("docker.searchPlaceholder")}
-                />
-                {compact ? (
-                  <select
-                    value={statusFilter}
-                    onChange={(event) => setStatusFilter(event.target.value)}
-                    aria-label={t("docker.allStatuses")}
-                    className="h-8 border border-border bg-background px-2 text-xs"
-                  >
-                    <option value="all">{t("docker.allStatuses")}</option>
-                    <option value="running">{t("docker.stateRunning")}</option>
-                    <option value="paused">{t("docker.statePaused")}</option>
-                    <option value="exited">{t("docker.stateExited")}</option>
-                    <option value="restarting">
-                      {t("docker.stateRestarting")}
-                    </option>
-                  </select>
-                ) : (
-                  <Segmented
-                    value={statusFilter}
-                    onChange={setStatusFilter}
-                    options={[
-                      { value: "all", label: t("docker.allStatuses") },
-                      { value: "running", label: t("docker.stateRunning") },
-                      { value: "paused", label: t("docker.statePaused") },
-                      { value: "exited", label: t("docker.stateExited") },
-                      {
-                        value: "restarting",
-                        label: t("docker.stateRestarting"),
-                      },
-                    ]}
-                  />
-                )}
-                <div
-                  className={
-                    compact ? "hidden" : "ml-auto flex items-center gap-2"
-                  }
-                >
-                  <ViewToggle
-                    view={containerLayout === "table" ? "list" : "grid"}
-                    onView={(next) =>
-                      handleSetContainerLayout(
-                        next === "list" ? "table" : "card",
-                      )
+      <UpdatesProvider value={updateChecker.value}>
+        <div className="h-full w-full flex flex-col flex-1 min-h-0 overflow-hidden">
+          {manageOn && section === "manage" && sessionId && currentHost ? (
+            <StacksView
+              sessionId={sessionId}
+              host={currentHost}
+              switcher={switcher}
+            />
+          ) : viewMode === "detail" &&
+            sessionId &&
+            selectedContainer &&
+            currentHost ? (
+            <ContainerDetail
+              sessionId={sessionId}
+              containerId={selectedContainer}
+              containers={containers}
+              hostConfig={currentHost}
+              onBack={handleBack}
+              initialTab={detailInitialTab}
+            />
+          ) : (
+            <PanelShell
+              icon={<Box className="size-4" />}
+              title={compact ? t("docker.manager") : title}
+              status={
+                dockerValidation?.version
+                  ? t("docker.version", {
+                      runtime:
+                        dockerValidation.runtime === "podman"
+                          ? "Podman"
+                          : "Docker",
+                      version: dockerValidation.version,
+                    })
+                  : t("docker.manager")
+              }
+              actions={
+                <>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => void updateChecker.check(true)}
+                    disabled={updateChecker.checking}
+                    title={
+                      updateChecker.available > 0
+                        ? t("docker.updates.available", {
+                            count: updateChecker.available,
+                          })
+                        : t("docker.updates.check")
                     }
+                    className={
+                      updateChecker.available > 0
+                        ? "text-blue-400"
+                        : "text-muted-foreground"
+                    }
+                  >
+                    <ArrowUpCircle
+                      className={`size-4 ${updateChecker.checking ? "animate-pulse" : ""}`}
+                    />
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={refreshContainers}
+                    disabled={isLoadingContainers}
+                    title={t("docker.refresh")}
+                    className="text-accent-brand"
+                  >
+                    <RefreshCw
+                      className={`size-4 ${isLoadingContainers ? "animate-spin" : ""}`}
+                    />
+                  </Button>
+                  {!compact && (
+                    <a
+                      href={docsUrl()}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
+                      title={t("hosts.docsLink")}
+                    >
+                      <ExternalLink className="size-4" />
+                    </a>
+                  )}
+                </>
+              }
+              toolbar={
+                <>
+                  {switcher}
+                  <PanelSearch
+                    value={search}
+                    onChange={setSearch}
+                    placeholder={t("docker.searchPlaceholder")}
                   />
-                </div>
-              </>
-            }
-            className="p-2.5 gap-2"
-          >
-            {sessionId ? (
-              !hasLoadedContainersOnce ? (
-                <div className="flex flex-col items-center justify-center h-full opacity-40 py-20">
-                  <RefreshCw className="size-8 animate-spin mb-4" />
-                  <span className="text-sm font-semibold">
-                    {t("docker.loadingContainers")}
-                  </span>
-                </div>
-              ) : compact ? (
-                <CompactContainerList
-                  containers={containers}
-                  sessionId={sessionId}
-                  onSelectContainer={(id) => {
-                    setSelectedContainer(id);
-                    setDetailInitialTab("logs");
-                    setViewMode("detail");
-                  }}
-                  onRefresh={refreshContainers}
-                  search={search}
-                  statusFilter={statusFilter}
-                />
-              ) : containerLayout === "table" ? (
-                <ContainerTable
-                  containers={containers}
-                  sessionId={sessionId}
-                  onSelectContainer={(id, tab) => {
-                    setSelectedContainer(id);
-                    setDetailInitialTab(tab ?? "logs");
-                    setViewMode("detail");
-                  }}
-                  selectedContainerId={selectedContainer}
-                  onRefresh={refreshContainers}
-                  search={search}
-                  statusFilter={statusFilter}
-                />
-              ) : (
-                <ContainerList
-                  containers={containers}
-                  sessionId={sessionId}
-                  onSelectContainer={(id) => {
-                    setSelectedContainer(id);
-                    setDetailInitialTab("logs");
-                    setViewMode("detail");
-                  }}
-                  selectedContainerId={selectedContainer}
-                  onRefresh={refreshContainers}
-                  search={search}
-                  statusFilter={statusFilter}
-                />
-              )
-            ) : null}
-          </PanelShell>
-        )}
-      </div>
+                  {compact ? (
+                    <select
+                      value={statusFilter}
+                      onChange={(event) => setStatusFilter(event.target.value)}
+                      aria-label={t("docker.allStatuses")}
+                      className="h-8 border border-border bg-background px-2 text-xs"
+                    >
+                      <option value="all">{t("docker.allStatuses")}</option>
+                      <option value="running">
+                        {t("docker.stateRunning")}
+                      </option>
+                      <option value="paused">{t("docker.statePaused")}</option>
+                      <option value="exited">{t("docker.stateExited")}</option>
+                      <option value="restarting">
+                        {t("docker.stateRestarting")}
+                      </option>
+                    </select>
+                  ) : (
+                    <Segmented
+                      value={statusFilter}
+                      onChange={setStatusFilter}
+                      options={[
+                        { value: "all", label: t("docker.allStatuses") },
+                        { value: "running", label: t("docker.stateRunning") },
+                        { value: "paused", label: t("docker.statePaused") },
+                        { value: "exited", label: t("docker.stateExited") },
+                        {
+                          value: "restarting",
+                          label: t("docker.stateRestarting"),
+                        },
+                      ]}
+                    />
+                  )}
+                  <div
+                    className={
+                      compact ? "hidden" : "ml-auto flex items-center gap-2"
+                    }
+                  >
+                    <ViewToggle
+                      view={containerLayout === "table" ? "list" : "grid"}
+                      onView={(next) =>
+                        handleSetContainerLayout(
+                          next === "list" ? "table" : "card",
+                        )
+                      }
+                    />
+                  </div>
+                </>
+              }
+              className="p-2.5 gap-2"
+            >
+              {sessionId ? (
+                !hasLoadedContainersOnce ? (
+                  <div className="flex flex-col items-center justify-center h-full opacity-40 py-20">
+                    <RefreshCw className="size-8 animate-spin mb-4" />
+                    <span className="text-sm font-semibold">
+                      {t("docker.loadingContainers")}
+                    </span>
+                  </div>
+                ) : compact ? (
+                  <CompactContainerList
+                    containers={containers}
+                    sessionId={sessionId}
+                    onSelectContainer={(id) => {
+                      setSelectedContainer(id);
+                      setDetailInitialTab("logs");
+                      setViewMode("detail");
+                    }}
+                    onRefresh={refreshContainers}
+                    search={search}
+                    statusFilter={statusFilter}
+                  />
+                ) : containerLayout === "table" ? (
+                  <ContainerTable
+                    containers={containers}
+                    sessionId={sessionId}
+                    onSelectContainer={(id, tab) => {
+                      setSelectedContainer(id);
+                      setDetailInitialTab(tab ?? "logs");
+                      setViewMode("detail");
+                    }}
+                    selectedContainerId={selectedContainer}
+                    onRefresh={refreshContainers}
+                    search={search}
+                    statusFilter={statusFilter}
+                  />
+                ) : (
+                  <ContainerList
+                    containers={containers}
+                    sessionId={sessionId}
+                    onSelectContainer={(id) => {
+                      setSelectedContainer(id);
+                      setDetailInitialTab("logs");
+                      setViewMode("detail");
+                    }}
+                    selectedContainerId={selectedContainer}
+                    onRefresh={refreshContainers}
+                    search={search}
+                    statusFilter={statusFilter}
+                  />
+                )
+              ) : null}
+            </PanelShell>
+          )}
+        </div>
+      </UpdatesProvider>
       {dialogs}
       <ConnectionScreen
         status={dockerConnectRetry.status}

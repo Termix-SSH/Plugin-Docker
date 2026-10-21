@@ -114,7 +114,119 @@
     "notEnabledHint": "Schakel Docker in de instellingen van deze host in om de containers te beheren.",
     "shellChanged": "Shell \"{{requested}}\" is niet beschikbaar. In plaats daarvan wordt \"{{shell}}\" gebruikt.",
     "failedToConnectWithError": "Verbinding mislukt: {{error}}",
-    "errorCode": "Foutcode: {{code}}"
+    "errorCode": "Foutcode: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Containers",
+      "manage": "Stacks",
+      "new": "Nieuwe stack",
+      "create": "Stack maken",
+      "search": "Stacks zoeken...",
+      "loading": "Stacks laden...",
+      "empty": "Nog geen stacks. Stacks staan in {{root}} op deze host, elk in een eigen map.",
+      "noMatches": "Geen stacks gevonden.",
+      "external": "Buiten de stacks-map",
+      "servicesRunning": "{{running}} van {{total}} actief",
+      "listFailed": "Stacks konden niet worden geladen",
+      "loadFailed": "De stack kon niet worden geladen",
+      "notFound": "Deze stack bestaat niet meer.",
+      "state": {
+        "running": "Actief",
+        "partial": "Gedeeltelijk",
+        "stopped": "Gestopt",
+        "paused": "Gepauzeerd",
+        "not-deployed": "Niet geïmplementeerd"
+      },
+      "name": "Naam",
+      "nameHint": "Aangemaakt in {{root}}. Gebruik kleine letters, cijfers, - en _.",
+      "nameInvalid": "Gebruik alleen kleine letters, cijfers, - en _.",
+      "envOptional": "Omgevingsbestand (optioneel)",
+      "created": "Stack {{name}} aangemaakt",
+      "createFailed": "De stack kon niet worden aangemaakt",
+      "overview": "Overzicht",
+      "compose": "Compose",
+      "env": "Omgeving",
+      "deploy": "Implementeren",
+      "redeploy": "Ophalen en implementeren",
+      "pull": "Ophalen",
+      "down": "Stoppen",
+      "destroy": "Verwijderen",
+      "deleteFiles": "Bestanden verwijderen",
+      "keepFiles": "Bestanden behouden",
+      "confirm": {
+        "down": "De containers van {{name}} stoppen en verwijderen? Volumes worden behouden.",
+        "destroy": "{{name}} verwijderen? Hiermee worden de containers, netwerken en volumes verwijderd.",
+        "deleteFiles": "Ook de stack-map van {{name}} van de host verwijderen?"
+      },
+      "done": {
+        "deploy": "{{name}} geïmplementeerd",
+        "redeploy": "{{name}} bijgewerkt",
+        "pull": "Beelden opgehaald voor {{name}}",
+        "start": "Gestart",
+        "stop": "Gestopt",
+        "restart": "Herstart",
+        "pause": "Gepauzeerd",
+        "unpause": "Hervat",
+        "down": "{{name}} gestopt",
+        "destroy": "{{name}} verwijderd"
+      },
+      "actionFailed": "De actie is mislukt",
+      "saved": "Opgeslagen",
+      "saveFailed": "Kon niet worden opgeslagen",
+      "saveDeploy": "Opslaan en implementeren",
+      "validate": "Controleren",
+      "validateFailed": "Het bestand kon niet worden gecontroleerd",
+      "valid": "Het compose-bestand is geldig.",
+      "invalid": "Het compose-bestand is niet geldig.",
+      "unsaved": "Niet-opgeslagen wijzigingen",
+      "noServices": "Deze stack heeft geen services.",
+      "notCreated": "Niet aangemaakt",
+      "noRunning": "Geen service is actief.",
+      "service": "Dienst",
+      "allServices": "Alle diensten",
+      "follow": "Volgen",
+      "noLogs": "Nog geen logs.",
+      "logsFailed": "Kon logs niet laden",
+      "envTable": "Tabel",
+      "envRaw": "Ruw",
+      "addVariable": "Variabele toevoegen",
+      "noVariables": "Nog geen variabelen.",
+      "variableName": "NAAM",
+      "variableValue": "waarde",
+      "reveal": "Waarde tonen of verbergen",
+      "events": "Gebeurtenissen",
+      "eventsHint": "Acties die je uitvoert en wijzigingen aan diensten terwijl deze stack open is.",
+      "noEvents": "Nog niets. Acties en wijzigingen aan diensten worden hier getoond.",
+      "clearEvents": "Wissen",
+      "showOutput": "Uitvoer tonen",
+      "eventState": "{{service}}: van {{from}} naar {{to}}",
+      "eventRemoved": "{{service}} is verwijderd",
+      "eventFailed": "Mislukt: {{action}}",
+      "event": {
+        "deploy": "{{service}} geïmplementeerd",
+        "redeploy": "{{service}} opgehaald en geïmplementeerd",
+        "pull": "Beelden opgehaald voor {{service}}",
+        "start": "{{service}} gestart",
+        "stop": "{{service}} gestopt",
+        "restart": "{{service}} herstart",
+        "pause": "{{service}} gepauzeerd",
+        "unpause": "{{service}} hervat",
+        "down": "{{name}} afgesloten",
+        "destroy": "{{name}} vernietigd"
+      }
+    },
+    "updates": {
+      "badge": "Update",
+      "update": "Container bijwerken",
+      "check": "Controleren op updates",
+      "available": "{{count}} updates beschikbaar. Opnieuw controleren",
+      "found": "{{count}} beelden hebben updates",
+      "none": "Alle beelden zijn up-to-date",
+      "checkFailed": "Kon niet controleren op updates",
+      "updated": "{{name}} bijgewerkt",
+      "pulled": "Beeld opgehaald voor {{name}}. Maak de container opnieuw aan om deze te gebruiken.",
+      "failed": "Kon {{name}} niet bijwerken: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Toon het containers-paneel in terminals",
         "description": "Laat het containers-paneel open naast de SSH-terminal van deze host."
+      },
+      "enableStacks": {
+        "label": "Stackbeheer",
+        "description": "Beheer compose-stacks op deze host. Een beheerder moet dit ook toestaan."
+      },
+      "stacksRoot": {
+        "label": "Stacks-map",
+        "description": "De map op de host waar elke stack zijn eigen map heeft met een compose-bestand."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Knop voor het paneel tonen",
         "description": "Toon een kleine knop aan de rechterkant van een terminal die het containerspaneel opent."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stackbeheer",
+        "description": "Sta hosts toe om compose-stackbeheer te gebruiken. Zolang dit uit staat, is het voor iedereen verborgen en geblokkeerd."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Verwijderen",
-    "cancel": "Annuleren"
+    "cancel": "Annuleren",
+    "save": "Opslaan"
   },
   "plugin": {
     "name": "Docker",

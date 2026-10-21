@@ -115,7 +115,119 @@
     "notEnabledHint": "Activează Docker în setările acestei gazde pentru a gestiona containerele sale.",
     "shellChanged": "Shell-ul „{{requested}}” nu este disponibil. Se folosește „{{shell}}” în schimb.",
     "failedToConnectWithError": "Nu s-a putut conecta: {{error}}",
-    "errorCode": "Cod eroare: {{code}}"
+    "errorCode": "Cod eroare: {{code}}",
+    "stacks": {
+      "title": "Stive",
+      "current": "Containere",
+      "manage": "Stive",
+      "new": "Stiv nou",
+      "create": "Creează stivă",
+      "search": "Caută stive...",
+      "loading": "Se încarcă stivele...",
+      "empty": "Încă nu există stive. Stivele se află în {{root}} pe acest gazdă, câte un dosar pentru fiecare.",
+      "noMatches": "Nicio stivă nu corespunde.",
+      "external": "În afara dosarului de stive",
+      "servicesRunning": "{{running}} din {{total}} active",
+      "listFailed": "Nu s-au putut încărca stivele",
+      "loadFailed": "Nu s-a putut încărca stiva",
+      "notFound": "Această stivă nu mai există.",
+      "state": {
+        "running": "Activă",
+        "partial": "Parțială",
+        "stopped": "Oprită",
+        "paused": "În pauză",
+        "not-deployed": "Nedeployată"
+      },
+      "name": "Nume",
+      "nameHint": "Creată în {{root}}. Folosește litere mici, cifre, - și _.",
+      "nameInvalid": "Folosește doar litere mici, cifre, - și _.",
+      "envOptional": "Fișier de mediu (opțional)",
+      "created": "Stiva {{name}} a fost creată",
+      "createFailed": "Nu s-a putut crea stiva",
+      "overview": "Prezentare generală",
+      "compose": "Compose",
+      "env": "Mediu",
+      "deploy": "Deploy",
+      "redeploy": "Pull și deploy",
+      "pull": "Pull",
+      "down": "Oprește",
+      "destroy": "Distruge",
+      "deleteFiles": "Șterge fișierele",
+      "keepFiles": "Păstrează fișierele",
+      "confirm": {
+        "down": "Dorești să oprești și să elimini containerele pentru {{name}}? Volumelor li se păstrează.",
+        "destroy": "Dorești să distrugi {{name}}? Aceasta va elimina containerele, rețelele și volumele sale.",
+        "deleteFiles": "Dorești să ștergi și dosarul stivei {{name}} de pe gazdă?"
+      },
+      "done": {
+        "deploy": "{{name}} a fost deployată",
+        "redeploy": "{{name}} a fost actualizată",
+        "pull": "Imaginile au fost descărcate pentru {{name}}",
+        "start": "Pornită",
+        "stop": "Oprită",
+        "restart": "Redemarată",
+        "pause": "În pauză",
+        "unpause": "Reluată",
+        "down": "{{name}} a fost oprită",
+        "destroy": "{{name}} a fost distrusă"
+      },
+      "actionFailed": "Acțiunea a eșuat",
+      "saved": "Salvat",
+      "saveFailed": "Nu s-a putut salva",
+      "saveDeploy": "Salvează și deploy",
+      "validate": "Verifică",
+      "validateFailed": "Nu s-a putut verifica fișierul",
+      "valid": "Fișierul compose este valid.",
+      "invalid": "Fișierul compose nu este valid.",
+      "unsaved": "Modificări nesalvate",
+      "noServices": "Această stivă nu are servicii.",
+      "notCreated": "Necreată",
+      "noRunning": "Niciun serviciu nu este activ.",
+      "service": "Serviciu",
+      "allServices": "Toate serviciile",
+      "follow": "Urmărește",
+      "noLogs": "Încă nu există jurnale.",
+      "logsFailed": "Nu s-au putut încărca jurnalele",
+      "envTable": "Tabel",
+      "envRaw": "Neratat",
+      "addVariable": "Adaugă variabilă",
+      "noVariables": "Încă nu există variabile.",
+      "variableName": "NUME",
+      "variableValue": "valoare",
+      "reveal": "Afișează sau ascunde valoarea",
+      "events": "Evenimente",
+      "eventsHint": "Acțiunile pe care le execuți și modificările serviciilor în timp ce acest stivă este deschisă.",
+      "noEvents": "Încă nimic. Acțiunile și modificările serviciilor apar aici.",
+      "clearEvents": "Șterge",
+      "showOutput": "Afișează rezultatul",
+      "eventState": "{{service}}: de la {{from}} la {{to}}",
+      "eventRemoved": "{{service}} a fost eliminat",
+      "eventFailed": "Eșuat: {{action}}",
+      "event": {
+        "deploy": "{{service}} a fost implementat",
+        "redeploy": "{{service}} a fost descărcat și implementat",
+        "pull": "Imaginile pentru {{service}} au fost descărcate",
+        "start": "{{service}} a fost pornit",
+        "stop": "{{service}} a fost oprit",
+        "restart": "{{service}} a fost repornit",
+        "pause": "{{service}} a fost pus în pauză",
+        "unpause": "{{service}} a fost reluat",
+        "down": "{{name}} a fost oprit",
+        "destroy": "{{name}} a fost distrus"
+      }
+    },
+    "updates": {
+      "badge": "Actualizare",
+      "update": "Actualizează containerul",
+      "check": "Verifică actualizările",
+      "available": "{{count}} actualizări disponibile. Verifică din nou",
+      "found": "{{count}} imagini au actualizări",
+      "none": "Toate imaginile sunt la zi",
+      "checkFailed": "Nu s-au putut verifica actualizările",
+      "updated": "{{name}} actualizat",
+      "pulled": "Imaginea a fost descărcată pentru {{name}}. Recreează containerul pentru a o folosi.",
+      "failed": "Nu s-a putut actualiza {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Afișează panoul de containere în terminale",
         "description": "Permite panoului de containere să se deschidă lângă terminalul SSH al acestui gazdă."
+      },
+      "enableStacks": {
+        "label": "Gestionarea stivelor",
+        "description": "Gestionează stivele compose pe acest gazdă. Un administrator trebuie, de asemenea, să permită acest lucru."
+      },
+      "stacksRoot": {
+        "label": "Dosarul stivelor",
+        "description": "Dosarul de pe gazdă în care fiecare stivă are propriul dosar cu un fișier compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Afișează butonul panoului",
         "description": "Afișează un buton mic pe marginea dreaptă a unui terminal care deschide panoul de containere."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Gestionarea stivelor",
+        "description": "Permite gazdelor să folosească gestionarea stivelor compose. Când este dezactivat, este ascuns și blocat pentru toți."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Elimină",
-    "cancel": "Anulează"
+    "cancel": "Anulează",
+    "save": "Salvează"
   },
   "plugin": {
     "name": "Docker",

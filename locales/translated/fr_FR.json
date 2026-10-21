@@ -115,7 +115,119 @@
     "notEnabledHint": "Activez Docker dans les paramètres de cet hôte pour gérer ses conteneurs.",
     "shellChanged": "Le shell \"{{requested}}\" n'est pas disponible. Utilisation de \"{{shell}}\" à la place.",
     "failedToConnectWithError": "Échec de la connexion : {{error}}",
-    "errorCode": "Code d'erreur : {{code}}"
+    "errorCode": "Code d'erreur : {{code}}",
+    "stacks": {
+      "title": "Piles",
+      "current": "Conteneurs",
+      "manage": "Piles",
+      "new": "Nouvelle pile",
+      "create": "Créer une pile",
+      "search": "Rechercher des piles...",
+      "loading": "Chargement des piles...",
+      "empty": "Aucune pile pour le moment. Les piles se trouvent dans {{root}} sur cet hôte, une par dossier.",
+      "noMatches": "Aucune pile ne correspond.",
+      "external": "En dehors du dossier des piles",
+      "servicesRunning": "{{running}} sur {{total}} en cours d'exécution",
+      "listFailed": "Impossible de charger les piles",
+      "loadFailed": "Impossible de charger la pile",
+      "notFound": "Cette pile n'existe plus.",
+      "state": {
+        "running": "En cours d'exécution",
+        "partial": "Partiel",
+        "stopped": "Arrêté",
+        "paused": "En pause",
+        "not-deployed": "Non déployé"
+      },
+      "name": "Nom",
+      "nameHint": "Créé dans {{root}}. Utilisez des lettres minuscules, des chiffres, - et _.",
+      "nameInvalid": "Utilisez uniquement des lettres minuscules, des chiffres, - et _.",
+      "envOptional": "Fichier d'environnement (facultatif)",
+      "created": "Pile {{name}} créée",
+      "createFailed": "Impossible de créer la pile",
+      "overview": "Aperçu",
+      "compose": "Compose",
+      "env": "Environnement",
+      "deploy": "Déployer",
+      "redeploy": "Tirer et déployer",
+      "pull": "Tirer",
+      "down": "Arrêter",
+      "destroy": "Détruire",
+      "deleteFiles": "Supprimer les fichiers",
+      "keepFiles": "Conserver les fichiers",
+      "confirm": {
+        "down": "Arrêter et supprimer les conteneurs de {{name}} ? Les volumes sont conservés.",
+        "destroy": "Détruire {{name}} ? Cela supprime ses conteneurs, réseaux et volumes.",
+        "deleteFiles": "Supprimer également le dossier de la pile {{name}} de l'hôte ?"
+      },
+      "done": {
+        "deploy": "{{name}} déployé",
+        "redeploy": "{{name}} mis à jour",
+        "pull": "Images téléchargées pour {{name}}",
+        "start": "Démarré",
+        "stop": "Arrêté",
+        "restart": "Redémarré",
+        "pause": "En pause",
+        "unpause": "Repris",
+        "down": "{{name}} arrêté",
+        "destroy": "{{name}} détruit"
+      },
+      "actionFailed": "L'action a échoué",
+      "saved": "Enregistré",
+      "saveFailed": "Impossible d'enregistrer",
+      "saveDeploy": "Enregistrer et déployer",
+      "validate": "Vérifier",
+      "validateFailed": "Impossible de vérifier le fichier",
+      "valid": "Le fichier compose est valide.",
+      "invalid": "Le fichier compose n'est pas valide.",
+      "unsaved": "Modifications non enregistrées",
+      "noServices": "Cette pile ne contient aucun service.",
+      "notCreated": "Non créé",
+      "noRunning": "Aucun service n'est en cours d'exécution.",
+      "service": "Service",
+      "allServices": "Tous les services",
+      "follow": "Suivre",
+      "noLogs": "Aucun journal pour le moment.",
+      "logsFailed": "Impossible de charger les journaux",
+      "envTable": "Tableau",
+      "envRaw": "Brut",
+      "addVariable": "Ajouter une variable",
+      "noVariables": "Aucune variable pour le moment.",
+      "variableName": "NOM",
+      "variableValue": "valeur",
+      "reveal": "Afficher ou masquer la valeur",
+      "events": "Événements",
+      "eventsHint": "Actions exécutées et modifications des services pendant que cette pile est ouverte.",
+      "noEvents": "Rien pour le moment. Les actions et les modifications des services s’affichent ici.",
+      "clearEvents": "Effacer",
+      "showOutput": "Afficher la sortie",
+      "eventState": "{{service}} : de {{from}} à {{to}}",
+      "eventRemoved": "{{service}} a été supprimé",
+      "eventFailed": "Échec : {{action}}",
+      "event": {
+        "deploy": "{{service}} déployé",
+        "redeploy": "{{service}} récupéré et déployé",
+        "pull": "Images récupérées pour {{service}}",
+        "start": "{{service}} démarré",
+        "stop": "{{service}} arrêté",
+        "restart": "{{service}} redémarré",
+        "pause": "{{service}} mis en pause",
+        "unpause": "{{service}} repris",
+        "down": "{{name}} arrêté",
+        "destroy": "{{name}} détruit"
+      }
+    },
+    "updates": {
+      "badge": "Mise à jour",
+      "update": "Mettre à jour le conteneur",
+      "check": "Vérifier les mises à jour",
+      "available": "{{count}} mises à jour disponibles. Vérifier à nouveau",
+      "found": "{{count}} images ont des mises à jour",
+      "none": "Toutes les images sont à jour",
+      "checkFailed": "Impossible de vérifier les mises à jour",
+      "updated": "{{name}} mis à jour",
+      "pulled": "Image récupérée pour {{name}}. Recréez le conteneur pour l’utiliser.",
+      "failed": "Impossible de mettre à jour {{name}} : {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Afficher le panneau des conteneurs dans les terminaux",
         "description": "Laisser le panneau des conteneurs s'ouvrir à côté du terminal SSH de cet hôte."
+      },
+      "enableStacks": {
+        "label": "Gestion des piles",
+        "description": "Gérer les piles Compose sur cet hôte. Un administrateur doit également l’autoriser."
+      },
+      "stacksRoot": {
+        "label": "Dossier des piles",
+        "description": "Le dossier sur l’hôte où chaque pile a son propre dossier avec un fichier Compose."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Afficher le bouton du panneau",
         "description": "Affiche un petit bouton sur le bord droit d'un terminal qui ouvre le panneau des conteneurs."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Gestion des piles",
+        "description": "Autoriser les hôtes à utiliser la gestion des piles Compose. Tant que cette option est désactivée, elle est masquée et bloquée pour tout le monde."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Supprimer",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "save": "Enregistrer"
   },
   "plugin": {
     "name": "Docker",

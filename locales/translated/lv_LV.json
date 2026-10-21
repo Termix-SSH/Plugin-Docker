@@ -115,7 +115,119 @@
     "notEnabledHint": "Ieslēdziet Docker šī mezgla iestatījumos, lai pārvaldītu tā konteinerus.",
     "shellChanged": "Apvalks \"{{requested}}\" nav pieejams. Tā vietā tiek izmantots \"{{shell}}\".",
     "failedToConnectWithError": "Neizdevās izveidot savienojumu: {{error}}",
-    "errorCode": "Kļūdas kods: {{code}}"
+    "errorCode": "Kļūdas kods: {{code}}",
+    "stacks": {
+      "title": "Stekas",
+      "current": "Konteineri",
+      "manage": "Stekas",
+      "new": "Jauns steks",
+      "create": "Izveidot steku",
+      "search": "Meklēt stekus...",
+      "loading": "Ielādē stekus...",
+      "empty": "Vēl nav steķu. Steki atrodas mapē {{root}} šajā hostā, katrs savā mapē.",
+      "noMatches": "Nav atrasts neviens steks.",
+      "external": "Ārpus steķu mapes",
+      "servicesRunning": "Darbojas {{running}} no {{total}}",
+      "listFailed": "Neizdevās ielādēt stekus",
+      "loadFailed": "Neizdevās ielādēt steku",
+      "notFound": "Šis steks vairs neeksistē.",
+      "state": {
+        "running": "Darbojas",
+        "partial": "Daļēji",
+        "stopped": "Apturēts",
+        "paused": "Pauzēts",
+        "not-deployed": "Nav izvietots"
+      },
+      "name": "Nosaukums",
+      "nameHint": "Izveidots mapē {{root}}. Izmantojiet mazos burtus, ciparus, - un _.",
+      "nameInvalid": "Izmantojiet tikai mazos burtus, ciparus, - un _.",
+      "envOptional": "Vides fails (neobligāts)",
+      "created": "Steks {{name}} izveidots",
+      "createFailed": "Neizdevās izveidot steku",
+      "overview": "Pārskats",
+      "compose": "Compose",
+      "env": "Vide",
+      "deploy": "Izvietot",
+      "redeploy": "Pielāgot un izvietot",
+      "pull": "Pielāgot",
+      "down": "Apturēt",
+      "destroy": "Iznīcināt",
+      "deleteFiles": "Dzēst failus",
+      "keepFiles": "Atstāt failus",
+      "confirm": {
+        "down": "Apturēt un noņemt {{name}} konteinerus? Skaņas tiek saglabātas.",
+        "destroy": "Iznīcināt {{name}}? Tas noņems tā konteinerus, tīklus un skaņas.",
+        "deleteFiles": "Vai arī dzēst {{name}} steķa mapi no hosta?"
+      },
+      "done": {
+        "deploy": "{{name}} izvietots",
+        "redeploy": "{{name}} atjaunināts",
+        "pull": "Attēli pielāgoti priekš {{name}}",
+        "start": "Palaiž",
+        "stop": "Apturēts",
+        "restart": "Pārlādēts",
+        "pause": "Pauzēts",
+        "unpause": "Atjaunots",
+        "down": "{{name}} apturēts",
+        "destroy": "{{name}} iznīcināts"
+      },
+      "actionFailed": "Darbība neizdevās",
+      "saved": "Saglabāts",
+      "saveFailed": "Neizdevās saglabāt",
+      "saveDeploy": "Saglabāt un izvietot",
+      "validate": "Pārbaudīt",
+      "validateFailed": "Neizdevās pārbaudīt failu",
+      "valid": "Compose fails ir derīgs.",
+      "invalid": "Compose fails nav derīgs.",
+      "unsaved": "Nesaglabātas izmaiņas",
+      "noServices": "Šim stekam nav pakalpojumu.",
+      "notCreated": "Nav izveidots",
+      "noRunning": "Nav darbojošos pakalpojumu.",
+      "service": "Pakalpojums",
+      "allServices": "Visi pakalpojumi",
+      "follow": "Sekot",
+      "noLogs": "Vēl nav žurnāla ierakstu.",
+      "logsFailed": "Neizdevās ielādēt žurnāla ierakstus",
+      "envTable": "Tabula",
+      "envRaw": "Neapstrādāts",
+      "addVariable": "Pievienot mainīgo",
+      "noVariables": "Vēl nav mainīgo.",
+      "variableName": "NOSAUKUMS",
+      "variableValue": "vērtība",
+      "reveal": "Rādīt vai slēpt vērtību",
+      "events": "Notikumi",
+      "eventsHint": "Jūsu veikto darbību un pakalpojumu izmaiņu vēsture, kamēr šī kaudze ir atvērta.",
+      "noEvents": "Vēl nekas. Šeit parādīsies darbības un pakalpojumu izmaiņas.",
+      "clearEvents": "Notīrīt",
+      "showOutput": "Rādīt izvadi",
+      "eventState": "{{service}}: no {{from}} uz {{to}}",
+      "eventRemoved": "{{service}} tika noņemts",
+      "eventFailed": "Neizdevās: {{action}}",
+      "event": {
+        "deploy": "{{service}} tika izvietots",
+        "redeploy": "{{service}} tika atjaunots un izvietots",
+        "pull": "{{service}} attēli tika lejupielādēti",
+        "start": "{{service}} tika palaists",
+        "stop": "{{service}} tika apturēts",
+        "restart": "{{service}} tika restartēts",
+        "pause": "{{service}} tika pauzēts",
+        "unpause": "{{service}} tika atsākts",
+        "down": "{{name}} tika apturēts",
+        "destroy": "{{name}} tika iznīcināts"
+      }
+    },
+    "updates": {
+      "badge": "Atjauninājums",
+      "update": "Atjaunināt konteineri",
+      "check": "Pārbaudīt atjauninājumus",
+      "available": "Pieejami {{count}} atjauninājumi. Pārbaudīt vēlreiz",
+      "found": "{{count}} attēliem ir pieejami atjauninājumi",
+      "none": "Visi attēli ir jaunākajā versijā",
+      "checkFailed": "Neizdevās pārbaudīt atjauninājumus",
+      "updated": "{{name}} tika atjaunināts",
+      "pulled": "{{name}} attēls tika lejupielādēts. Lai to izmantotu, izveidojiet konteineru no jauna.",
+      "failed": "Neizdevās atjaunināt {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -146,6 +258,14 @@
       "showPanel": {
         "label": "Rādīt konteineru paneli termināļos",
         "description": "Ļaujiet konteineru panelim atvērties blakus šī hosta SSH terminālim."
+      },
+      "enableStacks": {
+        "label": "Kaužu pārvaldība",
+        "description": "Pārvaldīt compose kaužas šajā resursdatorā. Administratoram arī ir jāļauj to izmantot."
+      },
+      "stacksRoot": {
+        "label": "Kaužu mape",
+        "description": "Mape resursdatorā, kurā katram kauzai ir sava mape ar compose failu."
       }
     },
     "user": {
@@ -168,6 +288,12 @@
         "label": "Rādīt paneļa pogu",
         "description": "Rādīt mazu pogu termināļa labajā malā, kas atver konteineru paneli."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Kaužu pārvaldība",
+        "description": "Ļaut resursdatoriem izmantot compose kaužu pārvaldību. Kamēr šī opcija ir izslēgta, tā ir slēpta un bloķēta visiem."
+      }
     }
   },
   "errors": {
@@ -180,7 +306,8 @@
   },
   "common": {
     "remove": "Noņemt",
-    "cancel": "Atcelt"
+    "cancel": "Atcelt",
+    "save": "Saglabāt"
   },
   "plugin": {
     "name": "Docker",

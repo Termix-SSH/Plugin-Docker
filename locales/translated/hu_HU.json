@@ -114,7 +114,119 @@
     "notEnabledHint": "Kapcsolja be a Docker-t ezen a gazdagépen a beállításokban a konténerek kezeléséhez.",
     "shellChanged": "A(z) \"{{requested}}\" shell nem elérhető. Ehelyett a(z) \"{{shell}}\" shellt használjuk.",
     "failedToConnectWithError": "Nem sikerült csatlakozni: {{error}}",
-    "errorCode": "Hibakód: {{code}}"
+    "errorCode": "Hibakód: {{code}}",
+    "stacks": {
+      "title": "Stackok",
+      "current": "Konténerek",
+      "manage": "Stackok",
+      "new": "Új stack",
+      "create": "Stack létrehozása",
+      "search": "Stackok keresése...",
+      "loading": "Stackok betöltése...",
+      "empty": "Még nincsenek stackok. A stackok ebben a hoston a {{root}} könyvtárban találhatók, mindegyik saját mappában.",
+      "noMatches": "Nincs találat a stackok között.",
+      "external": "A stackok mappája kívül",
+      "servicesRunning": "{{running}}/{{total}} fut",
+      "listFailed": "A stackok nem tölthetők be",
+      "loadFailed": "A stack nem tölthető be",
+      "notFound": "Ez a stack már nem létezik.",
+      "state": {
+        "running": "Fut",
+        "partial": "Részleges",
+        "stopped": "Leállítva",
+        "paused": "Szüneteltetve",
+        "not-deployed": "Nincs telepítve"
+      },
+      "name": "Név",
+      "nameHint": "Létrehozva a {{root}} alatt. Csak kisbetűket, számokat, - és _ karaktereket használjon.",
+      "nameInvalid": "Csak kisbetűket, számokat, - és _ karaktereket használjon.",
+      "envOptional": "Környezeti fájl (opcionális)",
+      "created": "A(z) {{name}} stack létrehozva",
+      "createFailed": "A stack nem hozható létre",
+      "overview": "Áttekintés",
+      "compose": "Compose",
+      "env": "Környezet",
+      "deploy": "Telepítés",
+      "redeploy": "Letöltés és telepítés",
+      "pull": "Letöltés",
+      "down": "Leállítás",
+      "destroy": "Törlés",
+      "deleteFiles": "Fájlok törlése",
+      "keepFiles": "Fájlok megtartása",
+      "confirm": {
+        "down": "Leállítja és eltávolítja a(z) {{name}} konténereit? A kötetek megmaradnak.",
+        "destroy": "Törli a(z) {{name}} stacket? Ez eltávolítja a konténereket, hálózatokat és köteteit.",
+        "deleteFiles": "Törli a(z) {{name}} stack mappáját a hostról is?"
+      },
+      "done": {
+        "deploy": "A(z) {{name}} telepítve",
+        "redeploy": "A(z) {{name}} frissítve",
+        "pull": "A(z) {{name}} képei letöltve",
+        "start": "Indítva",
+        "stop": "Leállítva",
+        "restart": "Újraindítva",
+        "pause": "Szüneteltetve",
+        "unpause": "Folytatva",
+        "down": "A(z) {{name}} leállítva",
+        "destroy": "A(z) {{name}} törölve"
+      },
+      "actionFailed": "A művelet sikertelen",
+      "saved": "Mentve",
+      "saveFailed": "Nem menthető",
+      "saveDeploy": "Mentés és telepítés",
+      "validate": "Ellenőrzés",
+      "validateFailed": "A fájl nem ellenőrizhető",
+      "valid": "A compose fájl érvényes.",
+      "invalid": "A compose fájl nem érvényes.",
+      "unsaved": "Nem mentett módosítások",
+      "noServices": "Ennek a stacknek nincsenek szolgáltatásai.",
+      "notCreated": "Nincs létrehozva",
+      "noRunning": "Nincs futó szolgáltatás.",
+      "service": "Szolgáltatás",
+      "allServices": "Minden szolgáltatás",
+      "follow": "Követés",
+      "noLogs": "Még nincsenek naplók.",
+      "logsFailed": "A naplók betöltése sikertelen",
+      "envTable": "Táblázat",
+      "envRaw": "Nyers",
+      "addVariable": "Változó hozzáadása",
+      "noVariables": "Még nincsenek változók.",
+      "variableName": "NÉV",
+      "variableValue": "érték",
+      "reveal": "Érték megjelenítése vagy elrejtése",
+      "events": "Események",
+      "eventsHint": "A futtatott műveletek és a szolgáltatásokban bekövetkezett változások, amíg ez a stack nyitva van.",
+      "noEvents": "Még semmi. A műveletek és a szolgáltatások változásai itt jelennek meg.",
+      "clearEvents": "Törlés",
+      "showOutput": "Kimenet megjelenítése",
+      "eventState": "{{service}}: {{from}} → {{to}}",
+      "eventRemoved": "{{service}} eltávolítva",
+      "eventFailed": "Sikertelen: {{action}}",
+      "event": {
+        "deploy": "{{service}} telepítve",
+        "redeploy": "{{service}} letöltve és telepítve",
+        "pull": "{{service}} képei letöltve",
+        "start": "{{service}} elindítva",
+        "stop": "{{service}} leállítva",
+        "restart": "{{service}} újraindítva",
+        "pause": "{{service}} szüneteltetve",
+        "unpause": "{{service}} folytatva",
+        "down": "{{name}} leállítva",
+        "destroy": "{{name}} eltávolítva"
+      }
+    },
+    "updates": {
+      "badge": "Frissítés",
+      "update": "Konténer frissítése",
+      "check": "Frissítések keresése",
+      "available": "{{count}} frissítés érhető el. Újrapróbál",
+      "found": "{{count}} kép frissítése elérhető",
+      "none": "Minden kép naprakész",
+      "checkFailed": "A frissítések ellenőrzése sikertelen",
+      "updated": "{{name}} frissítve",
+      "pulled": "{{name}} képe letöltve. Hozd létre újra a konténert a használatához.",
+      "failed": "{{name}} frissítése sikertelen: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Konténerek panel megjelenítése a terminálokban",
         "description": "Hagyja, hogy a konténerek panel nyitva maradjon ezen a hoszon az SSH terminál mellett."
+      },
+      "enableStacks": {
+        "label": "Stack-kezelés",
+        "description": "Compose stack-ek kezelése ezen a hoszton. Egy rendszergazdának is engedélyeznie kell."
+      },
+      "stacksRoot": {
+        "label": "Stack mappa",
+        "description": "A hoszt azon mappája, ahol minden stacknek saját mappája van egy compose fájllal."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Panel gomb megjelenítése",
         "description": "Egy kis gomb megjelenítése a terminál jobb szélén, amely megnyitja a konténerek panelt."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stack-kezelés",
+        "description": "Lehetővé teszi a hosztok számára a compose stack-ek kezelését. Ha ez ki van kapcsolva, mindenki számára rejtve és letiltva van."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Eltávolítás",
-    "cancel": "Mégse"
+    "cancel": "Mégse",
+    "save": "Mentés"
   },
   "plugin": {
     "name": "Docker",

@@ -116,7 +116,119 @@
     "notEnabledHint": "Zapněte Docker v nastavení tohoto hosta pro správu jeho kontejnerů.",
     "shellChanged": "Shell \"{{requested}}\" není k dispozici. Místo toho se používá \"{{shell}}\".",
     "failedToConnectWithError": "Nepodařilo se připojit: {{error}}",
-    "errorCode": "Kód chyby: {{code}}"
+    "errorCode": "Kód chyby: {{code}}",
+    "stacks": {
+      "title": "Stopy",
+      "current": "Kontejnery",
+      "manage": "Stopy",
+      "new": "Nová stopa",
+      "create": "Vytvořit stopu",
+      "search": "Hledat stopy...",
+      "loading": "Načítání stop...",
+      "empty": "Zatím žádné stopy. Stopy se nacházejí v adresáři {{root}} na tomto hostiteli, každá ve vlastním podadresáři.",
+      "noMatches": "Žádné stopy neodpovídají.",
+      "external": "Mimo adresář se stopami",
+      "servicesRunning": "{{running}} z {{total}} běží",
+      "listFailed": "Nelze načíst stopy",
+      "loadFailed": "Nelze načíst stopu",
+      "notFound": "Tato stopa již neexistuje.",
+      "state": {
+        "running": "Běží",
+        "partial": "Částečně",
+        "stopped": "Zastaveno",
+        "paused": "Pozastaveno",
+        "not-deployed": "Nenasazeno"
+      },
+      "name": "Název",
+      "nameHint": "Vytvořeno v {{root}}. Používejte malá písmena, číslice, - a _.",
+      "nameInvalid": "Používejte pouze malá písmena, číslice, - a _.",
+      "envOptional": "Soubor prostředí (volitelné)",
+      "created": "Stopa {{name}} vytvořena",
+      "createFailed": "Nelze vytvořit stopu",
+      "overview": "Přehled",
+      "compose": "Compose",
+      "env": "Prostředí",
+      "deploy": "Nasadit",
+      "redeploy": "Stáhnout a nasadit",
+      "pull": "Stáhnout",
+      "down": "Zrušit nasazení",
+      "destroy": "Zničit",
+      "deleteFiles": "Smazat soubory",
+      "keepFiles": "Ponechat soubory",
+      "confirm": {
+        "down": "Zastavit a odstranit kontejnery pro {{name}}? Svazky zůstanou zachovány.",
+        "destroy": "Zničit {{name}}? Tím se odstraní jeho kontejnery, sítě a svazky.",
+        "deleteFiles": "Smazat také adresář stopy {{name}} z hostitele?"
+      },
+      "done": {
+        "deploy": "{{name}} nasazeno",
+        "redeploy": "{{name}} aktualizováno",
+        "pull": "Obrazy pro {{name}} staženy",
+        "start": "Spuštěno",
+        "stop": "Zastaveno",
+        "restart": "Restartováno",
+        "pause": "Pozastaveno",
+        "unpause": "Obnovené",
+        "down": "{{name}} zrušeno",
+        "destroy": "{{name}} zničeno"
+      },
+      "actionFailed": "Akce selhala",
+      "saved": "Uloženo",
+      "saveFailed": "Nelze uložit",
+      "saveDeploy": "Uložit a nasadit",
+      "validate": "Ověřit",
+      "validateFailed": "Nelze ověřit soubor",
+      "valid": "Compose soubor je platný.",
+      "invalid": "Compose soubor není platný.",
+      "unsaved": "Neuložené změny",
+      "noServices": "Tato stopa nemá žádné služby.",
+      "notCreated": "Nevytvořeno",
+      "noRunning": "Žádná služba neběží.",
+      "service": "Služba",
+      "allServices": "Všechny služby",
+      "follow": "Sledovat",
+      "noLogs": "Zatím žádné logy.",
+      "logsFailed": "Nelze načíst logy",
+      "envTable": "Tabulka",
+      "envRaw": "Syrový text",
+      "addVariable": "Přidat proměnnou",
+      "noVariables": "Zatím žádné proměnné.",
+      "variableName": "NÁZEV",
+      "variableValue": "hodnota",
+      "reveal": "Zobrazit nebo skrýt hodnotu",
+      "events": "Události",
+      "eventsHint": "Akce, které provedete, a změny služeb, zatímco je tento stack otevřený.",
+      "noEvents": "Zatím nic. Zde se zobrazují akce a změny služeb.",
+      "clearEvents": "Vymazat",
+      "showOutput": "Zobrazit výstup",
+      "eventState": "{{service}}: z {{from}} na {{to}}",
+      "eventRemoved": "{{service}} byl odstraněn",
+      "eventFailed": "Selhalo: {{action}}",
+      "event": {
+        "deploy": "Nasazena {{service}}",
+        "redeploy": "Stáhnut a nasazen {{service}}",
+        "pull": "Stáhnuty obrazy pro {{service}}",
+        "start": "Spuštěna {{service}}",
+        "stop": "Zastavena {{service}}",
+        "restart": "Restartována {{service}}",
+        "pause": "Pozastavena {{service}}",
+        "unpause": "Obnovená {{service}}",
+        "down": "Ukončen {{name}}",
+        "destroy": "Zničen {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Aktualizace",
+      "update": "Aktualizovat kontejner",
+      "check": "Zkontrolovat aktualizace",
+      "available": "Dostupných {{count}} aktualizací. Zkontrolovat znovu",
+      "found": "Aktualizace dostupné pro {{count}} obrazů",
+      "none": "Všechny obrazy jsou aktuální",
+      "checkFailed": "Nelze zkontrolovat aktualizace",
+      "updated": "{{name}} aktualizován",
+      "pulled": "Obraz pro {{name}} stažen. Pro použití jej znovu vytvořte.",
+      "failed": "Nelze aktualizovat {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -147,6 +259,14 @@
       "showPanel": {
         "label": "Zobrazit panel kontejnerů v terminálech",
         "description": "Umožní otevření panelu kontejnerů vedle SSH terminálu tohoto hostitele."
+      },
+      "enableStacks": {
+        "label": "Správa stacků",
+        "description": "Spravujte compose staky na tomto hostiteli. Musí to povolit také správce."
+      },
+      "stacksRoot": {
+        "label": "Složka stacků",
+        "description": "Složka na hostiteli, kde má každý stack vlastní složku se souborem compose."
       }
     },
     "user": {
@@ -169,6 +289,12 @@
         "label": "Zobrazit tlačítko panelu",
         "description": "Zobrazí malé tlačítko na pravém okraji terminálu, které otevře panel kontejnerů."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Správa stacků",
+        "description": "Povolit hostitelům používat správu compose stacků. Pokud je toto vypnuto, je skryto a blokováno pro všechny."
+      }
     }
   },
   "errors": {
@@ -181,7 +307,8 @@
   },
   "common": {
     "remove": "Odstranit",
-    "cancel": "Zrušit"
+    "cancel": "Zrušit",
+    "save": "Uložit"
   },
   "plugin": {
     "name": "Docker",

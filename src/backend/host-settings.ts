@@ -22,6 +22,31 @@ export async function readDockerHostSettings(
   };
 }
 
+export const DEFAULT_STACKS_ROOT = "/opt/stacks";
+const STACKS_ROOT_RE = /^\/[A-Za-z0-9_./-]*$/;
+
+export interface StacksHostSettings {
+  enabled: boolean;
+  root: string;
+}
+
+/** The stacks switch and folder of a host. Off unless the host turns it on. */
+export async function readStacksHostSettings(
+  ctx: PluginContext,
+  hostId: number,
+): Promise<StacksHostSettings> {
+  const values = await ctx.settings.getAll("host", hostId);
+  const raw =
+    typeof values.stacksRoot === "string"
+      ? values.stacksRoot.trim().replace(/\/+$/, "")
+      : "";
+  const safe = STACKS_ROOT_RE.test(raw) && !raw.split("/").includes("..");
+  return {
+    enabled: values.enableDocker === true && values.enableStacks === true,
+    root: raw && safe ? raw : DEFAULT_STACKS_ROOT,
+  };
+}
+
 function asObject(value: unknown): Record<string, unknown> | undefined {
   let parsed = value;
   if (typeof value === "string") {

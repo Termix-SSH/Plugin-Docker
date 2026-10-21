@@ -100,3 +100,63 @@ export function dockerPanelEnabled(host: object | null | undefined): boolean {
 export function hostTitle(host: DockerHost): string {
   return host.name || `${host.username ?? ""}@${host.ip}`;
 }
+
+/** Whether this host turned stack management on (the admin switch is separate). */
+export function stacksEnabledForHost(host: object | null | undefined): boolean {
+  return dockerEnabled(host) && dockerSettings(host).enableStacks === true;
+}
+
+export type StackState =
+  "running" | "partial" | "stopped" | "paused" | "not-deployed";
+
+export interface StackSummary {
+  name: string;
+  managed: boolean;
+  state: StackState;
+  running: number;
+  total: number;
+  composeFile: string | null;
+}
+
+export interface StackService {
+  service: string;
+  name: string;
+  id: string;
+  image: string;
+  state: string;
+  status: string;
+  health: string;
+  ports: string;
+}
+
+export interface StackDetailData {
+  name: string;
+  managed: boolean;
+  composeFile: string | null;
+  compose: string | null;
+  env: string | null;
+  declaredServices: string[];
+  services: StackService[];
+  state: StackState;
+  running: number;
+  total: number;
+}
+
+export type StackAction =
+  | "deploy"
+  | "redeploy"
+  | "pull"
+  | "start"
+  | "stop"
+  | "restart"
+  | "pause"
+  | "unpause"
+  | "down"
+  | "destroy";
+
+export type UpdateStatus = "update" | "current" | "unknown" | "pinned";
+
+export interface ImageUpdate {
+  status: UpdateStatus;
+  reason?: string;
+}

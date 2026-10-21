@@ -15,6 +15,7 @@ import {
 import { toast } from "sonner";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import { useDockerApi } from "../docker-api";
+import { UpdateBadge, UpdateButton } from "../updates";
 
 interface ContainerCardProps {
   container: DockerContainer;
@@ -202,7 +203,10 @@ export function ContainerCard({
           />
           <span className="text-sm font-bold truncate">{containerName}</span>
         </div>
-        <DockerBadge state={container.state} />
+        <div className="flex shrink-0 items-center gap-1">
+          <UpdateBadge image={container.image} />
+          <DockerBadge state={container.state} />
+        </div>
       </div>
       <div className="px-4 py-3 flex flex-col gap-2">
         <div className="flex flex-col gap-0.5">
@@ -240,6 +244,7 @@ export function ContainerCard({
           {container.id.substring(0, 12)}
         </span>
         <div className="flex items-center gap-1">
+          <UpdateButton container={container} />
           {container.state !== "running" && (
             <Button
               variant="ghost"

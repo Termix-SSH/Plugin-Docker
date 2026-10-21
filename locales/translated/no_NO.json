@@ -114,7 +114,119 @@
     "notEnabledHint": "Skru på Docker i innstillingene for denne verten for å administrere containerne.",
     "shellChanged": "Shell \"{{requested}}\" er ikke tilgjengelig. Bruker \"{{shell}}\" i stedet.",
     "failedToConnectWithError": "Kunne ikke koble til: {{error}}",
-    "errorCode": "Feilkode: {{code}}"
+    "errorCode": "Feilkode: {{code}}",
+    "stacks": {
+      "title": "Stabler",
+      "current": "Containere",
+      "manage": "Stabler",
+      "new": "Ny stabil",
+      "create": "Opprett stabil",
+      "search": "Søk i stabler...",
+      "loading": "Laster inn stabler...",
+      "empty": "Ingen stabler ennå. Stabler ligger i {{root}} på denne verten, én mappe hver.",
+      "noMatches": "Ingen stabler matcher.",
+      "external": "Utenfor stabler-mappen",
+      "servicesRunning": "{{running}} av {{total}} kjører",
+      "listFailed": "Kunne ikke laste inn stabler",
+      "loadFailed": "Kunne ikke laste inn stablen",
+      "notFound": "Denne stablen finnes ikke lenger.",
+      "state": {
+        "running": "Kjører",
+        "partial": "Delvis",
+        "stopped": "Stoppet",
+        "paused": "Pauset",
+        "not-deployed": "Ikke implementert"
+      },
+      "name": "Navn",
+      "nameHint": "Opprettet i {{root}}. Bruk små bokstaver, tall, - og _.",
+      "nameInvalid": "Bruk kun små bokstaver, tall, - og _.",
+      "envOptional": "Miljøfil (valgfritt)",
+      "created": "Stabil {{name}} opprettet",
+      "createFailed": "Kunne ikke opprette stablen",
+      "overview": "Oversikt",
+      "compose": "Compose",
+      "env": "Miljø",
+      "deploy": "Implementer",
+      "redeploy": "Hent og implementer",
+      "pull": "Hent",
+      "down": "Ta ned",
+      "destroy": "Ødelegg",
+      "deleteFiles": "Slett filer",
+      "keepFiles": "Behold filer",
+      "confirm": {
+        "down": "Stopp og fjern containerne til {{name}}? Volumer beholdes.",
+        "destroy": "Ødelegg {{name}}? Dette fjerner containerne, nettverkene og volumene.",
+        "deleteFiles": "Slett også stabler-mappen til {{name}} fra verten?"
+      },
+      "done": {
+        "deploy": "{{name}} implementert",
+        "redeploy": "{{name}} oppdatert",
+        "pull": "Bilder hentet for {{name}}",
+        "start": "Startet",
+        "stop": "Stoppet",
+        "restart": "Omstartet",
+        "pause": "Pauset",
+        "unpause": "Gjenopptatt",
+        "down": "{{name}} tatt ned",
+        "destroy": "{{name}} ødelagt"
+      },
+      "actionFailed": "Handlingen mislyktes",
+      "saved": "Lagret",
+      "saveFailed": "Kunne ikke lagre",
+      "saveDeploy": "Lagre og implementer",
+      "validate": "Sjekk",
+      "validateFailed": "Kunne ikke sjekke filen",
+      "valid": "Compose-filen er gyldig.",
+      "invalid": "Compose-filen er ikke gyldig.",
+      "unsaved": "Ulagrede endringer",
+      "noServices": "Denne stablen har ingen tjenester.",
+      "notCreated": "Ikke opprettet",
+      "noRunning": "Ingen tjeneste kjører.",
+      "service": "Tjeneste",
+      "allServices": "Alle tjenester",
+      "follow": "Følg",
+      "noLogs": "Ingen logger ennå.",
+      "logsFailed": "Kunne ikke laste inn logger",
+      "envTable": "Tabell",
+      "envRaw": "Rå",
+      "addVariable": "Legg til variabel",
+      "noVariables": "Ingen variabler ennå.",
+      "variableName": "NAVN",
+      "variableValue": "verdi",
+      "reveal": "Vis eller skjul verdi",
+      "events": "Hendelser",
+      "eventsHint": "Handlinger du utfører og endringer i tjenester mens denne stacken er åpen.",
+      "noEvents": "Ingenting ennå. Handlinger og tjenesteendringer vises her.",
+      "clearEvents": "Tøm",
+      "showOutput": "Vis output",
+      "eventState": "{{service}}: {{from}} til {{to}}",
+      "eventRemoved": "{{service}} ble fjernet",
+      "eventFailed": "Mislyktes: {{action}}",
+      "event": {
+        "deploy": "Utrullet {{service}}",
+        "redeploy": "Hentet og utrullet {{service}}",
+        "pull": "Hentet bilder for {{service}}",
+        "start": "Startet {{service}}",
+        "stop": "Stoppet {{service}}",
+        "restart": "Omstartet {{service}}",
+        "pause": "Satt {{service}} på pause",
+        "unpause": "Gjenopptok {{service}}",
+        "down": "Tok ned {{name}}",
+        "destroy": "Ødela {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Oppdatering",
+      "update": "Oppdater beholder",
+      "check": "Sjekk etter oppdateringer",
+      "available": "{{count}} oppdateringer tilgjengelig. Sjekk igjen",
+      "found": "{{count}} bilder har oppdateringer",
+      "none": "Alle bilder er oppdatert",
+      "checkFailed": "Kunne ikke sjekke etter oppdateringer",
+      "updated": "{{name}} oppdatert",
+      "pulled": "Bilde hentet for {{name}}. Opprett beholderen på nytt for å bruke den.",
+      "failed": "Kunne ikke oppdatere {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Vis container-panelet i terminaler",
         "description": "La container-panelet åpne ved siden av SSH-terminalen for denne verten."
+      },
+      "enableStacks": {
+        "label": "Stack-styring",
+        "description": "Styr compose-stacker på denne verten. En administrator må også tillate dette."
+      },
+      "stacksRoot": {
+        "label": "Stack-mappe",
+        "description": "Mappen på verten der hver stack har sin egen mappe med en compose-fil."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Vis panelknapp",
         "description": "Vis en liten knapp på høyre kant av en terminal som åpner container-panelet."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stack-styring",
+        "description": "La verter bruke compose-stack-styring. Når dette er av, er det skjult og blokkert for alle."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Fjern",
-    "cancel": "Avbryt"
+    "cancel": "Avbryt",
+    "save": "Lagre"
   },
   "plugin": {
     "name": "Docker",

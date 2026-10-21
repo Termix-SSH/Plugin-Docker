@@ -114,7 +114,119 @@
     "notEnabledHint": "Aktivér Docker i denne hosts indstillinger for at administrere dens containere.",
     "shellChanged": "Shell \"{{requested}}\" er ikke tilgængelig. Bruger \"{{shell}}\" i stedet.",
     "failedToConnectWithError": "Kunne ikke oprette forbindelse: {{error}}",
-    "errorCode": "Fejlkode: {{code}}"
+    "errorCode": "Fejlkode: {{code}}",
+    "stacks": {
+      "title": "Stakke",
+      "current": "Containere",
+      "manage": "Stakke",
+      "new": "Ny stak",
+      "create": "Opret stak",
+      "search": "Søg i stakke...",
+      "loading": "Indlæser stakke...",
+      "empty": "Ingen stakke endnu. Stakke opbevares i {{root}} på denne vært, én mappe hver.",
+      "noMatches": "Ingen stakke matcher.",
+      "external": "Uden for stak-mappen",
+      "servicesRunning": "{{running}} af {{total}} kører",
+      "listFailed": "Kunne ikke indlæse stakke",
+      "loadFailed": "Kunne ikke indlæse stakken",
+      "notFound": "Denne stak findes ikke længere.",
+      "state": {
+        "running": "Kører",
+        "partial": "Delvis",
+        "stopped": "Stopet",
+        "paused": "Sat på pause",
+        "not-deployed": "Ikke udrullet"
+      },
+      "name": "Navn",
+      "nameHint": "Oprettet i {{root}}. Brug små bogstaver, tal, - og _.",
+      "nameInvalid": "Brug kun små bogstaver, tal, - og _.",
+      "envOptional": "Miljøfil (valgfri)",
+      "created": "Stak {{name}} oprettet",
+      "createFailed": "Kunne ikke oprette stakken",
+      "overview": "Oversigt",
+      "compose": "Compose",
+      "env": "Miljø",
+      "deploy": "Udrul",
+      "redeploy": "Hent og udrul",
+      "pull": "Hent",
+      "down": "Tag ned",
+      "destroy": "Ødelæg",
+      "deleteFiles": "Slet filer",
+      "keepFiles": "Behold filer",
+      "confirm": {
+        "down": "Stop og fjern containere for {{name}}? Volumener beholdes.",
+        "destroy": "Ødelæg {{name}}? Dette fjerner dets containere, netværk og volumener.",
+        "deleteFiles": "Slet også stak-mappen for {{name}} fra værten?"
+      },
+      "done": {
+        "deploy": "{{name}} udrullet",
+        "redeploy": "{{name}} opdateret",
+        "pull": "Billeder hentet for {{name}}",
+        "start": "Startet",
+        "stop": "Stopet",
+        "restart": "Genstartet",
+        "pause": "Sat på pause",
+        "unpause": "Genoptaget",
+        "down": "{{name}} taget ned",
+        "destroy": "{{name}} ødelagt"
+      },
+      "actionFailed": "Handlingen mislykkedes",
+      "saved": "Gemt",
+      "saveFailed": "Kunne ikke gemme",
+      "saveDeploy": "Gem og udrul",
+      "validate": "Tjek",
+      "validateFailed": "Kunne ikke tjekke filen",
+      "valid": "Compose-filen er gyldig.",
+      "invalid": "Compose-filen er ikke gyldig.",
+      "unsaved": "Ugemte ændringer",
+      "noServices": "Denne stak har ingen tjenester.",
+      "notCreated": "Ikke oprettet",
+      "noRunning": "Ingen tjeneste kører.",
+      "service": "Tjeneste",
+      "allServices": "Alle tjenester",
+      "follow": "Følg",
+      "noLogs": "Ingen logfiler endnu.",
+      "logsFailed": "Kunne ikke indlæse logfiler",
+      "envTable": "Tabel",
+      "envRaw": "Rå",
+      "addVariable": "Tilføj variabel",
+      "noVariables": "Ingen variabler endnu.",
+      "variableName": "NAVN",
+      "variableValue": "værdi",
+      "reveal": "Vis eller skjul værdi",
+      "events": "Hændelser",
+      "eventsHint": "Handlinger, du udfører, og ændringer af tjenester, mens denne stack er åben.",
+      "noEvents": "Intet endnu. Handlinger og ændringer af tjenester vises her.",
+      "clearEvents": "Ryd",
+      "showOutput": "Vis output",
+      "eventState": "{{service}}: {{from}} til {{to}}",
+      "eventRemoved": "{{service}} blev fjernet",
+      "eventFailed": "Mislykkedes: {{action}}",
+      "event": {
+        "deploy": "Udrullet {{service}}",
+        "redeploy": "Hentede og udrullede {{service}}",
+        "pull": "Hentede billeder for {{service}}",
+        "start": "Startede {{service}}",
+        "stop": "Stoppede {{service}}",
+        "restart": "Genstartede {{service}}",
+        "pause": "Sattede {{service}} på pause",
+        "unpause": "Genoptog {{service}}",
+        "down": "Tog {{name}} ned",
+        "destroy": "Ødelagde {{name}}"
+      }
+    },
+    "updates": {
+      "badge": "Opdatering",
+      "update": "Opdater container",
+      "check": "Tjek efter opdateringer",
+      "available": "{{count}} opdateringer tilgængelige. Tjek igen",
+      "found": "{{count}} billeder har opdateringer",
+      "none": "Alle billeder er opdaterede",
+      "checkFailed": "Kunne ikke tjekke efter opdateringer",
+      "updated": "{{name}} opdateret",
+      "pulled": "Billede hentet for {{name}}. Opret containeren igen for at bruge det.",
+      "failed": "Kunne ikke opdatere {{name}}: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Vis containerpanel i terminaler",
         "description": "Lad containerpanelet åbne ved siden af SSH-terminalen for denne vært."
+      },
+      "enableStacks": {
+        "label": "Stack-styring",
+        "description": "Styr compose-stacks på denne vært. En administrator skal også tillade det."
+      },
+      "stacksRoot": {
+        "label": "Stack-mappe",
+        "description": "Mappen på værten, hvor hver stack har sin egen mappe med en compose-fil."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Vis panelknappen",
         "description": "Vis en lille knap på højre kant af terminalen, der åbner containerpanelet."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stack-styring",
+        "description": "Tillad værter at bruge compose-stack-styring. Mens dette er slået fra, er det skjult og blokeret for alle."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Fjern",
-    "cancel": "Annuller"
+    "cancel": "Annuller",
+    "save": "Gem"
   },
   "plugin": {
     "name": "Docker",

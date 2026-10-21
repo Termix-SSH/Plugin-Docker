@@ -1,7 +1,7 @@
 {
   "id": "docker",
   "name": "Docker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
   "author": {
     "name": "Termix"
@@ -18,7 +18,9 @@
     "Read and download container logs",
     "Open a shell inside a container",
     "Works with Docker and Podman",
-    "A containers panel beside any SSH terminal"
+    "A containers panel beside any SSH terminal",
+    "Optional stack management for compose projects",
+    "Check images for updates and update containers"
   ],
   "engine": {
     "termix": ">=26.10.3",
@@ -95,6 +97,22 @@
             "descriptionKey": "settings.host.showPanel.description",
             "default": true,
             "requires": "enableDocker"
+          },
+          {
+            "key": "enableStacks",
+            "type": "boolean",
+            "labelKey": "settings.host.enableStacks.label",
+            "descriptionKey": "settings.host.enableStacks.description",
+            "default": false,
+            "requires": "enableDocker"
+          },
+          {
+            "key": "stacksRoot",
+            "type": "string",
+            "labelKey": "settings.host.stacksRoot.label",
+            "descriptionKey": "settings.host.stacksRoot.description",
+            "default": "/opt/stacks",
+            "requires": "enableStacks"
           }
         ]
       },
@@ -142,6 +160,15 @@
           "labelKey": "settings.user.companionEdgeButton.label",
           "descriptionKey": "settings.user.companionEdgeButton.description",
           "default": true
+        }
+      ],
+      "admin": [
+        {
+          "key": "stacksEnabled",
+          "type": "boolean",
+          "labelKey": "settings.admin.stacksEnabled.label",
+          "descriptionKey": "settings.admin.stacksEnabled.description",
+          "default": false
         }
       ]
     },

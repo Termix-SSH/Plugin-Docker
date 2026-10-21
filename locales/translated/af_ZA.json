@@ -114,7 +114,119 @@
     "notEnabledHint": "Skakel Docker in hierdie gasheer se instellings in om sy houers te bestuur.",
     "shellChanged": "Skul \"{{requested}}\" is nie beskikbaar nie. Gebruik \"{{shell}}\" in plaas daarvan.",
     "failedToConnectWithError": "Kon nie verbind nie: {{error}}",
-    "errorCode": "Foutkode: {{code}}"
+    "errorCode": "Foutkode: {{code}}",
+    "stacks": {
+      "title": "Stapel",
+      "current": "Behouders",
+      "manage": "Stapel",
+      "new": "Nuwe stapel",
+      "create": "Skep stapel",
+      "search": "Soek stapels...",
+      "loading": "Laai stapels...",
+      "empty": "Nog geen stapels nie. Stapels woon in {{root}} op hierdie gasheer, een gids elk.",
+      "noMatches": "Geen stapels pas by nie.",
+      "external": "Buite die stapelgids",
+      "servicesRunning": "{{running}} van {{total}} loop",
+      "listFailed": "Kon nie stapels laai nie",
+      "loadFailed": "Kon nie die stapel laai nie",
+      "notFound": "Hierdie stapel bestaan nie meer nie.",
+      "state": {
+        "running": "Loop",
+        "partial": "Gedeeltelik",
+        "stopped": "Gestop",
+        "paused": "Gepouseer",
+        "not-deployed": "Nie geïmplementeer nie"
+      },
+      "name": "Naam",
+      "nameHint": "Geskep in {{root}}. Gebruik kleinletters, syfers, - en _.",
+      "nameInvalid": "Gebruik slegs kleinletters, syfers, - en _.",
+      "envOptional": "Omgewingslêer (opsioneel)",
+      "created": "Stapel {{name}} geskep",
+      "createFailed": "Kon nie die stapel skep nie",
+      "overview": "Oorsig",
+      "compose": "Samestel",
+      "env": "Omgeving",
+      "deploy": "Implementeer",
+      "redeploy": "Trek en implementeer",
+      "pull": "Trek",
+      "down": "Neerhaal",
+      "destroy": "Verwoes",
+      "deleteFiles": "Vee lêers uit",
+      "keepFiles": "Behou lêers",
+      "confirm": {
+        "down": "Stop en verwyder die behouders van {{name}}? Volumes word behou.",
+        "destroy": "Verwoes {{name}}? Dit verwyder sy behouders, netwerke en volumes.",
+        "deleteFiles": "Vee ook die stapelgids van {{name}} van die gasheer af?"
+      },
+      "done": {
+        "deploy": "{{name}} geïmplementeer",
+        "redeploy": "{{name}} opgedateer",
+        "pull": "Beelde getrek vir {{name}}",
+        "start": "Begin",
+        "stop": "Gestop",
+        "restart": "Herbegin",
+        "pause": "Gepouseer",
+        "unpause": "Hervat",
+        "down": "{{name}} neergehaal",
+        "destroy": "{{name}} verwoes"
+      },
+      "actionFailed": "Die aksie het misluk",
+      "saved": "Stoor",
+      "saveFailed": "Kon nie stoor nie",
+      "saveDeploy": "Stoor en implementeer",
+      "validate": "Kontroleer",
+      "validateFailed": "Kon nie die lêer kontroleer nie",
+      "valid": "Die samestellingslêer is geldig.",
+      "invalid": "Die samestellingslêer is nie geldig nie.",
+      "unsaved": "Onbewaarde veranderinge",
+      "noServices": "Hierdie stapel het geen dienste nie.",
+      "notCreated": "Nie geskep nie",
+      "noRunning": "Geen diens loop nie.",
+      "service": "Diens",
+      "allServices": "Al die dienste",
+      "follow": "Volg",
+      "noLogs": "Nog geen logboeke nie.",
+      "logsFailed": "Kon nie logboeke laai nie",
+      "envTable": "Tabel",
+      "envRaw": "Rou",
+      "addVariable": "Voeg veranderlike by",
+      "noVariables": "Nog geen veranderlikes nie.",
+      "variableName": "NAAM",
+      "variableValue": "waarde",
+      "reveal": "Wys of verberg waarde",
+      "events": "Gebeurtenisse",
+      "eventsHint": "Aksies wat jy uitvoer en veranderinge aan dienste terwyl hierdie stapel oop is.",
+      "noEvents": "Nog niks nie. Aksies en diensveranderinge verskyn hier.",
+      "clearEvents": "Vee uit",
+      "showOutput": "Wys uitvoer",
+      "eventState": "{{service}}: {{from}} na {{to}}",
+      "eventRemoved": "{{service}} is verwyder",
+      "eventFailed": "Misluk: {{action}}",
+      "event": {
+        "deploy": "{{service}} is geïmplementeer",
+        "redeploy": "{{service}} is getrek en geïmplementeer",
+        "pull": "Beelde vir {{service}} is getrek",
+        "start": "{{service}} is begin",
+        "stop": "{{service}} is gestop",
+        "restart": "{{service}} is herbegin",
+        "pause": "{{service}} is gepouseer",
+        "unpause": "{{service}} is hervat",
+        "down": "{{name}} is afgeskakel",
+        "destroy": "{{name}} is vernietig"
+      }
+    },
+    "updates": {
+      "badge": "Opdateer",
+      "update": "Opdateer houer",
+      "check": "Kyk vir opdaterings",
+      "available": "{{count}} opdaterings beskikbaar. Kontroleer weer",
+      "found": "{{count}} beelde het opdaterings",
+      "none": "Al die beelde is op datum",
+      "checkFailed": "Kon nie kyk vir opdaterings nie",
+      "updated": "{{name}} is opgedateer",
+      "pulled": "Beeld is getrek vir {{name}}. Skep die houer nuut om dit te gebruik.",
+      "failed": "Kon nie {{name}} opdateer nie: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Vertoon die houer-paneel in terminale",
         "description": "Laat die houer-paneel oopmaak langs die SSH-terminal van hierdie gasheer."
+      },
+      "enableStacks": {
+        "label": "Stapelbestuur",
+        "description": "Bestuur compose-stapels op hierdie gasheer. 'n Administrateur moet dit ook toelaat."
+      },
+      "stacksRoot": {
+        "label": "Stapels-map",
+        "description": "Die map op die gasheer waar elke stapel sy eie map met 'n compose-lêer het."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Wys die paneelknoppie",
         "description": "Wys 'n klein knoppie aan die regterrand van 'n terminaal wat die houerpaneel oopmaak."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stapelbestuur",
+        "description": "Laat gasheers gebruik maak van compose-stapelbestuur. Terwyl dit af is, is dit vir almal versteek en geblokkeer."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Verwyder",
-    "cancel": "Kanselleer"
+    "cancel": "Kanselleer",
+    "save": "Stoor"
   },
   "plugin": {
     "name": "Docker",

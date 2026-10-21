@@ -114,7 +114,119 @@
     "notEnabledHint": "Aktivieren Sie Docker in den Einstellungen dieses Hosts, um seine Container zu verwalten.",
     "shellChanged": "Shell \"{{requested}}\" ist nicht verfügbar. Stattdessen wird \"{{shell}}\" verwendet.",
     "failedToConnectWithError": "Verbindung fehlgeschlagen: {{error}}",
-    "errorCode": "Fehlercode: {{code}}"
+    "errorCode": "Fehlercode: {{code}}",
+    "stacks": {
+      "title": "Stacks",
+      "current": "Container",
+      "manage": "Stacks",
+      "new": "Neuer Stack",
+      "create": "Stack erstellen",
+      "search": "Stacks suchen...",
+      "loading": "Stacks werden geladen...",
+      "empty": "Noch keine Stacks. Stacks befinden sich in {{root}} auf diesem Host, jeder in einem eigenen Ordner.",
+      "noMatches": "Keine übereinstimmenden Stacks.",
+      "external": "Außerhalb des Stacks-Ordners",
+      "servicesRunning": "{{running}} von {{total}} aktiv",
+      "listFailed": "Stacks konnten nicht geladen werden",
+      "loadFailed": "Der Stack konnte nicht geladen werden",
+      "notFound": "Dieser Stack existiert nicht mehr.",
+      "state": {
+        "running": "Aktiv",
+        "partial": "Teilweise",
+        "stopped": "Gestoppt",
+        "paused": "Pausiert",
+        "not-deployed": "Nicht bereitgestellt"
+      },
+      "name": "Name",
+      "nameHint": "Erstellt in {{root}}. Verwende Kleinbuchstaben, Zahlen, - und _.",
+      "nameInvalid": "Verwende nur Kleinbuchstaben, Zahlen, - und _.",
+      "envOptional": "Umgebungsdatei (optional)",
+      "created": "Stack {{name}} erstellt",
+      "createFailed": "Der Stack konnte nicht erstellt werden",
+      "overview": "Übersicht",
+      "compose": "Compose",
+      "env": "Umgebung",
+      "deploy": "Bereitstellen",
+      "redeploy": "Pullen und bereitstellen",
+      "pull": "Pullen",
+      "down": "Herunterfahren",
+      "destroy": "Zerstören",
+      "deleteFiles": "Dateien löschen",
+      "keepFiles": "Dateien behalten",
+      "confirm": {
+        "down": "Container von {{name}} stoppen und entfernen? Volumes werden behalten.",
+        "destroy": "{{name}} zerstören? Dadurch werden Container, Netzwerke und Volumes entfernt.",
+        "deleteFiles": "Soll der Stack-Ordner von {{name}} auf dem Host ebenfalls gelöscht werden?"
+      },
+      "done": {
+        "deploy": "{{name}} bereitgestellt",
+        "redeploy": "{{name}} aktualisiert",
+        "pull": "Images für {{name}} heruntergeladen",
+        "start": "Gestartet",
+        "stop": "Gestoppt",
+        "restart": "Neugestartet",
+        "pause": "Pausiert",
+        "unpause": "Fortgesetzt",
+        "down": "{{name}} heruntergefahren",
+        "destroy": "{{name}} zerstört"
+      },
+      "actionFailed": "Die Aktion ist fehlgeschlagen",
+      "saved": "Gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen",
+      "saveDeploy": "Speichern und bereitstellen",
+      "validate": "Prüfen",
+      "validateFailed": "Die Datei konnte nicht geprüft werden",
+      "valid": "Die Compose-Datei ist gültig.",
+      "invalid": "Die Compose-Datei ist ungültig.",
+      "unsaved": "Nicht gespeicherte Änderungen",
+      "noServices": "Dieser Stack hat keine Dienste.",
+      "notCreated": "Nicht erstellt",
+      "noRunning": "Kein Dienst ist aktiv.",
+      "service": "Dienst",
+      "allServices": "Alle Dienste",
+      "follow": "Folgen",
+      "noLogs": "Noch keine Protokolle.",
+      "logsFailed": "Protokolle konnten nicht geladen werden",
+      "envTable": "Tabelle",
+      "envRaw": "Rohdaten",
+      "addVariable": "Variable hinzufügen",
+      "noVariables": "Noch keine Variablen.",
+      "variableName": "NAME",
+      "variableValue": "Wert",
+      "reveal": "Wert anzeigen oder verbergen",
+      "events": "Ereignisse",
+      "eventsHint": "Aktionen, die Sie ausführen, und Änderungen an Diensten, während dieser Stack geöffnet ist.",
+      "noEvents": "Noch nichts. Aktionen und Dienständerungen werden hier angezeigt.",
+      "clearEvents": "Leeren",
+      "showOutput": "Ausgabe anzeigen",
+      "eventState": "{{service}}: {{from}} zu {{to}}",
+      "eventRemoved": "{{service}} wurde entfernt",
+      "eventFailed": "Fehler: {{action}}",
+      "event": {
+        "deploy": "{{service}} bereitgestellt",
+        "redeploy": "{{service}} heruntergeladen und bereitgestellt",
+        "pull": "Images für {{service}} heruntergeladen",
+        "start": "{{service}} gestartet",
+        "stop": "{{service}} gestoppt",
+        "restart": "{{service}} neu gestartet",
+        "pause": "{{service}} pausiert",
+        "unpause": "{{service}} fortgesetzt",
+        "down": "{{name}} heruntergefahren",
+        "destroy": "{{name}} zerstört"
+      }
+    },
+    "updates": {
+      "badge": "Aktualisierung",
+      "update": "Container aktualisieren",
+      "check": "Nach Updates suchen",
+      "available": "{{count}} Updates verfügbar. Erneut prüfen",
+      "found": "{{count}} Images haben Updates",
+      "none": "Alle Images sind aktuell",
+      "checkFailed": "Update-Prüfung fehlgeschlagen",
+      "updated": "{{name}} aktualisiert",
+      "pulled": "Image für {{name}} heruntergeladen. Erstellen Sie den Container neu, um es zu verwenden.",
+      "failed": "{{name}} konnte nicht aktualisiert werden: {{error}}"
+    }
   },
   "nav": {
     "docker": "Docker",
@@ -145,6 +257,14 @@
       "showPanel": {
         "label": "Container-Panel in Terminals anzeigen",
         "description": "Lässt das Container-Panel neben dem SSH-Terminal dieses Hosts öffnen."
+      },
+      "enableStacks": {
+        "label": "Stack-Verwaltung",
+        "description": "Compose-Stacks auf diesem Host verwalten. Ein Administrator muss dies ebenfalls zulassen."
+      },
+      "stacksRoot": {
+        "label": "Stacks-Ordner",
+        "description": "Der Ordner auf dem Host, in dem jeder Stack seinen eigenen Ordner mit einer Compose-Datei hat."
       }
     },
     "user": {
@@ -167,6 +287,12 @@
         "label": "Panel-Schaltfläche anzeigen",
         "description": "Zeigt eine kleine Schaltfläche am rechten Rand eines Terminals an, die das Container-Panel öffnet."
       }
+    },
+    "admin": {
+      "stacksEnabled": {
+        "label": "Stack-Verwaltung",
+        "description": "Hosts die Verwaltung von Compose-Stacks erlauben. Wenn dies deaktiviert ist, ist es für alle verborgen und blockiert."
+      }
     }
   },
   "errors": {
@@ -179,7 +305,8 @@
   },
   "common": {
     "remove": "Entfernen",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "save": "Speichern"
   },
   "plugin": {
     "name": "Docker",
