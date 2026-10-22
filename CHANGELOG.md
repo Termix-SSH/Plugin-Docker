@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.1
+
+### Added
+
+- Docker hosts dashboard card: running, stopped and unhealthy containers on each host with Docker on
+
+### Changed
+
+- The container grid fits as many cards as the tab has room for, or pick how many per row next to the grid and list switch
+
 ## 1.2.0
 
 ### Added

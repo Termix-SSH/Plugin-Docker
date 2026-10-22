@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "Gestisci i contenitori Docker e Podman sui tuoi host tramite SSH, con log, statistiche e console."
+  },
+  "card": {
+    "title": "Host Docker",
+    "loading": "Caricamento...",
+    "refresh": "Verifica di nuovo",
+    "empty": "Nessun host ha Docker attivato.",
+    "summary": "{{running}} di {{total}} container in esecuzione",
+    "counts": "{{running}} in esecuzione | {{stopped}} fermi",
+    "unhealthy_one": "{{count}} non sano",
+    "unhealthy_many": "{{count}} non sani",
+    "unhealthy_other": "{{count}} non sani"
   }
 }

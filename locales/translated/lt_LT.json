@@ -313,5 +313,17 @@
   "plugin": {
     "name": "Docker",
     "description": "Tvarkykite Docker ir Podman konteinerius savo hostuose per SSH, su žurnalais, statistika ir konsole."
+  },
+  "card": {
+    "title": "Docker serveriai",
+    "loading": "Įkeliama...",
+    "refresh": "Patikrinti iš naujo",
+    "empty": "Nėra serverių, kuriuose būtų įjungtas Docker.",
+    "summary": "Veikia {{running}} iš {{total}} konteinerių",
+    "counts": "{{running}} veikia | {{stopped}} sustabdyti",
+    "unhealthy_one": "{{count}} neveikia tinkamai",
+    "unhealthy_few": "{{count}} neveikia tinkamai",
+    "unhealthy_many": "{{count}} neveikia tinkamai",
+    "unhealthy_other": "{{count}} neveikia tinkamai"
   }
 }

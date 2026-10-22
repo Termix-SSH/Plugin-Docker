@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Διαχείριση δοχείων Docker και Podman στους υπολογιστές σας μέσω SSH, με ημερολόγια, στατιστικά και κονσόλα."
+  },
+  "card": {
+    "title": "Υπολογιστές Docker",
+    "loading": "Φόρτωση...",
+    "refresh": "Έλεγχος ξανά",
+    "empty": "Κανένας υπολογιστής δεν έχει ενεργοποιημένο το Docker.",
+    "summary": "{{running}} από {{total}} containers εκτελούνται",
+    "counts": "{{running}} εκτελούνται | {{stopped}} σταματημένα",
+    "unhealthy_one": "{{count}} μη υγιές",
+    "unhealthy_other": "{{count}} μη υγιή"
   }
 }

@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "SSH üzerinden ana bilgisayarlarınızdaki Docker ve Podman konteynerlerini günlükler, istatistikler ve bir konsol ile yönetin."
+  },
+  "card": {
+    "title": "Docker sunucuları",
+    "loading": "Yükleniyor...",
+    "refresh": "Tekrar kontrol et",
+    "empty": "Hiçbir sunucuda Docker etkin değil.",
+    "summary": "{{total}} konteynerden {{running}}'i çalışıyor",
+    "counts": "{{running}} çalışıyor | {{stopped}} durdu",
+    "unhealthy_one": "{{count}} sağlıklı değil",
+    "unhealthy_other": "{{count}} sağlıklı değil"
   }
 }

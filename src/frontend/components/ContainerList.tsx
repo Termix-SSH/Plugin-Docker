@@ -2,11 +2,13 @@ import type { DockerContainer } from "../types";
 import React from "react";
 import { Box } from "lucide-react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
+import { DataView, type GridSize } from "@termix-ssh/plugin-sdk/ui";
 import { ContainerCard } from "./ContainerCard.tsx";
 
 interface ContainerListProps {
   containers: DockerContainer[];
   sessionId: string;
+  columns?: GridSize;
   onSelectContainer: (containerId: string) => void;
   selectedContainerId?: string | null;
   onRefresh?: () => void;
@@ -17,6 +19,7 @@ interface ContainerListProps {
 export function ContainerList({
   containers,
   sessionId,
+  columns = "auto",
   onSelectContainer,
   selectedContainerId = null,
   onRefresh,
@@ -67,17 +70,24 @@ export function ContainerList({
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-      {filtered.map((container) => (
+    <DataView
+      items={filtered}
+      view="grid"
+      getKey={(container) => container.id}
+      renderCard={(container) => (
         <ContainerCard
-          key={container.id}
           container={container}
           sessionId={sessionId}
           onSelect={() => onSelectContainer(container.id)}
           isSelected={selectedContainerId === container.id}
           onRefresh={onRefresh}
         />
-      ))}
-    </div>
+      )}
+      columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
+      size={columns}
+      minCardWidth={300}
+      listColumns={[]}
+      empty={null}
+    />
   );
 }

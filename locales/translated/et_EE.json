@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Halda Dockerit ja Podmani konteinereid oma hostidel SSH kaudu, koos logide, statistika ja konsooliga."
+  },
+  "card": {
+    "title": "Docker'i peremehoidjad",
+    "loading": "Laadimine...",
+    "refresh": "Kontrolli uuesti",
+    "empty": "Ühelgi peremehoidjal ei ole Dockerit sisse lülitatud.",
+    "summary": "{{running}}/{{total}} konteinerit töötab",
+    "counts": "{{running}} töötab | {{stopped}} peatatud",
+    "unhealthy_one": "{{count}} ebatervislik",
+    "unhealthy_other": "{{count}} ebatervislikku"
   }
 }

@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Administrer Docker- og Podman-containere på vertene dine via SSH, med logger, statistikk og en konsoll."
+  },
+  "card": {
+    "title": "Docker-vert",
+    "loading": "Laster...",
+    "refresh": "Sjekk igjen",
+    "empty": "Ingen vert har Docker aktivert.",
+    "summary": "{{running}} av {{total}} containere kjører",
+    "counts": "{{running}} kjører | {{stopped}} stoppet",
+    "unhealthy_one": "{{count}} ustabil",
+    "unhealthy_other": "{{count}} ustabile"
   }
 }

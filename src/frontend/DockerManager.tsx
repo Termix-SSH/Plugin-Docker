@@ -16,6 +16,7 @@ import {
   PanelShell,
   Segmented,
   ViewToggle,
+  type GridSize,
   SSHAuthDialog,
   TOTPDialog,
   BrowserSignInDialog,
@@ -82,6 +83,7 @@ function DockerManagerInner({
   const { values: dockerPrefs, set: setDockerPref } = usePluginUiPreferences<{
     viewMode: "list" | "detail";
     containerLayout: "card" | "table";
+    containerColumns: GridSize;
   }>();
 
   // The shell's host list keeps the host current after an edit; a
@@ -133,6 +135,16 @@ function DockerManagerInner({
     (layout: "card" | "table") => {
       setContainerLayout(layout);
       setDockerPref("containerLayout", layout);
+    },
+    [setDockerPref],
+  );
+  const [containerColumns, setContainerColumns] = React.useState<GridSize>(
+    dockerPrefs.containerColumns ?? "auto",
+  );
+  const handleSetContainerColumns = React.useCallback(
+    (columns: GridSize) => {
+      setContainerColumns(columns);
+      setDockerPref("containerColumns", columns);
     },
     [setDockerPref],
   );
@@ -712,6 +724,8 @@ function DockerManagerInner({
                           next === "list" ? "table" : "card",
                         )
                       }
+                      columns={containerColumns}
+                      onColumns={handleSetContainerColumns}
                     />
                   </div>
                 </>
@@ -757,6 +771,7 @@ function DockerManagerInner({
                   <ContainerList
                     containers={containers}
                     sessionId={sessionId}
+                    columns={containerColumns}
                     onSelectContainer={(id) => {
                       setSelectedContainer(id);
                       setDetailInitialTab("logs");

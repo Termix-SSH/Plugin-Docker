@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Управлявайте контейнери Docker и Podman на вашите хостове чрез SSH, с достъп до логове, статистика и конзола."
+  },
+  "card": {
+    "title": "Docker сървъри",
+    "loading": "Зареждане...",
+    "refresh": "Провери отново",
+    "empty": "Няма сървъри с включен Docker.",
+    "summary": "{{running}} от {{total}} контейнера работят",
+    "counts": "{{running}} работят | {{stopped}} спрени",
+    "unhealthy_one": "{{count}} неизправен",
+    "unhealthy_other": "{{count}} неизправни"
   }
 }

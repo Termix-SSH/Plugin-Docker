@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Verwalten Sie Docker- und Podman-Container auf Ihren Hosts über SSH, mit Logs, Statistiken und einer Konsole."
+  },
+  "card": {
+    "title": "Docker-Hosts",
+    "loading": "Wird geladen...",
+    "refresh": "Erneut prüfen",
+    "empty": "Bei keinem Host ist Docker aktiviert.",
+    "summary": "{{running}} von {{total}} Containern laufen",
+    "counts": "{{running}} läuft | {{stopped}} gestoppt",
+    "unhealthy_one": "{{count}} nicht gesund",
+    "unhealthy_other": "{{count}} nicht gesund"
   }
 }

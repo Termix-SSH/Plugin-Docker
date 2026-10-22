@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "Administrați containerele Docker și Podman de pe hosturile dvs. prin SSH, cu jurnale, statistici și o consolă."
+  },
+  "card": {
+    "title": "Gazde Docker",
+    "loading": "Se încarcă...",
+    "refresh": "Verifică din nou",
+    "empty": "Nicio gazdă nu are Docker activat.",
+    "summary": "{{running}} din {{total}} containere active",
+    "counts": "{{running}} active | {{stopped}} oprite",
+    "unhealthy_one": "{{count}} instabil",
+    "unhealthy_few": "{{count}} instabile",
+    "unhealthy_other": "{{count}} instabile"
   }
 }

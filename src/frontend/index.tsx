@@ -12,6 +12,7 @@ import { dockerWidget } from "./DockerWidget";
 import { dockerEnabled, toDockerHost, type DockerHostSource } from "./types";
 import { dockerPanelEnabled } from "./types";
 import { DockerCompanion, useDockerCompanionDefaults } from "./DockerCompanion";
+import { DockerHostsCard } from "./DockerHostsCard";
 
 function DockerTab({ host, sshHost, label, isVisible }: TabProps) {
   const record = host ?? (sshHost as DockerHostSource | undefined);
@@ -35,6 +36,15 @@ export function activate(app: TermixApp): void {
   let canUse = true;
   void app.hasPermission("use").then((allowed) => {
     canUse = allowed;
+  });
+
+  app.registerDashboardCard({
+    id: "docker-hosts",
+    titleKey: "card.title",
+    defaultPanel: "side",
+    defaultHeight: 220,
+    frame: "framed",
+    component: DockerHostsCard,
   });
 
   app.registerTab("docker", DockerTab, {

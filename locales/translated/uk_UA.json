@@ -313,5 +313,17 @@
   "plugin": {
     "name": "Docker",
     "description": "Керуйте контейнерами Docker і Podman на ваших хостах через SSH, переглядайте журнали, статистику та використовуйте консоль."
+  },
+  "card": {
+    "title": "Хости Docker",
+    "loading": "Завантаження...",
+    "refresh": "Перевірити ще раз",
+    "empty": "На жодному хості не увімкнено Docker.",
+    "summary": "{{running}} з {{total}} контейнерів працюють",
+    "counts": "{{running}} працюють | {{stopped}} зупинені",
+    "unhealthy_one": "{{count}} непрацюючий",
+    "unhealthy_few": "{{count}} непрацюючих",
+    "unhealthy_many": "{{count}} непрацюючих",
+    "unhealthy_other": "{{count}} непрацюючих"
   }
 }

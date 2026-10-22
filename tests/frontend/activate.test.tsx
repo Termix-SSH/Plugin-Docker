@@ -1,4 +1,5 @@
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { screen } from "@testing-library/react";
 import {
   renderWithApp,
   type RenderedPluginApp,
@@ -54,5 +55,35 @@ describe(`${manifest.id} activate`, () => {
     expect(app.registered.dashboardCards()).toEqual([]);
     expect(app.registered.settingsComponents()).toEqual([]);
     expect(app.registered.actions()).toEqual([]);
+  });
+});
+
+describe("docker hosts dashboard card", () => {
+  it("shows container counts per host", async () => {
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      permissions: ["docker.use"],
+      hosts: [{ id: "7", name: "apps", ip: "10.0.0.7", port: 22 }],
+      api: {
+        get: vi.fn(async () => ({
+          data: [
+            {
+              hostId: 7,
+              running: 4,
+              stopped: 1,
+              unhealthy: 1,
+              total: 5,
+              checkedAt: "",
+            },
+          ],
+        })),
+      } as never,
+    });
+    expect(rendered.registered.dashboardCards()).toEqual(["docker-hosts"]);
+    rendered.renderDashboardCard("docker-hosts");
+    expect(await screen.findByText("apps")).toBeTruthy();
+    expect(screen.getByText("4 running | 1 stopped")).toBeTruthy();
+    expect(screen.getByText("4 of 5 containers running")).toBeTruthy();
   });
 });

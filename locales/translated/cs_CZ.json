@@ -313,5 +313,17 @@
   "plugin": {
     "name": "Docker",
     "description": "Spravujte kontejnery Docker a Podman na vašich hostitelích přes SSH, včetně logů, statistik a konzole."
+  },
+  "card": {
+    "title": "Docker hosty",
+    "loading": "Načítání...",
+    "refresh": "Zkontrolovat znovu",
+    "empty": "Žádný host nemá povolený Docker.",
+    "summary": "{{running}} z {{total}} kontejnerů běží",
+    "counts": "{{running}} běží | {{stopped}} zastaveno",
+    "unhealthy_one": "{{count}} nefunkční",
+    "unhealthy_few": "{{count}} nefunkční",
+    "unhealthy_many": "{{count}} nefunkčních",
+    "unhealthy_other": "{{count}} nefunkčních"
   }
 }

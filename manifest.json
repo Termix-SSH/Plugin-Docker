@@ -1,7 +1,7 @@
 {
   "id": "docker",
   "name": "Docker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
   "author": {
     "name": "Termix"
@@ -20,7 +20,8 @@
     "Works with Docker and Podman",
     "A containers panel beside any SSH terminal",
     "Optional stack management for compose projects",
-    "Check images for updates and update containers"
+    "Check images for updates and update containers",
+    "A dashboard card with running and stopped containers on each host"
   ],
   "engine": {
     "termix": ">=26.10.3",
@@ -186,7 +187,14 @@
         "containerLayout": "table"
       }
     },
-    "uses": ["homepage.widgets", "terminal.resolveTheme"]
+    "uses": ["homepage.widgets", "terminal.resolveTheme"],
+    "dashboardCards": [
+      {
+        "id": "docker-hosts",
+        "titleKey": "card.title",
+        "icon": "Box"
+      }
+    ]
   },
   "locales": "locales",
   "platforms": ["linux", "win32", "darwin"]

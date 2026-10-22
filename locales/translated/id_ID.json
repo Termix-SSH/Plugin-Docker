@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "Kelola kontainer Docker dan Podman pada host Anda melalui SSH, lengkap dengan log, statistik, dan konsol."
+  },
+  "card": {
+    "title": "Host Docker",
+    "loading": "Memuat...",
+    "refresh": "Periksa lagi",
+    "empty": "Tidak ada host yang mengaktifkan Docker.",
+    "summary": "{{running}} dari {{total}} container berjalan",
+    "counts": "{{running}} berjalan | {{stopped}} berhenti",
+    "unhealthy_other": "{{count}} tidak sehat"
   }
 }

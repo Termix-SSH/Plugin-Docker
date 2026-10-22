@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Docker és Podman konténerek kezelése a hoszok között SSH-n keresztül, naplókkal, statisztikákkal és konzollal."
+  },
+  "card": {
+    "title": "Docker-gazdák",
+    "loading": "Betöltés...",
+    "refresh": "Újrapróbál",
+    "empty": "Egyik gazdán sem fut a Docker.",
+    "summary": "{{running}}/{{total}} konténer fut",
+    "counts": "{{running}} fut | {{stopped}} leállítva",
+    "unhealthy_one": "{{count}} hibás",
+    "unhealthy_other": "{{count}} hibás"
   }
 }

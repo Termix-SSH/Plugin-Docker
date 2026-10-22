@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "Gestioneu els contenidors de Docker i Podman als vostres servidors a través d'SSH, amb registres, estadístiques i una consola."
+  },
+  "card": {
+    "title": "Servidors Docker",
+    "loading": "S'està carregant...",
+    "refresh": "Comprovar de nou",
+    "empty": "Cap servidor té Docker activat.",
+    "summary": "{{running}} de {{total}} contenidors en execució",
+    "counts": "{{running}} en execució | {{stopped}} aturats",
+    "unhealthy_one": "{{count}} no saludable",
+    "unhealthy_many": "{{count}} no saludables",
+    "unhealthy_other": "{{count}} no saludables"
   }
 }

@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "Pārvaldiet Docker un Podman konteinerus savos hostos caur SSH, ar žurnāliem, statistiku un konsole."
+  },
+  "card": {
+    "title": "Docker mezgli",
+    "loading": "Ielādē...",
+    "refresh": "Pārbaudīt vēlreiz",
+    "empty": "Nav mezglu, kuriem ir ieslēgts Docker.",
+    "summary": "Darbojas {{running}} no {{total}} konteineriem",
+    "counts": "{{running}} darbojas | {{stopped}} apturēti",
+    "unhealthy_zero": "0 nederīgi",
+    "unhealthy_one": "{{count}} nederīgs",
+    "unhealthy_other": "{{count}} nederīgi"
   }
 }

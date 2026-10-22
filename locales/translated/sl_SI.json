@@ -313,5 +313,17 @@
   "plugin": {
     "name": "Docker",
     "description": "Upravljajte z Docker in Podman kontejnerji na svojih gostiteljih prek SSH, s dnevniki, statistikami in konzolo."
+  },
+  "card": {
+    "title": "Docker gostitelji",
+    "loading": "Nalaganje...",
+    "refresh": "Preveri znova",
+    "empty": "Noben gostitelj nima vklopljenega Dockerja.",
+    "summary": "{{running}} od {{total}} kontejnerjev se izvaja",
+    "counts": "{{running}} se izvaja | {{stopped}} ustavljenih",
+    "unhealthy_one": "{{count}} nezdrav",
+    "unhealthy_two": "{{count}} nezdrava",
+    "unhealthy_few": "{{count}} nezdravih",
+    "unhealthy_other": "{{count}} nezdravih"
   }
 }

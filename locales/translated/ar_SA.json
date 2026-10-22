@@ -315,5 +315,19 @@
   "plugin": {
     "name": "Docker",
     "description": "إدارة حاويات Docker و Podman على مضيفيك عبر SSH، مع السجلات والإحصائيات ووحدة تحكم."
+  },
+  "card": {
+    "title": "مضيفي Docker",
+    "loading": "جارٍ التحميل...",
+    "refresh": "تحقق مرة أخرى",
+    "empty": "لا توجد مضيفات تم فيها تشغيل Docker.",
+    "summary": "{{running}} من أصل {{total}} حاويات قيد التشغيل",
+    "counts": "{{running}} قيد التشغيل | {{stopped}} متوقفة",
+    "unhealthy_zero": "لا توجد حاويات غير صحية",
+    "unhealthy_one": "حاوية واحدة غير صحية",
+    "unhealthy_two": "حاويتان غير صحية",
+    "unhealthy_few": "{{count}} حاويات غير صحية",
+    "unhealthy_many": "{{count}} حاوية غير صحية",
+    "unhealthy_other": "{{count}} حاوية غير صحية"
   }
 }

@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console."
+  },
+  "card": {
+    "title": "Docker hosts",
+    "loading": "Loading...",
+    "refresh": "Check again",
+    "empty": "No hosts have Docker turned on.",
+    "summary": "{{running}} of {{total}} containers running",
+    "counts": "{{running}} running | {{stopped}} stopped",
+    "unhealthy_one": "{{count}} unhealthy",
+    "unhealthy_other": "{{count}} unhealthy"
   }
 }

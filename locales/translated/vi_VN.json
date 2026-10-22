@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "Quản lý các container Docker và Podman trên các máy chủ của bạn qua SSH, với nhật ký, thống kê và bảng điều khiển."
+  },
+  "card": {
+    "title": "Máy chủ Docker",
+    "loading": "Đang tải...",
+    "refresh": "Kiểm tra lại",
+    "empty": "Không có máy chủ nào bật Docker.",
+    "summary": "{{running}} trong số {{total}} container đang chạy",
+    "counts": "{{running}} đang chạy | {{stopped}} đã dừng",
+    "unhealthy_other": "{{count}} không khỏe mạnh"
   }
 }

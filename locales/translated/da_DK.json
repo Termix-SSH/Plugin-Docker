@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Administrer Docker- og Podman-containere på dine værter via SSH, med logs, statistik og en konsol."
+  },
+  "card": {
+    "title": "Docker-værter",
+    "loading": "Indlæser...",
+    "refresh": "Tjek igen",
+    "empty": "Ingen væter har Docker aktiveret.",
+    "summary": "{{running}} af {{total}} containere kører",
+    "counts": "{{running}} kører | {{stopped}} stoppet",
+    "unhealthy_one": "{{count}} usund",
+    "unhealthy_other": "{{count}} usunde"
   }
 }

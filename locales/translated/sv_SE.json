@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Hantera Docker- och Podman-containers på dina värdar via SSH, med loggar, statistik och en konsol."
+  },
+  "card": {
+    "title": "Docker-värdar",
+    "loading": "Laddar...",
+    "refresh": "Kontrollera igen",
+    "empty": "Inga värdar har Docker aktiverat.",
+    "summary": "{{running}} av {{total}} containrar körs",
+    "counts": "{{running}} körs | {{stopped}} stoppade",
+    "unhealthy_one": "{{count}} ohälsosam",
+    "unhealthy_other": "{{count}} ohälsosamma"
   }
 }

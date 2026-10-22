@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "ניהול מכלי Docker ו-Podman במארחים שלך דרך SSH, כולל יומנים, סטטיסטיקות ומסוף."
+  },
+  "card": {
+    "title": "מארחי Docker",
+    "loading": "טוען...",
+    "refresh": "בדיקה שוב",
+    "empty": "לא נמצאו מארחים עם Docker מופעל.",
+    "summary": "{{running}} מתוך {{total}} מכלים פעילים",
+    "counts": "{{running}} פעילים | {{stopped}} מושהים",
+    "unhealthy_one": "{{count}} לא תקין",
+    "unhealthy_two": "{{count}} לא תקינים",
+    "unhealthy_other": "{{count}} לא תקינים"
   }
 }

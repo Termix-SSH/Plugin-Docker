@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Hallinnoi Docker- ja Podman-kontteja isäntälaitteillasi SSH:n kautta, mukaan lukien lokit, tilastot ja konsoli."
+  },
+  "card": {
+    "title": "Docker-isäntä",
+    "loading": "Ladataan...",
+    "refresh": "Tarkista uudelleen",
+    "empty": "Yhdenkään isännän Docker ei ole käytössä.",
+    "summary": "{{running}}/{{total}} konttia käynnissä",
+    "counts": "{{running}} käynnissä | {{stopped}} pysäytetty",
+    "unhealthy_one": "{{count}} epäkuntoinen",
+    "unhealthy_other": "{{count}} epäkuntoista"
   }
 }

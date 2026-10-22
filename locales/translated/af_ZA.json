@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "Bestuur Docker- en Podman-houders op jou gasheërs oor SSH, met logboeke, statistieke en 'n konsol."
+  },
+  "card": {
+    "title": "Docker-gasheerders",
+    "loading": "Laai tans...",
+    "refresh": "Kontroleer weer",
+    "empty": "Geen gasheerders het Docker ingeskakel nie.",
+    "summary": "{{running}} van {{total}} houerloop",
+    "counts": "{{running}} loop | {{stopped}} gestop",
+    "unhealthy_one": "{{count}} ongesond",
+    "unhealthy_other": "{{count}} ongesond"
   }
 }

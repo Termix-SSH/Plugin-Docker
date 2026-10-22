@@ -252,5 +252,12 @@
   "common.cancel": "77dfd2135f4d",
   "common.save": "efc007a393f6",
   "plugin.name": "9f1141549f7c",
-  "plugin.description": "d4e9c8b1a668"
+  "plugin.description": "d4e9c8b1a668",
+  "card.title": "d0c9aeb00a27",
+  "card.loading": "b04ba49f8486",
+  "card.refresh": "e185048ce3c0",
+  "card.empty": "f87182a84ee7",
+  "card.summary": "800ecc60846f",
+  "card.counts": "6c52094d0b21",
+  "card.unhealthy": "4c8bc947de47"
 }

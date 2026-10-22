@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "Gérez les conteneurs Docker et Podman sur vos hôtes via SSH, avec les journaux, les statistiques et une console."
+  },
+  "card": {
+    "title": "Hôtes Docker",
+    "loading": "Chargement...",
+    "refresh": "Vérifier à nouveau",
+    "empty": "Aucun hôte n'a Docker activé.",
+    "summary": "{{running}} conteneur(s) en cours d'exécution sur {{total}}",
+    "counts": "{{running}} en cours d'exécution | {{stopped}} arrêté(s)",
+    "unhealthy_one": "{{count}} non sain",
+    "unhealthy_many": "{{count}} non sains",
+    "unhealthy_other": "{{count}} non sains"
   }
 }

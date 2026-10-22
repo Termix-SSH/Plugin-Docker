@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "SSH के माध्यम से अपने होस्ट पर Docker और Podman कंटेनरों को प्रबंधित करें, जिसमें लॉग, सांख्यिकी और कंसोल शामिल हैं।"
+  },
+  "card": {
+    "title": "Docker होस्ट",
+    "loading": "लोड हो रहा है...",
+    "refresh": "फिर से जांचें",
+    "empty": "कोई भी होस्ट Docker चालू नहीं कर रहा है।",
+    "summary": "{{total}} में से {{running}} कंटेनर चल रहे हैं",
+    "counts": "{{running}} चल रहे | {{stopped}} बंद",
+    "unhealthy_one": "{{count}} अस्वस्थ",
+    "unhealthy_other": "{{count}} अस्वस्थ"
   }
 }

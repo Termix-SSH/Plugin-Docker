@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "SSH を介してホスト上の Docker および Podman コンテナを管理し、ログ、統計情報、コンソールを提供します。"
+  },
+  "card": {
+    "title": "Docker ホスト",
+    "loading": "読み込み中...",
+    "refresh": "再確認",
+    "empty": "Docker が有効になっているホストがありません。",
+    "summary": "{{total}} 個中 {{running}} 個のコンテナが実行中",
+    "counts": "{{running}} 実行中 | {{stopped}} 停止",
+    "unhealthy_other": "{{count}} 個が異常"
   }
 }

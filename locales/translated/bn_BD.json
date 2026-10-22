@@ -311,5 +311,15 @@
   "plugin": {
     "name": "Docker",
     "description": "SSH এর মাধ্যমে আপনার হোস্টগুলিতে Docker এবং Podman কন্টেইনার পরিচালনা করুন, যার মধ্যে লগ, পরিসংখ্যান এবং একটি কনসোল রয়েছে।"
+  },
+  "card": {
+    "title": "Docker হোস্ট",
+    "loading": "লোড হচ্ছে...",
+    "refresh": "আবার চেক করুন",
+    "empty": "কোনো হোস্টেই Docker চালু নেই।",
+    "summary": "{{total}} টি কন্টেইনারের মধ্যে {{running}} টি চলছে",
+    "counts": "{{running}} চলছে | {{stopped}} বন্ধ",
+    "unhealthy_one": "{{count}}টি অস্বাস্থ্যকর",
+    "unhealthy_other": "{{count}}টি অস্বাস্থ্যকর"
   }
 }

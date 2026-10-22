@@ -313,5 +313,17 @@
   "plugin": {
     "name": "Docker",
     "description": "Zarządzaj kontenerami Docker i Podman na swoich hostach przez SSH, z dostępem do logów, statystyk i konsoli."
+  },
+  "card": {
+    "title": "Serwery Docker",
+    "loading": "Ładowanie...",
+    "refresh": "Sprawdź ponownie",
+    "empty": "Żaden serwer nie ma włączonego Dockera.",
+    "summary": "{{running}} z {{total}} kontenerów działa",
+    "counts": "{{running}} działa | {{stopped}} zatrzymane",
+    "unhealthy_one": "{{count}} niezdrowy",
+    "unhealthy_few": "{{count}} niezdrowe",
+    "unhealthy_many": "{{count}} niezdrowych",
+    "unhealthy_other": "{{count}} niezdrowych"
   }
 }

@@ -312,5 +312,16 @@
   "plugin": {
     "name": "Docker",
     "description": "Управљајте Docker и Podman контејнерима на вашим хостовима преко SSH-а, са логовима, статистиком и конзолом."
+  },
+  "card": {
+    "title": "Docker домаћини",
+    "loading": "Учитавање...",
+    "refresh": "Провери поново",
+    "empty": "Ниједан домаћин нема укључен Docker.",
+    "summary": "{{running}} од {{total}} контејнера ради",
+    "counts": "{{running}} ради | {{stopped}} заустављено",
+    "unhealthy_one": "{{count}} нездрав",
+    "unhealthy_few": "{{count}} нездрава",
+    "unhealthy_other": "{{count}} нездравих"
   }
 }

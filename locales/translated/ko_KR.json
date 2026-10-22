@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "SSH를 통해 호스트의 Docker 및 Podman 컨테이너를 관리하고, 로그, 통계 및 콘솔을 제공합니다."
+  },
+  "card": {
+    "title": "Docker 호스트",
+    "loading": "로딩 중...",
+    "refresh": "다시 확인",
+    "empty": "Docker가 활성화된 호스트가 없습니다.",
+    "summary": "{{total}}개 중 {{running}}개 컨테이너 실행 중",
+    "counts": "{{running}}개 실행 중 | {{stopped}}개 중지됨",
+    "unhealthy_other": "{{count}}개 상태 불량"
   }
 }

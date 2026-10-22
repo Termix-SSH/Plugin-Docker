@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "透過 SSH 管理主機上的 Docker 和 Podman 容器，支援日誌、統計和主控台。"
+  },
+  "card": {
+    "title": "Docker 主機",
+    "loading": "載入中...",
+    "refresh": "再次檢查",
+    "empty": "沒有主機啟用 Docker。",
+    "summary": "{{running}} / {{total}} 個容器正在執行",
+    "counts": "{{running}} 個執行中 | {{stopped}} 個已停止",
+    "unhealthy_other": "{{count}} 個狀態異常"
   }
 }

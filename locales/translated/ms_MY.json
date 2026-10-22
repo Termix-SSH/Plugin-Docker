@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "Uruskan kontena Docker dan Podman pada hos anda melalui SSH, dengan log, statistik dan konsol."
+  },
+  "card": {
+    "title": "Hos Docker",
+    "loading": "Memuatkan...",
+    "refresh": "Semak semula",
+    "empty": "Tiada hos yang mengaktifkan Docker.",
+    "summary": "{{running}} daripada {{total}} bekas sedang berjalan",
+    "counts": "{{running}} berjalan | {{stopped}} dihentikan",
+    "unhealthy_other": "{{count}} tidak sihat"
   }
 }

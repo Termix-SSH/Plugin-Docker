@@ -310,5 +310,14 @@
   "plugin": {
     "name": "Docker",
     "description": "จัดการคอนเทนเนอร์ Docker และ Podman บนโฮสต์ของคุณผ่าน SSH พร้อมบันทึกข้อมูล สถิติ และคอนโซล"
+  },
+  "card": {
+    "title": "โฮสต์ Docker",
+    "loading": "กำลังโหลด...",
+    "refresh": "ตรวจสอบอีกครั้ง",
+    "empty": "ไม่มีโฮสต์ใดเปิดใช้งาน Docker",
+    "summary": "คอนเทนเนอร์ที่ทำงานอยู่ {{running}} จาก {{total}} ตัว",
+    "counts": "{{running}} กำลังทำงาน | {{stopped}} หยุดทำงาน",
+    "unhealthy_other": "{{count}} ไม่พร้อมใช้งาน"
   }
 }

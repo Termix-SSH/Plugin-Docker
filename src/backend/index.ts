@@ -5,6 +5,7 @@ import { createDockerSessions } from "./sessions.js";
 import { registerRoutes } from "./routes.js";
 import { registerConsole } from "./console.js";
 import { registerServices } from "./services.js";
+import { registerSummary } from "./summary.js";
 import { normalizeImportedHost } from "./host-settings.js";
 
 export type {
@@ -20,7 +21,9 @@ export async function activate(ctx: PluginContext) {
   const sessions = createDockerSessions(ctx.schedule, log);
   ctx.disposables.add(() => sessions.closeAll());
 
-  registerRoutes(ctx.http.router<Router>(), { ctx, sessions, log });
+  const router = ctx.http.router<Router>();
+  registerRoutes(router, { ctx, sessions, log });
+  registerSummary(router, ctx);
   registerConsole(ctx, log);
   registerServices(ctx, log);
   ctx.registry.provide("docker.hostImportNormalizer", normalizeImportedHost);
