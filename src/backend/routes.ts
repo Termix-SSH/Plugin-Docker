@@ -4,7 +4,17 @@ import type {
   PluginSshHost,
 } from "@termix-ssh/plugin-sdk/backend";
 import { answerConnect, startConnect } from "./connect.js";
-import { containerCommand, getRuntimeLabel } from "./container-runtime.js";
+import {
+  CONTAINER_ACTIONS,
+  containerCommand,
+  getRuntimeLabel,
+  listFormat,
+  parseContainerList,
+  parseContainerStats,
+  parseRuntimeVersion,
+  statsFormat,
+  type ContainerAction,
+} from "@termix-ssh/plugin-sdk/host-scripts";
 import { readDockerHostSettings } from "./host-settings.js";
 import { registerStacks } from "./stacks.js";
 import { registerUpdates } from "./updates.js";
@@ -18,37 +28,7 @@ import {
   type DockerLogger,
 } from "./helpers.js";
 
-const CONTAINER_ACTIONS = [
-  "start",
-  "stop",
-  "restart",
-  "pause",
-  "unpause",
-] as const;
-type ContainerAction = (typeof CONTAINER_ACTIONS)[number];
-
-const LIST_FORMAT_UNIX = `'{"id":"{{.ID}}","name":"{{.Names}}","image":"{{.Image}}","status":"{{.Status}}","state":"{{.State}}","ports":"{{.Ports}}","created":"{{.CreatedAt}}"}' `;
-const LIST_FORMAT_WINDOWS = `"{\\"id\\":\\"{{.ID}}\\",\\"name\\":\\"{{.Names}}\\",\\"image\\":\\"{{.Image}}\\",\\"status\\":\\"{{.Status}}\\",\\"state\\":\\"{{.State}}\\",\\"ports\\":\\"{{.Ports}}\\",\\"created\\":\\"{{.CreatedAt}}\\"}"`;
-const STATS_FORMAT_UNIX = `'{"cpu":"{{.CPUPerc}}","memory":"{{.MemUsage}}","memoryPercent":"{{.MemPerc}}","netIO":"{{.NetIO}}","blockIO":"{{.BlockIO}}","pids":"{{.PIDs}}"}' `;
-const STATS_FORMAT_WINDOWS = `"{\\"cpu\\":\\"{{.CPUPerc}}\\",\\"memory\\":\\"{{.MemUsage}}\\",\\"memoryPercent\\":\\"{{.MemPerc}}\\",\\"netIO\\":\\"{{.NetIO}}\\",\\"blockIO\\":\\"{{.BlockIO}}\\",\\"pids\\":\\"{{.PIDs}}\\"}"`;
-
-export function listFormat(isWindows: boolean): string {
-  return isWindows ? LIST_FORMAT_WINDOWS : LIST_FORMAT_UNIX;
-}
-
-/** Parses `ps --format listFormat()` output, skipping lines that are not JSON. */
-export function parseContainerList(output: string): Record<string, unknown>[] {
-  return output
-    .split("\n")
-    .filter((line) => line.trim())
-    .flatMap((line) => {
-      try {
-        return [JSON.parse(line) as Record<string, unknown>];
-      } catch {
-        return [];
-      }
-    });
-}
+export { listFormat, parseContainerList };
 
 function notFound(error: unknown): boolean {
   return getErrorMessage(error, "").includes("No such container");
@@ -510,9 +490,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
           session,
           containerCommand(runtime, "--version", session.isWindows),
         );
-        version =
-          output.match(/(?:Docker|podman) version ([^\s,]+)/i)?.[1] ??
-          "unknown";
+        version = parseRuntimeVersion(output);
       } catch {
         res.json({
           available: false,
@@ -971,7 +949,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
     const session = sessionOf(req, res);
     if (!session) return;
     const { containerId } = req.params;
-    const format = session.isWindows ? STATS_FORMAT_WINDOWS : STATS_FORMAT_UNIX;
+    const format = statsFormat(session.isWindows);
     try {
       const output = await sessions.run(session, () =>
         sessions.exec(
@@ -983,25 +961,7 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
           ),
         ),
       );
-      const raw = JSON.parse(output.trim()) as Record<string, string>;
-      const split = (value: string | undefined) => {
-        const [first, second] = (value ?? "").split(" / ");
-        return [first?.trim() || "0B", second?.trim() || "0B"];
-      };
-      const [memoryUsed, memoryLimit] = split(raw.memory);
-      const [netInput, netOutput] = split(raw.netIO);
-      const [blockRead, blockWrite] = split(raw.blockIO);
-      res.json({
-        cpu: raw.cpu,
-        memoryUsed,
-        memoryLimit,
-        memoryPercent: raw.memoryPercent,
-        netInput,
-        netOutput,
-        blockRead,
-        blockWrite,
-        pids: raw.pids,
-      });
+      res.json(parseContainerStats(output));
     } catch (error) {
       if (notFound(error)) {
         return res.status(404).json({

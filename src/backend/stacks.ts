@@ -1,75 +1,49 @@
 import type { Client, SFTPWrapper } from "ssh2";
 import type { Request, Response, Router } from "express";
 import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
-import { containerCommand } from "./container-runtime.js";
+import {
+  COMPOSE_FILES,
+  STACK_ACTIONS,
+  STACK_NAME_RE as NAME_RE,
+  STACK_SERVICE_ACTIONS as SERVICE_ACTIONS,
+  STACK_SERVICE_RE as SERVICE_RE,
+  composeArgsFor,
+  containerCommand,
+  parseJsonLines,
+  parseServices,
+  parseStackStatus,
+  shellQuote,
+  stackStateFromServices,
+  type StackAction,
+  type StackSummary,
+} from "@termix-ssh/plugin-sdk/host-scripts";
 import { readStacksHostSettings } from "./host-settings.js";
 import { getErrorMessage, type DockerLogger } from "./helpers.js";
 import type { DockerSession, DockerSessions } from "./sessions.js";
 
-const NAME_RE = /^[a-z0-9][a-z0-9_-]{0,62}$/;
-const SERVICE_RE = /^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,126}$/;
-const COMPOSE_FILES = [
-  "compose.yaml",
-  "compose.yml",
-  "docker-compose.yaml",
-  "docker-compose.yml",
-];
+export {
+  composeArgsFor,
+  parseJsonLines,
+  parseServices,
+  parseStackStatus,
+  shellQuote,
+  stackStateFromServices,
+};
+export type {
+  StackAction,
+  StackService,
+  StackState,
+  StackSummary,
+} from "@termix-ssh/plugin-sdk/host-scripts";
+
 const MAX_FILE_BYTES = 1024 * 1024;
 
-const STACK_ACTIONS = [
-  "deploy",
-  "redeploy",
-  "pull",
-  "start",
-  "stop",
-  "restart",
-  "pause",
-  "unpause",
-  "down",
-  "destroy",
-] as const;
-export type StackAction = (typeof STACK_ACTIONS)[number];
-
-const SERVICE_ACTIONS: StackAction[] = [
-  "deploy",
-  "pull",
-  "start",
-  "stop",
-  "restart",
-  "pause",
-  "unpause",
-];
-
-export type StackState =
-  "running" | "partial" | "stopped" | "paused" | "not-deployed";
-
-export interface StackSummary {
-  name: string;
-  managed: boolean;
-  state: StackState;
-  running: number;
-  total: number;
-  composeFile: string | null;
-}
-
-export interface StackService {
-  service: string;
-  name: string;
-  id: string;
-  image: string;
-  state: string;
-  status: string;
-  health: string;
-  ports: string;
-}
+const str = (value: unknown): string =>
+  typeof value === "string" ? value : "";
 
 interface CommandResult {
   code: number;
   output: string;
-}
-
-export function shellQuote(value: string): string {
-  return "'" + value.split("'").join("'\\''") + "'";
 }
 
 /** Runs a command and keeps stdout and stderr together, whatever the exit code. */
@@ -150,114 +124,6 @@ function sftpDirs(sftp: SFTPWrapper, path: string): Promise<string[]> {
       );
     });
   });
-}
-
-/** `compose ps --format json` is one object per line or one array. */
-export function parseJsonLines(output: string): Record<string, unknown>[] {
-  const text = output.trim();
-  if (!text) return [];
-  if (text.startsWith("[")) {
-    try {
-      return JSON.parse(text) as Record<string, unknown>[];
-    } catch {
-      return [];
-    }
-  }
-  return text.split("\n").flatMap((line) => {
-    try {
-      return [JSON.parse(line) as Record<string, unknown>];
-    } catch {
-      return [];
-    }
-  });
-}
-
-const str = (value: unknown): string =>
-  typeof value === "string" ? value : "";
-
-export function parseServices(output: string): StackService[] {
-  return parseJsonLines(output).map((row) => {
-    const publishers = Array.isArray(row.Publishers)
-      ? (row.Publishers as Record<string, unknown>[])
-      : [];
-    const ports = publishers
-      .filter((p) => Number(p.PublishedPort) > 0)
-      .map((p) => `${p.PublishedPort}:${p.TargetPort}`)
-      .filter((value, index, all) => all.indexOf(value) === index)
-      .join(", ");
-    return {
-      service: str(row.Service),
-      name: str(row.Name),
-      id: str(row.ID),
-      image: str(row.Image),
-      state: str(row.State),
-      status: str(row.Status),
-      health: str(row.Health),
-      ports,
-    };
-  });
-}
-
-function stateOf(running: number, paused: number, total: number): StackState {
-  if (total === 0) return "not-deployed";
-  if (paused === total) return "paused";
-  if (running === total) return "running";
-  if (running > 0) return "partial";
-  return "stopped";
-}
-
-/** Turns the `compose ls` status text ("running(2), exited(1)") into a state. */
-export function parseStackStatus(status: string): {
-  state: StackState;
-  running: number;
-  total: number;
-} {
-  let running = 0;
-  let paused = 0;
-  let total = 0;
-  for (const part of status.split(",")) {
-    const match = part.trim().match(/^([a-z]+)\((\d+)\)$/i);
-    if (!match) continue;
-    const count = Number(match[2]);
-    total += count;
-    if (match[1] === "running") running += count;
-    if (match[1] === "paused") paused += count;
-  }
-  return { state: stateOf(running, paused, total), running, total };
-}
-
-export function stackStateFromServices(services: StackService[]) {
-  const total = services.length;
-  const running = services.filter((s) => s.state === "running").length;
-  const paused = services.filter((s) => s.state === "paused").length;
-  return { state: stateOf(running, paused, total), running, total };
-}
-
-/** The compose commands one action runs, in order. */
-export function composeArgsFor(
-  action: StackAction,
-  service: string | undefined,
-  options: { removeVolumes?: boolean },
-): string[] {
-  const target = service ? ` ${service}` : "";
-  switch (action) {
-    case "deploy":
-      return [`up -d --remove-orphans${target}`];
-    case "redeploy":
-      return [`pull${target}`, `up -d --remove-orphans${target}`];
-    case "pull":
-      return [`pull${target}`];
-    case "start":
-    case "stop":
-    case "restart":
-    case "pause":
-    case "unpause":
-      return [`${action}${target}`];
-    case "down":
-      return ["down --remove-orphans"];
-    case "destroy":
-      return [`down --remove-orphans${options.removeVolumes ? " -v" : ""}`];
-  }
 }
 
 interface Deps {

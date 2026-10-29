@@ -1,8 +1,11 @@
 import type { Client } from "ssh2";
 import type { Request, Response, Router } from "express";
 import type { PluginContext } from "@termix-ssh/plugin-sdk/backend";
-import { containerCommand } from "./container-runtime.js";
-import { PS_STATE_FORMAT, parseContainerStates } from "./container-state.js";
+import {
+  containerCommand,
+  countContainers,
+} from "@termix-ssh/plugin-sdk/host-scripts";
+import { PS_STATE_FORMAT } from "./container-state.js";
 import { getErrorMessage } from "./helpers.js";
 import { readDockerHostSettings } from "./host-settings.js";
 import { execOnClient } from "./sessions.js";
@@ -43,19 +46,7 @@ export async function mapLimit<T, R>(
   return results;
 }
 
-/** Counts from `ps -a --format PS_STATE_FORMAT` output. */
-export function countContainers(
-  output: string,
-): Omit<HostContainerSummary, "hostId" | "checkedAt"> {
-  const states = [...parseContainerStates(output).values()];
-  const running = states.filter((s) => s.state === "running").length;
-  return {
-    running,
-    stopped: states.length - running,
-    unhealthy: states.filter((s) => s.unhealthy).length,
-    total: states.length,
-  };
-}
+export { countContainers };
 
 function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
   return new Promise<T>((resolve, reject) => {

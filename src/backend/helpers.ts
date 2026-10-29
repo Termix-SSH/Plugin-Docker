@@ -1,6 +1,11 @@
 import type { RawData } from "ws";
 import type { PluginLogger } from "@termix-ssh/plugin-sdk/backend";
 
+export {
+  CONTAINER_ID_RE,
+  DOCKER_TIMESTAMP_RE,
+} from "@termix-ssh/plugin-sdk/host-scripts";
+
 export function getErrorMessage(
   error: unknown,
   fallback = "Unknown error",
@@ -62,9 +67,6 @@ export function connectionLog(
 ): ConnectionLogLine {
   return { type, stage, message };
 }
-
-export const CONTAINER_ID_RE = /^[a-zA-Z0-9][a-zA-Z0-9_.-]*$/;
-export const DOCKER_TIMESTAMP_RE = /^[0-9T:.Z+-]+$/;
 
 // Cap on a single decoded text frame. Control messages are tiny, and console
 // input is bounded by what a user can type or paste.
