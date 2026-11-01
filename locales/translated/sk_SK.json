@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Kontajner musí byť spustený na prístup k konzole",
     "verificationCodePrompt": "Zadajte overovací kód",
     "totpVerificationFailed": "Overenie TOTP zlyhalo. Skúste to znova.",
+    "incorrectPassphrase": "Nesprávne heslo. Skúste to znova.",
     "browserSignInFailed": "Prihlásenie zlyhalo. Skúste to znova.",
     "connectedTo": "Pripojené k {{containerName}}",
     "disconnected": "Odpojené",

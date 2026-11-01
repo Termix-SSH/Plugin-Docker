@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Το δοχείο πρέπει να εκτελείται για πρόσβαση στην κονσόλα",
     "verificationCodePrompt": "Εισαγωγή κωδικού επαλήθευσης",
     "totpVerificationFailed": "Η επαλήθευση TOTP απέτυχε. Δοκιμάστε ξανά.",
+    "incorrectPassphrase": "Λάθος κωδικός πρόσβασης. Παρακαλώ προσπαθήστε ξανά.",
     "browserSignInFailed": "Η σύνδεση απέτυχε. Δοκιμάστε ξανά.",
     "connectedTo": "Συνδεδεμένο στο {{containerName}}",
     "disconnected": "Αποσυνδεδεμένο",

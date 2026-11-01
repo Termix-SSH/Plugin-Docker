@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Behållaren måste köras för att komma åt konsolen",
     "verificationCodePrompt": "Ange verifieringskod",
     "totpVerificationFailed": "TOTP-verifieringen misslyckades. Försök igen.",
+    "incorrectPassphrase": "Fel lösenfras. Försök igen.",
     "browserSignInFailed": "Inloggningen misslyckades. Försök igen.",
     "connectedTo": "Ansluten till {{containerName}}",
     "disconnected": "Frånkopplad",

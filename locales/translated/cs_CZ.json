@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Kontejner musí běžet pro přístup k konzoli",
     "verificationCodePrompt": "Zadejte ověřovací kód",
     "totpVerificationFailed": "Ověření TOTP selhalo. Zkuste to prosím znovu.",
+    "incorrectPassphrase": "Nesprávné heslo. Zkuste to prosím znovu.",
     "browserSignInFailed": "Přihlášení selhalo. Zkuste to prosím znovu.",
     "connectedTo": "Připojeno k {{containerName}}",
     "disconnected": "Odpojeno",

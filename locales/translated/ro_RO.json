@@ -85,6 +85,7 @@
     "containerMustBeRunning": "Containerul trebuie să ruleze pentru a accesa consola",
     "verificationCodePrompt": "Introduceți codul de verificare",
     "totpVerificationFailed": "Verificarea TOTP a eșuat. Încercați din nou.",
+    "incorrectPassphrase": "Fraza de acces este incorectă. Încercați din nou.",
     "browserSignInFailed": "Autentificarea a eșuat. Încercați din nou.",
     "connectedTo": "Conectat la {{containerName}}",
     "disconnected": "Deconectat",

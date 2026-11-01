@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Container must be running to access console",
     "verificationCodePrompt": "Enter verification code",
     "totpVerificationFailed": "TOTP verification failed. Please try again.",
+    "incorrectPassphrase": "Incorrect passphrase. Please try again.",
     "browserSignInFailed": "Sign-in failed. Please try again.",
     "connectedTo": "Connected to {{containerName}}",
     "disconnected": "Disconnected",

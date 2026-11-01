@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Houer moet loop om tot konsol toegang te kry",
     "verificationCodePrompt": "Voer verifikasiekode in",
     "totpVerificationFailed": "TOTP-verifikasie het misluk. Probeer asseblief weer.",
+    "incorrectPassphrase": "Onkorrekte wagwoordfrase. Probeer asseblief weer.",
     "browserSignInFailed": "Aanmelding het misluk. Probeer asseblief weer.",
     "connectedTo": "Verbind met {{containerName}}",
     "disconnected": "Ontkoppel",

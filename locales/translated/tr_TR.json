@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Konsola erişmek için konteyner çalışıyor olmalıdır",
     "verificationCodePrompt": "Doğrulama kodunu girin",
     "totpVerificationFailed": "TOTP doğrulaması başarısız oldu. Lütfen tekrar deneyin.",
+    "incorrectPassphrase": "Yanlış parola. Lütfen tekrar deneyin.",
     "browserSignInFailed": "Oturum açma başarısız oldu. Lütfen tekrar deneyin.",
     "connectedTo": "{{containerName}} adlı konteynere bağlanıldı",
     "disconnected": "Bağlantı kesildi",

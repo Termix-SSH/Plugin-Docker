@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Контейнер має бути запущений для доступу до консолі",
     "verificationCodePrompt": "Введіть код підтвердження",
     "totpVerificationFailed": "Помилка перевірки TOTP. Спробуйте ще раз.",
+    "incorrectPassphrase": "Неправильна парольна фраза. Спробуйте ще раз.",
     "browserSignInFailed": "Не вдалося увійти. Спробуйте ще раз.",
     "connectedTo": "Підключено до {{containerName}}",
     "disconnected": "Відключено",

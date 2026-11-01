@@ -84,6 +84,7 @@
     "containerMustBeRunning": "कंसोल तक पहुंचने के लिए कंटेनर चल रहा होना चाहिए",
     "verificationCodePrompt": "सत्यापन कोड दर्ज करें",
     "totpVerificationFailed": "TOTP सत्यापन विफल रहा। कृपया पुनः प्रयास करें।",
+    "incorrectPassphrase": "गलत पासफ्रेज़। कृपया पुनः प्रयास करें।",
     "browserSignInFailed": "साइन-इन विफल रहा। कृपया पुनः प्रयास करें।",
     "connectedTo": "{{containerName}} से जुड़ा हुआ",
     "disconnected": "डिस्कनेक्ट किया गया",

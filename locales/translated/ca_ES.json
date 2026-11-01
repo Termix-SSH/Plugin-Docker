@@ -85,6 +85,7 @@
     "containerMustBeRunning": "El contenidor ha d'estar en execució per accedir a la consola",
     "verificationCodePrompt": "Introduïu el codi de verificació",
     "totpVerificationFailed": "La verificació TOTP ha fallat. Torneu-ho a provar.",
+    "incorrectPassphrase": "La frase de contrasenya és incorrecta. Si us plau, torneu-ho a provar.",
     "browserSignInFailed": "L'inici de sessió ha fallat. Torneu-ho a provar.",
     "connectedTo": "Connectat a {{containerName}}",
     "disconnected": "Desconnectat",

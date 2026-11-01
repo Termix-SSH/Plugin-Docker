@@ -83,6 +83,7 @@
     "containerMustBeRunning": "Container phải đang chạy để truy cập bảng điều khiển",
     "verificationCodePrompt": "Nhập mã xác minh",
     "totpVerificationFailed": "Xác minh TOTP thất bại. Vui lòng thử lại.",
+    "incorrectPassphrase": "Mật khẩu không đúng. Vui lòng thử lại.",
     "browserSignInFailed": "Đăng nhập thất bại. Vui lòng thử lại.",
     "connectedTo": "Đã kết nối với {{containerName}}",
     "disconnected": "Đã ngắt kết nối",

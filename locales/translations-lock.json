@@ -82,6 +82,7 @@
   "docker.containerMustBeRunning": "0e4220f50700",
   "docker.verificationCodePrompt": "efdd73452636",
   "docker.totpVerificationFailed": "07f696931488",
+  "docker.incorrectPassphrase": "27eef18d05f1",
   "docker.browserSignInFailed": "89ac6db9fc7f",
   "docker.connectedTo": "c63ae0c36369",
   "docker.disconnected": "771e05f27b99",

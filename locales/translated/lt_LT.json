@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Konteineris turi veikti, kad būtų galima prisijungti prie konsolės",
     "verificationCodePrompt": "Įveskite patvirtinimo kodą",
     "totpVerificationFailed": "TOTP patvirtinimas nepavyko. Bandykite dar kartą.",
+    "incorrectPassphrase": "Neteisinga slaptažodžio frazė. Bandykite dar kartą.",
     "browserSignInFailed": "Prisijungimas nepavyko. Bandykite dar kartą.",
     "connectedTo": "Prisijungta prie {{containerName}}",
     "disconnected": "Atsijungta",

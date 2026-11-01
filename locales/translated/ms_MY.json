@@ -83,6 +83,7 @@
     "containerMustBeRunning": "Kontena mesti berjalan untuk mengakses konsol",
     "verificationCodePrompt": "Masukkan kod pengesahan",
     "totpVerificationFailed": "Pengesahan TOTP gagal. Sila cuba lagi.",
+    "incorrectPassphrase": "Frasa laluan salah. Sila cuba lagi.",
     "browserSignInFailed": "Log masuk gagal. Sila cuba lagi.",
     "connectedTo": "Sambung ke {{containerName}}",
     "disconnected": "Putus sambungan",

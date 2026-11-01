@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { ArrowUpCircle, Box, ExternalLink, RefreshCw } from "lucide-react";
@@ -17,6 +18,7 @@ import {
   Segmented,
   ViewToggle,
   type GridSize,
+  PassphraseDialog,
   SSHAuthDialog,
   TOTPDialog,
   BrowserSignInDialog,
@@ -162,6 +164,8 @@ function DockerManagerInner({
     React.useState(false);
   const [prompt, setPrompt] = React.useState<PromptState | null>(null);
   const [showAuthDialog, setShowAuthDialog] = React.useState(false);
+  const [showPassphrase, setShowPassphrase] = React.useState(false);
+  const triedPassphraseRef = React.useRef(false);
   const [authReason, setAuthReason] = React.useState<
     "no_keyboard" | "auth_failed" | "timeout"
   >("no_keyboard");
@@ -249,6 +253,13 @@ function DockerManagerInner({
         prompt: result.prompt || t("docker.verificationCodePrompt"),
         isPassword: result.isPassword,
       });
+      return;
+    }
+    if (result.status === "passphrase_required") {
+      if (triedPassphraseRef.current) {
+        toast.error(t("docker.incorrectPassphrase"));
+      }
+      setShowPassphrase(true);
       return;
     }
     if (result.status === "auth_required") {
@@ -441,6 +452,18 @@ function DockerManagerInner({
     });
   };
 
+  const handlePassphraseSubmit = async (passphrase: string) => {
+    setShowPassphrase(false);
+    triedPassphraseRef.current = true;
+    await connect({ userProvidedKeyPassword: passphrase });
+  };
+
+  const handlePassphraseCancel = () => {
+    setShowPassphrase(false);
+    setIsConnecting(false);
+    onClose?.();
+  };
+
   const handleAuthCancel = () => {
     setShowAuthDialog(false);
     setIsConnecting(false);
@@ -459,7 +482,7 @@ function DockerManagerInner({
     connect: () => {
       handleRetry();
     },
-    enabled: enabled && !prompt && !showAuthDialog,
+    enabled: enabled && !prompt && !showAuthDialog && !showPassphrase,
     autoStart: false,
   });
   retryRef.current = dockerConnectRetry;
@@ -527,6 +550,19 @@ function DockerManagerInner({
         onCancel={handlePromptCancel}
         onOpenUrl={handleBrowserSignInOpenUrl}
       />
+      {currentHost && (
+        <PassphraseDialog
+          isOpen={showPassphrase}
+          onSubmit={handlePassphraseSubmit}
+          onCancel={handlePassphraseCancel}
+          hostInfo={{
+            ip: currentHost.ip,
+            port: currentHost.port,
+            username: currentHost.username ?? "",
+            name: currentHost.name,
+          }}
+        />
+      )}
       {currentHost && (
         <SSHAuthDialog
           isOpen={showAuthDialog}

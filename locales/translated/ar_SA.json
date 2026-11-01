@@ -88,6 +88,7 @@
     "containerMustBeRunning": "يجب أن تكون الحاوية قيد التشغيل للوصول إلى وحدة التحكم",
     "verificationCodePrompt": "أدخل رمز التحقق",
     "totpVerificationFailed": "فشل التحقق من TOTP. يرجى المحاولة مرة أخرى.",
+    "incorrectPassphrase": "عبارة المرور غير صحيحة. يرجى المحاولة مرة أخرى.",
     "browserSignInFailed": "فشل تسجيل الدخول. يرجى المحاولة مرة أخرى.",
     "connectedTo": "متصل بـ {{containerName}}",
     "disconnected": "غير متصل",

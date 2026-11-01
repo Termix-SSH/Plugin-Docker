@@ -83,6 +83,7 @@
     "containerMustBeRunning": "容器必须处于运行状态才能访问控制台",
     "verificationCodePrompt": "输入验证码",
     "totpVerificationFailed": "TOTP 验证失败。请重试。",
+    "incorrectPassphrase": "密码短语不正确。请重试。",
     "browserSignInFailed": "登录失败。请重试。",
     "connectedTo": "已连接到 {{containerName}}",
     "disconnected": "已断开连接",

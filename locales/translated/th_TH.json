@@ -83,6 +83,7 @@
     "containerMustBeRunning": "คอนเทนเนอร์ต้องทำงานอยู่เพื่อเข้าถึงคอนโซล",
     "verificationCodePrompt": "ป้อนรหัสยืนยัน",
     "totpVerificationFailed": "การยืนยัน TOTP ล้มเหลว กรุณาลองอีกครั้ง",
+    "incorrectPassphrase": "คีย์ผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง",
     "browserSignInFailed": "การเข้าสู่ระบบล้มเหลว กรุณาลองอีกครั้ง",
     "connectedTo": "เชื่อมต่อแล้วกับ {{containerName}}",
     "disconnected": "ตัดการเชื่อมต่อแล้ว",

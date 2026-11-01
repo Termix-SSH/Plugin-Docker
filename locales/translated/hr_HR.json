@@ -85,6 +85,7 @@
     "containerMustBeRunning": "Kontejner mora raditi za pristup konzoli",
     "verificationCodePrompt": "Unesite kod za provjeru",
     "totpVerificationFailed": "TOTP provjera nije uspjela. Pokušajte ponovno.",
+    "incorrectPassphrase": "Netočan šifarski izraz. Pokušajte ponovno.",
     "browserSignInFailed": "Prijava nije uspjela. Pokušajte ponovno.",
     "connectedTo": "Povezano s {{containerName}}",
     "disconnected": "Odspojeno",

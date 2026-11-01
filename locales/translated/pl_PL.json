@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Kontener musi być uruchomiony, aby uzyskać dostęp do konsoli",
     "verificationCodePrompt": "Wprowadź kod weryfikacyjny",
     "totpVerificationFailed": "Weryfikacja TOTP nie powiodła się. Spróbuj ponownie.",
+    "incorrectPassphrase": "Nieprawidłowa fraza hasłowa. Spróbuj ponownie.",
     "browserSignInFailed": "Logowanie nie powiodło się. Spróbuj ponownie.",
     "connectedTo": "Połączono z {{containerName}}",
     "disconnected": "Rozłączono",

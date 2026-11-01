@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Containeren må kjøre for å få tilgang til konsollen",
     "verificationCodePrompt": "Skriv inn verifiseringskode",
     "totpVerificationFailed": "TOTP-verifisering mislyktes. Vennligst prøv igjen.",
+    "incorrectPassphrase": "Feil passfrase. Vennligst prøv igjen.",
     "browserSignInFailed": "Innlogging mislyktes. Vennligst prøv igjen.",
     "connectedTo": "Tilkoblet {{containerName}}",
     "disconnected": "Frakoblet",

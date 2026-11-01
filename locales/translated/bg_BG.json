@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Контейнерът трябва да работи, за да се получи достъп до конзолата",
     "verificationCodePrompt": "Въведете код за потвърждение",
     "totpVerificationFailed": "Неуспешно TOTP потвърждение. Опитайте отново.",
+    "incorrectPassphrase": "Грешна парола. Моля, опитайте отново.",
     "browserSignInFailed": "Неуспешно влизане. Опитайте отново.",
     "connectedTo": "Свързан с {{containerName}}",
     "disconnected": "Разединен",

@@ -85,6 +85,7 @@
     "containerMustBeRunning": "Le conteneur doit être en cours d'exécution pour accéder à la console",
     "verificationCodePrompt": "Entrez le code de vérification",
     "totpVerificationFailed": "Échec de la vérification TOTP. Veuillez réessayer.",
+    "incorrectPassphrase": "Mauvaise phrase de passe. Veuillez réessayer.",
     "browserSignInFailed": "Échec de la connexion. Veuillez réessayer.",
     "connectedTo": "Connecté à {{containerName}}",
     "disconnected": "Déconnecté",

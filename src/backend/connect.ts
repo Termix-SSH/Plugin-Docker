@@ -343,6 +343,18 @@ export async function startConnect(
           });
           return;
         }
+        if (
+          (outcome?.status === "error" &&
+            outcome.code === "passphrase-required") ||
+          /SSH key is encrypted/i.test(message)
+        ) {
+          logs.push(connectionLog("info", "docker_auth", message));
+          pending.emit({
+            status: 200,
+            body: { status: "passphrase_required", connectionLogs: logs },
+          });
+          return;
+        }
         if (outcome?.status === "error") {
           logs.push(connectionLog("error", "docker_auth", message));
           pending.emit({

@@ -84,6 +84,7 @@
     "containerMustBeRunning": "কনসোল অ্যাক্সেস করতে কন্টেইনারটি চলতে হবে",
     "verificationCodePrompt": "যাচাইকরণ কোড লিখুন",
     "totpVerificationFailed": "TOTP যাচাইকরণ ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    "incorrectPassphrase": "ভুল পাসফ্রেজ। অনুগ্রহ করে আবার চেষ্টা করুন।",
     "browserSignInFailed": "সাইন-ইন ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
     "connectedTo": "{{containerName}} এর সাথে সংযুক্ত",
     "disconnected": "সংযোগ বিচ্ছিন্ন",

@@ -84,6 +84,7 @@
     "containerMustBeRunning": "De container moet draaien om toegang te krijgen tot de console",
     "verificationCodePrompt": "Voer verificatiecode in",
     "totpVerificationFailed": "TOTP-verificatie mislukt. Probeer het opnieuw.",
+    "incorrectPassphrase": "Onjuiste wachtzin. Probeer het opnieuw.",
     "browserSignInFailed": "Inloggen mislukt. Probeer het opnieuw.",
     "connectedTo": "Verbonden met {{containerName}}",
     "disconnected": "Verbinding verbroken",

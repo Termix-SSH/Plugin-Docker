@@ -84,6 +84,7 @@
     "containerMustBeRunning": "A konzol eléréséhez a konténernek futnia kell",
     "verificationCodePrompt": "Adja meg a hitelesítési kódot",
     "totpVerificationFailed": "A TOTP hitelesítés sikertelen. Kérjük, próbálja újra.",
+    "incorrectPassphrase": "Helytelen jelszófrázis. Kérjük, próbálja újra.",
     "browserSignInFailed": "A bejelentkezés sikertelen. Kérjük, próbálja újra.",
     "connectedTo": "Csatlakozva a(z) {{containerName}} konténerhez",
     "disconnected": "Leválasztva",

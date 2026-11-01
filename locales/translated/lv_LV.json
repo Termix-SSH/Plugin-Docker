@@ -85,6 +85,7 @@
     "containerMustBeRunning": "Lai piekļūtu konsolei, konteineram ir jādarbojas",
     "verificationCodePrompt": "Ievadiet verifikācijas kodu",
     "totpVerificationFailed": "TOTP verifikācija neizdevās. Lūdzu, mēģiniet vēlreiz.",
+    "incorrectPassphrase": "Nepareiza parolas frāze. Lūdzu, mēģiniet vēlreiz.",
     "browserSignInFailed": "Pieteikšanās neizdevās. Lūdzu, mēģiniet vēlreiz.",
     "connectedTo": "Savienots ar {{containerName}}",
     "disconnected": "Atvienots",

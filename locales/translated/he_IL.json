@@ -85,6 +85,7 @@
     "containerMustBeRunning": "המיכל חייב להיות פעיל כדי לגשת לקונסולה",
     "verificationCodePrompt": "הזן קוד אימות",
     "totpVerificationFailed": "אימות TOTP נכשל. אנא נסה שוב.",
+    "incorrectPassphrase": "מילת הססמה שגויה. אנא נסה שוב.",
     "browserSignInFailed": "התחברות נכשלה. אנא נסה שוב.",
     "connectedTo": "מחובר ל-{{containerName}}",
     "disconnected": "נתק",

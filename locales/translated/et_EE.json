@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Konsooli kasutamiseks peab konteiner töötama",
     "verificationCodePrompt": "Sisestage kinnituskood",
     "totpVerificationFailed": "TOTP kinnitamine ebaõnnestus. Palun proovige uuesti.",
+    "incorrectPassphrase": "Vale parool. Proovi uuesti.",
     "browserSignInFailed": "Sisselogimine ebaõnnestus. Palun proovige uuesti.",
     "connectedTo": "Ühendatud {{containerName}}-ga",
     "disconnected": "Ühendus katkenud",

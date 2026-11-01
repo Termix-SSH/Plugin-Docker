@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Kontin on oltava käynnissä päästäksesi konsoliin",
     "verificationCodePrompt": "Syötä vahvistuskoodi",
     "totpVerificationFailed": "TOTP-vahvistus epäonnistui. Yritä uudelleen.",
+    "incorrectPassphrase": "Virheellinen avainsana. Yritä uudelleen.",
     "browserSignInFailed": "Kirjautuminen epäonnistui. Yritä uudelleen.",
     "connectedTo": "Yhdistetty kohteeseen {{containerName}}",
     "disconnected": "Yhteys katkaistu",

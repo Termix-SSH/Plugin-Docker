@@ -83,6 +83,7 @@
     "containerMustBeRunning": "容器必須正在執行才能存取主控台",
     "verificationCodePrompt": "輸入驗證碼",
     "totpVerificationFailed": "TOTP 驗證失敗。請再試一次。",
+    "incorrectPassphrase": "密碼片語不正確，請再試一次。",
     "browserSignInFailed": "登入失敗。請再試一次。",
     "connectedTo": "已連線至 {{containerName}}",
     "disconnected": "已斷開連線",

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.3
+
+### Fixed
+
+- Opening Docker for a host whose SSH key has no saved passphrase now asks for the passphrase instead of retrying
+
 ## 1.2.2
 
 ### Changed

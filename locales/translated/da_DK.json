@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Containeren skal køre for at få adgang til konsollen",
     "verificationCodePrompt": "Indtast verifikationskode",
     "totpVerificationFailed": "TOTP-verifikation mislykkedes. Prøv venligst igen.",
+    "incorrectPassphrase": "Forkert adgangskode. Prøv venligst igen.",
     "browserSignInFailed": "Login mislykkedes. Prøv venligst igen.",
     "connectedTo": "Forbundet til {{containerName}}",
     "disconnected": "Frakoblet",

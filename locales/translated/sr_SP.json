@@ -85,6 +85,7 @@
     "containerMustBeRunning": "Контејнер мора бити покренут да би се приступило конзоли",
     "verificationCodePrompt": "Унесите код за верификацију",
     "totpVerificationFailed": "TOTP верификација није успела. Покушајте поново.",
+    "incorrectPassphrase": "Нетачна лозинка. Покушајте поново.",
     "browserSignInFailed": "Пријава није успела. Покушајте поново.",
     "connectedTo": "Повезано са {{containerName}}",
     "disconnected": "Прекинуто повезивање",

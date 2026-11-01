@@ -83,6 +83,7 @@
     "containerMustBeRunning": "Container harus berjalan untuk mengakses konsol",
     "verificationCodePrompt": "Masukkan kode verifikasi",
     "totpVerificationFailed": "Verifikasi TOTP gagal. Silakan coba lagi.",
+    "incorrectPassphrase": "Passphrase salah. Silakan coba lagi.",
     "browserSignInFailed": "Login gagal. Silakan coba lagi.",
     "connectedTo": "Terhubung ke {{containerName}}",
     "disconnected": "Terputus",

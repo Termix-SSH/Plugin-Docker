@@ -84,6 +84,7 @@
     "containerMustBeRunning": "Der Container muss laufen, um auf die Konsole zuzugreifen",
     "verificationCodePrompt": "Verifizierungscode eingeben",
     "totpVerificationFailed": "TOTP-Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "incorrectPassphrase": "Falsche Passphrase. Bitte versuchen Sie es erneut.",
     "browserSignInFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "connectedTo": "Verbunden mit {{containerName}}",
     "disconnected": "Getrennt",

@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Posoda mora delovati za dostop do konzole",
     "verificationCodePrompt": "Vnesite verifikacijsko kodo",
     "totpVerificationFailed": "TOTP verifikacija ni uspela. Poskusite znova.",
+    "incorrectPassphrase": "Napačna geslena fraza. Poskusite znova.",
     "browserSignInFailed": "Prijava ni uspela. Poskusite znova.",
     "connectedTo": "Povezano z {{containerName}}",
     "disconnected": "Prekinjeno",

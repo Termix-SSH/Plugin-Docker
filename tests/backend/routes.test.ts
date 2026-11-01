@@ -325,4 +325,16 @@ describe("docker routes", () => {
     const versionCommand = client.commands.find((c) => c.includes("--version"));
     expect(versionCommand).toBe("docker --version");
   });
+
+  it("asks for the passphrase when the key is encrypted", async () => {
+    server = await startServer();
+    server.mock.ctx.ssh.connect = (async () => {
+      throw new Error(
+        "The SSH key is encrypted. Please enter the passphrase to unlock it.",
+      );
+    }) as never;
+    const res = await connect(server);
+    expect(res.status).toBe(200);
+    expect(res.body.status).toBe("passphrase_required");
+  });
 });

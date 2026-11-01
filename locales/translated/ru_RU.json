@@ -86,6 +86,7 @@
     "containerMustBeRunning": "Контейнер должен быть запущен для доступа к консоли",
     "verificationCodePrompt": "Введите код подтверждения",
     "totpVerificationFailed": "Ошибка проверки TOTP. Повторите попытку.",
+    "incorrectPassphrase": "Неверная парольная фраза. Пожалуйста, попробуйте снова.",
     "browserSignInFailed": "Ошибка входа. Повторите попытку.",
     "connectedTo": "Подключено к {{containerName}}",
     "disconnected": "Отключено",

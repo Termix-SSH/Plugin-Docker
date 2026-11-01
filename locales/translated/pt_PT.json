@@ -85,6 +85,7 @@
     "containerMustBeRunning": "O contentor tem de estar em execução para aceder ao console",
     "verificationCodePrompt": "Introduza o código de verificação",
     "totpVerificationFailed": "A verificação TOTP falhou. Tente novamente.",
+    "incorrectPassphrase": "Frase-passe incorreta. Tente novamente.",
     "browserSignInFailed": "A iniciação de sessão falhou. Tente novamente.",
     "connectedTo": "Ligado a {{containerName}}",
     "disconnected": "Desligado",
