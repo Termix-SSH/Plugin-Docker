@@ -322,5 +322,41 @@
     "counts": "{{running}} running | {{stopped}} stopped",
     "unhealthy_one": "{{count}} unhealthy",
     "unhealthy_other": "{{count}} unhealthy"
+  },
+  "operations": {
+    "list": {
+      "title": "List containers"
+    },
+    "summary": {
+      "title": "Container summary"
+    },
+    "start": {
+      "title": "Start container"
+    },
+    "stop": {
+      "title": "Stop container"
+    },
+    "restart": {
+      "title": "Restart container"
+    },
+    "pause": {
+      "title": "Pause container"
+    },
+    "unpause": {
+      "title": "Resume container"
+    },
+    "remove": {
+      "title": "Remove container",
+      "force": "Force remove a running container"
+    },
+    "container": {
+      "title": "Containers",
+      "image": "Image",
+      "status": "Status",
+      "ports": "Ports"
+    },
+    "unhealthy": {
+      "title": "Unhealthy containers"
+    }
   }
 }

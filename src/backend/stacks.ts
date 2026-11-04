@@ -131,11 +131,12 @@ interface Deps {
   sessions: DockerSessions;
   log: DockerLogger;
   sessionOf: (req: Request, res: Response) => DockerSession | null;
+  canChange: (session: DockerSession, res: Response) => Promise<boolean>;
 }
 
 export function registerStacks(
   router: Router,
-  { ctx, sessions, log, sessionOf }: Deps,
+  { ctx, sessions, log, sessionOf, canChange }: Deps,
 ) {
   const adminEnabled = async () =>
     (await ctx.settings.get<boolean>("stacksEnabled")) === true;
@@ -168,6 +169,7 @@ export function registerStacks(
   const stackSession = async (
     req: Request,
     res: Response,
+    forChange = false,
   ): Promise<{ session: DockerSession; root: string } | null> => {
     if (!(await adminEnabled())) {
       res.status(403).json({
@@ -178,6 +180,7 @@ export function registerStacks(
     }
     const session = sessionOf(req, res);
     if (!session) return null;
+    if (forChange && !(await canChange(session, res))) return null;
     const host = await readStacksHostSettings(ctx, session.hostId);
     if (!host.enabled) {
       res.status(403).json({
@@ -371,7 +374,7 @@ export function registerStacks(
    *         description: Failed to create the stack.
    */
   router.post("/stacks/:sessionId", async (req, res) => {
-    const found = await stackSession(req, res);
+    const found = await stackSession(req, res, true);
     if (!found) return;
     const { session, root } = found;
     const body = (req.body ?? {}) as Record<string, unknown>;
@@ -502,7 +505,7 @@ export function registerStacks(
 
   const saveFile =
     (kind: "compose" | "env") => async (req: Request, res: Response) => {
-      const found = await stackSession(req, res);
+      const found = await stackSession(req, res, true);
       if (!found) return;
       const { session, root } = found;
       const name = String(req.params.stackName);
@@ -738,7 +741,7 @@ export function registerStacks(
    *         description: The action failed.
    */
   router.post("/stacks/:sessionId/:stackName/action", async (req, res) => {
-    const found = await stackSession(req, res);
+    const found = await stackSession(req, res, true);
     if (!found) return;
     const { session, root } = found;
     const name = String(req.params.stackName);

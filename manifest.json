@@ -1,7 +1,7 @@
 {
   "id": "docker",
   "name": "Docker",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console.",
   "author": {
     "name": "Termix"
@@ -24,7 +24,7 @@
     "A dashboard card with running and stopped containers on each host"
   ],
   "engine": {
-    "termix": ">=26.10.6",
+    "termix": ">=26.11.1-0",
     "api": "^1.9"
   },
   "capabilities": [
@@ -34,7 +34,8 @@
     "network:serve",
     "ui:surface",
     "events:core",
-    "users:impersonate"
+    "users:impersonate",
+    "operations:provide"
   ],
   "provides": [
     {
@@ -194,7 +195,217 @@
         "titleKey": "card.title",
         "icon": "Box"
       }
-    ]
+    ],
+    "operations": {
+      "actions": [
+        {
+          "id": "docker.list-containers",
+          "titleKey": "operations.list.title",
+          "scope": "host",
+          "risk": "read",
+          "permission": "use",
+          "hostAccess": "connect",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true,
+            "palette": false
+          }
+        },
+        {
+          "id": "docker.summary",
+          "titleKey": "operations.summary.title",
+          "scope": "host",
+          "risk": "read",
+          "permission": "use",
+          "hostAccess": "connect",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true,
+            "palette": false
+          }
+        },
+        {
+          "id": "docker.start-container",
+          "titleKey": "operations.start.title",
+          "icon": "Play",
+          "scope": "resource",
+          "resource": "docker.container",
+          "risk": "change",
+          "permission": "use",
+          "hostAccess": "edit",
+          "dryRun": "describe",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true
+          },
+          "idempotent": true
+        },
+        {
+          "id": "docker.stop-container",
+          "titleKey": "operations.stop.title",
+          "icon": "Square",
+          "scope": "resource",
+          "resource": "docker.container",
+          "risk": "change",
+          "permission": "use",
+          "hostAccess": "edit",
+          "dryRun": "describe",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true
+          },
+          "idempotent": true
+        },
+        {
+          "id": "docker.restart-container",
+          "titleKey": "operations.restart.title",
+          "icon": "RotateCw",
+          "scope": "resource",
+          "resource": "docker.container",
+          "risk": "change",
+          "permission": "use",
+          "hostAccess": "edit",
+          "dryRun": "describe",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true
+          }
+        },
+        {
+          "id": "docker.pause-container",
+          "titleKey": "operations.pause.title",
+          "icon": "Pause",
+          "scope": "resource",
+          "resource": "docker.container",
+          "risk": "change",
+          "permission": "use",
+          "hostAccess": "edit",
+          "dryRun": "describe",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true
+          },
+          "idempotent": true
+        },
+        {
+          "id": "docker.unpause-container",
+          "titleKey": "operations.unpause.title",
+          "icon": "Play",
+          "scope": "resource",
+          "resource": "docker.container",
+          "risk": "change",
+          "permission": "use",
+          "hostAccess": "edit",
+          "dryRun": "describe",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "assistant": true,
+            "mcp": true
+          },
+          "idempotent": true
+        },
+        {
+          "id": "docker.remove-container",
+          "titleKey": "operations.remove.title",
+          "icon": "Trash2",
+          "scope": "resource",
+          "resource": "docker.container",
+          "risk": "destructive",
+          "permission": "use",
+          "hostAccess": "edit",
+          "dryRun": "describe",
+          "when": {
+            "settings": {
+              "enableDocker": true
+            }
+          },
+          "surfaces": {
+            "mcp": false,
+            "assistant": false
+          },
+          "inputs": [
+            {
+              "key": "force",
+              "type": "boolean",
+              "labelKey": "operations.remove.force",
+              "default": false
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "id": "docker.container",
+          "titleKey": "operations.container.title",
+          "icon": "Box",
+          "list": "docker.list-containers",
+          "key": "id",
+          "name": "name",
+          "status": "state",
+          "tab": "docker",
+          "columns": [
+            {
+              "key": "image",
+              "titleKey": "operations.container.image"
+            },
+            {
+              "key": "status",
+              "titleKey": "operations.container.status",
+              "type": "status"
+            },
+            {
+              "key": "ports",
+              "titleKey": "operations.container.ports"
+            }
+          ],
+          "filters": ["state"]
+        }
+      ],
+      "signals": [
+        {
+          "id": "docker.unhealthy",
+          "titleKey": "operations.unhealthy.title",
+          "read": "docker.summary",
+          "scope": "host",
+          "kind": "count",
+          "refreshSec": 60
+        }
+      ]
+    }
   },
   "locales": "locales",
   "platforms": ["linux", "win32", "darwin"]

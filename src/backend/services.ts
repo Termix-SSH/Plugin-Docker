@@ -124,6 +124,10 @@ export function registerServices(ctx: PluginContext, log: DockerLogger): void {
       if (!ACTIONS.includes(action)) {
         throw new Error(`Unknown container action: ${action}`);
       }
+      const access = await ctx.hosts.checkAccess(hostId, "edit");
+      if (!access.hasAccess) {
+        throw new Error("You need edit access to this host");
+      }
       const args =
         action === "remove" ? `rm ${container}` : `${action} ${container}`;
       await runOnHost(

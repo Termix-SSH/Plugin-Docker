@@ -6,6 +6,7 @@ import { registerRoutes } from "./routes.js";
 import { registerConsole } from "./console.js";
 import { registerServices } from "./services.js";
 import { registerSummary } from "./summary.js";
+import { registerOperations } from "./operations.js";
 import { normalizeImportedHost } from "./host-settings.js";
 
 export type {
@@ -26,6 +27,7 @@ export async function activate(ctx: PluginContext) {
   registerSummary(router, ctx);
   registerConsole(ctx, log);
   registerServices(ctx, log);
+  registerOperations(ctx, sessions);
   ctx.registry.provide("docker.hostImportNormalizer", normalizeImportedHost);
 
   ctx.log.info(

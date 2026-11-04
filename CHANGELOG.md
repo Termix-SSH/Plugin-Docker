@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.0
+
+### Added
+
+- Containers can be listed, started, stopped, restarted, paused and removed from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions
+- Unhealthy containers show as a status tile on the dashboard and host page
+
+### Changed
+
+- Starting, stopping, restarting, pausing or removing a container now needs edit access to the host, not just connect
+- Container changes now show in run history
+- Needs Termix 26.11.1 or newer
+
 ## 1.2.3
 
 ### Fixed
