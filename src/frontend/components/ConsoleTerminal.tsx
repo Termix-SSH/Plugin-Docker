@@ -13,6 +13,7 @@ import {
   resolveConnectionOrigin,
   useAppTheme as useTheme,
   useConnectionLog,
+  NoticePanel,
 } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerHost } from "../types";
 import { useConsoleLook, type ConsoleLook } from "./console-look";
@@ -499,17 +500,9 @@ function ConsoleTerminalInner({
 
   if (containerState !== "running") {
     return (
-      <div className="flex items-center justify-center h-full">
-        <div className="text-center space-y-2">
-          <TerminalIcon className="h-12 w-12 text-muted-foreground/50 mx-auto" />
-          <p className="text-muted-foreground text-lg">
-            {t("docker.containerNotRunning")}
-          </p>
-          <p className="text-muted-foreground text-sm">
-            {t("docker.startContainerToAccess")}
-          </p>
-        </div>
-      </div>
+      <NoticePanel icon={TerminalIcon} title={t("docker.containerNotRunning")}>
+        {t("docker.startContainerToAccess")}
+      </NoticePanel>
     );
   }
 
@@ -529,8 +522,8 @@ function ConsoleTerminalInner({
   };
 
   return (
-    <div className="flex flex-col h-full gap-2">
-      <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-col h-full">
+      <div className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
         <div className="flex min-w-0 items-center gap-2 text-xs text-muted-foreground">
           <span
             className={cn(
@@ -606,7 +599,7 @@ function ConsoleTerminalInner({
       </div>
 
       <div
-        className="relative flex-1 min-h-0 overflow-hidden border border-border pt-1"
+        className="relative flex-1 min-h-0 overflow-hidden pt-1"
         style={{ background: themeColors.background }}
       >
         <div

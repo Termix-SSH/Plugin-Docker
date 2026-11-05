@@ -12,6 +12,7 @@
 - Starting, stopping, restarting, pausing or removing a container now needs edit access to the host, not just connect
 - Container changes now show in run history
 - Needs Termix 26.11.1 or newer
+- Containers, stacks and stats use the Termix tile look, with cards edge to edge and lines between them instead of gaps
 
 ## 1.2.3
 

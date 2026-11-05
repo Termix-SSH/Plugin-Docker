@@ -1,5 +1,5 @@
 import { getErrorMessage } from "../error-message";
-import { Button } from "@termix-ssh/plugin-sdk/ui";
+import { Button, EmptyState } from "@termix-ssh/plugin-sdk/ui";
 import type { DockerContainer } from "../types";
 import React from "react";
 import { Box, List, Play, RefreshCw, Square, Terminal } from "lucide-react";
@@ -84,37 +84,29 @@ export function ContainerTable({
 
   if (containers.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full opacity-20 py-20">
-        <Box className="size-16 mb-4" />
-        <span className="text-xl font-bold uppercase tracking-widest">
-          {t("docker.noContainersFound")}
-        </span>
-        <span className="text-xs font-semibold">
-          {t("docker.noContainersFoundHint")}
-        </span>
-      </div>
+      <EmptyState
+        icon={Box}
+        title={t("docker.noContainersFound")}
+        hint={t("docker.noContainersFoundHint")}
+      />
     );
   }
 
   if (filtered.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full opacity-20 py-20">
-        <Box className="size-16 mb-4" />
-        <span className="text-xl font-bold uppercase tracking-widest">
-          {t("docker.noContainersMatchFilters")}
-        </span>
-        <span className="text-xs font-semibold">
-          {t("docker.noContainersMatchFiltersHint")}
-        </span>
-      </div>
+      <EmptyState
+        icon={Box}
+        title={t("docker.noContainersMatchFilters")}
+        hint={t("docker.noContainersMatchFiltersHint")}
+      />
     );
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col overflow-hidden border border-border bg-card">
+    <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
       <div className="min-h-0 flex-1 overflow-y-auto thin-scrollbar">
         <table className="w-full border-collapse text-xs">
-          <thead className="sticky top-0 z-10 bg-card">
+          <thead className="sticky top-0 z-10 bg-background">
             <tr className="border-b border-border text-[10px] uppercase tracking-wider text-muted-foreground">
               <th className="px-3 py-2 text-left font-semibold">
                 {t("docker.name")}
@@ -136,7 +128,7 @@ export function ContainerTable({
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-border">
+          <tbody className="divide-y divide-border border-b border-border">
             {filtered.map((container) => {
               const containerName = container.name.startsWith("/")
                 ? container.name.slice(1)

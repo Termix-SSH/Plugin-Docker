@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import type { StackState } from "../types";
-import { stateClass } from "./stack-utils";
+import { StatusBadge } from "@termix-ssh/plugin-sdk/ui";
+import { stackTone } from "./stack-utils";
 
 export function StackStateBadge({
   state,
@@ -10,10 +11,8 @@ export function StackStateBadge({
 }): React.ReactElement {
   const { t } = useTranslation();
   return (
-    <span
-      className={`border px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${stateClass(state)}`}
-    >
+    <StatusBadge tone={stackTone(state)}>
       {t(`docker.stacks.state.${state}`)}
-    </span>
+    </StatusBadge>
   );
 }

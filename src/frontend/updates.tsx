@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowUpCircle, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
-import { Button } from "@termix-ssh/plugin-sdk/ui";
+import { Button, StatusBadge } from "@termix-ssh/plugin-sdk/ui";
 import { getErrorMessage } from "./error-message";
 import { useDockerApi } from "./docker-api";
 import type { DockerContainer, ImageUpdate } from "./types";
@@ -124,11 +124,7 @@ export function UpdateBadge({
   const { t } = useTranslation();
   const { statusOf } = useUpdates();
   if (statusOf(image)?.status !== "update") return null;
-  return (
-    <span className="border border-blue-400/40 bg-blue-400/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-400">
-      {t("docker.updates.badge")}
-    </span>
-  );
+  return <StatusBadge tone="info">{t("docker.updates.badge")}</StatusBadge>;
 }
 
 /** The update button, shown only when the image has a newer version. */

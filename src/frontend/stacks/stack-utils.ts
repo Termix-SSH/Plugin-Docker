@@ -1,3 +1,4 @@
+import type { StatusTone } from "@termix-ssh/plugin-sdk/ui";
 export type EnvLine =
   { kind: "kv"; key: string; value: string } | { kind: "raw"; text: string };
 
@@ -38,14 +39,11 @@ export const COMPOSE_TEMPLATE = `services:
 
 export const STACK_NAME_RE = /^[a-z0-9][a-z0-9_-]{0,62}$/;
 
-export function stateClass(state: string): string {
-  if (state === "running" || state === "healthy")
-    return "border-accent-brand/40 text-accent-brand bg-accent-brand/10";
-  if (state === "partial" || state === "paused")
-    return "border-warning/40 text-warning bg-warning/10";
-  if (state === "stopped" || state === "exited" || state === "dead")
-    return "border-destructive/40 text-destructive bg-destructive/5";
-  if (state === "restarting" || state === "starting")
-    return "border-blue-400/40 text-blue-400 bg-blue-400/10";
-  return "border-border text-muted-foreground";
+/** The badge tone for a stack or service state. */
+export function stackTone(state: string): StatusTone {
+  if (state === "running" || state === "healthy") return "ok";
+  if (state === "partial" || state === "paused") return "warn";
+  if (state === "restarting" || state === "starting") return "warn";
+  if (state === "dead" || state === "unhealthy") return "bad";
+  return "idle";
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Layers, RefreshCw } from "lucide-react";
+import { AlertTriangle, Layers, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
 import {
@@ -11,6 +11,9 @@ import {
   PanelShell,
   Segmented,
   useAdaptivePolling,
+  LoadingState,
+  NoticePanel,
+  Input,
 } from "@termix-ssh/plugin-sdk/ui";
 import { getErrorMessage } from "../error-message";
 import { useDockerApi } from "../docker-api";
@@ -171,17 +174,17 @@ export function StacksView({
             />
           </>
         }
-        className="p-2.5 gap-2"
       >
         {!loaded ? (
-          <div className="flex h-full flex-col items-center justify-center py-20 opacity-40">
-            <RefreshCw className="mb-4 size-8 animate-spin" />
-            <span className="text-sm font-semibold">
-              {t("docker.stacks.loading")}
-            </span>
-          </div>
+          <LoadingState label={t("docker.stacks.loading")} />
         ) : error ? (
-          <p className="py-8 text-center text-sm text-destructive">{error}</p>
+          <NoticePanel
+            tone="destructive"
+            icon={AlertTriangle}
+            title={t("docker.error")}
+          >
+            {error}
+          </NoticePanel>
         ) : visible.length === 0 ? (
           <div className="flex flex-col items-center gap-3 py-16 text-center">
             <p className="text-sm text-muted-foreground">
@@ -197,13 +200,13 @@ export function StacksView({
             )}
           </div>
         ) : (
-          <div className="flex flex-col border border-border">
+          <div className="flex flex-col">
             {visible.map((stack) => (
               <button
                 key={stack.name}
                 type="button"
                 onClick={() => setSelected(stack.name)}
-                className="flex items-center gap-3 border-b border-border px-3 py-2 text-left transition-colors last:border-b-0 hover:bg-accent/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                className="flex items-center gap-3 border-b border-border px-3 py-2 text-left transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
                 <Layers className="size-4 shrink-0 text-muted-foreground" />
                 <div className="min-w-0 flex-1">
@@ -244,12 +247,12 @@ export function StacksView({
         <div className="flex flex-col gap-3 p-3">
           <label className="flex flex-col gap-1 text-xs font-semibold">
             {t("docker.stacks.name")}
-            <input
+            <Input
               value={newName}
               onChange={(event) => setNewName(event.target.value)}
               placeholder="my-stack"
               spellCheck={false}
-              className="h-8 border border-border bg-background px-2 font-mono text-xs font-normal focus:outline-none focus:ring-1 focus:ring-ring"
+              className="font-mono font-normal"
             />
             <span className="font-normal text-muted-foreground">
               {newName && !nameValid

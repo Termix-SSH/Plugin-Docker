@@ -28,8 +28,8 @@ export function StackEvents({
 }: StackEventsProps): React.ReactElement {
   const { t } = useTranslation();
   return (
-    <div className="flex h-full min-h-0 flex-col gap-2">
-      <div className="flex items-center">
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="flex items-center border-b border-border px-3 py-2">
         <span className="text-xs text-muted-foreground">
           {t("docker.stacks.eventsHint")}
         </span>
@@ -44,7 +44,7 @@ export function StackEvents({
           {t("docker.stacks.clearEvents")}
         </Button>
       </div>
-      <div className="min-h-0 flex-1 overflow-auto border border-border">
+      <div className="min-h-0 flex-1 overflow-auto">
         {events.length === 0 ? (
           <p className="py-10 text-center text-sm text-muted-foreground">
             {t("docker.stacks.noEvents")}

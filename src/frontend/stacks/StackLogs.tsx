@@ -83,8 +83,8 @@ export function StackLogs({
     "h-8 border border-border bg-background px-2 text-xs focus:outline-none";
 
   return (
-    <div className="flex h-full min-h-0 flex-col gap-2">
-      <div className="flex flex-wrap items-center gap-2">
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
         <PanelSearch
           value={search}
           onChange={setSearch}
@@ -151,7 +151,7 @@ export function StackLogs({
           stickRef.current =
             box.scrollHeight - box.scrollTop - box.clientHeight < 40;
         }}
-        className="min-h-0 flex-1 overflow-auto whitespace-pre-wrap break-all border border-border bg-background p-2 font-mono text-xs"
+        className="min-h-0 flex-1 overflow-auto whitespace-pre-wrap break-all bg-background p-3 font-mono text-xs thin-scrollbar"
       >
         {visible || t("docker.stacks.noLogs")}
       </pre>

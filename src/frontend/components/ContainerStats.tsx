@@ -1,5 +1,13 @@
 import { getErrorMessage } from "../error-message";
-import { SectionCard, useAdaptivePolling } from "@termix-ssh/plugin-sdk/ui";
+import {
+  EmptyState,
+  LoadingState,
+  NoticePanel,
+  SectionCard,
+  StatTile,
+  TileWall,
+  useAdaptivePolling,
+} from "@termix-ssh/plugin-sdk/ui";
 import type { DockerStats } from "../types";
 import React from "react";
 import {
@@ -9,7 +17,6 @@ import {
   Info,
   MemoryStick,
   Network,
-  RefreshCw,
 } from "lucide-react";
 import { useDockerApi } from "../docker-api";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
@@ -73,99 +80,54 @@ export function ContainerStats({
 
   if (containerState !== "running") {
     return (
-      <div className="flex flex-col items-center justify-center h-full opacity-20 py-20">
-        <Activity className="size-16 mb-4" />
-        <span className="text-xl font-bold uppercase tracking-widest">
-          {t("docker.containerNotRunning")}
-        </span>
-        <span className="text-xs font-semibold">
-          {t("docker.startContainerToViewStats")}
-        </span>
-      </div>
+      <EmptyState
+        icon={Activity}
+        title={t("docker.containerNotRunning")}
+        hint={t("docker.startContainerToViewStats")}
+      />
     );
   }
 
   if (isLoading && !stats) {
-    return (
-      <div className="flex flex-col items-center justify-center h-full opacity-40 py-20">
-        <RefreshCw className="size-8 animate-spin mb-4" />
-        <span className="text-sm font-semibold">
-          {t("docker.loadingStats")}
-        </span>
-      </div>
-    );
+    return <LoadingState label={t("docker.loadingStats")} />;
   }
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center h-full opacity-40 py-20">
-        <Activity className="size-8 mb-4" />
-        <span className="text-sm font-semibold text-destructive">
-          {t("docker.errorLoadingStats")}
-        </span>
-        <span className="text-xs text-muted-foreground mt-1">{error}</span>
-      </div>
+      <NoticePanel
+        icon={Activity}
+        tone="destructive"
+        title={t("docker.errorLoadingStats")}
+      >
+        {error}
+      </NoticePanel>
     );
   }
 
   if (!stats) {
-    return (
-      <div className="flex flex-col items-center justify-center h-full opacity-20 py-20">
-        <span className="text-sm font-semibold">
-          {t("docker.noStatsAvailable")}
-        </span>
-      </div>
-    );
+    return <EmptyState icon={Activity} title={t("docker.noStatsAvailable")} />;
   }
 
   const cpuPercent = parseFloat(stats.cpu) || 0;
   const memPercent = parseFloat(stats.memoryPercent) || 0;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-      <SectionCard
-        title={t("docker.cpuUsage")}
-        icon={<Cpu className="size-3.5" />}
-      >
-        <div className="flex flex-col gap-3 py-2">
-          <div className="flex items-end justify-between">
-            <span className="text-3xl font-bold text-accent-brand">
-              {stats.cpu}
-            </span>
-            <span className="text-[10px] text-muted-foreground uppercase font-bold">
-              {t("docker.current")}
-            </span>
-          </div>
-          <div className="h-1.5 bg-muted w-full overflow-hidden">
-            <div
-              className="h-full bg-accent-brand transition-all duration-500"
-              style={{ width: `${Math.min(cpuPercent, 100)}%` }}
-            />
-          </div>
-        </div>
-      </SectionCard>
+    <TileWall gridClassName="grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <StatTile
+        label={t("docker.cpuUsage")}
+        icon={<Cpu />}
+        value={stats.cpu}
+        percent={cpuPercent}
+        hint={t("docker.current")}
+      />
 
-      <SectionCard
-        title={t("docker.memoryUsage")}
-        icon={<MemoryStick className="size-3.5" />}
-      >
-        <div className="flex flex-col gap-3 py-2">
-          <div className="flex items-end justify-between">
-            <span className="text-3xl font-bold text-accent-brand">
-              {stats.memoryPercent}
-            </span>
-            <span className="text-[10px] text-muted-foreground uppercase font-bold">
-              {stats.memoryUsed} / {stats.memoryLimit}
-            </span>
-          </div>
-          <div className="h-1.5 bg-muted w-full overflow-hidden">
-            <div
-              className="h-full bg-accent-brand transition-all duration-500"
-              style={{ width: `${Math.min(memPercent, 100)}%` }}
-            />
-          </div>
-        </div>
-      </SectionCard>
+      <StatTile
+        label={t("docker.memoryUsage")}
+        icon={<MemoryStick />}
+        value={stats.memoryPercent}
+        percent={memPercent}
+        hint={`${stats.memoryUsed} / ${stats.memoryLimit}`}
+      />
 
       <SectionCard
         title={t("docker.networkIo")}
@@ -252,6 +214,6 @@ export function ContainerStats({
           </div>
         </div>
       </SectionCard>
-    </div>
+    </TileWall>
   );
 }

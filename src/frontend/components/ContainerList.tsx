@@ -2,7 +2,7 @@ import type { DockerContainer } from "../types";
 import React from "react";
 import { Box } from "lucide-react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
-import { DataView, type GridSize } from "@termix-ssh/plugin-sdk/ui";
+import { DataView, EmptyState, type GridSize } from "@termix-ssh/plugin-sdk/ui";
 import { ContainerCard } from "./ContainerCard.tsx";
 
 interface ContainerListProps {
@@ -43,29 +43,21 @@ export function ContainerList({
 
   if (containers.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full opacity-20 py-20">
-        <Box className="size-16 mb-4" />
-        <span className="text-xl font-bold uppercase tracking-widest">
-          {t("docker.noContainersFound")}
-        </span>
-        <span className="text-xs font-semibold">
-          {t("docker.noContainersFoundHint")}
-        </span>
-      </div>
+      <EmptyState
+        icon={Box}
+        title={t("docker.noContainersFound")}
+        hint={t("docker.noContainersFoundHint")}
+      />
     );
   }
 
   if (filtered.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full opacity-20 py-20">
-        <Box className="size-16 mb-4" />
-        <span className="text-xl font-bold uppercase tracking-widest">
-          {t("docker.noContainersMatchFilters")}
-        </span>
-        <span className="text-xs font-semibold">
-          {t("docker.noContainersMatchFiltersHint")}
-        </span>
-      </div>
+      <EmptyState
+        icon={Box}
+        title={t("docker.noContainersMatchFilters")}
+        hint={t("docker.noContainersMatchFiltersHint")}
+      />
     );
   }
 
