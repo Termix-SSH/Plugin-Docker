@@ -6,6 +6,8 @@
 
 - Containers can be listed, started, stopped, restarted, paused and removed from Automations, Fleets, the CLI, the phone app and the command palette through Termix actions
 - Unhealthy containers show as a status tile on the dashboard and host page
+- A container counts tile on the host page and a Docker entry in the host command palette
+- Optional alerts for unhealthy, restarting or failed containers, set per host
 
 ### Changed
 

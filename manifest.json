@@ -34,6 +34,8 @@
     "network:serve",
     "ui:surface",
     "events:core",
+    "kv:own",
+    "notify:send",
     "users:impersonate",
     "operations:provide"
   ],
@@ -98,6 +100,14 @@
             "labelKey": "settings.host.showPanel.label",
             "descriptionKey": "settings.host.showPanel.description",
             "default": true,
+            "requires": "enableDocker"
+          },
+          {
+            "key": "alertProblems",
+            "type": "boolean",
+            "labelKey": "settings.host.alertProblems.label",
+            "descriptionKey": "settings.host.alertProblems.description",
+            "default": false,
             "requires": "enableDocker"
           },
           {

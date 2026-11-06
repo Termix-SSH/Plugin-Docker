@@ -259,6 +259,10 @@
         "label": "Show containers panel in terminals",
         "description": "Let the containers panel open beside this host's SSH terminal."
       },
+      "alertProblems": {
+        "label": "Alert on container problems",
+        "description": "Send an alert when a container becomes unhealthy, keeps restarting or exits with an error."
+      },
       "enableStacks": {
         "label": "Stack management",
         "description": "Manage compose stacks on this host. An administrator also has to allow it."
@@ -312,6 +316,13 @@
   "plugin": {
     "name": "Docker",
     "description": "Manage Docker and Podman containers on your hosts over SSH, with logs, stats and a console."
+  },
+  "tile": {
+    "title": "Containers",
+    "empty": "Docker is not reachable on this host.",
+    "running": "Running",
+    "stopped": "Stopped",
+    "unhealthy": "Unhealthy"
   },
   "card": {
     "title": "Docker hosts",
