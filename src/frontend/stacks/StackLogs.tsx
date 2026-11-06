@@ -2,7 +2,13 @@ import React from "react";
 import { Download, Radio, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
-import { Button, PanelSearch, cn } from "@termix-ssh/plugin-sdk/ui";
+import {
+  Button,
+  PanelSearch,
+  cn,
+  ToolbarBand,
+  ToolbarSelect,
+} from "@termix-ssh/plugin-sdk/ui";
 import { getErrorMessage } from "../error-message";
 import { useDockerApi } from "../docker-api";
 
@@ -14,6 +20,9 @@ interface StackLogsProps {
 }
 
 const TAILS = [100, 500, 1000, 3000];
+
+// Radix selects need a value, so "all services" gets its own.
+const ALL = "__all";
 
 export function StackLogs({
   sessionId,
@@ -79,42 +88,32 @@ export function StackLogs({
     URL.revokeObjectURL(url);
   };
 
-  const selectClass =
-    "h-8 border border-border bg-background px-2 text-xs focus:outline-none";
-
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
+      <ToolbarBand>
         <PanelSearch
           value={search}
           onChange={setSearch}
           placeholder={t("docker.filterLogs")}
         />
-        <select
-          value={service}
-          onChange={(event) => setService(event.target.value)}
-          aria-label={t("docker.stacks.service")}
-          className={selectClass}
-        >
-          <option value="">{t("docker.stacks.allServices")}</option>
-          {services.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-        <select
-          value={tail}
-          onChange={(event) => setTail(Number(event.target.value))}
-          aria-label={t("docker.lines")}
-          className={selectClass}
-        >
-          {TAILS.map((value) => (
-            <option key={value} value={value}>
-              {value} {t("docker.lines")}
-            </option>
-          ))}
-        </select>
+        <ToolbarSelect
+          value={service || ALL}
+          onChange={(next) => setService(next === ALL ? "" : next)}
+          label={t("docker.stacks.service")}
+          options={[
+            { value: ALL, label: t("docker.stacks.allServices") },
+            ...services.map((item) => ({ value: item, label: item })),
+          ]}
+        />
+        <ToolbarSelect
+          value={String(tail)}
+          onChange={(next) => setTail(Number(next))}
+          label={t("docker.lines")}
+          options={TAILS.map((value) => ({
+            value: String(value),
+            label: `${value} ${t("docker.lines")}`,
+          }))}
+        />
         <div className="ml-auto flex items-center gap-1">
           <Button
             variant="ghost"
@@ -143,7 +142,7 @@ export function StackLogs({
             <Download className="size-4" />
           </Button>
         </div>
-      </div>
+      </ToolbarBand>
       <pre
         ref={boxRef}
         onScroll={(event) => {

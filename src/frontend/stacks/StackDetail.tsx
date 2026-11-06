@@ -28,6 +28,7 @@ import {
   LoadingState,
   Select2,
   StatusBadge,
+  ToolbarBand,
 } from "@termix-ssh/plugin-sdk/ui";
 import { getErrorMessage } from "../error-message";
 import { useDockerApi } from "../docker-api";
@@ -532,7 +533,7 @@ export function StackDetail({
         </div>
       ) : tab === "compose" || tab === "env" ? (
         <div className="flex h-full min-h-0 flex-col">
-          <div className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
+          <ToolbarBand>
             {tab === "compose" && (
               <Button
                 variant="ghost"
@@ -549,7 +550,7 @@ export function StackDetail({
                 {data.composeFile}
               </span>
             )}
-          </div>
+          </ToolbarBand>
           {tab === "compose" ? (
             <>
               <textarea

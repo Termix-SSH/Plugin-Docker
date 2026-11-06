@@ -1,7 +1,7 @@
 import React from "react";
 import { Trash2 } from "lucide-react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
-import { Button, cn } from "@termix-ssh/plugin-sdk/ui";
+import { Button, cn, ToolbarBand } from "@termix-ssh/plugin-sdk/ui";
 
 export interface StackEvent {
   id: number;
@@ -29,7 +29,7 @@ export function StackEvents({
   const { t } = useTranslation();
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="flex items-center border-b border-border px-3 py-2">
+      <ToolbarBand>
         <span className="text-xs text-muted-foreground">
           {t("docker.stacks.eventsHint")}
         </span>
@@ -43,7 +43,7 @@ export function StackEvents({
           <Trash2 className="mr-1 size-4" />
           {t("docker.stacks.clearEvents")}
         </Button>
-      </div>
+      </ToolbarBand>
       <div className="min-h-0 flex-1 overflow-auto">
         {events.length === 0 ? (
           <p className="py-10 text-center text-sm text-muted-foreground">

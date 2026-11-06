@@ -15,6 +15,7 @@
 - Container changes now show in run history
 - Needs Termix 26.11.1 or newer
 - Containers, stacks and stats use the Termix tile look, with cards edge to edge and lines between them instead of gaps
+- Toolbars, loading screens, back buttons and Save bars match the rest of Termix
 
 ## 1.2.3
 

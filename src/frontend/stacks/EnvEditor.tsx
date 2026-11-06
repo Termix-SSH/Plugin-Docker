@@ -1,7 +1,7 @@
 import React from "react";
 import { Eye, EyeOff, Plus, Trash2 } from "lucide-react";
 import { useTranslation } from "@termix-ssh/plugin-sdk/frontend";
-import { Button, Segmented } from "@termix-ssh/plugin-sdk/ui";
+import { Button, Segmented, ToolbarBand } from "@termix-ssh/plugin-sdk/ui";
 import { parseEnv, serializeEnv } from "./stack-utils";
 
 interface EnvEditorProps {
@@ -41,7 +41,7 @@ export function EnvEditor({
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="flex items-center gap-2 border-b border-border px-3 py-2">
+      <ToolbarBand>
         <Segmented
           value={mode}
           onChange={(next) => setMode(next as "table" | "raw")}
@@ -63,7 +63,7 @@ export function EnvEditor({
             {t("docker.stacks.addVariable")}
           </Button>
         )}
-      </div>
+      </ToolbarBand>
       {mode === "raw" ? (
         <textarea
           value={value}
