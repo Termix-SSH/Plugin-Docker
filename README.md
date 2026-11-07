@@ -33,6 +33,9 @@ Read the [docs](https://docs.termix.site/plugins/docker) to set it up and use it
 - Works with Docker and Podman
 - Optional stack management for compose projects
 - Image update checks and one click updates
+- Start, stop and restart containers from Automations, Fleets, the CLI and the command palette
+- Unhealthy containers as a status tile, and a containers tile on the host page
+- Optional alerts for unhealthy, restarting or failed containers
 
 <br />
 
