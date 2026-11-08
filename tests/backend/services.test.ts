@@ -18,6 +18,19 @@ const psState = (state: string, status = "Up") =>
   `{"name":"web","state":"${state}","status":"${status}"}\n`;
 
 describe("docker.containers service", () => {
+  it("refuses a change without host edit", async () => {
+    server = await startServer({ mock: { hosts: [] } });
+    const docker = server.mock.services.get(
+      "docker.containers",
+    ) as DockerServiceV1;
+    await expect(
+      server.mock.ctx.asUser("user-1", () =>
+        docker.action(7, "web", "restart"),
+      ),
+    ).rejects.toThrow("edit access");
+    expect(server.client.commands.join(" ")).not.toContain("restart");
+  });
+
   it("lists containers and runs actions as the caller", async () => {
     server = await startServer();
     const docker = server.mock.services.get(

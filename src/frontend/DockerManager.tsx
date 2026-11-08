@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import { ArrowUpCircle, Box, ExternalLink, RefreshCw } from "lucide-react";
+import { ArrowUpCircle, Box } from "lucide-react";
 import {
   useConnectionRetry,
   useHost,
@@ -25,6 +25,9 @@ import {
   useAdaptivePolling,
   useConnectionLog,
   useTabsSafe,
+  RefreshButton,
+  LoadingState,
+  Select2,
 } from "@termix-ssh/plugin-sdk/ui";
 import { DockerApiError, useDockerApi, type ConnectResult } from "./docker-api";
 import {
@@ -682,29 +685,11 @@ function DockerManagerInner({
                       className={`size-4 ${updateChecker.checking ? "animate-pulse" : ""}`}
                     />
                   </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
+                  <RefreshButton
                     onClick={refreshContainers}
-                    disabled={isLoadingContainers}
-                    title={t("docker.refresh")}
-                    className="text-accent-brand"
-                  >
-                    <RefreshCw
-                      className={`size-4 ${isLoadingContainers ? "animate-spin" : ""}`}
-                    />
-                  </Button>
-                  {!compact && (
-                    <a
-                      href={docsUrl()}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex size-8 items-center justify-center text-muted-foreground transition-colors hover:text-foreground"
-                      title={t("hosts.docsLink")}
-                    >
-                      <ExternalLink className="size-4" />
-                    </a>
-                  )}
+                    loading={isLoadingContainers}
+                    label={t("docker.refresh")}
+                  />
                 </>
               }
               toolbar={
@@ -716,11 +701,11 @@ function DockerManagerInner({
                     placeholder={t("docker.searchPlaceholder")}
                   />
                   {compact ? (
-                    <select
+                    <Select2
                       value={statusFilter}
                       onChange={(event) => setStatusFilter(event.target.value)}
                       aria-label={t("docker.allStatuses")}
-                      className="h-8 border border-border bg-background px-2 text-xs"
+                      className="h-8 px-2.5 text-xs"
                     >
                       <option value="all">{t("docker.allStatuses")}</option>
                       <option value="running">
@@ -731,7 +716,7 @@ function DockerManagerInner({
                       <option value="restarting">
                         {t("docker.stateRestarting")}
                       </option>
-                    </select>
+                    </Select2>
                   ) : (
                     <Segmented
                       value={statusFilter}
@@ -766,16 +751,11 @@ function DockerManagerInner({
                   </div>
                 </>
               }
-              className="p-2.5 gap-2"
+              docs={compact ? undefined : docsUrl()}
             >
               {sessionId ? (
                 !hasLoadedContainersOnce ? (
-                  <div className="flex flex-col items-center justify-center h-full opacity-40 py-20">
-                    <RefreshCw className="size-8 animate-spin mb-4" />
-                    <span className="text-sm font-semibold">
-                      {t("docker.loadingContainers")}
-                    </span>
-                  </div>
+                  <LoadingState label={t("docker.loadingContainers")} />
                 ) : compact ? (
                   <CompactContainerList
                     containers={containers}

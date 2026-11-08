@@ -259,6 +259,10 @@
         "label": "Visa behållarpanelen i terminaler",
         "description": "Låt behållarpanelen öppnas bredvid SSH-terminalen för denna värd."
       },
+      "alertProblems": {
+        "label": "Varna vid problem med behållare",
+        "description": "Skicka en varning när en behållare blir ohälsosam, startar om upprepade gånger eller avslutas med ett fel."
+      },
       "enableStacks": {
         "label": "Stackhantering",
         "description": "Hantera compose-stacks på denna värd. En administratör måste också tillåta det."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Hantera Docker- och Podman-containers på dina värdar via SSH, med loggar, statistik och en konsol."
   },
+  "tile": {
+    "title": "Behållare",
+    "empty": "Docker är inte tillgänglig på denna värd.",
+    "running": "Kör",
+    "stopped": "Stoppad",
+    "unhealthy": "Ohälsosam"
+  },
   "card": {
     "title": "Docker-värdar",
     "loading": "Laddar...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} körs | {{stopped}} stoppade",
     "unhealthy_one": "{{count}} ohälsosam",
     "unhealthy_other": "{{count}} ohälsosamma"
+  },
+  "operations": {
+    "list": {
+      "title": "Lista behållare"
+    },
+    "summary": {
+      "title": "Behållaröversikt"
+    },
+    "start": {
+      "title": "Starta behållare"
+    },
+    "stop": {
+      "title": "Stoppa behållare"
+    },
+    "restart": {
+      "title": "Starta om behållare"
+    },
+    "pause": {
+      "title": "Pausa behållare"
+    },
+    "unpause": {
+      "title": "Återuppta behållare"
+    },
+    "remove": {
+      "title": "Ta bort behållare",
+      "force": "Tvinga bort en körande behållare"
+    },
+    "container": {
+      "title": "Behållare",
+      "image": "Avbild",
+      "status": "Status",
+      "ports": "Portar"
+    },
+    "unhealthy": {
+      "title": "Ohälsosamma behållare"
+    }
   }
 }

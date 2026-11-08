@@ -261,6 +261,10 @@
         "label": "Pokaż panel kontenerów w terminalach",
         "description": "Pozwól, aby panel kontenerów otwierał się obok terminala SSH tego hosta."
       },
+      "alertProblems": {
+        "label": "Powiadamiaj o problemach z kontenerami",
+        "description": "Wyślij powiadomienie, gdy kontener stanie się niezdrowy, będzie się ciągle restartować lub zakończy działanie z błędem."
+      },
       "enableStacks": {
         "label": "Zarządzanie stosami",
         "description": "Zarządzaj stosami Compose na tym hoście. Administrator musi to również zezwolić."
@@ -315,6 +319,13 @@
     "name": "Docker",
     "description": "Zarządzaj kontenerami Docker i Podman na swoich hostach przez SSH, z dostępem do logów, statystyk i konsoli."
   },
+  "tile": {
+    "title": "Kontenery",
+    "empty": "Docker nie jest dostępny na tym hoście.",
+    "running": "Uruchomione",
+    "stopped": "Zatrzymane",
+    "unhealthy": "Niezdrowe"
+  },
   "card": {
     "title": "Serwery Docker",
     "loading": "Ładowanie...",
@@ -326,5 +337,41 @@
     "unhealthy_few": "{{count}} niezdrowe",
     "unhealthy_many": "{{count}} niezdrowych",
     "unhealthy_other": "{{count}} niezdrowych"
+  },
+  "operations": {
+    "list": {
+      "title": "Lista kontenerów"
+    },
+    "summary": {
+      "title": "Podsumowanie kontenera"
+    },
+    "start": {
+      "title": "Uruchom kontener"
+    },
+    "stop": {
+      "title": "Zatrzymaj kontener"
+    },
+    "restart": {
+      "title": "Restartuj kontener"
+    },
+    "pause": {
+      "title": "Wstrzymaj kontener"
+    },
+    "unpause": {
+      "title": "Wznów działanie kontenera"
+    },
+    "remove": {
+      "title": "Usuń kontener",
+      "force": "Wymuś usunięcie uruchomionego kontenera"
+    },
+    "container": {
+      "title": "Kontenery",
+      "image": "Obraz",
+      "status": "Status",
+      "ports": "Porty"
+    },
+    "unhealthy": {
+      "title": "Niezdrowe kontenery"
+    }
   }
 }

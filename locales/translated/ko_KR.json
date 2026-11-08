@@ -258,6 +258,10 @@
         "label": "터미널에서 컨테이너 패널 표시",
         "description": "이 호스트의 SSH 터미널 옆에 컨테이너 패널을 열 수 있습니다."
       },
+      "alertProblems": {
+        "label": "컨테이너 문제 알림",
+        "description": "컨테이너가 비정상 상태가 되거나, 계속 재시작되거나, 오류로 종료될 때 알림을 보냅니다."
+      },
       "enableStacks": {
         "label": "스택 관리",
         "description": "이 호스트에서 컴포즈 스택을 관리합니다. 관리자가 이를 허용해야 합니다."
@@ -312,6 +316,13 @@
     "name": "Docker",
     "description": "SSH를 통해 호스트의 Docker 및 Podman 컨테이너를 관리하고, 로그, 통계 및 콘솔을 제공합니다."
   },
+  "tile": {
+    "title": "컨테이너",
+    "empty": "이 호스트에서 Docker에 연결할 수 없습니다.",
+    "running": "실행 중",
+    "stopped": "정지됨",
+    "unhealthy": "비정상"
+  },
   "card": {
     "title": "Docker 호스트",
     "loading": "로딩 중...",
@@ -320,5 +331,41 @@
     "summary": "{{total}}개 중 {{running}}개 컨테이너 실행 중",
     "counts": "{{running}}개 실행 중 | {{stopped}}개 중지됨",
     "unhealthy_other": "{{count}}개 상태 불량"
+  },
+  "operations": {
+    "list": {
+      "title": "컨테이너 목록"
+    },
+    "summary": {
+      "title": "컨테이너 요약"
+    },
+    "start": {
+      "title": "컨테이너 시작"
+    },
+    "stop": {
+      "title": "컨테이너 중지"
+    },
+    "restart": {
+      "title": "컨테이너 재시작"
+    },
+    "pause": {
+      "title": "컨테이너 일시 정지"
+    },
+    "unpause": {
+      "title": "컨테이너 재개"
+    },
+    "remove": {
+      "title": "컨테이너 제거",
+      "force": "실행 중인 컨테이너 강제 제거"
+    },
+    "container": {
+      "title": "컨테이너",
+      "image": "이미지",
+      "status": "상태",
+      "ports": "포트"
+    },
+    "unhealthy": {
+      "title": "비정상 컨테이너"
+    }
   }
 }

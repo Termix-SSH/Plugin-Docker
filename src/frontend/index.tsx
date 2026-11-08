@@ -1,5 +1,6 @@
 // The terminal surfaces need xterm's own stylesheet.
 import "@xterm/xterm/css/xterm.css";
+import type { ComponentType } from "react";
 import { Box } from "lucide-react";
 import type {
   StandaloneViewProps,
@@ -13,6 +14,7 @@ import { dockerEnabled, toDockerHost, type DockerHostSource } from "./types";
 import { dockerPanelEnabled } from "./types";
 import { DockerCompanion, useDockerCompanionDefaults } from "./DockerCompanion";
 import { DockerHostsCard } from "./DockerHostsCard";
+import { DockerHostTile } from "./DockerHostTile";
 
 function DockerTab({ host, sshHost, label, isVisible }: TabProps) {
   const record = host ?? (sshHost as DockerHostSource | undefined);
@@ -89,6 +91,30 @@ export function activate(app: TermixApp): void {
     tabType: "docker",
     copyUrlView: "docker",
     when: (host) => canUse && !!host.enableSsh && dockerEnabled(host),
+  });
+
+  app.registerPaletteEntry({
+    id: "docker.open",
+    titleKey: "nav.docker",
+    icon: Box,
+    keywords: ["container", "containers", "compose", "podman"],
+    scope: "host",
+    when: (host) => canUse && !!host?.enableSsh && dockerEnabled(host),
+    run: (shell, host) => {
+      if (host) shell.openTab(host, "docker");
+    },
+  });
+
+  app.registerSlotContribution("host-page.tiles", {
+    actionId: "docker.hostTile",
+    titleKey: "tile.title",
+    icon: Box,
+    kind: "component",
+    component: DockerHostTile as unknown as ComponentType<
+      Record<string, unknown>
+    >,
+    when: (context?: { host?: unknown }) =>
+      canUse && (!context?.host || dockerEnabled(context.host as object)),
   });
 
   app.registerExtension("homepage.widgets", dockerWidget);

@@ -259,6 +259,10 @@
         "label": "Näytä konttien paneeli terminaaleissa",
         "description": "Salli konttien paneelin avautuminen tämän isäntäpalvelimen SSH-terminaalin viereen."
       },
+      "alertProblems": {
+        "label": "Ilmoita konttien ongelmista",
+        "description": "Lähetä ilmoitus, kun kontti muuttuu epäkuntoiseksi, käynnistyy uudelleen jatkuvasti tai päättyy virheeseen."
+      },
       "enableStacks": {
         "label": "Stack-hallinta",
         "description": "Hallitse compose-stackeja tässä isäntäpalvelimessa. Ylläpitäjän on myös sallittava se."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Hallinnoi Docker- ja Podman-kontteja isäntälaitteillasi SSH:n kautta, mukaan lukien lokit, tilastot ja konsoli."
   },
+  "tile": {
+    "title": "Kontit",
+    "empty": "Dockeria ei ole tavoitettavissa tässä isäntälaitteessa.",
+    "running": "Käynnissä",
+    "stopped": "Pysäytetty",
+    "unhealthy": "Epäkuntoinen"
+  },
   "card": {
     "title": "Docker-isäntä",
     "loading": "Ladataan...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} käynnissä | {{stopped}} pysäytetty",
     "unhealthy_one": "{{count}} epäkuntoinen",
     "unhealthy_other": "{{count}} epäkuntoista"
+  },
+  "operations": {
+    "list": {
+      "title": "Listaa kontit"
+    },
+    "summary": {
+      "title": "Konttien yhteenveto"
+    },
+    "start": {
+      "title": "Käynnistä kontti"
+    },
+    "stop": {
+      "title": "Pysäytä kontti"
+    },
+    "restart": {
+      "title": "Käynnistä kontti uudelleen"
+    },
+    "pause": {
+      "title": "Keskeytä kontti"
+    },
+    "unpause": {
+      "title": "Jatka konttia"
+    },
+    "remove": {
+      "title": "Poista kontti",
+      "force": "Pakota käynnissä olevan kontin poisto"
+    },
+    "container": {
+      "title": "Kontit",
+      "image": "Kuva",
+      "status": "Tila",
+      "ports": "Portit"
+    },
+    "unhealthy": {
+      "title": "Epäkuntoiset kontit"
+    }
   }
 }

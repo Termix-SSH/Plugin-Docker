@@ -258,6 +258,10 @@
         "label": "Paparkan panel kontena dalam terminal",
         "description": "Biarkan panel kontena dibuka di sebelah terminal SSH hos ini."
       },
+      "alertProblems": {
+        "label": "Amaran masalah kontena",
+        "description": "Hantar amaran apabila kontena menjadi tidak sihat, sentiasa mula semula atau keluar dengan ralat."
+      },
       "enableStacks": {
         "label": "Pengurusan tumpukan",
         "description": "Urus tumpukan komposisi pada hos ini. Pentadbir juga perlu mengizinkannya."
@@ -312,6 +316,13 @@
     "name": "Docker",
     "description": "Uruskan kontena Docker dan Podman pada hos anda melalui SSH, dengan log, statistik dan konsol."
   },
+  "tile": {
+    "title": "Kontena",
+    "empty": "Docker tidak boleh dicapai pada hos ini.",
+    "running": "Berjalan",
+    "stopped": "Berhenti",
+    "unhealthy": "Tidak sihat"
+  },
   "card": {
     "title": "Hos Docker",
     "loading": "Memuatkan...",
@@ -320,5 +331,41 @@
     "summary": "{{running}} daripada {{total}} bekas sedang berjalan",
     "counts": "{{running}} berjalan | {{stopped}} dihentikan",
     "unhealthy_other": "{{count}} tidak sihat"
+  },
+  "operations": {
+    "list": {
+      "title": "Senaraikan kontena"
+    },
+    "summary": {
+      "title": "Ringkasan kontena"
+    },
+    "start": {
+      "title": "Mula kontena"
+    },
+    "stop": {
+      "title": "Hentikan kontena"
+    },
+    "restart": {
+      "title": "Mula semula kontena"
+    },
+    "pause": {
+      "title": "Jeda kontena"
+    },
+    "unpause": {
+      "title": "Sambung semula kontena"
+    },
+    "remove": {
+      "title": "Buang kontena",
+      "force": "Paksa buang kontena yang sedang berjalan"
+    },
+    "container": {
+      "title": "Kontena",
+      "image": "Imej",
+      "status": "Status",
+      "ports": "Port"
+    },
+    "unhealthy": {
+      "title": "Kontena tidak sihat"
+    }
   }
 }

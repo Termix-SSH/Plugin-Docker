@@ -260,6 +260,10 @@
         "label": "Prikaži ploču s kontejnerima u terminalima",
         "description": "Otvori ploču s kontejnerima uz SSH terminal ovog hosta."
       },
+      "alertProblems": {
+        "label": "Upozori na probleme s kontejnerima",
+        "description": "Pošalji upozorenje kada kontejner postane nestabilan, stalno se ponovno pokreće ili se završi s greškom."
+      },
       "enableStacks": {
         "label": "Upravljanje stackovima",
         "description": "Upravljajte compose stackovima na ovom hostu. Administrator također mora to dopustiti."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Upravljajte Docker i Podman kontejnerima na svojim hostovima putem SSH-a, s dnevnim zapisima, statistikama i konzolom."
   },
+  "tile": {
+    "title": "Kontejneri",
+    "empty": "Docker nije dostupan na ovom hostu.",
+    "running": "Pokrenuto",
+    "stopped": "Zaustavljeno",
+    "unhealthy": "Nestabilno"
+  },
   "card": {
     "title": "Docker hostovi",
     "loading": "Učitavanje...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} neispravan",
     "unhealthy_few": "{{count}} neispravna",
     "unhealthy_other": "{{count}} neispravnih"
+  },
+  "operations": {
+    "list": {
+      "title": "Popis kontejnera"
+    },
+    "summary": {
+      "title": "Sažetak kontejnera"
+    },
+    "start": {
+      "title": "Pokreni kontejner"
+    },
+    "stop": {
+      "title": "Zaustavi kontejner"
+    },
+    "restart": {
+      "title": "Ponovno pokreni kontejner"
+    },
+    "pause": {
+      "title": "Pauziraj kontejner"
+    },
+    "unpause": {
+      "title": "Nastavi kontejner"
+    },
+    "remove": {
+      "title": "Ukloni kontejner",
+      "force": "Prisilno ukloni pokrenuti kontejner"
+    },
+    "container": {
+      "title": "Kontejneri",
+      "image": "Slika",
+      "status": "Status",
+      "ports": "Portovi"
+    },
+    "unhealthy": {
+      "title": "Nestabilni kontejneri"
+    }
   }
 }

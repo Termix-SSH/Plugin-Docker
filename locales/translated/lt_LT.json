@@ -261,6 +261,10 @@
         "label": "Rodyti konteinerių skydelį terminaluose",
         "description": "Leisti konteinerių skydeliui atsiverti šalia šio hosto SSH terminalo."
       },
+      "alertProblems": {
+        "label": "Pranešti apie konteinerių problemas",
+        "description": "Siųsti pranešimą, kai konteinerio būklė tampa nestabili, jis nuolat paleidžiamas iš naujo arba baigia darbą su klaida."
+      },
       "enableStacks": {
         "label": "Stekų valdymas",
         "description": "Valdyti compose stekus šiame serveryje. Administratorius taip pat turi tai leisti."
@@ -315,6 +319,13 @@
     "name": "Docker",
     "description": "Tvarkykite Docker ir Podman konteinerius savo hostuose per SSH, su žurnalais, statistika ir konsole."
   },
+  "tile": {
+    "title": "Konteineriai",
+    "empty": "Šiame serveryje Docker nepasiekiamas.",
+    "running": "Veikia",
+    "stopped": "Sustabdytas",
+    "unhealthy": "Nestabilus"
+  },
   "card": {
     "title": "Docker serveriai",
     "loading": "Įkeliama...",
@@ -326,5 +337,41 @@
     "unhealthy_few": "{{count}} neveikia tinkamai",
     "unhealthy_many": "{{count}} neveikia tinkamai",
     "unhealthy_other": "{{count}} neveikia tinkamai"
+  },
+  "operations": {
+    "list": {
+      "title": "Rodyti konteinerius"
+    },
+    "summary": {
+      "title": "Konteinerio apžvalga"
+    },
+    "start": {
+      "title": "Paleisti konteinerį"
+    },
+    "stop": {
+      "title": "Sustabdyti konteinerį"
+    },
+    "restart": {
+      "title": "Paleisti konteinerį iš naujo"
+    },
+    "pause": {
+      "title": "Pristabdyti konteinerį"
+    },
+    "unpause": {
+      "title": "Tęsti konteinerio veikimą"
+    },
+    "remove": {
+      "title": "Pašalinti konteinerį",
+      "force": "Priverstinai pašalinti veikiančią konteinerį"
+    },
+    "container": {
+      "title": "Konteineriai",
+      "image": "Atvaizdas",
+      "status": "Būsena",
+      "ports": "Prievadai"
+    },
+    "unhealthy": {
+      "title": "Nestabilūs konteineriai"
+    }
   }
 }

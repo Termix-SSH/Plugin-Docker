@@ -33,6 +33,8 @@ export interface DockerSessions {
   add: (session: DockerSession) => void;
   /** The session when `userId` owns it. */
   get: (id: string, userId: string) => DockerSession | undefined;
+  /** This user's open session on a host, if they have one. */
+  forHost: (userId: string, hostId: number) => DockerSession | undefined;
   close: (id: string) => void;
   touch: (session: DockerSession) => void;
   /** Runs `fn` with the session marked busy, so idle cleanup waits. */
@@ -120,6 +122,15 @@ export function createDockerSessions(
     get: (id, userId) => {
       const session = sessions.get(id);
       return session && session.userId === userId ? session : undefined;
+    },
+
+    forHost: (userId, hostId) => {
+      for (const session of sessions.values()) {
+        if (session.userId === userId && session.hostId === hostId) {
+          return session;
+        }
+      }
+      return undefined;
     },
 
     close: (id) => {

@@ -260,6 +260,10 @@
         "label": "Mostrar painel de contentores nos terminais",
         "description": "Permitir que o painel de contentores abra ao lado do terminal SSH deste host."
       },
+      "alertProblems": {
+        "label": "Avisar sobre problemas nos contentores",
+        "description": "Enviar um aviso quando um contentor ficar instável, reiniciar repetidamente ou terminar com erro."
+      },
       "enableStacks": {
         "label": "Gestão de stacks",
         "description": "Gerir stacks do compose neste host. Um administrador também tem de o permitir."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Gere contentores Docker e Podman nos seus hosts via SSH, com registos, estatísticas e consola."
   },
+  "tile": {
+    "title": "Contentores",
+    "empty": "O Docker não está acessível neste host.",
+    "running": "Em execução",
+    "stopped": "Parado",
+    "unhealthy": "Instável"
+  },
   "card": {
     "title": "Hospedeiros Docker",
     "loading": "A carregar...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} não saudável",
     "unhealthy_many": "{{count}} não saudáveis",
     "unhealthy_other": "{{count}} não saudáveis"
+  },
+  "operations": {
+    "list": {
+      "title": "Listar contentores"
+    },
+    "summary": {
+      "title": "Resumo do contentor"
+    },
+    "start": {
+      "title": "Iniciar contentor"
+    },
+    "stop": {
+      "title": "Parar contentor"
+    },
+    "restart": {
+      "title": "Reiniciar contentor"
+    },
+    "pause": {
+      "title": "Pausar contentor"
+    },
+    "unpause": {
+      "title": "Retomar contentor"
+    },
+    "remove": {
+      "title": "Remover contentor",
+      "force": "Forçar a remoção de um contentor em execução"
+    },
+    "container": {
+      "title": "Contentores",
+      "image": "Imagem",
+      "status": "Estado",
+      "ports": "Portas"
+    },
+    "unhealthy": {
+      "title": "Contentores instáveis"
+    }
   }
 }

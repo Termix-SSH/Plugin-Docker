@@ -259,6 +259,10 @@
         "label": "Container-Panel in Terminals anzeigen",
         "description": "Lässt das Container-Panel neben dem SSH-Terminal dieses Hosts öffnen."
       },
+      "alertProblems": {
+        "label": "Benachrichtigung bei Container-Problemen",
+        "description": "Sende eine Benachrichtigung, wenn ein Container als nicht gesund markiert wird, sich ständig neu startet oder mit einem Fehler beendet wird."
+      },
       "enableStacks": {
         "label": "Stack-Verwaltung",
         "description": "Compose-Stacks auf diesem Host verwalten. Ein Administrator muss dies ebenfalls zulassen."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Verwalten Sie Docker- und Podman-Container auf Ihren Hosts über SSH, mit Logs, Statistiken und einer Konsole."
   },
+  "tile": {
+    "title": "Container",
+    "empty": "Docker ist auf diesem Host nicht erreichbar.",
+    "running": "Läuft",
+    "stopped": "Gestoppt",
+    "unhealthy": "Nicht gesund"
+  },
   "card": {
     "title": "Docker-Hosts",
     "loading": "Wird geladen...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} läuft | {{stopped}} gestoppt",
     "unhealthy_one": "{{count}} nicht gesund",
     "unhealthy_other": "{{count}} nicht gesund"
+  },
+  "operations": {
+    "list": {
+      "title": "Container auflisten"
+    },
+    "summary": {
+      "title": "Container-Übersicht"
+    },
+    "start": {
+      "title": "Container starten"
+    },
+    "stop": {
+      "title": "Container stoppen"
+    },
+    "restart": {
+      "title": "Container neu starten"
+    },
+    "pause": {
+      "title": "Container pausieren"
+    },
+    "unpause": {
+      "title": "Container fortsetzen"
+    },
+    "remove": {
+      "title": "Container entfernen",
+      "force": "Entfernen eines laufenden Containers erzwingen"
+    },
+    "container": {
+      "title": "Container",
+      "image": "Image",
+      "status": "Status",
+      "ports": "Ports"
+    },
+    "unhealthy": {
+      "title": "Nicht gesunde Container"
+    }
   }
 }

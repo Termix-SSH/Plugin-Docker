@@ -260,6 +260,10 @@
         "label": "הצג את לוח המיכלים בטרמינלים",
         "description": "אפשר לפתוח את לוח המיכלים לצד הטרמינל של SSH עבור מארח זה."
       },
+      "alertProblems": {
+        "label": "התראה על בעיות במיכלים",
+        "description": "שלח התראה כאשר מיכל הופך ללא תקין, ממשיך להתחיל מחדש או יוצא עם שגיאה."
+      },
       "enableStacks": {
         "label": "ניהול סטאקים",
         "description": "נהל סטאקים של Compose במארח זה. מנהל מערכת חייב גם לאפשר זאת."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "ניהול מכלי Docker ו-Podman במארחים שלך דרך SSH, כולל יומנים, סטטיסטיקות ומסוף."
   },
+  "tile": {
+    "title": "מיכלים",
+    "empty": "Docker אינו נגיש במארח זה.",
+    "running": "פעיל",
+    "stopped": "עצור",
+    "unhealthy": "לא תקין"
+  },
   "card": {
     "title": "מארחי Docker",
     "loading": "טוען...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} לא תקין",
     "unhealthy_two": "{{count}} לא תקינים",
     "unhealthy_other": "{{count}} לא תקינים"
+  },
+  "operations": {
+    "list": {
+      "title": "רשימת מיכלים"
+    },
+    "summary": {
+      "title": "סיכום מיכל"
+    },
+    "start": {
+      "title": "הפעל מיכל"
+    },
+    "stop": {
+      "title": "עצור מיכל"
+    },
+    "restart": {
+      "title": "התחל מחדש מיכל"
+    },
+    "pause": {
+      "title": "השהה מיכל"
+    },
+    "unpause": {
+      "title": "המשך מיכל"
+    },
+    "remove": {
+      "title": "הסר מיכל",
+      "force": "הסר בכוח מיכל פעיל"
+    },
+    "container": {
+      "title": "מיכלים",
+      "image": "דמות",
+      "status": "סטטוס",
+      "ports": "יציאות"
+    },
+    "unhealthy": {
+      "title": "מיכלים לא תקינים"
+    }
   }
 }

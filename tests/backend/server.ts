@@ -73,6 +73,30 @@ export async function startServer(
     permissions: options.permissions ?? ["docker.use"],
     sshHosts: [sshHost(7), sshHost(8)],
     sshClient: client,
+    hosts: [
+      {
+        id: 7,
+        userId: "user-1",
+        name: "seven",
+        ip: "10.0.0.7",
+        port: 22,
+        username: "root",
+        tags: null,
+        folder: null,
+        authType: "password",
+      },
+      {
+        id: 8,
+        userId: "user-1",
+        name: "eight",
+        ip: "10.0.0.8",
+        port: 22,
+        username: "root",
+        tags: null,
+        folder: null,
+        authType: "password",
+      },
+    ],
     ...options.mock,
   });
   if (options.dockerOn !== false) {

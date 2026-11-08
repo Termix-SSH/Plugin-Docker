@@ -25,6 +25,10 @@ import {
   TabStrip,
   useAdaptivePolling,
   useConfirm,
+  LoadingState,
+  Select2,
+  StatusBadge,
+  ToolbarBand,
 } from "@termix-ssh/plugin-sdk/ui";
 import { getErrorMessage } from "../error-message";
 import { useDockerApi } from "../docker-api";
@@ -34,7 +38,7 @@ import { EnvEditor } from "./EnvEditor";
 import { StackEvents, type StackEvent } from "./StackEvents";
 import { StackLogs } from "./StackLogs";
 import { StackStateBadge } from "./StackStateBadge";
-import { stateClass } from "./stack-utils";
+import { stackTone } from "./stack-utils";
 
 type DetailTab =
   "overview" | "compose" | "env" | "logs" | "terminal" | "events";
@@ -389,15 +393,12 @@ export function StackDetail({
         />
       }
       scroll={false}
-      className="p-2.5"
     >
       {!data ? (
-        <div className="flex h-full items-center justify-center opacity-40">
-          <RefreshCw className="size-6 animate-spin" />
-        </div>
+        <LoadingState />
       ) : tab === "overview" ? (
-        <div className="flex h-full min-h-0 flex-col gap-2 overflow-auto">
-          <div className="flex flex-wrap gap-1">
+        <div className="flex h-full min-h-0 flex-col overflow-auto">
+          <div className="flex flex-wrap gap-1 border-b border-border px-3 py-2">
             <Button
               variant="outline"
               size="sm"
@@ -428,7 +429,7 @@ export function StackDetail({
               {t("docker.stacks.noServices")}
             </p>
           ) : (
-            <div className="flex flex-col border border-border">
+            <div className="flex flex-col">
               {serviceNames.map((service) => {
                 const item = services.find(
                   (entry) => entry.service === service,
@@ -436,7 +437,7 @@ export function StackDetail({
                 return (
                   <div
                     key={service}
-                    className="flex flex-wrap items-center gap-2 border-b border-border px-2 py-1.5 last:border-b-0"
+                    className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-1.5"
                   >
                     <div className="min-w-[10rem] flex-1">
                       <div className="text-sm font-semibold">{service}</div>
@@ -451,13 +452,13 @@ export function StackDetail({
                         {item.ports}
                       </span>
                     )}
-                    <span
-                      className={`border px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${stateClass(item?.health || item?.state || "")}`}
+                    <StatusBadge
+                      tone={stackTone(item?.health || item?.state || "")}
                     >
                       {item
                         ? item.health || item.state
                         : t("docker.stacks.notCreated")}
-                    </span>
+                    </StatusBadge>
                     <div className="flex items-center">
                       {item?.state === "running" ? (
                         <Button
@@ -531,8 +532,8 @@ export function StackDetail({
           )}
         </div>
       ) : tab === "compose" || tab === "env" ? (
-        <div className="flex h-full min-h-0 flex-col gap-2">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="flex h-full min-h-0 flex-col">
+          <ToolbarBand>
             {tab === "compose" && (
               <Button
                 variant="ghost"
@@ -549,7 +550,7 @@ export function StackDetail({
                 {data.composeFile}
               </span>
             )}
-          </div>
+          </ToolbarBand>
           {tab === "compose" ? (
             <>
               <textarea
@@ -579,11 +580,11 @@ export function StackDetail({
                 spellCheck={false}
                 wrap="off"
                 aria-label={t("docker.stacks.compose")}
-                className="min-h-0 flex-1 resize-none border border-border bg-background p-2 font-mono text-xs leading-5 focus:outline-none focus:ring-1 focus:ring-ring"
+                className="min-h-0 flex-1 resize-none bg-background p-3 font-mono text-xs leading-5 focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-ring"
               />
               {validation && (
                 <pre
-                  className={`max-h-32 overflow-auto whitespace-pre-wrap border p-2 font-mono text-xs ${
+                  className={`max-h-32 overflow-auto whitespace-pre-wrap border-t p-2 font-mono text-xs ${
                     validation.valid
                       ? "border-accent-brand/40 text-accent-brand"
                       : "border-destructive/40 text-destructive"
@@ -629,19 +630,21 @@ export function StackDetail({
           initialService={logService}
         />
       ) : activeTerminal ? (
-        <div className="flex h-full min-h-0 flex-col gap-2">
-          <select
-            value={activeTerminal.service}
-            onChange={(event) => setTerminalService(event.target.value)}
-            aria-label={t("docker.stacks.service")}
-            className="h-8 w-fit border border-border bg-background px-2 text-xs"
-          >
-            {runningServices.map((item) => (
-              <option key={item.id} value={item.service}>
-                {item.service}
-              </option>
-            ))}
-          </select>
+        <div className="flex h-full min-h-0 flex-col">
+          <div className="border-b border-border px-3 py-2">
+            <Select2
+              value={activeTerminal.service}
+              onChange={(event) => setTerminalService(event.target.value)}
+              aria-label={t("docker.stacks.service")}
+              className="h-8 w-fit px-2.5 text-xs"
+            >
+              {runningServices.map((item) => (
+                <option key={item.id} value={item.service}>
+                  {item.service}
+                </option>
+              ))}
+            </Select2>
+          </div>
           <div className="min-h-0 flex-1">
             <ConsoleTerminal
               key={activeTerminal.id}

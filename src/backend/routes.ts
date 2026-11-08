@@ -65,6 +65,37 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
   };
 
   /** The caller's live session for the path's sessionId, or an error reply. */
+  // Buttons go through the same gate as every other surface, so they land in
+  // run history and need host edit.
+  const runAction = async (
+    actionId: string,
+    session: DockerSession,
+    containerId: string,
+    input?: Record<string, unknown>,
+  ): Promise<void> => {
+    const outcome = await ctx.operations.run(actionId, {
+      hostId: session.hostId,
+      resourceKey: containerId,
+      input,
+      confirmed: true,
+    });
+    if (outcome.status !== "success") {
+      throw new Error(outcome.error ?? outcome.status);
+    }
+  };
+
+  const refused = (error: unknown, res: Response): boolean => {
+    const status = (error as { status?: unknown } | null)?.status;
+    if (typeof status !== "number" || status < 400 || status >= 500) {
+      return false;
+    }
+    res.status(status).json({
+      success: false,
+      error: getErrorMessage(error, "Not allowed"),
+    });
+    return true;
+  };
+
   const sessionOf = (req: Request, res: Response): DockerSession | null => {
     const userId = userOf(res);
     if (!userId) return null;
@@ -706,18 +737,10 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
           containerId,
           action,
         });
-        await sessions.run(session, () =>
-          sessions.exec(
-            session,
-            containerCommand(
-              session.runtime,
-              `${action} ${containerId}`,
-              session.isWindows,
-            ),
-          ),
-        );
+        await runAction(`docker.${action}-container`, session, containerId);
         res.json({ success: true, message: `Container ${action} succeeded` });
       } catch (error) {
+        if (refused(error, res)) return;
         if (notFound(error)) {
           return res.status(404).json({
             success: false,
@@ -783,18 +806,12 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
           containerId,
           action: "remove",
         });
-        await sessions.run(session, () =>
-          sessions.exec(
-            session,
-            containerCommand(
-              session.runtime,
-              `rm ${force ? "-f " : ""}${containerId}`,
-              session.isWindows,
-            ),
-          ),
-        );
+        await runAction("docker.remove-container", session, containerId, {
+          force,
+        });
         res.json({ success: true, message: "Container removed successfully" });
       } catch (error) {
+        if (refused(error, res)) return;
         if (notFound(error)) {
           return res.status(404).json({
             success: false,
@@ -981,6 +998,16 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
     }
   });
 
-  registerUpdates(router, { sessions, log, sessionOf });
-  registerStacks(router, { ctx, sessions, log, sessionOf });
+  const canChange = async (
+    session: DockerSession,
+    res: Response,
+  ): Promise<boolean> => {
+    const access = await ctx.hosts.checkAccess(session.hostId, "edit");
+    if (access.hasAccess) return true;
+    res.status(403).json({ error: "You need edit access to this host" });
+    return false;
+  };
+
+  registerUpdates(router, { sessions, log, sessionOf, canChange });
+  registerStacks(router, { ctx, sessions, log, sessionOf, canChange });
 }

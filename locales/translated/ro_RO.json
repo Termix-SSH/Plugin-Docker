@@ -260,6 +260,10 @@
         "label": "Afișează panoul de containere în terminale",
         "description": "Permite panoului de containere să se deschidă lângă terminalul SSH al acestui gazdă."
       },
+      "alertProblems": {
+        "label": "Alertă la problemele containerelor",
+        "description": "Trimite o alertă când un container devine nesănătos, se repornește continuu sau se încheie cu o eroare."
+      },
       "enableStacks": {
         "label": "Gestionarea stivelor",
         "description": "Gestionează stivele compose pe acest gazdă. Un administrator trebuie, de asemenea, să permită acest lucru."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Administrați containerele Docker și Podman de pe hosturile dvs. prin SSH, cu jurnale, statistici și o consolă."
   },
+  "tile": {
+    "title": "Containere",
+    "empty": "Docker nu este accesibil pe acest gazdă.",
+    "running": "În execuție",
+    "stopped": "Oprit",
+    "unhealthy": "Nesănătos"
+  },
   "card": {
     "title": "Gazde Docker",
     "loading": "Se încarcă...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} instabil",
     "unhealthy_few": "{{count}} instabile",
     "unhealthy_other": "{{count}} instabile"
+  },
+  "operations": {
+    "list": {
+      "title": "Listează containerele"
+    },
+    "summary": {
+      "title": "Rezumat container"
+    },
+    "start": {
+      "title": "Pornește containerul"
+    },
+    "stop": {
+      "title": "Oprește containerul"
+    },
+    "restart": {
+      "title": "Repornire container"
+    },
+    "pause": {
+      "title": "Pauză container"
+    },
+    "unpause": {
+      "title": "Reia containerul"
+    },
+    "remove": {
+      "title": "Elimină containerul",
+      "force": "Elimină forțat un container în execuție"
+    },
+    "container": {
+      "title": "Containere",
+      "image": "Imagine",
+      "status": "Stare",
+      "ports": "Porturi"
+    },
+    "unhealthy": {
+      "title": "Containere nesănătoase"
+    }
   }
 }

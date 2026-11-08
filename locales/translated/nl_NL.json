@@ -259,6 +259,10 @@
         "label": "Toon het containers-paneel in terminals",
         "description": "Laat het containers-paneel open naast de SSH-terminal van deze host."
       },
+      "alertProblems": {
+        "label": "Waarschuwing bij containerproblemen",
+        "description": "Stuur een waarschuwing wanneer een container ongezond wordt, blijft herstarten of afsluit met een fout."
+      },
       "enableStacks": {
         "label": "Stackbeheer",
         "description": "Beheer compose-stacks op deze host. Een beheerder moet dit ook toestaan."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Beheer Docker- en Podman-containers op uw hosts via SSH, met logs, statistieken en een console."
   },
+  "tile": {
+    "title": "Containers",
+    "empty": "Docker is niet bereikbaar op deze host.",
+    "running": "Actief",
+    "stopped": "Gestopt",
+    "unhealthy": "Ongezond"
+  },
   "card": {
     "title": "Docker-hosts",
     "loading": "Laden...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} actief | {{stopped}} gestopt",
     "unhealthy_one": "{{count}} niet gezond",
     "unhealthy_other": "{{count}} niet gezond"
+  },
+  "operations": {
+    "list": {
+      "title": "Containers tonen"
+    },
+    "summary": {
+      "title": "Containeroverzicht"
+    },
+    "start": {
+      "title": "Container starten"
+    },
+    "stop": {
+      "title": "Container stoppen"
+    },
+    "restart": {
+      "title": "Container herstarten"
+    },
+    "pause": {
+      "title": "Container pauzeren"
+    },
+    "unpause": {
+      "title": "Container hervatten"
+    },
+    "remove": {
+      "title": "Container verwijderen",
+      "force": "Een actieve container geforceerd verwijderen"
+    },
+    "container": {
+      "title": "Containers",
+      "image": "Image",
+      "status": "Status",
+      "ports": "Poorten"
+    },
+    "unhealthy": {
+      "title": "Ongezonde containers"
+    }
   }
 }

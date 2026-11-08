@@ -260,6 +260,10 @@
         "label": "Afficher le panneau des conteneurs dans les terminaux",
         "description": "Laisser le panneau des conteneurs s'ouvrir à côté du terminal SSH de cet hôte."
       },
+      "alertProblems": {
+        "label": "Alerte en cas de problème de conteneur",
+        "description": "Envoyer une alerte lorsqu'un conteneur devient instable, redémarre en boucle ou se termine avec une erreur."
+      },
       "enableStacks": {
         "label": "Gestion des piles",
         "description": "Gérer les piles Compose sur cet hôte. Un administrateur doit également l’autoriser."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Gérez les conteneurs Docker et Podman sur vos hôtes via SSH, avec les journaux, les statistiques et une console."
   },
+  "tile": {
+    "title": "Conteneurs",
+    "empty": "Docker n'est pas accessible sur cet hôte.",
+    "running": "En cours d'exécution",
+    "stopped": "Arrêté",
+    "unhealthy": "Instable"
+  },
   "card": {
     "title": "Hôtes Docker",
     "loading": "Chargement...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} non sain",
     "unhealthy_many": "{{count}} non sains",
     "unhealthy_other": "{{count}} non sains"
+  },
+  "operations": {
+    "list": {
+      "title": "Lister les conteneurs"
+    },
+    "summary": {
+      "title": "Résumé des conteneurs"
+    },
+    "start": {
+      "title": "Démarrer le conteneur"
+    },
+    "stop": {
+      "title": "Arrêter le conteneur"
+    },
+    "restart": {
+      "title": "Redémarrer le conteneur"
+    },
+    "pause": {
+      "title": "Mettre en pause le conteneur"
+    },
+    "unpause": {
+      "title": "Reprendre le conteneur"
+    },
+    "remove": {
+      "title": "Supprimer le conteneur",
+      "force": "Forcer la suppression d'un conteneur en cours d'exécution"
+    },
+    "container": {
+      "title": "Conteneurs",
+      "image": "Image",
+      "status": "État",
+      "ports": "Ports"
+    },
+    "unhealthy": {
+      "title": "Conteneurs instables"
+    }
   }
 }

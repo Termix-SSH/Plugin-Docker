@@ -79,11 +79,12 @@ interface Deps {
   sessions: DockerSessions;
   log: DockerLogger;
   sessionOf: (req: Request, res: Response) => DockerSession | null;
+  canChange: (session: DockerSession, res: Response) => Promise<boolean>;
 }
 
 export function registerUpdates(
   router: Router,
-  { sessions, log, sessionOf }: Deps,
+  { sessions, log, sessionOf, canChange }: Deps,
 ) {
   const cache = new Map<string, CacheEntry>();
 
@@ -228,6 +229,7 @@ export function registerUpdates(
   router.post("/updates/:sessionId/:containerId", async (req, res) => {
     const session = sessionOf(req, res);
     if (!session) return;
+    if (!(await canChange(session, res))) return;
     const containerId = String(req.params.containerId);
     if (!CONTAINER_ID_RE.test(containerId)) {
       return res.status(400).json({ error: "Invalid container ID" });

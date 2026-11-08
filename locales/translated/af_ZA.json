@@ -259,6 +259,10 @@
         "label": "Vertoon die houer-paneel in terminale",
         "description": "Laat die houer-paneel oopmaak langs die SSH-terminal van hierdie gasheer."
       },
+      "alertProblems": {
+        "label": "Waarskuif oor houerprobleme",
+        "description": "Stuur 'n waarskuwing wanneer 'n houer ongesond word, voortdurend herbegin of met 'n fout afsluit."
+      },
       "enableStacks": {
         "label": "Stapelbestuur",
         "description": "Bestuur compose-stapels op hierdie gasheer. 'n Administrateur moet dit ook toelaat."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Bestuur Docker- en Podman-houders op jou gasheërs oor SSH, met logboeke, statistieke en 'n konsol."
   },
+  "tile": {
+    "title": "Houers",
+    "empty": "Docker is nie op hierdie gasheer bereikbaar nie.",
+    "running": "Besig om uit te voer",
+    "stopped": "Gestop",
+    "unhealthy": "Ongesond"
+  },
   "card": {
     "title": "Docker-gasheerders",
     "loading": "Laai tans...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} loop | {{stopped}} gestop",
     "unhealthy_one": "{{count}} ongesond",
     "unhealthy_other": "{{count}} ongesond"
+  },
+  "operations": {
+    "list": {
+      "title": "Lys houers"
+    },
+    "summary": {
+      "title": "Houeropsomming"
+    },
+    "start": {
+      "title": "Begin houer"
+    },
+    "stop": {
+      "title": "Stop houer"
+    },
+    "restart": {
+      "title": "Herbegin houer"
+    },
+    "pause": {
+      "title": "Pouseer houer"
+    },
+    "unpause": {
+      "title": "Hervat houer"
+    },
+    "remove": {
+      "title": "Verwyder houer",
+      "force": "Verwyder dwingend 'n houer wat besig is om uit te voer"
+    },
+    "container": {
+      "title": "Houers",
+      "image": "Beeld",
+      "status": "Status",
+      "ports": "Hawens"
+    },
+    "unhealthy": {
+      "title": "Ongesonde houers"
+    }
   }
 }

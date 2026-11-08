@@ -260,6 +260,10 @@
         "label": "Rādīt konteineru paneli termināļos",
         "description": "Ļaujiet konteineru panelim atvērties blakus šī hosta SSH terminālim."
       },
+      "alertProblems": {
+        "label": "Brīdinājums par konteinera problēmām",
+        "description": "Nosūtīt brīdinājumu, ja konteineram rodas veselības problēmas, tas nepārtraukti restartējas vai izbeidz darbību ar kļūdu."
+      },
       "enableStacks": {
         "label": "Kaužu pārvaldība",
         "description": "Pārvaldīt compose kaužas šajā resursdatorā. Administratoram arī ir jāļauj to izmantot."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Pārvaldiet Docker un Podman konteinerus savos hostos caur SSH, ar žurnāliem, statistiku un konsole."
   },
+  "tile": {
+    "title": "Konteineri",
+    "empty": "Šajā resursdatorā Docker nav pieejams.",
+    "running": "Darbojas",
+    "stopped": "Apturēts",
+    "unhealthy": "Nesderīgs"
+  },
   "card": {
     "title": "Docker mezgli",
     "loading": "Ielādē...",
@@ -324,5 +335,41 @@
     "unhealthy_zero": "0 nederīgi",
     "unhealthy_one": "{{count}} nederīgs",
     "unhealthy_other": "{{count}} nederīgi"
+  },
+  "operations": {
+    "list": {
+      "title": "Konteineru saraksts"
+    },
+    "summary": {
+      "title": "Konteinera kopsavilkums"
+    },
+    "start": {
+      "title": "Palaikt konteineru"
+    },
+    "stop": {
+      "title": "Apturēt konteineru"
+    },
+    "restart": {
+      "title": "Restartēt konteineru"
+    },
+    "pause": {
+      "title": "Pauzēt konteineru"
+    },
+    "unpause": {
+      "title": "Atsākt konteineru"
+    },
+    "remove": {
+      "title": "Noņemt konteineru",
+      "force": "Piespiedu veidā noņemt darbojošos konteineru"
+    },
+    "container": {
+      "title": "Konteineri",
+      "image": "Attēls",
+      "status": "Statuss",
+      "ports": "Porti"
+    },
+    "unhealthy": {
+      "title": "Nesderīgi konteineri"
+    }
   }
 }

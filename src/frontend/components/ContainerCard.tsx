@@ -1,5 +1,10 @@
 import { getErrorMessage } from "../error-message";
-import { Button, Card, useConfirm } from "@termix-ssh/plugin-sdk/ui";
+import {
+  Button,
+  Card,
+  StatusBadge,
+  useConfirm,
+} from "@termix-ssh/plugin-sdk/ui";
 import type { DockerContainer } from "../types";
 import React from "react";
 import {
@@ -26,22 +31,7 @@ interface ContainerCardProps {
 }
 
 export function DockerBadge({ state }: { state: DockerContainer["state"] }) {
-  let colorClass = "border-border text-muted-foreground";
-  if (state === "running")
-    colorClass = "border-accent-brand/40 text-accent-brand bg-accent-brand/10";
-  if (state === "paused")
-    colorClass = "border-warning/40 text-warning bg-warning/10";
-  if (state === "exited")
-    colorClass = "border-destructive/40 text-destructive bg-destructive/5";
-  if (state === "restarting")
-    colorClass = "border-blue-400/40 text-blue-400 bg-blue-400/10";
-  return (
-    <span
-      className={`text-[10px] font-bold px-1.5 py-0.5 border uppercase tracking-wider ${colorClass}`}
-    >
-      {state}
-    </span>
-  );
+  return <StatusBadge state={state} />;
 }
 
 export function ContainerCard({
@@ -193,10 +183,10 @@ export function ContainerCard({
 
   return (
     <Card
-      className={`flex flex-col overflow-hidden p-0 gap-0 group hover:border-accent-brand/40 transition-colors cursor-pointer ${isSelected ? "border-accent-brand/60 bg-accent-brand/5" : ""}`}
+      className={`flex flex-col overflow-hidden p-0 gap-0 group transition-colors cursor-pointer ${isSelected ? "bg-accent-brand/5" : "hover:bg-muted/30"}`}
       onClick={onSelect}
     >
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-muted/10">
+      <div className="flex items-center justify-between gap-2 border-b border-border px-3 py-2">
         <div className="flex items-center gap-2 min-w-0">
           <Box
             className={`size-3.5 ${container.state === "running" ? "text-accent-brand" : "text-muted-foreground"}`}
@@ -208,7 +198,7 @@ export function ContainerCard({
           <DockerBadge state={container.state} />
         </div>
       </div>
-      <div className="px-4 py-3 flex flex-col gap-2">
+      <div className="flex flex-col gap-2 px-3 py-2.5">
         <div className="flex flex-col gap-0.5">
           <span className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">
             {t("docker.image")}
@@ -239,7 +229,7 @@ export function ContainerCard({
           </div>
         </div>
       </div>
-      <div className="px-4 py-2 border-t border-border bg-muted/5 flex items-center justify-between opacity-0 group-hover:opacity-100 focus-within:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity">
+      <div className="px-3 py-1.5 border-t border-border flex items-center justify-between opacity-0 group-hover:opacity-100 focus-within:opacity-100 [@media(hover:none)]:opacity-100 transition-opacity">
         <span className="text-[10px] text-muted-foreground italic">
           {container.id.substring(0, 12)}
         </span>

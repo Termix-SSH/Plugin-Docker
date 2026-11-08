@@ -95,7 +95,6 @@ export function ContainerDetail({
         />
       }
       scroll={false}
-      className="p-2.5"
     >
       {activeTab === "logs" && (
         <LogViewer
@@ -105,12 +104,14 @@ export function ContainerDetail({
         />
       )}
       {activeTab === "stats" && (
-        <ContainerStats
-          sessionId={sessionId}
-          containerId={containerId}
-          containerName={containerName}
-          containerState={container.state}
-        />
+        <div className="min-h-0 flex-1 overflow-y-auto thin-scrollbar">
+          <ContainerStats
+            sessionId={sessionId}
+            containerId={containerId}
+            containerName={containerName}
+            containerState={container.state}
+          />
+        </div>
       )}
       {activeTab === "console" && (
         <ConsoleTerminal

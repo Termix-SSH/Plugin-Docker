@@ -261,6 +261,10 @@
         "label": "Prikaži ploščo kontejnerjev v terminalih",
         "description": "Omogoči odpiranje plošče kontejnerjev ob SSH terminalu tega gostitelja."
       },
+      "alertProblems": {
+        "label": "Obvesti o težavah z vsebniki",
+        "description": "Pošljite obvestilo, ko vsebnik postane nezdrav, se nenehno ponovno zažene ali se konča z napako."
+      },
       "enableStacks": {
         "label": "Upravljanje skladov",
         "description": "Upravljajte sklade compose na tem gostitelju. Dovoliti mora tudi skrbnik."
@@ -315,6 +319,13 @@
     "name": "Docker",
     "description": "Upravljajte z Docker in Podman kontejnerji na svojih gostiteljih prek SSH, s dnevniki, statistikami in konzolo."
   },
+  "tile": {
+    "title": "Vsebniki",
+    "empty": "Docker na tem gostitelju ni dosegljiv.",
+    "running": "Zaženi",
+    "stopped": "Ustavljen",
+    "unhealthy": "Nezdrav"
+  },
   "card": {
     "title": "Docker gostitelji",
     "loading": "Nalaganje...",
@@ -326,5 +337,41 @@
     "unhealthy_two": "{{count}} nezdrava",
     "unhealthy_few": "{{count}} nezdravih",
     "unhealthy_other": "{{count}} nezdravih"
+  },
+  "operations": {
+    "list": {
+      "title": "Seznam vsebnikov"
+    },
+    "summary": {
+      "title": "Povzetek vsebnika"
+    },
+    "start": {
+      "title": "Zaženi vsebnik"
+    },
+    "stop": {
+      "title": "Ustavi vsebnik"
+    },
+    "restart": {
+      "title": "Ponovno zaženi vsebnik"
+    },
+    "pause": {
+      "title": "Premor vsebnika"
+    },
+    "unpause": {
+      "title": "Nadaljuj z vsebnikom"
+    },
+    "remove": {
+      "title": "Odstrani vsebnik",
+      "force": "Vsili odstranitev delujočega vsebnika"
+    },
+    "container": {
+      "title": "Vsebniki",
+      "image": "Slika",
+      "status": "Stanje",
+      "ports": "Vrata"
+    },
+    "unhealthy": {
+      "title": "Nezdravi vsebniki"
+    }
   }
 }

@@ -259,6 +259,10 @@
         "label": "Vis container-panelet i terminaler",
         "description": "La container-panelet åpne ved siden av SSH-terminalen for denne verten."
       },
+      "alertProblems": {
+        "label": "Varsel ved containerproblemer",
+        "description": "Send et varsel når en container blir ustabil, starter på nytt eller avsluttes med en feil."
+      },
       "enableStacks": {
         "label": "Stack-styring",
         "description": "Styr compose-stacker på denne verten. En administrator må også tillate dette."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Administrer Docker- og Podman-containere på vertene dine via SSH, med logger, statistikk og en konsoll."
   },
+  "tile": {
+    "title": "Containere",
+    "empty": "Docker er ikke tilgjengelig på denne verten.",
+    "running": "Kjører",
+    "stopped": "Stoppet",
+    "unhealthy": "Ustabil"
+  },
   "card": {
     "title": "Docker-vert",
     "loading": "Laster...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} kjører | {{stopped}} stoppet",
     "unhealthy_one": "{{count}} ustabil",
     "unhealthy_other": "{{count}} ustabile"
+  },
+  "operations": {
+    "list": {
+      "title": "List opp containere"
+    },
+    "summary": {
+      "title": "Containeroversikt"
+    },
+    "start": {
+      "title": "Start container"
+    },
+    "stop": {
+      "title": "Stopp container"
+    },
+    "restart": {
+      "title": "Start container på nytt"
+    },
+    "pause": {
+      "title": "Pause container"
+    },
+    "unpause": {
+      "title": "Gjenoppta container"
+    },
+    "remove": {
+      "title": "Fjern container",
+      "force": "Tving fjerning av en kjørende container"
+    },
+    "container": {
+      "title": "Containere",
+      "image": "Bilde",
+      "status": "Status",
+      "ports": "Porter"
+    },
+    "unhealthy": {
+      "title": "Ustabile containere"
+    }
   }
 }

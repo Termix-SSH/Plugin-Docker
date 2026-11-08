@@ -261,6 +261,10 @@
         "label": "Zobraziť panel kontajnerov v termináloch",
         "description": "Nechajte panel kontajnerov otvorený vedľa SSH terminálu tohto hostiteľa."
       },
+      "alertProblems": {
+        "label": "Upozornenie na problémy kontajnerov",
+        "description": "Poslať upozornenie, keď kontajner prestane byť zdravý, neustále sa reštartuje alebo sa ukončí s chybou."
+      },
       "enableStacks": {
         "label": "Správa stackov",
         "description": "Spravujte compose staky na tomto hostiteľovi. Správca to tiež musí povoliť."
@@ -315,6 +319,13 @@
     "name": "Docker",
     "description": "Spravujte kontajnery Docker a Podman na vašich hostiteľoch cez SSH vrátane záznamov, štatistík a konzoly."
   },
+  "tile": {
+    "title": "Kontajnery",
+    "empty": "Docker nie je na tomto hostiteľovi dostupný.",
+    "running": "Beží",
+    "stopped": "Zastavený",
+    "unhealthy": "Nesprávny stav"
+  },
   "card": {
     "title": "Docker hosty",
     "loading": "Načítava sa...",
@@ -326,5 +337,41 @@
     "unhealthy_few": "{{count}} nefunkčné",
     "unhealthy_many": "{{count}} nefunkčných",
     "unhealthy_other": "{{count}} nefunkčných"
+  },
+  "operations": {
+    "list": {
+      "title": "Zoznam kontajnerov"
+    },
+    "summary": {
+      "title": "Prehľad kontajnera"
+    },
+    "start": {
+      "title": "Spustiť kontajner"
+    },
+    "stop": {
+      "title": "Zastaviť kontajner"
+    },
+    "restart": {
+      "title": "Reštartovať kontajner"
+    },
+    "pause": {
+      "title": "Pozastaviť kontajner"
+    },
+    "unpause": {
+      "title": "Obnoviť kontajner"
+    },
+    "remove": {
+      "title": "Odstrániť kontajner",
+      "force": "Vynútiť odstránenie bežiaceho kontajnera"
+    },
+    "container": {
+      "title": "Kontajnery",
+      "image": "Obraz",
+      "status": "Stav",
+      "ports": "Porty"
+    },
+    "unhealthy": {
+      "title": "Kontajnery v nesprávnom stave"
+    }
   }
 }

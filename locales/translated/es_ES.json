@@ -260,6 +260,10 @@
         "label": "Mostrar el panel de contenedores en las terminales",
         "description": "Permite que el panel de contenedores se abra junto a la terminal SSH de este host."
       },
+      "alertProblems": {
+        "label": "Alertar sobre problemas de contenedores",
+        "description": "Enviar una alerta cuando un contenedor se vuelva no saludable, siga reiniciándose o finalice con un error."
+      },
       "enableStacks": {
         "label": "Gestión de pilas",
         "description": "Gestiona las pilas de compose en este host. Un administrador también debe permitirlo."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Gestiona los contenedores de Docker y Podman en tus hosts a través de SSH, con registros, estadísticas y una consola."
   },
+  "tile": {
+    "title": "Contenedores",
+    "empty": "Docker no es accesible en este host.",
+    "running": "En ejecución",
+    "stopped": "Detenido",
+    "unhealthy": "No saludable"
+  },
   "card": {
     "title": "Hosts de Docker",
     "loading": "Cargando...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} no saludable",
     "unhealthy_many": "{{count}} no saludables",
     "unhealthy_other": "{{count}} no saludables"
+  },
+  "operations": {
+    "list": {
+      "title": "Listar contenedores"
+    },
+    "summary": {
+      "title": "Resumen del contenedor"
+    },
+    "start": {
+      "title": "Iniciar contenedor"
+    },
+    "stop": {
+      "title": "Detener contenedor"
+    },
+    "restart": {
+      "title": "Reiniciar contenedor"
+    },
+    "pause": {
+      "title": "Pausar contenedor"
+    },
+    "unpause": {
+      "title": "Reanudar contenedor"
+    },
+    "remove": {
+      "title": "Eliminar contenedor",
+      "force": "Forzar la eliminación de un contenedor en ejecución"
+    },
+    "container": {
+      "title": "Contenedores",
+      "image": "Imagen",
+      "status": "Estado",
+      "ports": "Puertos"
+    },
+    "unhealthy": {
+      "title": "Contenedores no saludables"
+    }
   }
 }

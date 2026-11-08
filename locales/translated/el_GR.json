@@ -259,6 +259,10 @@
         "label": "Εμφάνιση πίνακα containers στα terminals",
         "description": "Αφήστε τον πίνακα containers ανοιχτό δίπλα στο SSH terminal αυτού του host."
       },
+      "alertProblems": {
+        "label": "Ειδοποίηση για προβλήματα δοχείων",
+        "description": "Αποστολή ειδοποίησης όταν ένα δοχείο γίνει μη υγιές, επανεκκινεί συνεχώς ή τερματίζεται με σφάλμα."
+      },
       "enableStacks": {
         "label": "Διαχείριση stacks",
         "description": "Διαχείριση compose stacks σε αυτόν τον host. Ένας διαχειριστής πρέπει επίσης να το επιτρέψει."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Διαχείριση δοχείων Docker και Podman στους υπολογιστές σας μέσω SSH, με ημερολόγια, στατιστικά και κονσόλα."
   },
+  "tile": {
+    "title": "Δοχεία",
+    "empty": "Το Docker δεν είναι προσβάσιμο σε αυτόν τον υπολογιστή.",
+    "running": "Εν ενεργεία",
+    "stopped": "Σταματημένα",
+    "unhealthy": "Μη υγιή"
+  },
   "card": {
     "title": "Υπολογιστές Docker",
     "loading": "Φόρτωση...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} εκτελούνται | {{stopped}} σταματημένα",
     "unhealthy_one": "{{count}} μη υγιές",
     "unhealthy_other": "{{count}} μη υγιή"
+  },
+  "operations": {
+    "list": {
+      "title": "Αρίθμηση δοχείων"
+    },
+    "summary": {
+      "title": "Σύνοψη δοχείου"
+    },
+    "start": {
+      "title": "Έναρξη δοχείου"
+    },
+    "stop": {
+      "title": "Διακοπή δοχείου"
+    },
+    "restart": {
+      "title": "Επανεκκίνηση δοχείου"
+    },
+    "pause": {
+      "title": "Παύση δοχείου"
+    },
+    "unpause": {
+      "title": "Συνέχιση δοχείου"
+    },
+    "remove": {
+      "title": "Αφαίρεση δοχείου",
+      "force": "Αναγκαστική αφαίρεση ενεργού δοχείου"
+    },
+    "container": {
+      "title": "Δοχεία",
+      "image": "Εικόνα",
+      "status": "Κατάσταση",
+      "ports": "Θύρες"
+    },
+    "unhealthy": {
+      "title": "Μη υγιή δοχεία"
+    }
   }
 }

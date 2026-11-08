@@ -67,6 +67,51 @@ function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
   });
 }
 
+/** `ps -a` on one host, as the acting user over the pooled connection. */
+export async function readContainerOutput(
+  ctx: PluginContext,
+  hostId: number,
+): Promise<string> {
+  const { runtime } = await readDockerHostSettings(ctx, hostId);
+  return withTimeout(
+    ctx.ssh.withConnection<string, Client>(
+      hostId,
+      { pool: POOL, purpose: "docker", profile: "session" },
+      (client) =>
+        execOnClient(
+          client,
+          containerCommand(runtime, `ps -a --format ${PS_STATE_FORMAT}`),
+        ),
+    ),
+    TIMEOUT_MS,
+  );
+}
+
+/** Containers that are unhealthy, restarting, dead or exited with an error. */
+export function containerProblems(output: string) {
+  const problems: Array<{ name: string; kind: string }> = [];
+  for (const line of output.split(/\r?\n/)) {
+    let row: { name?: string; state?: string; status?: string };
+    try {
+      row = JSON.parse(line.trim());
+    } catch {
+      continue;
+    }
+    if (!row.name) continue;
+    const status = row.status ?? "";
+    if (row.state === "restarting" || row.state === "dead") {
+      problems.push({ name: row.name, kind: row.state });
+    } else if (row.state === "exited") {
+      const code = /Exited \((\d+)\)/.exec(status)?.[1];
+      if (code && code !== "0")
+        problems.push({ name: row.name, kind: "exited" });
+    } else if (/\(unhealthy\)/.test(status)) {
+      problems.push({ name: row.name, kind: "unhealthy" });
+    }
+  }
+  return problems;
+}
+
 /**
  * GET /summary: container counts for every host the caller can reach with
  * Docker on. Each host is checked as the caller over the pooled connection,
@@ -79,19 +124,7 @@ export function registerSummary(router: Router, ctx: PluginContext): void {
   const check = async (hostId: number): Promise<HostContainerSummary> => {
     const checkedAt = new Date().toISOString();
     try {
-      const { runtime } = await readDockerHostSettings(ctx, hostId);
-      const output = await withTimeout(
-        ctx.ssh.withConnection<string, Client>(
-          hostId,
-          { pool: POOL, purpose: "docker", profile: "session" },
-          (client) =>
-            execOnClient(
-              client,
-              containerCommand(runtime, `ps -a --format ${PS_STATE_FORMAT}`),
-            ),
-        ),
-        TIMEOUT_MS,
-      );
+      const output = await readContainerOutput(ctx, hostId);
       return { hostId, checkedAt, ...countContainers(output) };
     } catch (error) {
       return {
@@ -116,6 +149,10 @@ export function registerSummary(router: Router, ctx: PluginContext): void {
    *       - Docker
    *     parameters:
    *       - in: query
+   *         name: hostId
+   *         schema:
+   *           type: integer
+   *       - in: query
    *         name: refresh
    *         schema:
    *           type: string
@@ -127,7 +164,10 @@ export function registerSummary(router: Router, ctx: PluginContext): void {
     try {
       const user = String(ctx.currentActor() ?? "");
       const refresh = req.query.refresh === "1";
-      const hosts = await ctx.hosts.list();
+      const only = Number(req.query.hostId);
+      const hosts = (await ctx.hosts.list()).filter(
+        (host) => !Number.isInteger(only) || only <= 0 || host.id === only,
+      );
       const enabled: number[] = [];
       for (const host of hosts) {
         if ((await readDockerHostSettings(ctx, host.id)).enabled) {

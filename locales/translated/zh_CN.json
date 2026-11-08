@@ -258,6 +258,10 @@
         "label": "在终端中显示容器面板",
         "description": "让容器面板在此主机的 SSH 终端旁打开。"
       },
+      "alertProblems": {
+        "label": "容器异常时发送警报",
+        "description": "当容器状态变为不健康、持续重启或因错误退出时，发送警报。"
+      },
       "enableStacks": {
         "label": "堆栈管理",
         "description": "在此主机上管理 Compose 堆栈。管理员也必须允许此功能。"
@@ -312,6 +316,13 @@
     "name": "Docker",
     "description": "通过 SSH 管理主机上的 Docker 和 Podman 容器，支持日志、统计和控制台。"
   },
+  "tile": {
+    "title": "容器",
+    "empty": "此主机上的 Docker 不可达。",
+    "running": "运行中",
+    "stopped": "已停止",
+    "unhealthy": "不健康"
+  },
   "card": {
     "title": "Docker 主机",
     "loading": "加载中...",
@@ -320,5 +331,41 @@
     "summary": "{{running}} / {{total}} 个容器正在运行",
     "counts": "{{running}} 个运行中 | {{stopped}} 个已停止",
     "unhealthy_other": "{{count}} 个不健康"
+  },
+  "operations": {
+    "list": {
+      "title": "列出容器"
+    },
+    "summary": {
+      "title": "容器摘要"
+    },
+    "start": {
+      "title": "启动容器"
+    },
+    "stop": {
+      "title": "停止容器"
+    },
+    "restart": {
+      "title": "重启容器"
+    },
+    "pause": {
+      "title": "暂停容器"
+    },
+    "unpause": {
+      "title": "恢复容器"
+    },
+    "remove": {
+      "title": "移除容器",
+      "force": "强制移除正在运行的容器"
+    },
+    "container": {
+      "title": "容器",
+      "image": "镜像",
+      "status": "状态",
+      "ports": "端口"
+    },
+    "unhealthy": {
+      "title": "不健康的容器"
+    }
   }
 }

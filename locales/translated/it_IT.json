@@ -260,6 +260,10 @@
         "label": "Mostra il pannello dei contenitori nei terminal",
         "description": "Consenti al pannello dei contenitori di aprirsi accanto al terminale SSH di questo host."
       },
+      "alertProblems": {
+        "label": "Avvisa in caso di problemi con i container",
+        "description": "Invia un avviso quando un container diventa non sano, continua a riavviarsi o termina con un errore."
+      },
       "enableStacks": {
         "label": "Gestione stack",
         "description": "Gestisci stack compose su questo host. Un amministratore deve anche abilitarlo."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Gestisci i contenitori Docker e Podman sui tuoi host tramite SSH, con log, statistiche e console."
   },
+  "tile": {
+    "title": "Container",
+    "empty": "Docker non è raggiungibile su questo host.",
+    "running": "In esecuzione",
+    "stopped": "Fermato",
+    "unhealthy": "Non sano"
+  },
   "card": {
     "title": "Host Docker",
     "loading": "Caricamento...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} non sano",
     "unhealthy_many": "{{count}} non sani",
     "unhealthy_other": "{{count}} non sani"
+  },
+  "operations": {
+    "list": {
+      "title": "Elenca container"
+    },
+    "summary": {
+      "title": "Riepilogo container"
+    },
+    "start": {
+      "title": "Avvia container"
+    },
+    "stop": {
+      "title": "Ferma container"
+    },
+    "restart": {
+      "title": "Riavvia container"
+    },
+    "pause": {
+      "title": "Metti in pausa container"
+    },
+    "unpause": {
+      "title": "Riprendi container"
+    },
+    "remove": {
+      "title": "Rimuovi container",
+      "force": "Rimuovi forzatamente un container in esecuzione"
+    },
+    "container": {
+      "title": "Container",
+      "image": "Immagine",
+      "status": "Stato",
+      "ports": "Porte"
+    },
+    "unhealthy": {
+      "title": "Container non sani"
+    }
   }
 }

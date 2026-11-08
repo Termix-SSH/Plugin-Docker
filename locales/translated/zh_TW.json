@@ -258,6 +258,10 @@
         "label": "在終端機中顯示容器面板",
         "description": "讓容器面板在此主機的 SSH 終端機旁開啟。"
       },
+      "alertProblems": {
+        "label": "容器異常時發出警示",
+        "description": "當容器狀態異常、持續重新啟動或因錯誤退出時，發送警示通知。"
+      },
       "enableStacks": {
         "label": "堆疊管理",
         "description": "在此主機上管理 Compose 堆疊。管理員也必須允許此功能。"
@@ -312,6 +316,13 @@
     "name": "Docker",
     "description": "透過 SSH 管理主機上的 Docker 和 Podman 容器，支援日誌、統計和主控台。"
   },
+  "tile": {
+    "title": "容器",
+    "empty": "此主機無法連線至 Docker。",
+    "running": "執行中",
+    "stopped": "已停止",
+    "unhealthy": "狀態異常"
+  },
   "card": {
     "title": "Docker 主機",
     "loading": "載入中...",
@@ -320,5 +331,41 @@
     "summary": "{{running}} / {{total}} 個容器正在執行",
     "counts": "{{running}} 個執行中 | {{stopped}} 個已停止",
     "unhealthy_other": "{{count}} 個狀態異常"
+  },
+  "operations": {
+    "list": {
+      "title": "列出容器"
+    },
+    "summary": {
+      "title": "容器摘要"
+    },
+    "start": {
+      "title": "啟動容器"
+    },
+    "stop": {
+      "title": "停止容器"
+    },
+    "restart": {
+      "title": "重新啟動容器"
+    },
+    "pause": {
+      "title": "暫停容器"
+    },
+    "unpause": {
+      "title": "恢復容器"
+    },
+    "remove": {
+      "title": "移除容器",
+      "force": "強制移除執行中的容器"
+    },
+    "container": {
+      "title": "容器",
+      "image": "映像",
+      "status": "狀態",
+      "ports": "連接埠"
+    },
+    "unhealthy": {
+      "title": "狀態異常的容器"
+    }
   }
 }

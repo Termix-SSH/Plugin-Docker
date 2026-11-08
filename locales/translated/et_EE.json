@@ -259,6 +259,10 @@
         "label": "Kuvage konteineride paneel terminaalides",
         "description": "Luba konteineride paneel avada selle hosti SSH-terminaali kõrval."
       },
+      "alertProblems": {
+        "label": "Teavita konteinerite probleemidest",
+        "description": "Saada teavitus, kui konteiner muutub ebatervislikuks, taaskäivitub korduvalt või lõpeb veaga."
+      },
       "enableStacks": {
         "label": "Stackide haldus",
         "description": "Halda selle hosti compose-stacke. Haldaja peab selle lubama."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Halda Dockerit ja Podmani konteinereid oma hostidel SSH kaudu, koos logide, statistika ja konsooliga."
   },
+  "tile": {
+    "title": "Konteinerid",
+    "empty": "Docker pole sellel hostil saadaval.",
+    "running": "Töötab",
+    "stopped": "Peatatud",
+    "unhealthy": "Ebatervislik"
+  },
   "card": {
     "title": "Docker'i peremehoidjad",
     "loading": "Laadimine...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} töötab | {{stopped}} peatatud",
     "unhealthy_one": "{{count}} ebatervislik",
     "unhealthy_other": "{{count}} ebatervislikku"
+  },
+  "operations": {
+    "list": {
+      "title": "Konteinerite loend"
+    },
+    "summary": {
+      "title": "Konteineri ülevaade"
+    },
+    "start": {
+      "title": "Käivita konteiner"
+    },
+    "stop": {
+      "title": "Peata konteiner"
+    },
+    "restart": {
+      "title": "Taaskäivita konteiner"
+    },
+    "pause": {
+      "title": "Pausi konteiner"
+    },
+    "unpause": {
+      "title": "Jätka konteineri tööd"
+    },
+    "remove": {
+      "title": "Eemalda konteiner",
+      "force": "Sunnitud eemaldamine töötavast kontainerist"
+    },
+    "container": {
+      "title": "Konteinerid",
+      "image": "Pilt",
+      "status": "Olek",
+      "ports": "Pordid"
+    },
+    "unhealthy": {
+      "title": "Ebatervislikud konteinerid"
+    }
   }
 }

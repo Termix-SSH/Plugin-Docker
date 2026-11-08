@@ -87,3 +87,39 @@ describe("docker hosts dashboard card", () => {
     expect(screen.getByText("4 of 5 containers running")).toBeTruthy();
   });
 });
+
+describe("host page tile", () => {
+  it("registers the tile and a host palette entry", async () => {
+    rendered = await renderWithApp(plugin, { manifest, locales });
+    expect(rendered.registered.slot("host-page.tiles")).toHaveLength(1);
+  });
+
+  it("shows container counts for the host", async () => {
+    const get = vi.fn(async () => ({
+      data: [
+        {
+          hostId: 7,
+          running: 4,
+          stopped: 1,
+          unhealthy: 2,
+          total: 5,
+          checkedAt: "",
+        },
+      ],
+    }));
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      permissions: ["docker.use"],
+      api: { get } as never,
+    });
+    await new Promise((done) => setTimeout(done, 0));
+    rendered.renderSlot("host-page.tiles", {
+      hostId: 7,
+      isVisible: true,
+      host: { pluginSettings: { docker: { enableDocker: true } } },
+    });
+    expect(await screen.findByText("Unhealthy")).toBeTruthy();
+    expect(get).toHaveBeenCalledWith("/summary", { params: { hostId: 7 } });
+  });
+});

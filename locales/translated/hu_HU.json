@@ -259,6 +259,10 @@
         "label": "Konténerek panel megjelenítése a terminálokban",
         "description": "Hagyja, hogy a konténerek panel nyitva maradjon ezen a hoszon az SSH terminál mellett."
       },
+      "alertProblems": {
+        "label": "Értesítés konténerproblémákról",
+        "description": "Küldjön értesítést, ha egy konténer nem egészséges, folyamatosan újraindul, vagy hibával zárul."
+      },
       "enableStacks": {
         "label": "Stack-kezelés",
         "description": "Compose stack-ek kezelése ezen a hoszton. Egy rendszergazdának is engedélyeznie kell."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "Docker és Podman konténerek kezelése a hoszok között SSH-n keresztül, naplókkal, statisztikákkal és konzollal."
   },
+  "tile": {
+    "title": "Konténerek",
+    "empty": "A Docker nem érhető el ezen a gazdagépen.",
+    "running": "Fut",
+    "stopped": "Leállítva",
+    "unhealthy": "Nem egészséges"
+  },
   "card": {
     "title": "Docker-gazdák",
     "loading": "Betöltés...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} fut | {{stopped}} leállítva",
     "unhealthy_one": "{{count}} hibás",
     "unhealthy_other": "{{count}} hibás"
+  },
+  "operations": {
+    "list": {
+      "title": "Konténerek listázása"
+    },
+    "summary": {
+      "title": "Konténer-összefoglaló"
+    },
+    "start": {
+      "title": "Konténer indítása"
+    },
+    "stop": {
+      "title": "Konténer leállítása"
+    },
+    "restart": {
+      "title": "Konténer újraindítása"
+    },
+    "pause": {
+      "title": "Konténer szüneteltetése"
+    },
+    "unpause": {
+      "title": "Konténer folytatása"
+    },
+    "remove": {
+      "title": "Konténer eltávolítása",
+      "force": "Futtatás közbeni konténer erőltetett eltávolítása"
+    },
+    "container": {
+      "title": "Konténerek",
+      "image": "Kép",
+      "status": "Állapot",
+      "ports": "Portok"
+    },
+    "unhealthy": {
+      "title": "Nem egészséges konténerek"
+    }
   }
 }

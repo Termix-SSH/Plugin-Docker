@@ -260,6 +260,10 @@
         "label": "Mostra el panell de contenidors als terminals",
         "description": "Permet que el panell de contenidors s'obri al costat del terminal SSH d'aquest amfitrió."
       },
+      "alertProblems": {
+        "label": "Alerta en cas de problemes amb els contenidors",
+        "description": "Envia una alerta quan un contenidor esdevé no saludable, es reinicia contínuament o surt amb un error."
+      },
       "enableStacks": {
         "label": "Gestió de piles",
         "description": "Gestioneu les piles de compose en aquest amfitrió. Un administrador també ha de permetre-ho."
@@ -314,6 +318,13 @@
     "name": "Docker",
     "description": "Gestioneu els contenidors de Docker i Podman als vostres servidors a través d'SSH, amb registres, estadístiques i una consola."
   },
+  "tile": {
+    "title": "Contenidors",
+    "empty": "Docker no és accessible en aquest host.",
+    "running": "En execució",
+    "stopped": "Aturat",
+    "unhealthy": "No saludable"
+  },
   "card": {
     "title": "Servidors Docker",
     "loading": "S'està carregant...",
@@ -324,5 +335,41 @@
     "unhealthy_one": "{{count}} no saludable",
     "unhealthy_many": "{{count}} no saludables",
     "unhealthy_other": "{{count}} no saludables"
+  },
+  "operations": {
+    "list": {
+      "title": "Llista de contenidors"
+    },
+    "summary": {
+      "title": "Resum del contenidor"
+    },
+    "start": {
+      "title": "Inicia el contenidor"
+    },
+    "stop": {
+      "title": "Atura el contenidor"
+    },
+    "restart": {
+      "title": "Reinicia el contenidor"
+    },
+    "pause": {
+      "title": "Pausa el contenidor"
+    },
+    "unpause": {
+      "title": "Reprèn el contenidor"
+    },
+    "remove": {
+      "title": "Elimina el contenidor",
+      "force": "Força l'eliminació d'un contenidor en execució"
+    },
+    "container": {
+      "title": "Contenidors",
+      "image": "Imatge",
+      "status": "Estat",
+      "ports": "Ports"
+    },
+    "unhealthy": {
+      "title": "Contenidors no saludables"
+    }
   }
 }

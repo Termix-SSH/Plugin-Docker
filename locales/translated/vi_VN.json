@@ -258,6 +258,10 @@
         "label": "Hiển thị bảng containers trong terminal",
         "description": "Cho phép bảng containers mở bên cạnh terminal SSH của host này."
       },
+      "alertProblems": {
+        "label": "Cảnh báo khi có sự cố với container",
+        "description": "Gửi cảnh báo khi một container bị lỗi, liên tục khởi động lại hoặc thoát với mã lỗi."
+      },
       "enableStacks": {
         "label": "Quản lý ngăn xếp",
         "description": "Quản lý ngăn xếp compose trên máy chủ này. Quản trị viên cũng phải cho phép."
@@ -312,6 +316,13 @@
     "name": "Docker",
     "description": "Quản lý các container Docker và Podman trên các máy chủ của bạn qua SSH, với nhật ký, thống kê và bảng điều khiển."
   },
+  "tile": {
+    "title": "Container",
+    "empty": "Không thể kết nối đến Docker trên host này.",
+    "running": "Đang chạy",
+    "stopped": "Đã dừng",
+    "unhealthy": "Bị lỗi"
+  },
   "card": {
     "title": "Máy chủ Docker",
     "loading": "Đang tải...",
@@ -320,5 +331,41 @@
     "summary": "{{running}} trong số {{total}} container đang chạy",
     "counts": "{{running}} đang chạy | {{stopped}} đã dừng",
     "unhealthy_other": "{{count}} không khỏe mạnh"
+  },
+  "operations": {
+    "list": {
+      "title": "Danh sách container"
+    },
+    "summary": {
+      "title": "Tổng quan container"
+    },
+    "start": {
+      "title": "Khởi động container"
+    },
+    "stop": {
+      "title": "Dừng container"
+    },
+    "restart": {
+      "title": "Khởi động lại container"
+    },
+    "pause": {
+      "title": "Tạm dừng container"
+    },
+    "unpause": {
+      "title": "Tiếp tục chạy container"
+    },
+    "remove": {
+      "title": "Xóa container",
+      "force": "Buộc xóa container đang chạy"
+    },
+    "container": {
+      "title": "Container",
+      "image": "Image",
+      "status": "Trạng thái",
+      "ports": "Cổng"
+    },
+    "unhealthy": {
+      "title": "Container bị lỗi"
+    }
   }
 }

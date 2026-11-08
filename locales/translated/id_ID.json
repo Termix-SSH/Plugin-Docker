@@ -258,6 +258,10 @@
         "label": "Tampilkan panel kontainer di terminal",
         "description": "Biarkan panel kontainer terbuka di samping terminal SSH host ini."
       },
+      "alertProblems": {
+        "label": "Peringatan pada masalah kontainer",
+        "description": "Kirim peringatan ketika kontainer menjadi tidak sehat, terus-menerus dimulai ulang, atau keluar dengan kesalahan."
+      },
       "enableStacks": {
         "label": "Manajemen stack",
         "description": "Kelola stack compose di host ini. Administrator juga harus mengizinkannya."
@@ -312,6 +316,13 @@
     "name": "Docker",
     "description": "Kelola kontainer Docker dan Podman pada host Anda melalui SSH, lengkap dengan log, statistik, dan konsol."
   },
+  "tile": {
+    "title": "Kontainer",
+    "empty": "Docker tidak dapat dijangkau pada host ini.",
+    "running": "Berjalan",
+    "stopped": "Berhenti",
+    "unhealthy": "Tidak sehat"
+  },
   "card": {
     "title": "Host Docker",
     "loading": "Memuat...",
@@ -320,5 +331,41 @@
     "summary": "{{running}} dari {{total}} container berjalan",
     "counts": "{{running}} berjalan | {{stopped}} berhenti",
     "unhealthy_other": "{{count}} tidak sehat"
+  },
+  "operations": {
+    "list": {
+      "title": "Daftar kontainer"
+    },
+    "summary": {
+      "title": "Ringkasan kontainer"
+    },
+    "start": {
+      "title": "Mulai kontainer"
+    },
+    "stop": {
+      "title": "Hentikan kontainer"
+    },
+    "restart": {
+      "title": "Mulai ulang kontainer"
+    },
+    "pause": {
+      "title": "Jeda kontainer"
+    },
+    "unpause": {
+      "title": "Lanjutkan kontainer"
+    },
+    "remove": {
+      "title": "Hapus kontainer",
+      "force": "Paksa hapus kontainer yang sedang berjalan"
+    },
+    "container": {
+      "title": "Kontainer",
+      "image": "Gambar",
+      "status": "Status",
+      "ports": "Port"
+    },
+    "unhealthy": {
+      "title": "Kontainer tidak sehat"
+    }
   }
 }

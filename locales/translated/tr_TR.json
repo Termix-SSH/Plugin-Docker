@@ -259,6 +259,10 @@
         "label": "Terminalde konteyner panelini göster",
         "description": "Konteyner panelinin bu ana bilgisayarın SSH terminalinin yanında açılmasına izin ver."
       },
+      "alertProblems": {
+        "label": "Konteyner sorunlarında uyarı ver",
+        "description": "Bir konteyner sağlıksız hale geldiğinde, sürekli yeniden başlatıldığında veya bir hata ile çıktığında uyarı gönder."
+      },
       "enableStacks": {
         "label": "Yığın yönetimi",
         "description": "Bu ana makinede compose yığınlarını yönetin. Bir yöneticinin de buna izin vermesi gerekir."
@@ -313,6 +317,13 @@
     "name": "Docker",
     "description": "SSH üzerinden ana bilgisayarlarınızdaki Docker ve Podman konteynerlerini günlükler, istatistikler ve bir konsol ile yönetin."
   },
+  "tile": {
+    "title": "Konteynerler",
+    "empty": "Bu ana bilgisayarda Docker'a ulaşılamıyor.",
+    "running": "Çalışıyor",
+    "stopped": "Durduruldu",
+    "unhealthy": "Sağlıksız"
+  },
   "card": {
     "title": "Docker sunucuları",
     "loading": "Yükleniyor...",
@@ -322,5 +333,41 @@
     "counts": "{{running}} çalışıyor | {{stopped}} durdu",
     "unhealthy_one": "{{count}} sağlıklı değil",
     "unhealthy_other": "{{count}} sağlıklı değil"
+  },
+  "operations": {
+    "list": {
+      "title": "Konteynerleri listele"
+    },
+    "summary": {
+      "title": "Konteyner özeti"
+    },
+    "start": {
+      "title": "Konteyneri başlat"
+    },
+    "stop": {
+      "title": "Konteyneri durdur"
+    },
+    "restart": {
+      "title": "Konteyneri yeniden başlat"
+    },
+    "pause": {
+      "title": "Konteyneri duraklat"
+    },
+    "unpause": {
+      "title": "Konteyneri devam ettir"
+    },
+    "remove": {
+      "title": "Konteyneri kaldır",
+      "force": "Çalışan bir konteyneri zorla kaldır"
+    },
+    "container": {
+      "title": "Konteynerler",
+      "image": "Görüntü",
+      "status": "Durum",
+      "ports": "Portlar"
+    },
+    "unhealthy": {
+      "title": "Sağlıksız konteynerler"
+    }
   }
 }
