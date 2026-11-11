@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1
+
+### Fixed
+
+- Compose editor Save and Save and deploy buttons now match and sit in the footer
+
 ## 1.3.0
 
 ### Added
