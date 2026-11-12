@@ -1,0 +1,138 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/scripts/authz/authz.schema.json",
+  "seed": [],
+  "routes": {
+    "GET /plugin-api/docker/containers/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live sessionId looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/containers/:sessionId/:containerId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "POST /plugin-api/docker/containers/:sessionId/:containerId/:action": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/containers/:sessionId/:containerId/logs": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "DELETE /plugin-api/docker/containers/:sessionId/:containerId/remove": {
+      "access": "user",
+      "permission": "docker.use",
+      "destructive": true,
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/containers/:sessionId/:containerId/stats": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "POST /plugin-api/docker/ssh/connect": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "POST /plugin-api/docker/ssh/connect-browser-sign-in": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "POST /plugin-api/docker/ssh/connect-totp": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "POST /plugin-api/docker/ssh/disconnect": {
+      "access": "user",
+      "permission": "docker.use",
+      "destructive": true
+    },
+    "POST /plugin-api/docker/ssh/keepalive": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "GET /plugin-api/docker/ssh/status": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "GET /plugin-api/docker/stacks-status": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "GET /plugin-api/docker/stacks/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live sessionId looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "POST /plugin-api/docker/stacks/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live sessionId looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "GET /plugin-api/docker/stacks/:sessionId/:stackName": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "POST /plugin-api/docker/stacks/:sessionId/:stackName/action": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "PUT /plugin-api/docker/stacks/:sessionId/:stackName/compose": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "PUT /plugin-api/docker/stacks/:sessionId/:stackName/env": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "GET /plugin-api/docker/stacks/:sessionId/:stackName/logs": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "POST /plugin-api/docker/stacks/:sessionId/validate": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live sessionId looked up with the caller; none exists in the test data",
+      "allowed": "any"
+    },
+    "GET /plugin-api/docker/summary": {
+      "access": "user",
+      "permission": "docker.use"
+    },
+    "GET /plugin-api/docker/updates/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live sessionId looked up with the caller; none exists in the test data"
+    },
+    "POST /plugin-api/docker/updates/:sessionId/:containerId": {
+      "access": "user",
+      "permission": "docker.use",
+      "destructive": true,
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/validate/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live sessionId looked up with the caller; none exists in the test data"
+    },
+    "WS /plugin-ws/docker/console": {
+      "access": "user",
+      "permission": "docker.use"
+    }
+  }
+}
