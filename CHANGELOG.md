@@ -9,6 +9,7 @@
 ### Fixed
 
 - Compose editor Save and Save and deploy buttons now match and sit in the footer
+- Opening a container console on a shared host you have no login for says so, instead of saying the host is not on the sync server
 
 ## 1.3.0
 
