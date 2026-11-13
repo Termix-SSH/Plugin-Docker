@@ -25,6 +25,7 @@ describe("docker activate", () => {
     const mock = createMockCtx({
       pluginId: manifest.id,
       manifest,
+      sandbox: true,
       capabilities: manifest.capabilities.filter(
         (cap) => cap !== "network:serve",
       ),
@@ -52,7 +53,7 @@ describe("docker activate", () => {
   it("registers its import normalizer", async () => {
     server = await startServer();
     expect(
-      server.mock.ctx.registry.consume("docker.hostImportNormalizer"),
+      await server.mock.ctx.registry.consume("docker.hostImportNormalizer"),
     ).toBe(normalizeImportedHost);
   });
 });
