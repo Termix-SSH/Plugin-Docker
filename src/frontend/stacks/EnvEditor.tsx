@@ -37,7 +37,7 @@ export function EnvEditor({
     });
 
   const inputClass =
-    "h-8 w-full border border-border bg-background px-2 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-ring";
+    "h-8 w-full border border-border bg-(--field) px-2 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-ring";
 
   return (
     <div className="flex h-full min-h-0 flex-col">

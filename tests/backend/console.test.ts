@@ -47,6 +47,7 @@ async function activated(client: FakeClient): Promise<MockPluginContext> {
   const mock = createMockCtx({
     pluginId: manifest.id,
     manifest,
+    sandbox: true,
     capabilities: manifest.capabilities,
     router: () => express.Router(),
     permissions: ["docker.use"],

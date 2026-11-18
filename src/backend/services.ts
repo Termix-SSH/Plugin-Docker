@@ -4,6 +4,7 @@ import type {
   PluginSshHost,
 } from "@termix-ssh/plugin-sdk/backend";
 import { containerCommand } from "./container-runtime.js";
+import { keepAwake } from "./keep-awake.js";
 import {
   PS_STATE_FORMAT,
   diffContainerStates,
@@ -210,14 +211,20 @@ export function registerServices(ctx: PluginContext, log: DockerLogger): void {
     }
   };
 
-  ctx.schedule.every(TICK_MS, async () => {
-    const now = Date.now();
-    for (const watch of [...watches.values()]) {
-      if (now - watch.lastPolledAt < POLL_INTERVAL_MS) continue;
-      watch.lastPolledAt = now;
-      await pollOne(watch);
-    }
-  });
+  ctx.schedule.every(
+    TICK_MS,
+    async () => {
+      // Subscribers live in this process; with none it may stop.
+      keepAwake(ctx, "watch", watches.size > 0);
+      const now = Date.now();
+      for (const watch of [...watches.values()]) {
+        if (now - watch.lastPolledAt < POLL_INTERVAL_MS) continue;
+        watch.lastPolledAt = now;
+        await pollOne(watch);
+      }
+    },
+    { id: "watch" },
+  );
 
   ctx.events.on("host.updated", (payload) => {
     const { hostId } = payload as { hostId?: number };
@@ -233,6 +240,7 @@ export function registerServices(ctx: PluginContext, log: DockerLogger): void {
     for (const [key, watch] of watches) {
       if (watch.hostId === hostId) watches.delete(key);
     }
+    keepAwake(ctx, "watch", watches.size > 0);
   });
 
   ctx.services.provide<DockerEventsV1>("docker.events", {
@@ -249,6 +257,7 @@ export function registerServices(ctx: PluginContext, log: DockerLogger): void {
           failing: false,
         };
         watches.set(key, watch);
+        keepAwake(ctx, "watch", true);
       }
       watch.listeners.add(listener);
       const current = watch;
@@ -256,6 +265,7 @@ export function registerServices(ctx: PluginContext, log: DockerLogger): void {
         current.listeners.delete(listener);
         if (current.listeners.size === 0 && watches.get(key) === current) {
           watches.delete(key);
+          keepAwake(ctx, "watch", watches.size > 0);
         }
       };
     },

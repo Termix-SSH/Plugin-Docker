@@ -48,6 +48,7 @@ describe("ContainerList", () => {
         onSelectContainer={() => {}}
       />,
     );
-    expect(gridOf(container)?.style.gridTemplateColumns).toContain("/ 2");
+    // jsdom 31 folds the calc, so "/ 2" reads as "50%"
+    expect(gridOf(container)?.style.gridTemplateColumns).toMatch(/\/ 2|50%/);
   });
 });

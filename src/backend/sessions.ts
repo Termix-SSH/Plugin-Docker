@@ -96,14 +96,18 @@ export function createDockerSessions(
     });
   };
 
-  schedule.every(PENDING_SWEEP_MS, () => {
-    const now = Date.now();
-    for (const [id, entry] of pending) {
-      if (now < entry.expiresAt) continue;
-      pending.delete(id);
-      entry.cancel();
-    }
-  });
+  schedule.every(
+    PENDING_SWEEP_MS,
+    () => {
+      const now = Date.now();
+      for (const [id, entry] of pending) {
+        if (now < entry.expiresAt) continue;
+        pending.delete(id);
+        entry.cancel();
+      }
+    },
+    { id: "pending-sweep" },
+  );
 
   return {
     add: (session) => {

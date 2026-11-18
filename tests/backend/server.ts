@@ -68,6 +68,7 @@ export async function startServer(
   const mock = createMockCtx({
     pluginId: manifest.id,
     manifest,
+    sandbox: true,
     capabilities: manifest.capabilities,
     router: () => (router = express.Router()),
     permissions: options.permissions ?? ["docker.use"],

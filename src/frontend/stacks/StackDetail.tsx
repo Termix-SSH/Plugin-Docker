@@ -392,6 +392,27 @@ export function StackDetail({
           onTabChange={(id) => setTab(id as DetailTab)}
         />
       }
+      footer={
+        tab === "compose" || tab === "env" ? (
+          <FormFooter
+            onSave={() => void save(false)}
+            saveLabel={t("common.save")}
+            saving={busy === "save"}
+            dirty={dirty}
+            disabled={isBusy || !dirty}
+            extra={
+              <Button
+                variant="outline"
+                disabled={isBusy}
+                onClick={() => void save(true)}
+              >
+                <UploadCloud className="mr-1 size-4" />
+                {t("docker.stacks.saveDeploy")}
+              </Button>
+            }
+          />
+        ) : undefined
+      }
       scroll={false}
     >
       {!data ? (
@@ -601,24 +622,6 @@ export function StackDetail({
               <EnvEditor value={env} onChange={setEnv} />
             </div>
           )}
-          <FormFooter
-            onSave={() => void save(false)}
-            saveLabel={t("common.save")}
-            saving={busy === "save"}
-            dirty={dirty}
-            disabled={isBusy || !dirty}
-            extra={
-              <Button
-                variant="outline"
-                size="sm"
-                disabled={isBusy}
-                onClick={() => void save(true)}
-              >
-                <UploadCloud className="mr-1 size-4" />
-                {t("docker.stacks.saveDeploy")}
-              </Button>
-            }
-          />
         </div>
       ) : tab === "events" ? (
         <StackEvents events={events} onClear={() => setEvents([])} />
