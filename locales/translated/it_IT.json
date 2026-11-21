@@ -228,6 +228,58 @@
       "updated": "{{name}} aggiornato",
       "pulled": "Immagine scaricata per {{name}}. Ricrea il container per utilizzarla.",
       "failed": "Impossibile aggiornare {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Cerca...",
+      "loading": "Caricamento...",
+      "listFailed": "Impossibile caricare l'elenco",
+      "actionFailed": "L'azione non è riuscita",
+      "inspectFailed": "Impossibile caricare i dettagli",
+      "noMatches": "Nessun risultato",
+      "untagged": "Senza tag",
+      "repository": "Repository",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Dimensione",
+      "created": "Creato",
+      "driver": "Driver",
+      "mountpoint": "Punto di mount",
+      "usage": "Utilizzo",
+      "inUse": "In uso",
+      "unused": "Non utilizzato",
+      "all": "Tutti",
+      "inspect": "Dettagli",
+      "prune": "Rimuovi elementi non utilizzati",
+      "image": {
+        "title": "Immagini",
+        "count": "{{count}} immagini",
+        "add": "Scarica immagine",
+        "save": "Scarica",
+        "ref": "Immagine",
+        "refHint": "Ad esempio nginx:latest o ghcr.io/owner/app:1.2. Lo scaricamento di un'immagine di grandi dimensioni può richiedere del tempo.",
+        "empty": "Nessuna immagine su questo host",
+        "confirmRemove": "Rimuovere l'immagine {{name}}?",
+        "confirmPrune": "Rimuovere tutte le immagini non utilizzate da alcun container? Questa operazione può liberare molto spazio, ma le immagini dovranno essere scaricate nuovamente in seguito."
+      },
+      "volume": {
+        "title": "Volumi",
+        "count": "{{count}} volumi",
+        "add": "Nuovo volume",
+        "save": "Crea",
+        "empty": "Nessun volume su questo host",
+        "confirmRemove": "Rimuovere il volume {{name}}? I dati verranno eliminati.",
+        "confirmPrune": "Rimuovere tutti i volumi non utilizzati da alcun container? I dati verranno eliminati."
+      },
+      "network": {
+        "title": "Reti",
+        "count": "{{count}} reti",
+        "add": "Nuova rete",
+        "save": "Crea",
+        "subnet": "Sottorete (opzionale)",
+        "empty": "Nessuna rete su questo host",
+        "confirmRemove": "Rimuovere la rete {{name}}?",
+        "confirmPrune": "Rimuovere tutte le reti non utilizzate da alcun container?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "Container non sani"
+    },
+    "pullImage": {
+      "title": "Scarica immagine"
+    },
+    "image": {
+      "ref": "Immagine"
+    },
+    "removeImage": {
+      "title": "Rimuovi immagine"
+    },
+    "pruneImages": {
+      "title": "Rimuovi immagini non utilizzate",
+      "all": "Rimuovi anche le immagini con tag non utilizzate da alcun container"
+    },
+    "createVolume": {
+      "title": "Crea volume",
+      "name": "Nome volume"
+    },
+    "removeVolume": {
+      "title": "Rimuovi volume",
+      "name": "Nome volume"
+    },
+    "pruneVolumes": {
+      "title": "Rimuovi volumi non utilizzati"
+    },
+    "createNetwork": {
+      "title": "Crea rete",
+      "name": "Nome rete",
+      "driver": "Driver",
+      "subnet": "Sottorete",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Rimuovi rete",
+      "name": "Nome della rete"
+    },
+    "pruneNetworks": {
+      "title": "Rimuovi reti non utilizzate"
     }
+  },
+  "tree": {
+    "containers": "Contenitori"
   }
 }

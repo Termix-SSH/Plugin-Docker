@@ -45,6 +45,10 @@ import { ContainerTable } from "./components/ContainerTable.tsx";
 import { ContainerDetail } from "./components/ContainerDetail.tsx";
 import { UpdatesProvider, useUpdateChecker } from "./updates";
 import { StacksView } from "./stacks/StacksView.tsx";
+import {
+  ResourcesView,
+  type ResourceSection,
+} from "./resources/ResourcesView.tsx";
 import { docsUrl } from "./docs";
 
 interface DockerManagerProps {
@@ -56,6 +60,8 @@ interface DockerManagerProps {
   /** Narrow side panel: one column list and a short toolbar. */
   compact?: boolean;
   onClose?: () => void;
+  /** A container to open, by name, e.g. picked in a host tree. */
+  focus?: { container?: string };
 }
 
 interface PromptState {
@@ -80,6 +86,7 @@ function DockerManagerInner({
   embedded = false,
   compact = false,
   onClose,
+  focus,
 }: DockerManagerProps): React.ReactElement {
   const { t } = useTranslation();
   const docker = useDockerApi();
@@ -102,7 +109,9 @@ function DockerManagerInner({
 
   // Stack management stays out of sight until the admin and the host both turn it on.
   const [stacksAdminOn, setStacksAdminOn] = React.useState(false);
-  const [section, setSection] = React.useState<"current" | "manage">("current");
+  const [section, setSection] = React.useState<
+    "current" | "manage" | ResourceSection
+  >("current");
   const manageOn =
     !compact && stacksAdminOn && stacksEnabledForHost(currentHost);
 
@@ -193,6 +202,22 @@ function DockerManagerInner({
     setDockerValidation(null);
     setViewMode("list");
   }, [host?.id]);
+
+  // Opens the container a host tree asked for once the list has loaded.
+  // A new focus object asks again, even for the same container.
+  React.useEffect(() => {
+    const name = focus?.container;
+    if (!name || !hasLoadedContainersOnce) return;
+    const match = containers.find(
+      (container) => container.name === name || container.id === name,
+    );
+    if (!match) return;
+    setSection("current");
+    setSelectedContainer(match.id);
+    setDetailInitialTab("logs");
+    setViewMode("detail");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focus, hasLoadedContainersOnce]);
 
   const retryRef = React.useRef<ReturnType<typeof useConnectionRetry> | null>(
     null,
@@ -490,16 +515,36 @@ function DockerManagerInner({
   });
   retryRef.current = dockerConnectRetry;
 
-  const switcher = manageOn ? (
-    <Segmented
-      value={section}
-      onChange={(value) => setSection(value as "current" | "manage")}
-      options={[
-        { value: "current", label: t("docker.stacks.current") },
-        { value: "manage", label: t("docker.stacks.manage") },
-      ]}
-    />
-  ) : null;
+  // The side panel only shows containers and stacks.
+  const switcher =
+    manageOn || !compact ? (
+      <Segmented
+        value={section}
+        onChange={(value) => setSection(value as typeof section)}
+        options={[
+          { value: "current" as const, label: t("docker.stacks.current") },
+          ...(compact
+            ? []
+            : [
+                {
+                  value: "images" as const,
+                  label: t("docker.resources.image.title"),
+                },
+                {
+                  value: "volumes" as const,
+                  label: t("docker.resources.volume.title"),
+                },
+                {
+                  value: "networks" as const,
+                  label: t("docker.resources.network.title"),
+                },
+              ]),
+          ...(manageOn
+            ? [{ value: "manage" as const, label: t("docker.stacks.manage") }]
+            : []),
+        ]}
+      />
+    ) : null;
 
   const topMarginPx = isTopbarOpen ? 74 : 16;
   const leftMarginPx = 8;
@@ -628,7 +673,17 @@ function DockerManagerInner({
     <div style={wrapperStyle} className={`${containerClass} relative`}>
       <UpdatesProvider value={updateChecker.value}>
         <div className="h-full w-full flex flex-col flex-1 min-h-0 overflow-hidden">
-          {manageOn && section === "manage" && sessionId && currentHost ? (
+          {!compact &&
+          sessionId &&
+          (section === "images" ||
+            section === "volumes" ||
+            section === "networks") ? (
+            <ResourcesView
+              sessionId={sessionId}
+              section={section}
+              switcher={switcher}
+            />
+          ) : manageOn && section === "manage" && sessionId && currentHost ? (
             <StacksView
               sessionId={sessionId}
               host={currentHost}

@@ -10,6 +10,7 @@ import { execOnClient, type DockerSessions } from "./sessions.js";
 import { listFormat, parseContainerList } from "./routes.js";
 import { countContainers } from "./summary.js";
 import { CONTAINER_ID_RE } from "./helpers.js";
+import { registerResourceOperations } from "./resources.js";
 
 const POOL = "docker";
 
@@ -75,6 +76,7 @@ export function registerOperations(
   sessions: DockerSessions,
 ): void {
   const exec = createRunner(ctx, sessions);
+  registerResourceOperations(ctx, exec);
 
   ctx.operations.register("docker.list-containers", {
     run: async (_input, context) => {

@@ -226,6 +226,58 @@
       "updated": "{{name}} が更新されました",
       "pulled": "{{name}} のイメージを取得しました。コンテナを再作成して適用してください。",
       "failed": "{{name}} の更新に失敗しました: {{error}}"
+    },
+    "resources": {
+      "search": "検索...",
+      "loading": "読み込み中...",
+      "listFailed": "リストを読み込めませんでした",
+      "actionFailed": "操作に失敗しました",
+      "inspectFailed": "詳細を読み込めませんでした",
+      "noMatches": "一致するものはありません",
+      "untagged": "タグなし",
+      "repository": "リポジトリ",
+      "tag": "タグ",
+      "id": "ID",
+      "size": "サイズ",
+      "created": "作成日",
+      "driver": "ドライバー",
+      "mountpoint": "マウントポイント",
+      "usage": "使用量",
+      "inUse": "使用中",
+      "unused": "未使用",
+      "all": "すべて",
+      "inspect": "詳細",
+      "prune": "未使用のものを削除",
+      "image": {
+        "title": "イメージ",
+        "count": "イメージ {{count}} 個",
+        "add": "イメージを取得",
+        "save": "取得",
+        "ref": "イメージ",
+        "refHint": "nginx:latest や ghcr.io/owner/app:1.2 のように指定します。大きなイメージの取得には時間がかかる場合があります。",
+        "empty": "このホストにはイメージがありません",
+        "confirmRemove": "イメージ {{name}} を削除しますか？",
+        "confirmPrune": "コンテナが使用していないすべてのイメージを削除しますか？これにより多くのスペースが解放されますが、後でイメージを再度取得する必要があります。"
+      },
+      "volume": {
+        "title": "ボリューム",
+        "count": "ボリューム {{count}} 個",
+        "add": "新しいボリューム",
+        "save": "作成",
+        "empty": "このホストにはボリュームがありません",
+        "confirmRemove": "ボリューム {{name}} を削除しますか？データは削除されます。",
+        "confirmPrune": "コンテナが使用していないすべてのボリュームを削除しますか？データは削除されます。"
+      },
+      "network": {
+        "title": "ネットワーク",
+        "count": "ネットワーク {{count}} 個",
+        "add": "新しいネットワーク",
+        "save": "作成",
+        "subnet": "サブネット（オプション）",
+        "empty": "このホストにはネットワークがありません",
+        "confirmRemove": "ネットワーク {{name}} を削除しますか？",
+        "confirmPrune": "コンテナが使用していないすべてのネットワークを削除しますか？"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "異常なコンテナ"
+    },
+    "pullImage": {
+      "title": "イメージを取得"
+    },
+    "image": {
+      "ref": "イメージ"
+    },
+    "removeImage": {
+      "title": "イメージを削除"
+    },
+    "pruneImages": {
+      "title": "未使用のイメージを削除",
+      "all": "コンテナが使用していないタグ付きイメージも削除する"
+    },
+    "createVolume": {
+      "title": "ボリュームを作成",
+      "name": "ボリューム名"
+    },
+    "removeVolume": {
+      "title": "ボリュームを削除",
+      "name": "ボリューム名"
+    },
+    "pruneVolumes": {
+      "title": "未使用のボリュームを削除"
+    },
+    "createNetwork": {
+      "title": "ネットワークを作成",
+      "name": "ネットワーク名",
+      "driver": "ドライバー",
+      "subnet": "サブネット",
+      "drivers": {
+        "bridge": "ブリッジ",
+        "overlay": "オーバーレイ",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "ネットワークの削除",
+      "name": "ネットワーク名"
+    },
+    "pruneNetworks": {
+      "title": "未使用のネットワークを削除"
     }
+  },
+  "tree": {
+    "containers": "コンテナ"
   }
 }

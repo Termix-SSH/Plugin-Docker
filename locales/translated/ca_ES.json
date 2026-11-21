@@ -228,6 +228,58 @@
       "updated": "{{name}} actualitzat",
       "pulled": "Imatge tret per a {{name}}. Recreeu el contenidor per utilitzar-la.",
       "failed": "No s'ha pogut actualitzar {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Cerca...",
+      "loading": "S'està carregant...",
+      "listFailed": "No s'ha pogut carregar la llista",
+      "actionFailed": "L'acció ha fallat",
+      "inspectFailed": "No s'han pogut carregar els detalls",
+      "noMatches": "Cap resultat",
+      "untagged": "Sense etiqueta",
+      "repository": "Repositori",
+      "tag": "Etiqueta",
+      "id": "ID",
+      "size": "Mida",
+      "created": "Creat",
+      "driver": "Controlador",
+      "mountpoint": "Punt de muntatge",
+      "usage": "Ús",
+      "inUse": "En ús",
+      "unused": "Sense ús",
+      "all": "Tots",
+      "inspect": "Detalls",
+      "prune": "Elimina els elements sense ús",
+      "image": {
+        "title": "Imatges",
+        "count": "{{count}} imatges",
+        "add": "Descarrega una imatge",
+        "save": "Descarrega",
+        "ref": "Imatge",
+        "refHint": "Com nginx:latest o ghcr.io/owner/app:1.2. Descarregar una imatge gran pot trigar una estona.",
+        "empty": "No hi ha imatges en aquest host",
+        "confirmRemove": "Vols eliminar la imatge {{name}}?",
+        "confirmPrune": "Vols eliminar totes les imatges que cap contenidor utilitza? Això pot alliberar molt d'espai i les imatges s'hauran de tornar a descarregar més endavant."
+      },
+      "volume": {
+        "title": "Volums",
+        "count": "{{count}} volums",
+        "add": "Volum nou",
+        "save": "Crea",
+        "empty": "No hi ha volums en aquest host",
+        "confirmRemove": "Vols eliminar el volum {{name}}? Es suprimiran les dades.",
+        "confirmPrune": "Vols eliminar tots els volums que cap contenidor utilitza? Es suprimiran les dades."
+      },
+      "network": {
+        "title": "Xarxes",
+        "count": "{{count}} xarxes",
+        "add": "Xarxa nova",
+        "save": "Crea",
+        "subnet": "Subxarxa (opcional)",
+        "empty": "No hi ha xarxes en aquest host",
+        "confirmRemove": "Vols eliminar la xarxa {{name}}?",
+        "confirmPrune": "Vols eliminar totes les xarxes que cap contenidor utilitza?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "Contenidors no saludables"
+    },
+    "pullImage": {
+      "title": "Descarrega una imatge"
+    },
+    "image": {
+      "ref": "Imatge"
+    },
+    "removeImage": {
+      "title": "Elimina una imatge"
+    },
+    "pruneImages": {
+      "title": "Elimina les imatges sense ús",
+      "all": "Elimina també les imatges amb etiqueta que cap contenidor utilitza"
+    },
+    "createVolume": {
+      "title": "Crea un volum",
+      "name": "Nom del volum"
+    },
+    "removeVolume": {
+      "title": "Elimina un volum",
+      "name": "Nom del volum"
+    },
+    "pruneVolumes": {
+      "title": "Elimina els volums sense ús"
+    },
+    "createNetwork": {
+      "title": "Crea una xarxa",
+      "name": "Nom de la xarxa",
+      "driver": "Controlador",
+      "subnet": "Subxarxa",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Eliminar xarxa",
+      "name": "Nom de la xarxa"
+    },
+    "pruneNetworks": {
+      "title": "Eliminar xarxes no utilitzades"
     }
+  },
+  "tree": {
+    "containers": "Contenidors"
   }
 }

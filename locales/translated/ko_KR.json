@@ -226,6 +226,58 @@
       "updated": "{{name}} 업데이트됨",
       "pulled": "{{name}} 이미지 가져오기 완료. 컨테이너를 재생성하여 사용하세요.",
       "failed": "{{name}} 업데이트 실패: {{error}}"
+    },
+    "resources": {
+      "search": "검색...",
+      "loading": "로딩 중...",
+      "listFailed": "목록을 로드할 수 없습니다",
+      "actionFailed": "작업이 실패했습니다",
+      "inspectFailed": "상세 정보를 로드할 수 없습니다",
+      "noMatches": "일치하는 항목이 없습니다",
+      "untagged": "태그 없음",
+      "repository": "레포지토리",
+      "tag": "태그",
+      "id": "ID",
+      "size": "크기",
+      "created": "생성일",
+      "driver": "드라이버",
+      "mountpoint": "마운트 포인트",
+      "usage": "사용량",
+      "inUse": "사용 중",
+      "unused": "미사용",
+      "all": "전체",
+      "inspect": "상세 정보",
+      "prune": "미사용 항목 제거",
+      "image": {
+        "title": "이미지",
+        "count": "{{count}}개 이미지",
+        "add": "이미지 가져오기",
+        "save": "가져오기",
+        "ref": "이미지",
+        "refHint": "nginx:latest 또는 ghcr.io/owner/app:1.2 형식입니다. 큰 이미지를 가져오려면 시간이 걸릴 수 있습니다.",
+        "empty": "이 호스트에 이미지가 없습니다",
+        "confirmRemove": "이미지 {{name}}을(를) 제거하시겠습니까?",
+        "confirmPrune": "컨테이너에서 사용하지 않는 모든 이미지를 제거하시겠습니까? 이렇게 하면 많은 공간을 확보할 수 있지만, 나중에 이미지를 다시 가져와야 합니다."
+      },
+      "volume": {
+        "title": "볼륨",
+        "count": "{{count}}개 볼륨",
+        "add": "새 볼륨",
+        "save": "생성",
+        "empty": "이 호스트에 볼륨이 없습니다",
+        "confirmRemove": "볼륨 {{name}}을(를) 제거하시겠습니까? 데이터가 삭제됩니다.",
+        "confirmPrune": "컨테이너에서 사용하지 않는 모든 볼륨을 제거하시겠습니까? 데이터가 삭제됩니다."
+      },
+      "network": {
+        "title": "네트워크",
+        "count": "{{count}}개 네트워크",
+        "add": "새 네트워크",
+        "save": "생성",
+        "subnet": "서브넷 (선택 사항)",
+        "empty": "이 호스트에 네트워크가 없습니다",
+        "confirmRemove": "네트워크 {{name}}을(를) 제거하시겠습니까?",
+        "confirmPrune": "컨테이너에서 사용하지 않는 모든 네트워크를 제거하시겠습니까?"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "비정상 컨테이너"
+    },
+    "pullImage": {
+      "title": "이미지 가져오기"
+    },
+    "image": {
+      "ref": "이미지"
+    },
+    "removeImage": {
+      "title": "이미지 제거"
+    },
+    "pruneImages": {
+      "title": "미사용 이미지 제거",
+      "all": "컨테이너에서 사용하지 않는 태그가 있는 이미지도 제거"
+    },
+    "createVolume": {
+      "title": "볼륨 생성",
+      "name": "볼륨 이름"
+    },
+    "removeVolume": {
+      "title": "볼륨 제거",
+      "name": "볼륨 이름"
+    },
+    "pruneVolumes": {
+      "title": "미사용 볼륨 제거"
+    },
+    "createNetwork": {
+      "title": "네트워크 생성",
+      "name": "네트워크 이름",
+      "driver": "드라이버",
+      "subnet": "서브넷",
+      "drivers": {
+        "bridge": "브리지",
+        "overlay": "오버레이",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "네트워크 제거",
+      "name": "네트워크 이름"
+    },
+    "pruneNetworks": {
+      "title": "사용하지 않는 네트워크 제거"
     }
+  },
+  "tree": {
+    "containers": "컨테이너"
   }
 }

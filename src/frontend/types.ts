@@ -160,3 +160,39 @@ export interface ImageUpdate {
   status: UpdateStatus;
   reason?: string;
 }
+
+export interface DockerImage {
+  id: string;
+  repository: string;
+  tag: string;
+  size: string;
+  created: string;
+  inUse: boolean;
+}
+
+export interface DockerVolume {
+  name: string;
+  driver: string;
+  mountpoint: string;
+  inUse: boolean;
+}
+
+export interface DockerNetwork {
+  id: string;
+  name: string;
+  driver: string;
+  builtIn: boolean;
+}
+
+export type ResourceKind = "image" | "volume" | "network";
+
+export type ResourceAction =
+  | "pull-image"
+  | "remove-image"
+  | "prune-images"
+  | "create-volume"
+  | "remove-volume"
+  | "prune-volumes"
+  | "create-network"
+  | "remove-network"
+  | "prune-networks";

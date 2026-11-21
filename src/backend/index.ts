@@ -9,6 +9,7 @@ import {
   containerProblems,
   readContainerOutput,
   registerSummary,
+  registerTree,
 } from "./summary.js";
 import { startHostAlerts } from "./host-alerts.js";
 import { registerOperations } from "./operations.js";
@@ -30,6 +31,7 @@ export async function activate(ctx: PluginContext) {
   const router = ctx.http.router<Router>();
   registerRoutes(router, { ctx, sessions, log });
   registerSummary(router, ctx);
+  registerTree(router, ctx);
   registerConsole(ctx, log);
   registerServices(ctx, log);
   registerOperations(ctx, sessions);

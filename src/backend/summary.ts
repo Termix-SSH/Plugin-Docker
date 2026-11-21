@@ -12,6 +12,7 @@ import { execOnClient } from "./sessions.js";
 
 const POOL = "docker";
 const CACHE_MS = 60_000;
+const TREE_CACHE_MS = 15_000;
 const TIMEOUT_MS = 20_000;
 /** Hosts checked at once, so a big fleet does not open every connection together. */
 export const SUMMARY_CONCURRENCY = 4;
@@ -200,6 +201,96 @@ export function registerSummary(router: Router, ctx: PluginContext): void {
         error instanceof Error ? error : undefined,
       );
       res.status(500).json({ error: "Failed to build the Docker summary" });
+    }
+  });
+}
+
+export interface TreeContainer {
+  name: string;
+  state: string;
+  status: string;
+}
+
+/** Every container in `ps -a` output, sorted by name. */
+export function parseTreeContainers(output: string): TreeContainer[] {
+  const rows: TreeContainer[] = [];
+  for (const line of output.split(/\r?\n/)) {
+    let row: { name?: string; state?: string; status?: string };
+    try {
+      row = JSON.parse(line.trim());
+    } catch {
+      continue;
+    }
+    if (!row.name) continue;
+    rows.push({
+      name: row.name,
+      state: row.state ?? "",
+      status: row.status ?? "",
+    });
+  }
+  return rows.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * GET /tree: the containers on one host, for layouts that list them under the
+ * host in a tree. Kept for a few seconds per user, so opening and closing the
+ * host does not run docker ps each time.
+ */
+export function registerTree(router: Router, ctx: PluginContext): void {
+  const cache = new Map<string, { at: number; items: TreeContainer[] }>();
+
+  /**
+   * @openapi
+   * /plugin-api/docker/tree:
+   *   get:
+   *     summary: Containers on one host
+   *     description: Name, state and status of every container on a host the caller can reach with Docker turned on, for host tree layouts. Results are kept for 15 seconds.
+   *     tags:
+   *       - Docker
+   *     parameters:
+   *       - in: query
+   *         name: hostId
+   *         required: true
+   *         schema:
+   *           type: integer
+   *     responses:
+   *       200:
+   *         description: The containers.
+   *       400:
+   *         description: hostId is missing.
+   *       404:
+   *         description: The host is not there, not reachable by the caller or has Docker off.
+   *       502:
+   *         description: The host could not be reached.
+   */
+  router.get("/tree", async (req: Request, res: Response) => {
+    const hostId = Number(req.query.hostId);
+    if (!Number.isInteger(hostId) || hostId <= 0) {
+      res.status(400).json({ error: "hostId is required" });
+      return;
+    }
+    try {
+      const hosts = await ctx.hosts.list();
+      if (
+        !hosts.some((host) => host.id === hostId) ||
+        !(await readDockerHostSettings(ctx, hostId)).enabled
+      ) {
+        res.status(404).json({ error: "Host not found" });
+        return;
+      }
+      const key = `${String(ctx.currentActor() ?? "")}:${hostId}`;
+      const cached = cache.get(key);
+      if (cached && Date.now() - cached.at < TREE_CACHE_MS) {
+        res.json({ items: cached.items });
+        return;
+      }
+      const items = parseTreeContainers(await readContainerOutput(ctx, hostId));
+      cache.set(key, { at: Date.now(), items });
+      res.json({ items });
+    } catch (error) {
+      res
+        .status(502)
+        .json({ error: getErrorMessage(error, "Could not reach the host") });
     }
   });
 }

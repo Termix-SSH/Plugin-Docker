@@ -229,6 +229,58 @@
       "updated": "{{name}} posodobljen",
       "pulled": "Slika za {{name}} je bila povlečena. Za uporabo ponovno ustvarite posodo.",
       "failed": "Posodobitev {{name}} ni uspela: {{error}}"
+    },
+    "resources": {
+      "search": "Išči...",
+      "loading": "Nalaganje...",
+      "listFailed": "Seznam ni mogoče naložiti",
+      "actionFailed": "Dejanje ni uspelo",
+      "inspectFailed": "Podrobnosti ni mogoče naložiti",
+      "noMatches": "Ni ujemajočih se rezultatov",
+      "untagged": "Brez oznake",
+      "repository": "Skladišče",
+      "tag": "Oznaka",
+      "id": "ID",
+      "size": "Velikost",
+      "created": "Ustvarjeno",
+      "driver": "Poganjalnik",
+      "mountpoint": "Točka priklopa",
+      "usage": "Poraba",
+      "inUse": "V uporabi",
+      "unused": "Neuporabljeno",
+      "all": "Vse",
+      "inspect": "Podrobnosti",
+      "prune": "Odstrani neuporabljeno",
+      "image": {
+        "title": "Slike",
+        "count": "{{count}} slike",
+        "add": "Povleci sliko",
+        "save": "Povleci",
+        "ref": "Slika",
+        "refHint": "Na primer nginx:latest ali ghcr.io/owner/app:1.2. Povlečenje velike slike lahko traja nekaj časa.",
+        "empty": "Na tem gostitelju ni slik",
+        "confirmRemove": "Odstraniti sliko {{name}}?",
+        "confirmPrune": "Odstraniti vse slike, ki jih ne uporablja nobena posoda? To lahko sprosti veliko prostora, slike pa boste morali kasneje znova povleči."
+      },
+      "volume": {
+        "title": "Zviti",
+        "count": "{{count}} zviti",
+        "add": "Nov zvit",
+        "save": "Ustvari",
+        "empty": "Na tem gostitelju ni zvitkov",
+        "confirmRemove": "Odstraniti zvitok {{name}}? Njegovi podatki bodo izbrisani.",
+        "confirmPrune": "Odstraniti vse zvitke, ki jih ne uporablja nobena posoda? Njihovi podatki bodo izbrisani."
+      },
+      "network": {
+        "title": "Omrežja",
+        "count": "{{count}} omrežja",
+        "add": "Novo omrežje",
+        "save": "Ustvari",
+        "subnet": "Podomrežje (neobvezno)",
+        "empty": "Na tem gostitelju ni omrežij",
+        "confirmRemove": "Odstraniti omrežje {{name}}?",
+        "confirmPrune": "Odstraniti vsa omrežja, ki jih ne uporablja nobena posoda?"
+      }
     }
   },
   "nav": {
@@ -372,6 +424,52 @@
     },
     "unhealthy": {
       "title": "Nezdravi vsebniki"
+    },
+    "pullImage": {
+      "title": "Povleci sliko"
+    },
+    "image": {
+      "ref": "Slika"
+    },
+    "removeImage": {
+      "title": "Odstrani sliko"
+    },
+    "pruneImages": {
+      "title": "Odstrani neuporabljene slike",
+      "all": "Odstrani tudi označene slike, ki jih ne uporablja nobena posoda"
+    },
+    "createVolume": {
+      "title": "Ustvari zvitok",
+      "name": "Ime zvita"
+    },
+    "removeVolume": {
+      "title": "Odstrani zvitok",
+      "name": "Ime zvita"
+    },
+    "pruneVolumes": {
+      "title": "Odstrani neuporabljene zvitke"
+    },
+    "createNetwork": {
+      "title": "Ustvari omrežje",
+      "name": "Ime omrežja",
+      "driver": "Poganjalnik",
+      "subnet": "Podomrežje",
+      "drivers": {
+        "bridge": "Most",
+        "overlay": "Prekrivanje",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Odstrani omrežje",
+      "name": "Ime omrežja"
+    },
+    "pruneNetworks": {
+      "title": "Odstrani neuporabljena omrežja"
     }
+  },
+  "tree": {
+    "containers": "Posode"
   }
 }

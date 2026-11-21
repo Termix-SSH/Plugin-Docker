@@ -229,6 +229,58 @@
       "updated": "{{name}} aktualizován",
       "pulled": "Obraz pro {{name}} stažen. Pro použití jej znovu vytvořte.",
       "failed": "Nelze aktualizovat {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Hledat...",
+      "loading": "Načítání...",
+      "listFailed": "Nelze načíst seznam",
+      "actionFailed": "Akce selhala",
+      "inspectFailed": "Nelze načíst podrobnosti",
+      "noMatches": "Žádné výsledky",
+      "untagged": "Bez značky",
+      "repository": "Repozitář",
+      "tag": "Značka",
+      "id": "ID",
+      "size": "Velikost",
+      "created": "Vytvořeno",
+      "driver": "Ovladač",
+      "mountpoint": "Připojovací bod",
+      "usage": "Využití",
+      "inUse": "Používáno",
+      "unused": "Nepoužíváno",
+      "all": "Vše",
+      "inspect": "Podrobnosti",
+      "prune": "Odstranit nepoužívané",
+      "image": {
+        "title": "Obrazy",
+        "count": "{{count}} obrazů",
+        "add": "Stáhnout obraz",
+        "save": "Stáhnout",
+        "ref": "Obraz",
+        "refHint": "Např. nginx:latest nebo ghcr.io/owner/app:1.2. Stahování velkého obrazu může chvíli trvat.",
+        "empty": "Na tomto hostiteli nejsou žádné obrazy",
+        "confirmRemove": "Odstranit obraz {{name}}?",
+        "confirmPrune": "Odstranit všechny obrazy, které nepoužívá žádný kontejner? Tím se uvolní hodně místa, ale obrazy bude potřeba později stáhnout znovu."
+      },
+      "volume": {
+        "title": "Svazky",
+        "count": "{{count}} svazků",
+        "add": "Nový svazek",
+        "save": "Vytvořit",
+        "empty": "Na tomto hostiteli nejsou žádné svazky",
+        "confirmRemove": "Odstranit svazek {{name}}? Jeho data budou smazána.",
+        "confirmPrune": "Odstranit všechny svazky, které nepoužívá žádný kontejner? Jejich data budou smazána."
+      },
+      "network": {
+        "title": "Síť",
+        "count": "{{count}} sítí",
+        "add": "Nová síť",
+        "save": "Vytvořit",
+        "subnet": "Subsít (volitelné)",
+        "empty": "Na tomto hostiteli nejsou žádné sítě",
+        "confirmRemove": "Odstranit síť {{name}}?",
+        "confirmPrune": "Odstranit všechny sítě, které nepoužívá žádný kontejner?"
+      }
     }
   },
   "nav": {
@@ -372,6 +424,52 @@
     },
     "unhealthy": {
       "title": "Nefunkční kontejnery"
+    },
+    "pullImage": {
+      "title": "Stáhnout obraz"
+    },
+    "image": {
+      "ref": "Obraz"
+    },
+    "removeImage": {
+      "title": "Odstranit obraz"
+    },
+    "pruneImages": {
+      "title": "Odstranit nepoužívané obrazy",
+      "all": "Odstranit také označené obrazy, které nepoužívá žádný kontejner"
+    },
+    "createVolume": {
+      "title": "Vytvořit svazek",
+      "name": "Název svazku"
+    },
+    "removeVolume": {
+      "title": "Odstranit svazek",
+      "name": "Název svazku"
+    },
+    "pruneVolumes": {
+      "title": "Odstranit nepoužívané svazky"
+    },
+    "createNetwork": {
+      "title": "Vytvořit síť",
+      "name": "Název sítě",
+      "driver": "Ovladač",
+      "subnet": "Subsít",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Odstranit síť",
+      "name": "Název sítě"
+    },
+    "pruneNetworks": {
+      "title": "Odstranit nepoužívané sítě"
     }
+  },
+  "tree": {
+    "containers": "Kontejnery"
   }
 }

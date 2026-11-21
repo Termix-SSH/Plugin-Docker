@@ -228,6 +228,58 @@
       "updated": "{{name}} tika atjaunināts",
       "pulled": "{{name}} attēls tika lejupielādēts. Lai to izmantotu, izveidojiet konteineru no jauna.",
       "failed": "Neizdevās atjaunināt {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Meklēt...",
+      "loading": "Ielādē...",
+      "listFailed": "Neizdevās ielādēt sarakstu",
+      "actionFailed": "Darbība neizdevās",
+      "inspectFailed": "Neizdevās ielādēt detaļas",
+      "noMatches": "Nav atbilstošu rezultātu",
+      "untagged": "Bez etiķetes",
+      "repository": "Depo",
+      "tag": "Etiķete",
+      "id": "ID",
+      "size": "Izmērs",
+      "created": "Izveidots",
+      "driver": "Draiveris",
+      "mountpoint": "Pievienošanas punkts",
+      "usage": "Izmantošana",
+      "inUse": "Lietošanā",
+      "unused": "Nekļūst lietots",
+      "all": "Visi",
+      "inspect": "Detaļas",
+      "prune": "Noņemt nelietotos",
+      "image": {
+        "title": "Attēli",
+        "count": "{{count}} attēli",
+        "add": "Ielādēt attēlu",
+        "save": "Ielādēt",
+        "ref": "Attēls",
+        "refHint": "Piemēram, nginx:latest vai ghcr.io/owner/app:1.2. Lielu attēlu ielāde var aizņemt laiku.",
+        "empty": "Šajā resursdatorā nav attēlu",
+        "confirmRemove": "Vai noņemt attēlu {{name}}?",
+        "confirmPrune": "Vai noņemt visus attēlus, kurus neizmanto neviens konteiners? Tas var atbrīvot daudz vietas, un attēlus vēlāk būs jāielādē atkārtoti."
+      },
+      "volume": {
+        "title": "Sējumi",
+        "count": "{{count}} sējumi",
+        "add": "Jauns sējums",
+        "save": "Izveidot",
+        "empty": "Šajā resursdatorā nav sējumu",
+        "confirmRemove": "Vai noņemt sējumu {{name}}? Tā dati tiks dzēsti.",
+        "confirmPrune": "Vai noņemt visus sējumus, kurus neizmanto neviens konteiners? To dati tiks dzēsti."
+      },
+      "network": {
+        "title": "Tīkli",
+        "count": "{{count}} tīkli",
+        "add": "Jauns tīkls",
+        "save": "Izveidot",
+        "subnet": "Apakštīkls (neobligāti)",
+        "empty": "Šajā resursdatorā nav tīklu",
+        "confirmRemove": "Vai noņemt tīklu {{name}}?",
+        "confirmPrune": "Vai noņemt visus tīklus, kurus neizmanto neviens konteiners?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "Nesderīgi konteineri"
+    },
+    "pullImage": {
+      "title": "Ielādēt attēlu"
+    },
+    "image": {
+      "ref": "Attēls"
+    },
+    "removeImage": {
+      "title": "Noņemt attēlu"
+    },
+    "pruneImages": {
+      "title": "Noņemt nelietotos attēlus",
+      "all": "Arī noņemt etiķetētos attēlus, kurus neizmanto neviens konteiners"
+    },
+    "createVolume": {
+      "title": "Izveidot sējumu",
+      "name": "Sējuma nosaukums"
+    },
+    "removeVolume": {
+      "title": "Noņemt sējumu",
+      "name": "Sējuma nosaukums"
+    },
+    "pruneVolumes": {
+      "title": "Noņemt nelietotos sējumus"
+    },
+    "createNetwork": {
+      "title": "Izveidot tīklu",
+      "name": "Tīkla nosaukums",
+      "driver": "Draiveris",
+      "subnet": "Apakštīkls",
+      "drivers": {
+        "bridge": "Tilta",
+        "overlay": "Pārklājuma",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Noņemt tīklu",
+      "name": "Tīkla nosaukums"
+    },
+    "pruneNetworks": {
+      "title": "Noņemt neizmantotos tīklus"
     }
+  },
+  "tree": {
+    "containers": "Konteineri"
   }
 }

@@ -226,6 +226,58 @@
       "updated": "{{name}} dikemas kini",
       "pulled": "Imej ditarik untuk {{name}}. Cipta semula bekas untuk menggunakannya.",
       "failed": "Tidak dapat kemas kini {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Cari...",
+      "loading": "Memuatkan...",
+      "listFailed": "Tidak dapat memuatkan senarai",
+      "actionFailed": "Tindakan gagal",
+      "inspectFailed": "Tidak dapat memuatkan butiran",
+      "noMatches": "Tiada padanan",
+      "untagged": "Tanpa tag",
+      "repository": "Repositori",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Saiz",
+      "created": "Dicipta",
+      "driver": "Pemacu",
+      "mountpoint": "Titik mount",
+      "usage": "Penggunaan",
+      "inUse": "Sedang digunakan",
+      "unused": "Tidak digunakan",
+      "all": "Semua",
+      "inspect": "Butiran",
+      "prune": "Buang yang tidak digunakan",
+      "image": {
+        "title": "Imej",
+        "count": "{{count}} imej",
+        "add": "Tarik imej",
+        "save": "Tarik",
+        "ref": "Imej",
+        "refHint": "Seperti nginx:latest atau ghcr.io/owner/app:1.2. Menarik imej besar mungkin mengambil masa yang lama.",
+        "empty": "Tiada imej pada hos ini",
+        "confirmRemove": "Buang imej {{name}}?",
+        "confirmPrune": "Buang semua imej yang tidak digunakan oleh mana-mana kontena? Ini boleh membebaskan banyak ruang, dan imej perlu ditarik semula kemudian."
+      },
+      "volume": {
+        "title": "Isipadu",
+        "count": "{{count}} isipadu",
+        "add": "Isipadu baharu",
+        "save": "Cipta",
+        "empty": "Tiada isipadu pada hos ini",
+        "confirmRemove": "Buang isipadu {{name}}? Datanya akan dipadam.",
+        "confirmPrune": "Buang semua isipadu yang tidak digunakan oleh mana-mana kontena? Datanya akan dipadam."
+      },
+      "network": {
+        "title": "Rangkaian",
+        "count": "{{count}} rangkaian",
+        "add": "Rangkaian baharu",
+        "save": "Cipta",
+        "subnet": "Subnet (pilihan)",
+        "empty": "Tiada rangkaian pada hos ini",
+        "confirmRemove": "Buang rangkaian {{name}}?",
+        "confirmPrune": "Buang semua rangkaian yang tidak digunakan oleh mana-mana kontena?"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "Kontena tidak sihat"
+    },
+    "pullImage": {
+      "title": "Tarik imej"
+    },
+    "image": {
+      "ref": "Imej"
+    },
+    "removeImage": {
+      "title": "Buang imej"
+    },
+    "pruneImages": {
+      "title": "Buang imej yang tidak digunakan",
+      "all": "Juga buang imej bertag yang tidak digunakan oleh mana-mana kontena"
+    },
+    "createVolume": {
+      "title": "Cipta isipadu",
+      "name": "Nama isipadu"
+    },
+    "removeVolume": {
+      "title": "Buang isipadu",
+      "name": "Nama isipadu"
+    },
+    "pruneVolumes": {
+      "title": "Buang isipadu yang tidak digunakan"
+    },
+    "createNetwork": {
+      "title": "Cipta rangkaian",
+      "name": "Nama rangkaian",
+      "driver": "Pemacu",
+      "subnet": "Subnet",
+      "drivers": {
+        "bridge": "Jambatan",
+        "overlay": "Tindanan",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Buang rangkaian",
+      "name": "Nama rangkaian"
+    },
+    "pruneNetworks": {
+      "title": "Buang rangkaian yang tidak digunakan"
     }
+  },
+  "tree": {
+    "containers": "Kontena"
   }
 }

@@ -228,6 +228,58 @@
       "updated": "{{name}} actualizat",
       "pulled": "Imaginea a fost descărcată pentru {{name}}. Recreează containerul pentru a o folosi.",
       "failed": "Nu s-a putut actualiza {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Caută...",
+      "loading": "Se încarcă...",
+      "listFailed": "Nu s-a putut încărca lista",
+      "actionFailed": "Acțiunea a eșuat",
+      "inspectFailed": "Nu s-au putut încărca detaliile",
+      "noMatches": "Niciun rezultat",
+      "untagged": "Fără etichetă",
+      "repository": "Depozit",
+      "tag": "Etichetă",
+      "id": "ID",
+      "size": "Dimensiune",
+      "created": "Creat",
+      "driver": "Driver",
+      "mountpoint": "Punct de montare",
+      "usage": "Utilizare",
+      "inUse": "În uz",
+      "unused": "Neutilizat",
+      "all": "Toate",
+      "inspect": "Detalii",
+      "prune": "Elimină neutilizatele",
+      "image": {
+        "title": "Imagini",
+        "count": "{{count}} imagini",
+        "add": "Descarcă imaginea",
+        "save": "Descarcă",
+        "ref": "Imagine",
+        "refHint": "De exemplu nginx:latest sau ghcr.io/owner/app:1.2. Descărcarea unei imagini mari poate dura ceva timp.",
+        "empty": "Nicio imagine pe acest gazdă",
+        "confirmRemove": "Elimini imaginea {{name}}?",
+        "confirmPrune": "Elimini toate imaginile pe care niciun container nu le folosește? Aceasta poate elibera mult spațiu, iar imaginile vor trebui descărcate din nou ulterior."
+      },
+      "volume": {
+        "title": "Volumuri",
+        "count": "{{count}} volume",
+        "add": "Volum nou",
+        "save": "Creează",
+        "empty": "Niciun volum pe acest gazdă",
+        "confirmRemove": "Elimini volumul {{name}}? Datele sale vor fi șterse.",
+        "confirmPrune": "Elimini toate volumurile pe care niciun container nu le folosește? Datele lor vor fi șterse."
+      },
+      "network": {
+        "title": "Rețele",
+        "count": "{{count}} rețele",
+        "add": "Rețea nouă",
+        "save": "Creează",
+        "subnet": "Subrețea (opțional)",
+        "empty": "Nicio rețea pe acest gazdă",
+        "confirmRemove": "Elimini rețeaua {{name}}?",
+        "confirmPrune": "Elimini toate rețelele pe care niciun container nu le folosește?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "Containere nesănătoase"
+    },
+    "pullImage": {
+      "title": "Descarcă imaginea"
+    },
+    "image": {
+      "ref": "Imagine"
+    },
+    "removeImage": {
+      "title": "Elimină imaginea"
+    },
+    "pruneImages": {
+      "title": "Elimină imaginile neutilizate",
+      "all": "Elimină și imaginile cu etichetă pe care niciun container nu le folosește"
+    },
+    "createVolume": {
+      "title": "Creează volum",
+      "name": "Nume volum"
+    },
+    "removeVolume": {
+      "title": "Elimină volumul",
+      "name": "Nume volum"
+    },
+    "pruneVolumes": {
+      "title": "Elimină volumurile neutilizate"
+    },
+    "createNetwork": {
+      "title": "Creează rețea",
+      "name": "Nume rețea",
+      "driver": "Driver",
+      "subnet": "Subrețea",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Elimină rețeaua",
+      "name": "Numele rețelei"
+    },
+    "pruneNetworks": {
+      "title": "Elimină rețelele neutilizate"
     }
+  },
+  "tree": {
+    "containers": "Containere"
   }
 }

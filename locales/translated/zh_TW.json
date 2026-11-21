@@ -226,6 +226,58 @@
       "updated": "{{name}} 已更新",
       "pulled": "已拉取 {{name}} 的映像。請重新建立容器以使用它。",
       "failed": "無法更新 {{name}}：{{error}}"
+    },
+    "resources": {
+      "search": "搜尋...",
+      "loading": "載入中...",
+      "listFailed": "無法載入清單",
+      "actionFailed": "動作失敗",
+      "inspectFailed": "無法載入詳細資訊",
+      "noMatches": "沒有相符項目",
+      "untagged": "未標記",
+      "repository": "存放庫",
+      "tag": "標籤",
+      "id": "ID",
+      "size": "大小",
+      "created": "建立時間",
+      "driver": "驅動程式",
+      "mountpoint": "掛載點",
+      "usage": "使用量",
+      "inUse": "使用中",
+      "unused": "未使用",
+      "all": "全部",
+      "inspect": "詳細資訊",
+      "prune": "移除未使用項目",
+      "image": {
+        "title": "映像檔",
+        "count": "{{count}} 個映像檔",
+        "add": "拉取映像檔",
+        "save": "拉取",
+        "ref": "映像檔",
+        "refHint": "例如 nginx:latest 或 ghcr.io/owner/app:1.2。拉取大型映像檔可能需要一些時間。",
+        "empty": "此主機上沒有映像檔",
+        "confirmRemove": "要移除映像檔 {{name}} 嗎？",
+        "confirmPrune": "要移除所有未被容器使用的映像檔嗎？這可以釋放大量空間，但這些映像檔之後需要重新拉取。"
+      },
+      "volume": {
+        "title": "資料卷",
+        "count": "{{count}} 個資料卷",
+        "add": "新增資料卷",
+        "save": "建立",
+        "empty": "此主機上沒有資料卷",
+        "confirmRemove": "要移除資料卷 {{name}} 嗎？其資料將被刪除。",
+        "confirmPrune": "要移除所有未被容器使用的資料卷嗎？其資料將被刪除。"
+      },
+      "network": {
+        "title": "網路",
+        "count": "{{count}} 個網路",
+        "add": "新增網路",
+        "save": "建立",
+        "subnet": "子網路（選填）",
+        "empty": "此主機上沒有網路",
+        "confirmRemove": "要移除網路 {{name}} 嗎？",
+        "confirmPrune": "要移除所有未被容器使用的網路嗎？"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "狀態異常的容器"
+    },
+    "pullImage": {
+      "title": "拉取映像檔"
+    },
+    "image": {
+      "ref": "映像檔"
+    },
+    "removeImage": {
+      "title": "移除映像檔"
+    },
+    "pruneImages": {
+      "title": "移除未使用的映像檔",
+      "all": "同時移除未被容器使用的已標記映像檔"
+    },
+    "createVolume": {
+      "title": "建立資料卷",
+      "name": "資料卷名稱"
+    },
+    "removeVolume": {
+      "title": "移除資料卷",
+      "name": "資料卷名稱"
+    },
+    "pruneVolumes": {
+      "title": "移除未使用的資料卷"
+    },
+    "createNetwork": {
+      "title": "建立網路",
+      "name": "網路名稱",
+      "driver": "驅動程式",
+      "subnet": "子網路",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "移除網路",
+      "name": "網路名稱"
+    },
+    "pruneNetworks": {
+      "title": "移除未使用的網路"
     }
+  },
+  "tree": {
+    "containers": "容器"
   }
 }

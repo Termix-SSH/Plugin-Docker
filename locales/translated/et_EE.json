@@ -227,6 +227,58 @@
       "updated": "{{name}} uuendati",
       "pulled": "{{name}} pilt laaditi. Kasutamiseks loo konteiner uuesti.",
       "failed": "{{name}} uuendamine ei õnnestunud: {{error}}"
+    },
+    "resources": {
+      "search": "Otsi...",
+      "loading": "Laadimine...",
+      "listFailed": "Loetelu laadimine ei õnnestunud",
+      "actionFailed": "Tegevus ebaõnnestus",
+      "inspectFailed": "Üksikasjade laadimine ei õnnestunud",
+      "noMatches": "Ühtegi sobivat tulemust ei leitud",
+      "untagged": "Sildistamata",
+      "repository": "Hoidla",
+      "tag": "Silt",
+      "id": "ID",
+      "size": "Suurus",
+      "created": "Loodud",
+      "driver": "Juhtprogramm",
+      "mountpoint": "Haakimispunkt",
+      "usage": "Kasutus",
+      "inUse": "Kasutusel",
+      "unused": "Kasutamata",
+      "all": "Kõik",
+      "inspect": "Üksikasjad",
+      "prune": "Eemalda kasutamata",
+      "image": {
+        "title": "Pildid",
+        "count": "{{count}} pilti",
+        "add": "Laadi pilt alla",
+        "save": "Laadi alla",
+        "ref": "Pilt",
+        "refHint": "Näiteks nginx:latest või ghcr.io/owner/app:1.2. Suure pildi allalaadimine võib aega võtta.",
+        "empty": "Sellel hostil pole pilte",
+        "confirmRemove": "Kas eemaldada pilt {{name}}?",
+        "confirmPrune": "Kas eemaldada kõik pildid, mida ükski konteiner ei kasuta? See võib vabastada palju ruumi ja pildid tuleb hiljem uuesti alla laadida."
+      },
+      "volume": {
+        "title": "Mahuüksused",
+        "count": "{{count}} mahutit",
+        "add": "Uus mahuüksus",
+        "save": "Loo",
+        "empty": "Sellel hostil pole mahuüksusi",
+        "confirmRemove": "Kas eemaldada mahuüksus {{name}}? Selle andmed kustutatakse.",
+        "confirmPrune": "Kas eemaldada kõik mahuüksused, mida ükski konteiner ei kasuta? Nende andmed kustutatakse."
+      },
+      "network": {
+        "title": "Võrgud",
+        "count": "{{count}} võrgustikku",
+        "add": "Uus võrk",
+        "save": "Loo",
+        "subnet": "Alamvõrk (valikuline)",
+        "empty": "Sellel hostil pole võrke",
+        "confirmRemove": "Kas eemaldada võrk {{name}}?",
+        "confirmPrune": "Kas eemaldada kõik võrgud, mida ükski konteiner ei kasuta?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Ebatervislikud konteinerid"
+    },
+    "pullImage": {
+      "title": "Laadi pilt alla"
+    },
+    "image": {
+      "ref": "Pilt"
+    },
+    "removeImage": {
+      "title": "Eemalda pilt"
+    },
+    "pruneImages": {
+      "title": "Eemalda kasutamata pildid",
+      "all": "Eemalda ka sildistatud pildid, mida ükski konteiner ei kasuta"
+    },
+    "createVolume": {
+      "title": "Loo mahuüksus",
+      "name": "Mahuüksuse nimi"
+    },
+    "removeVolume": {
+      "title": "Eemalda mahuüksus",
+      "name": "Mahuüksuse nimi"
+    },
+    "pruneVolumes": {
+      "title": "Eemalda kasutamata mahuüksused"
+    },
+    "createNetwork": {
+      "title": "Loo võrk",
+      "name": "Võrgu nimi",
+      "driver": "Juhtprogramm",
+      "subnet": "Alamvõrk",
+      "drivers": {
+        "bridge": "Sild",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Eemalda võrk",
+      "name": "Võrgu nimi"
+    },
+    "pruneNetworks": {
+      "title": "Eemalda kasutamata võrgud"
     }
+  },
+  "tree": {
+    "containers": "Konteinerid"
   }
 }

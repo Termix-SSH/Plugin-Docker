@@ -229,6 +229,58 @@
       "updated": "{{name}} zaktualizowano",
       "pulled": "Obraz pobrany dla {{name}}. Odtwórz kontener, aby go użyć.",
       "failed": "Nie udało się zaktualizować {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Szukaj...",
+      "loading": "Ładowanie...",
+      "listFailed": "Nie udało się załadować listy",
+      "actionFailed": "Akcja nie powiodła się",
+      "inspectFailed": "Nie udało się załadować szczegółów",
+      "noMatches": "Brak wyników",
+      "untagged": "Bez tagu",
+      "repository": "Repozytorium",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Rozmiar",
+      "created": "Utworzono",
+      "driver": "Sterownik",
+      "mountpoint": "Punkt montowania",
+      "usage": "Użycie",
+      "inUse": "W użyciu",
+      "unused": "Nieużywane",
+      "all": "Wszystkie",
+      "inspect": "Szczegóły",
+      "prune": "Usuń nieużywane",
+      "image": {
+        "title": "Obrazy",
+        "count": "{{count}} obrazów",
+        "add": "Pobierz obraz",
+        "save": "Pobierz",
+        "ref": "Obraz",
+        "refHint": "Np. nginx:latest lub ghcr.io/owner/app:1.2. Pobieranie dużego obrazu może chwilę potrwać.",
+        "empty": "Brak obrazów na tym hoście",
+        "confirmRemove": "Usunąć obraz {{name}}?",
+        "confirmPrune": "Usunąć wszystkie obrazy, których nie używa żaden kontener? Może to zwolnić dużo miejsca, a obrazy będą musiały zostać pobrane ponownie."
+      },
+      "volume": {
+        "title": "Woluminy",
+        "count": "{{count}} woluminów",
+        "add": "Nowy wolumin",
+        "save": "Utwórz",
+        "empty": "Brak woluminów na tym hoście",
+        "confirmRemove": "Usunąć wolumin {{name}}? Jego dane zostaną usunięte.",
+        "confirmPrune": "Usunąć wszystkie woluminy, których nie używa żaden kontener? Ich dane zostaną usunięte."
+      },
+      "network": {
+        "title": "Sieci",
+        "count": "{{count}} sieci",
+        "add": "Nowa sieć",
+        "save": "Utwórz",
+        "subnet": "Podsieć (opcjonalnie)",
+        "empty": "Brak sieci na tym hoście",
+        "confirmRemove": "Usunąć sieć {{name}}?",
+        "confirmPrune": "Usunąć wszystkie sieci, których nie używa żaden kontener?"
+      }
     }
   },
   "nav": {
@@ -372,6 +424,52 @@
     },
     "unhealthy": {
       "title": "Niezdrowe kontenery"
+    },
+    "pullImage": {
+      "title": "Pobierz obraz"
+    },
+    "image": {
+      "ref": "Obraz"
+    },
+    "removeImage": {
+      "title": "Usuń obraz"
+    },
+    "pruneImages": {
+      "title": "Usuń nieużywane obrazy",
+      "all": "Usuń również obrazy z tagami, których nie używa żaden kontener"
+    },
+    "createVolume": {
+      "title": "Utwórz wolumin",
+      "name": "Nazwa woluminu"
+    },
+    "removeVolume": {
+      "title": "Usuń wolumin",
+      "name": "Nazwa woluminu"
+    },
+    "pruneVolumes": {
+      "title": "Usuń nieużywane woluminy"
+    },
+    "createNetwork": {
+      "title": "Utwórz sieć",
+      "name": "Nazwa sieci",
+      "driver": "Sterownik",
+      "subnet": "Podsieć",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Usuń sieć",
+      "name": "Nazwa sieci"
+    },
+    "pruneNetworks": {
+      "title": "Usuń nieużywane sieci"
     }
+  },
+  "tree": {
+    "containers": "Kontenery"
   }
 }

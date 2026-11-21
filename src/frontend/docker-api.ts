@@ -6,7 +6,12 @@ import {
 import type { ConnectionStage } from "@termix-ssh/plugin-sdk/ui";
 import type {
   DockerContainer,
+  DockerImage,
   DockerLogOptions,
+  DockerNetwork,
+  DockerVolume,
+  ResourceAction,
+  ResourceKind,
   DockerStats,
   DockerValidation,
   ImageUpdate,
@@ -173,6 +178,40 @@ function createDockerApi(api: PluginApiClient) {
       call<{ success: boolean; recreated: boolean; output: string }>(
         "update the container",
         () => api.post(`/updates/${sessionId}/${containerId}`),
+      ),
+
+    listImages: (sessionId: string) =>
+      call<DockerImage[]>("list images", () => api.get(`/images/${sessionId}`)),
+
+    listVolumes: (sessionId: string) =>
+      call<DockerVolume[]>("list volumes", () =>
+        api.get(`/volumes/${sessionId}`),
+      ),
+
+    listNetworks: (sessionId: string) =>
+      call<DockerNetwork[]>("list networks", () =>
+        api.get(`/networks/${sessionId}`),
+      ),
+
+    inspectResource: (sessionId: string, kind: ResourceKind, name: string) =>
+      call<unknown>(`inspect the ${kind}`, () =>
+        api.get(`/inspect/${sessionId}/${kind}`, { params: { name } }),
+      ),
+
+    resourceAction: (
+      sessionId: string,
+      action: ResourceAction,
+      body: {
+        image?: string;
+        name?: string;
+        driver?: string;
+        subnet?: string;
+        force?: boolean;
+        all?: boolean;
+      } = {},
+    ) =>
+      call<{ success: boolean; message: string }>("run the action", () =>
+        api.post(`/resources/${sessionId}/${action}`, body),
       ),
 
     stacksStatus: () =>

@@ -227,6 +227,58 @@
       "updated": "{{name}} bijgewerkt",
       "pulled": "Beeld opgehaald voor {{name}}. Maak de container opnieuw aan om deze te gebruiken.",
       "failed": "Kon {{name}} niet bijwerken: {{error}}"
+    },
+    "resources": {
+      "search": "Zoeken...",
+      "loading": "Laden...",
+      "listFailed": "De lijst kan niet worden geladen",
+      "actionFailed": "De actie is mislukt",
+      "inspectFailed": "De details kunnen niet worden geladen",
+      "noMatches": "Geen overeenkomsten",
+      "untagged": "Zonder tag",
+      "repository": "Repository",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Grootte",
+      "created": "Aangemaakt",
+      "driver": "Driver",
+      "mountpoint": "Mountpunt",
+      "usage": "Gebruik",
+      "inUse": "In gebruik",
+      "unused": "Niet in gebruik",
+      "all": "Alles",
+      "inspect": "Details",
+      "prune": "Niet-gebruikte verwijderen",
+      "image": {
+        "title": "Images",
+        "count": "one: {{count}} image",
+        "add": "Image ophalen",
+        "save": "Ophalen",
+        "ref": "Image",
+        "refHint": "Bijvoorbeeld nginx:latest of ghcr.io/owner/app:1.2. Het ophalen van een grote image kan even duren.",
+        "empty": "Geen images op deze host",
+        "confirmRemove": "Image {{name}} verwijderen?",
+        "confirmPrune": "Elke image die door geen enkele container wordt gebruikt, verwijderen? Dit kan veel ruimte vrijmaken, maar de images moeten later opnieuw worden opgehaald."
+      },
+      "volume": {
+        "title": "Volumes",
+        "count": "one: {{count}} volume",
+        "add": "Nieuwe volume",
+        "save": "Maken",
+        "empty": "Geen volumes op deze host",
+        "confirmRemove": "Volume {{name}} verwijderen? De gegevens worden verwijderd.",
+        "confirmPrune": "Elke volume die door geen enkele container wordt gebruikt, verwijderen? De gegevens worden verwijderd."
+      },
+      "network": {
+        "title": "Netwerken",
+        "count": "one: {{count}} netwerk",
+        "add": "Nieuw netwerk",
+        "save": "Maken",
+        "subnet": "Subnet (optioneel)",
+        "empty": "Geen netwerken op deze host",
+        "confirmRemove": "Netwerk {{name}} verwijderen?",
+        "confirmPrune": "Elk netwerk dat door geen enkele container wordt gebruikt, verwijderen?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Ongezonde containers"
+    },
+    "pullImage": {
+      "title": "Image ophalen"
+    },
+    "image": {
+      "ref": "Image"
+    },
+    "removeImage": {
+      "title": "Image verwijderen"
+    },
+    "pruneImages": {
+      "title": "Niet-gebruikte images verwijderen",
+      "all": "Verwijder ook getagde images die door geen enkele container worden gebruikt"
+    },
+    "createVolume": {
+      "title": "Volume maken",
+      "name": "Volumenaam"
+    },
+    "removeVolume": {
+      "title": "Volume verwijderen",
+      "name": "Volumenaam"
+    },
+    "pruneVolumes": {
+      "title": "Niet-gebruikte volumes verwijderen"
+    },
+    "createNetwork": {
+      "title": "Netwerk maken",
+      "name": "Netwerknaam",
+      "driver": "Driver",
+      "subnet": "Subnet",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Netwerk verwijderen",
+      "name": "Netwerknaam"
+    },
+    "pruneNetworks": {
+      "title": "Ongebruikte netwerken verwijderen"
     }
+  },
+  "tree": {
+    "containers": "Containers"
   }
 }

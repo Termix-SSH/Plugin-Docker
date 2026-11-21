@@ -114,6 +114,12 @@
       "access": "user",
       "permission": "docker.use"
     },
+    "GET /plugin-api/docker/tree": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Answers only for a host the caller can list with Docker on; the test data has none",
+      "allowed": "any"
+    },
     "GET /plugin-api/docker/updates/:sessionId": {
       "access": "user",
       "permission": "docker.use",
@@ -133,6 +139,38 @@
     "WS /plugin-ws/docker/console": {
       "access": "user",
       "permission": "docker.use"
+    },
+    "GET /plugin-api/docker/images/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/volumes/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/networks/:sessionId": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
+    },
+    "GET /plugin-api/docker/inspect/:sessionId/:kind": {
+      "access": "user",
+      "permission": "docker.use",
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data",
+      "params": {
+        "kind": "=image"
+      },
+      "query": {
+        "name": "authz"
+      }
+    },
+    "POST /plugin-api/docker/resources/:sessionId/:action": {
+      "access": "user",
+      "permission": "docker.use",
+      "destructive": true,
+      "note": "Keyed by a live session looked up with the caller; none exists in the test data"
     }
   }
 }

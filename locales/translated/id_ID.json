@@ -226,6 +226,58 @@
       "updated": "{{name}} telah diperbarui",
       "pulled": "Gambar untuk {{name}} telah ditarik. Buat ulang kontainer untuk menggunakannya.",
       "failed": "Gagal memperbarui {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Cari...",
+      "loading": "Memuat...",
+      "listFailed": "Tidak dapat memuat daftar",
+      "actionFailed": "Tindakan gagal",
+      "inspectFailed": "Tidak dapat memuat detail",
+      "noMatches": "Tidak ada yang cocok",
+      "untagged": "Tanpa tag",
+      "repository": "Repositori",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Ukuran",
+      "created": "Dibuat",
+      "driver": "Driver",
+      "mountpoint": "Titik mount",
+      "usage": "Penggunaan",
+      "inUse": "Sedang digunakan",
+      "unused": "Tidak digunakan",
+      "all": "Semua",
+      "inspect": "Detail",
+      "prune": "Hapus yang tidak digunakan",
+      "image": {
+        "title": "Gambar",
+        "count": "{{count}} gambar",
+        "add": "Tarik gambar",
+        "save": "Tarik",
+        "ref": "Gambar",
+        "refHint": "Seperti nginx:latest atau ghcr.io/owner/app:1.2. Menarik gambar besar bisa memakan waktu.",
+        "empty": "Tidak ada gambar di host ini",
+        "confirmRemove": "Hapus gambar {{name}}?",
+        "confirmPrune": "Hapus semua gambar yang tidak digunakan oleh kontainer? Ini dapat membebaskan banyak ruang, dan gambar harus ditarik lagi nanti."
+      },
+      "volume": {
+        "title": "Volume",
+        "count": "{{count}} volume",
+        "add": "Volume baru",
+        "save": "Buat",
+        "empty": "Tidak ada volume di host ini",
+        "confirmRemove": "Hapus volume {{name}}? Datanya akan dihapus.",
+        "confirmPrune": "Hapus semua volume yang tidak digunakan oleh kontainer? Datanya akan dihapus."
+      },
+      "network": {
+        "title": "Jaringan",
+        "count": "{{count}} jaringan",
+        "add": "Jaringan baru",
+        "save": "Buat",
+        "subnet": "Subnet (opsional)",
+        "empty": "Tidak ada jaringan di host ini",
+        "confirmRemove": "Hapus jaringan {{name}}?",
+        "confirmPrune": "Hapus semua jaringan yang tidak digunakan oleh kontainer?"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "Kontainer tidak sehat"
+    },
+    "pullImage": {
+      "title": "Tarik gambar"
+    },
+    "image": {
+      "ref": "Gambar"
+    },
+    "removeImage": {
+      "title": "Hapus gambar"
+    },
+    "pruneImages": {
+      "title": "Hapus gambar yang tidak digunakan",
+      "all": "Juga hapus gambar yang diberi tag tetapi tidak digunakan oleh kontainer"
+    },
+    "createVolume": {
+      "title": "Buat volume",
+      "name": "Nama volume"
+    },
+    "removeVolume": {
+      "title": "Hapus volume",
+      "name": "Nama volume"
+    },
+    "pruneVolumes": {
+      "title": "Hapus volume yang tidak digunakan"
+    },
+    "createNetwork": {
+      "title": "Buat jaringan",
+      "name": "Nama jaringan",
+      "driver": "Driver",
+      "subnet": "Subnet",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Hapus jaringan",
+      "name": "Nama jaringan"
+    },
+    "pruneNetworks": {
+      "title": "Hapus jaringan yang tidak digunakan"
     }
+  },
+  "tree": {
+    "containers": "Kontainer"
   }
 }

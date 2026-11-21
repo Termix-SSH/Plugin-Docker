@@ -18,6 +18,7 @@ import {
 import { readDockerHostSettings } from "./host-settings.js";
 import { registerStacks } from "./stacks.js";
 import { registerUpdates } from "./updates.js";
+import { registerResourceRoutes } from "./resources.js";
 import type { DockerSession, DockerSessions } from "./sessions.js";
 import {
   CONTAINER_ID_RE,
@@ -1010,4 +1011,5 @@ export function registerRoutes(router: Router, { ctx, sessions, log }: Deps) {
 
   registerUpdates(router, { sessions, log, sessionOf, canChange });
   registerStacks(router, { ctx, sessions, log, sessionOf, canChange });
+  registerResourceRoutes(router, { ctx, sessions, log, sessionOf, refused });
 }

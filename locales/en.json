@@ -227,6 +227,58 @@
       "updated": "{{name}} updated",
       "pulled": "Image pulled for {{name}}. Recreate the container to use it.",
       "failed": "Could not update {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Search...",
+      "loading": "Loading...",
+      "listFailed": "Could not load the list",
+      "actionFailed": "The action failed",
+      "inspectFailed": "Could not load the details",
+      "noMatches": "Nothing matches",
+      "untagged": "Untagged",
+      "repository": "Repository",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Size",
+      "created": "Created",
+      "driver": "Driver",
+      "mountpoint": "Mountpoint",
+      "usage": "Usage",
+      "inUse": "In use",
+      "unused": "Unused",
+      "all": "All",
+      "inspect": "Details",
+      "prune": "Remove unused",
+      "image": {
+        "title": "Images",
+        "count": "{{count}} images",
+        "add": "Pull image",
+        "save": "Pull",
+        "ref": "Image",
+        "refHint": "Like nginx:latest or ghcr.io/owner/app:1.2. Pulling a big image can take a while.",
+        "empty": "No images on this host",
+        "confirmRemove": "Remove image {{name}}?",
+        "confirmPrune": "Remove every image that no container uses? This can free a lot of space, and the images have to be pulled again later."
+      },
+      "volume": {
+        "title": "Volumes",
+        "count": "{{count}} volumes",
+        "add": "New volume",
+        "save": "Create",
+        "empty": "No volumes on this host",
+        "confirmRemove": "Remove volume {{name}}? Its data is deleted.",
+        "confirmPrune": "Remove every volume that no container uses? Their data is deleted."
+      },
+      "network": {
+        "title": "Networks",
+        "count": "{{count}} networks",
+        "add": "New network",
+        "save": "Create",
+        "subnet": "Subnet (optional)",
+        "empty": "No networks on this host",
+        "confirmRemove": "Remove network {{name}}?",
+        "confirmPrune": "Remove every network that no container uses?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Unhealthy containers"
+    },
+    "pullImage": {
+      "title": "Pull image"
+    },
+    "image": {
+      "ref": "Image"
+    },
+    "removeImage": {
+      "title": "Remove image"
+    },
+    "pruneImages": {
+      "title": "Remove unused images",
+      "all": "Also remove tagged images no container uses"
+    },
+    "createVolume": {
+      "title": "Create volume",
+      "name": "Volume name"
+    },
+    "removeVolume": {
+      "title": "Remove volume",
+      "name": "Volume name"
+    },
+    "pruneVolumes": {
+      "title": "Remove unused volumes"
+    },
+    "createNetwork": {
+      "title": "Create network",
+      "name": "Network name",
+      "driver": "Driver",
+      "subnet": "Subnet",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Remove network",
+      "name": "Network name"
+    },
+    "pruneNetworks": {
+      "title": "Remove unused networks"
     }
+  },
+  "tree": {
+    "containers": "Containers"
   }
 }

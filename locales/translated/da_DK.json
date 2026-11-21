@@ -227,6 +227,58 @@
       "updated": "{{name}} opdateret",
       "pulled": "Billede hentet for {{name}}. Opret containeren igen for at bruge det.",
       "failed": "Kunne ikke opdatere {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Søg...",
+      "loading": "Indlæser...",
+      "listFailed": "Kunne ikke indlæse listen",
+      "actionFailed": "Handlingen mislykkedes",
+      "inspectFailed": "Kunne ikke indlæse detaljerne",
+      "noMatches": "Ingen resultater",
+      "untagged": "Uden tag",
+      "repository": "Repository",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Størrelse",
+      "created": "Oprettet",
+      "driver": "Driver",
+      "mountpoint": "Mountpunkt",
+      "usage": "Forbrug",
+      "inUse": "I brug",
+      "unused": "Ikke i brug",
+      "all": "Alle",
+      "inspect": "Detaljer",
+      "prune": "Fjern ubrugte",
+      "image": {
+        "title": "Billeder",
+        "count": "{{count}} billeder",
+        "add": "Træk billede",
+        "save": "Træk",
+        "ref": "Billede",
+        "refHint": "F.eks. nginx:latest eller ghcr.io/owner/app:1.2. Det kan tage lidt tid at trække et stort billede.",
+        "empty": "Ingen billeder på denne host",
+        "confirmRemove": "Fjern billedet {{name}}?",
+        "confirmPrune": "Fjern alle billeder, som ingen container bruger? Det kan frigøre meget plads, og billederne skal trækkes igen senere."
+      },
+      "volume": {
+        "title": "Volumener",
+        "count": "{{count}} volumener",
+        "add": "Nyt volumen",
+        "save": "Opret",
+        "empty": "Ingen volumener på denne host",
+        "confirmRemove": "Fjern volumenet {{name}}? Dets data slettes.",
+        "confirmPrune": "Fjern alle volumener, som ingen container bruger? Deres data slettes."
+      },
+      "network": {
+        "title": "Netværk",
+        "count": "{{count}} netværk",
+        "add": "Nyt netværk",
+        "save": "Opret",
+        "subnet": "Subnet (valgfrit)",
+        "empty": "Ingen netværk på denne host",
+        "confirmRemove": "Fjern netværket {{name}}?",
+        "confirmPrune": "Fjern alle netværk, som ingen container bruger?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Usunde containere"
+    },
+    "pullImage": {
+      "title": "Træk billede"
+    },
+    "image": {
+      "ref": "Billede"
+    },
+    "removeImage": {
+      "title": "Fjern billede"
+    },
+    "pruneImages": {
+      "title": "Fjern ubrugte billeder",
+      "all": "Fjern også taggede billeder, som ingen container bruger"
+    },
+    "createVolume": {
+      "title": "Opret volumen",
+      "name": "Volumennavn"
+    },
+    "removeVolume": {
+      "title": "Fjern volumen",
+      "name": "Volumennavn"
+    },
+    "pruneVolumes": {
+      "title": "Fjern ubrugte volumener"
+    },
+    "createNetwork": {
+      "title": "Opret netværk",
+      "name": "Netværksnavn",
+      "driver": "Driver",
+      "subnet": "Subnet",
+      "drivers": {
+        "bridge": "Bro",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Fjern netværk",
+      "name": "Netværksnavn"
+    },
+    "pruneNetworks": {
+      "title": "Fjern ubrugte netværk"
     }
+  },
+  "tree": {
+    "containers": "Containere"
   }
 }

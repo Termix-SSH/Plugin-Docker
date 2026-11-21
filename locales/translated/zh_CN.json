@@ -226,6 +226,58 @@
       "updated": "{{name}} 已更新",
       "pulled": "已为 {{name}} 拉取镜像。请重建容器以使用新镜像。",
       "failed": "无法更新 {{name}}：{{error}}"
+    },
+    "resources": {
+      "search": "搜索...",
+      "loading": "加载中...",
+      "listFailed": "无法加载列表",
+      "actionFailed": "操作失败",
+      "inspectFailed": "无法加载详细信息",
+      "noMatches": "无匹配结果",
+      "untagged": "未标记",
+      "repository": "仓库",
+      "tag": "标签",
+      "id": "ID",
+      "size": "大小",
+      "created": "创建时间",
+      "driver": "驱动",
+      "mountpoint": "挂载点",
+      "usage": "使用情况",
+      "inUse": "使用中",
+      "unused": "未使用",
+      "all": "全部",
+      "inspect": "详细信息",
+      "prune": "移除未使用的",
+      "image": {
+        "title": "镜像",
+        "count": "{{count}} 个镜像",
+        "add": "拉取镜像",
+        "save": "拉取",
+        "ref": "镜像",
+        "refHint": "例如 nginx:latest 或 ghcr.io/owner/app:1.2。拉取大镜像可能需要一些时间。",
+        "empty": "此主机上没有镜像",
+        "confirmRemove": "确定要移除镜像 {{name}} 吗？",
+        "confirmPrune": "确定要移除所有未被容器使用的镜像吗？这将释放大量空间，且这些镜像之后需要重新拉取。"
+      },
+      "volume": {
+        "title": "卷",
+        "count": "{{count}} 个卷",
+        "add": "新建卷",
+        "save": "创建",
+        "empty": "此主机上没有卷",
+        "confirmRemove": "确定要移除卷 {{name}} 吗？其数据将被删除。",
+        "confirmPrune": "确定要移除所有未被容器使用的卷吗？其数据将被删除。"
+      },
+      "network": {
+        "title": "网络",
+        "count": "{{count}} 个网络",
+        "add": "新建网络",
+        "save": "创建",
+        "subnet": "子网（可选）",
+        "empty": "此主机上没有网络",
+        "confirmRemove": "确定要移除网络 {{name}} 吗？",
+        "confirmPrune": "确定要移除所有未被容器使用的网络吗？"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "不健康的容器"
+    },
+    "pullImage": {
+      "title": "拉取镜像"
+    },
+    "image": {
+      "ref": "镜像"
+    },
+    "removeImage": {
+      "title": "移除镜像"
+    },
+    "pruneImages": {
+      "title": "移除未使用的镜像",
+      "all": "同时移除未被容器使用的已标记镜像"
+    },
+    "createVolume": {
+      "title": "创建卷",
+      "name": "卷名称"
+    },
+    "removeVolume": {
+      "title": "移除卷",
+      "name": "卷名称"
+    },
+    "pruneVolumes": {
+      "title": "移除未使用的卷"
+    },
+    "createNetwork": {
+      "title": "创建网络",
+      "name": "网络名称",
+      "driver": "驱动",
+      "subnet": "子网",
+      "drivers": {
+        "bridge": "桥接",
+        "overlay": "覆盖",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "移除网络",
+      "name": "网络名称"
+    },
+    "pruneNetworks": {
+      "title": "移除未使用的网络"
     }
+  },
+  "tree": {
+    "containers": "容器"
   }
 }

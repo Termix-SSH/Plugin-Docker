@@ -228,6 +228,58 @@
       "updated": "{{name}} עודכן",
       "pulled": "תמונה נמשכה עבור {{name}}. צור מחדש את המיכל כדי להשתמש בה.",
       "failed": "לא ניתן לעדכן את {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "חיפוש...",
+      "loading": "טוען...",
+      "listFailed": "לא ניתן לטעון את הרשימה",
+      "actionFailed": "הפעולה נכשלה",
+      "inspectFailed": "לא ניתן לטעון את הפרטים",
+      "noMatches": "אין תוצאות תואמות",
+      "untagged": "ללא תג",
+      "repository": "מאגר",
+      "tag": "תג",
+      "id": "מזהה",
+      "size": "גודל",
+      "created": "נוצר",
+      "driver": "נהג",
+      "mountpoint": "נקודת חיבור",
+      "usage": "שימוש",
+      "inUse": "בשימוש",
+      "unused": "לא בשימוש",
+      "all": "הכל",
+      "inspect": "פרטים",
+      "prune": "הסר לא בשימוש",
+      "image": {
+        "title": "דגמים",
+        "count": "תמונות: {{count}}",
+        "add": "הורד דגם",
+        "save": "הורד",
+        "ref": "דגם",
+        "refHint": "למשל nginx:latest או ghcr.io/owner/app:1.2. הורדת דגם גדול עשויה לקחת זמן.",
+        "empty": "אין דגמים במארח זה",
+        "confirmRemove": "להסיר את הדגם {{name}}?",
+        "confirmPrune": "להסיר כל דגם שאף מיכל לא משתמש בו? פעולה זו יכולה לשחרר הרבה מקום, והדגמים יצטרכו להיורד שוב מאוחר יותר."
+      },
+      "volume": {
+        "title": "כרכים",
+        "count": "כרכים: {{count}}",
+        "add": "כרך חדש",
+        "save": "צור",
+        "empty": "אין כרכים במארח זה",
+        "confirmRemove": "להסיר את הכרך {{name}}? הנתונים שלו יימחקו.",
+        "confirmPrune": "להסיר כל כרך שאף מיכל לא משתמש בו? הנתונים שלהם יימחקו."
+      },
+      "network": {
+        "title": "רשתות",
+        "count": "רשתות: {{count}}",
+        "add": "רשת חדשה",
+        "save": "צור",
+        "subnet": "תת-רשת (אופציונלי)",
+        "empty": "אין רשתות במארח זה",
+        "confirmRemove": "להסיר את הרשת {{name}}?",
+        "confirmPrune": "להסיר כל רשת שאף מיכל לא משתמש בה?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "מיכלים לא תקינים"
+    },
+    "pullImage": {
+      "title": "הורד דגם"
+    },
+    "image": {
+      "ref": "דגם"
+    },
+    "removeImage": {
+      "title": "הסר דגם"
+    },
+    "pruneImages": {
+      "title": "הסר דגמים לא בשימוש",
+      "all": "הסר גם דגמים עם תג שאף מיכל לא משתמש בהם"
+    },
+    "createVolume": {
+      "title": "צור כרך",
+      "name": "שם כרך"
+    },
+    "removeVolume": {
+      "title": "הסר כרך",
+      "name": "שם כרך"
+    },
+    "pruneVolumes": {
+      "title": "הסר כרכים לא בשימוש"
+    },
+    "createNetwork": {
+      "title": "צור רשת",
+      "name": "שם רשת",
+      "driver": "נהג",
+      "subnet": "תת-רשת",
+      "drivers": {
+        "bridge": "גשר",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "הסר רשת",
+      "name": "שם הרשת"
+    },
+    "pruneNetworks": {
+      "title": "הסר רשתות לא בשימוש"
     }
+  },
+  "tree": {
+    "containers": "מיכלים"
   }
 }

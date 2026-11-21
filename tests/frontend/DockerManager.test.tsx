@@ -42,6 +42,10 @@ function stubApi(connectResult: Record<string, unknown>) {
         data: { available: true, version: "27.1.1", runtime: "docker" },
       };
     }
+    if (url.startsWith("/updates/")) return { data: { images: {} } };
+    if (url.includes("/abc123")) {
+      return { data: { logs: "", stats: null } };
+    }
     if (url.startsWith("/containers/")) {
       return {
         data: [
@@ -114,6 +118,34 @@ describe("DockerManager", () => {
       expect(api.get).toHaveBeenCalledWith(
         expect.stringMatching(/^\/validate\//),
       ),
+    );
+  });
+
+  it("opens the container a host tree asked for", async () => {
+    const api = stubApi({ success: true, status: "success" });
+    rendered = await renderWithApp(plugin, {
+      manifest,
+      locales,
+      hosts: [host(true)],
+      api,
+    });
+    rendered.renderTab("docker", {
+      host: host(true),
+      label: "box",
+      isVisible: true,
+      tab: {
+        id: "docker-1",
+        instanceId: "docker-1",
+        type: "docker",
+        label: "box",
+        data: { focus: { container: "web" } },
+      },
+    });
+    // The detail view loads that container.
+    await waitFor(() =>
+      expect(
+        api.get.mock.calls.some(([url]) => String(url).includes("/abc123")),
+      ).toBe(true),
     );
   });
 

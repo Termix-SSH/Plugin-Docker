@@ -227,6 +227,58 @@
       "updated": "{{name}} güncellendi",
       "pulled": "{{name}} için görüntü çekildi. Kullanmak için konteyneri yeniden oluşturun.",
       "failed": "{{name}} güncellenemedi: {{error}}"
+    },
+    "resources": {
+      "search": "Ara...",
+      "loading": "Yükleniyor...",
+      "listFailed": "Liste yüklenemedi",
+      "actionFailed": "İşlem başarısız oldu",
+      "inspectFailed": "Ayrıntılar yüklenemedi",
+      "noMatches": "Eşleşen sonuç yok",
+      "untagged": "Etiketsiz",
+      "repository": "Depo",
+      "tag": "Etiket",
+      "id": "Kimlik",
+      "size": "Boyut",
+      "created": "Oluşturulma",
+      "driver": "Sürücü",
+      "mountpoint": "Bağlama Noktası",
+      "usage": "Kullanım",
+      "inUse": "Kullanımda",
+      "unused": "Kullanılmayan",
+      "all": "Tümü",
+      "inspect": "Ayrıntılar",
+      "prune": "Kullanılmayanları kaldır",
+      "image": {
+        "title": "Görüntüler",
+        "count": "{{count}} görüntü",
+        "add": "Görüntü çek",
+        "save": "Çek",
+        "ref": "Görüntü",
+        "refHint": "nginx:latest veya ghcr.io/owner/app:1.2 gibi. Büyük bir görüntü çekmek biraz zaman alabilir.",
+        "empty": "Bu sunucuda görüntü yok",
+        "confirmRemove": "{{name}} görüntüsü kaldırılsın mı?",
+        "confirmPrune": "Hiçbir kapsayıcının kullanmadığı tüm görüntüler kaldırılsın mı? Bu işlem çok yer açabilir ve görüntüler daha sonra tekrar çekilmek zorunda kalır."
+      },
+      "volume": {
+        "title": "Hacimler",
+        "count": "{{count}} hacim",
+        "add": "Yeni hacim",
+        "save": "Oluştur",
+        "empty": "Bu sunucuda hacim yok",
+        "confirmRemove": "{{name}} hacimi kaldırılsın mı? Verileri silinecektir.",
+        "confirmPrune": "Hiçbir kapsayıcının kullanmadığı tüm hacimler kaldırılsın mı? Verileri silinecektir."
+      },
+      "network": {
+        "title": "Ağlar",
+        "count": "{{count}} ağ",
+        "add": "Yeni ağ",
+        "save": "Oluştur",
+        "subnet": "Alt ağ (isteğe bağlı)",
+        "empty": "Bu sunucuda ağ yok",
+        "confirmRemove": "{{name}} ağı kaldırılsın mı?",
+        "confirmPrune": "Hiçbir kapsayıcının kullanmadığı tüm ağlar kaldırılsın mı?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Sağlıksız konteynerler"
+    },
+    "pullImage": {
+      "title": "Görüntü çek"
+    },
+    "image": {
+      "ref": "Görüntü"
+    },
+    "removeImage": {
+      "title": "Görüntüyü kaldır"
+    },
+    "pruneImages": {
+      "title": "Kullanılmayan görüntüleri kaldır",
+      "all": "Hiçbir kapsayıcının kullanmadığı etiketli görüntüleri de kaldır"
+    },
+    "createVolume": {
+      "title": "Hacim oluştur",
+      "name": "Hacim adı"
+    },
+    "removeVolume": {
+      "title": "Hacimi kaldır",
+      "name": "Hacim adı"
+    },
+    "pruneVolumes": {
+      "title": "Kullanılmayan hacimleri kaldır"
+    },
+    "createNetwork": {
+      "title": "Ağ oluştur",
+      "name": "Ağ adı",
+      "driver": "Sürücü",
+      "subnet": "Alt ağ",
+      "drivers": {
+        "bridge": "Köprü",
+        "overlay": "Üstüne Bindirme",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Ağ kaldır",
+      "name": "Ağ adı"
+    },
+    "pruneNetworks": {
+      "title": "Kullanılmayan ağları kaldır"
     }
+  },
+  "tree": {
+    "containers": "Konteynerler"
   }
 }

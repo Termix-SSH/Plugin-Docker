@@ -227,6 +227,58 @@
       "updated": "{{name}} frissítve",
       "pulled": "{{name}} képe letöltve. Hozd létre újra a konténert a használatához.",
       "failed": "{{name}} frissítése sikertelen: {{error}}"
+    },
+    "resources": {
+      "search": "Keresés...",
+      "loading": "Betöltés...",
+      "listFailed": "A lista nem tölthető be",
+      "actionFailed": "A művelet sikertelen",
+      "inspectFailed": "A részletek nem tölthetők be",
+      "noMatches": "Nincs találat",
+      "untagged": "Címkézetlen",
+      "repository": "Tároló",
+      "tag": "Címke",
+      "id": "Azonosító",
+      "size": "Méret",
+      "created": "Létrehozva",
+      "driver": "Illesztőprogram",
+      "mountpoint": "Csatolási pont",
+      "usage": "Használat",
+      "inUse": "Használatban",
+      "unused": "Használaton kívüli",
+      "all": "Összes",
+      "inspect": "Részletek",
+      "prune": "Használaton kívüli elemek eltávolítása",
+      "image": {
+        "title": "Képek",
+        "count": "{{count}} kép",
+        "add": "Kép letöltése",
+        "save": "Letöltés",
+        "ref": "Kép",
+        "refHint": "Például nginx:latest vagy ghcr.io/owner/app:1.2. Egy nagy kép letöltése eltarthat egy ideig.",
+        "empty": "Nincsenek képek ezen a gazdagépen",
+        "confirmRemove": "Eltávolítja a(z) {{name}} képet?",
+        "confirmPrune": "Eltávolítja az összes olyan képet, amelyet egyetlen konténer sem használ? Ez sok helyet szabadíthat fel, és a képeket később újra le kell tölteni."
+      },
+      "volume": {
+        "title": "Kötetek",
+        "count": "{{count}} kötet",
+        "add": "Új kötet",
+        "save": "Létrehozás",
+        "empty": "Nincsenek kötetek ezen a gazdagépen",
+        "confirmRemove": "Eltávolítja a(z) {{name}} kötetet? Az adatai törlődnek.",
+        "confirmPrune": "Eltávolítja az összes olyan kötetet, amelyet egyetlen konténer sem használ? Az adataik törlődnek."
+      },
+      "network": {
+        "title": "Hálózatok",
+        "count": "{{count}} hálózat",
+        "add": "Új hálózat",
+        "save": "Létrehozás",
+        "subnet": "Alhálózat (opcionális)",
+        "empty": "Nincsenek hálózatok ezen a gazdagépen",
+        "confirmRemove": "Eltávolítja a(z) {{name}} hálózatot?",
+        "confirmPrune": "Eltávolítja az összes olyan hálózatot, amelyet egyetlen konténer sem használ?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Nem egészséges konténerek"
+    },
+    "pullImage": {
+      "title": "Kép letöltése"
+    },
+    "image": {
+      "ref": "Kép"
+    },
+    "removeImage": {
+      "title": "Kép eltávolítása"
+    },
+    "pruneImages": {
+      "title": "Használaton kívüli képek eltávolítása",
+      "all": "A címkézett, de nem használt képek eltávolítása is"
+    },
+    "createVolume": {
+      "title": "Kötet létrehozása",
+      "name": "Kötet neve"
+    },
+    "removeVolume": {
+      "title": "Kötet eltávolítása",
+      "name": "Kötet neve"
+    },
+    "pruneVolumes": {
+      "title": "Használaton kívüli kötetek eltávolítása"
+    },
+    "createNetwork": {
+      "title": "Hálózat létrehozása",
+      "name": "Hálózat neve",
+      "driver": "Illesztőprogram",
+      "subnet": "Alhálózat",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Hálózat eltávolítása",
+      "name": "Hálózat neve"
+    },
+    "pruneNetworks": {
+      "title": "Használaton kívüli hálózatok eltávolítása"
     }
+  },
+  "tree": {
+    "containers": "Tárolók"
   }
 }

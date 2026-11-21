@@ -228,6 +228,58 @@
       "updated": "{{name}} ažurirano",
       "pulled": "Slika preuzeta za {{name}}. Ponovno stvorite kontejner da biste je koristili.",
       "failed": "Nije moguće ažurirati {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Pretraži...",
+      "loading": "Učitavanje...",
+      "listFailed": "Popis se ne može učitati",
+      "actionFailed": "Akcija nije uspjela",
+      "inspectFailed": "Detalji se ne mogu učitati",
+      "noMatches": "Nema rezultata",
+      "untagged": "Bez oznake",
+      "repository": "Skladište",
+      "tag": "Oznaka",
+      "id": "ID",
+      "size": "Veličina",
+      "created": "Stvoreno",
+      "driver": "Programski pokretač",
+      "mountpoint": "Točka montiranja",
+      "usage": "Korištenje",
+      "inUse": "U upotrebi",
+      "unused": "Neiskorišteno",
+      "all": "Sve",
+      "inspect": "Detalji",
+      "prune": "Ukloni neiskorišteno",
+      "image": {
+        "title": "Slike",
+        "count": "{{count}} slika",
+        "add": "Preuzmi sliku",
+        "save": "Preuzmi",
+        "ref": "Slika",
+        "refHint": "Na primjer nginx:latest ili ghcr.io/owner/app:1.2. Preuzimanje velike slike može potrajati.",
+        "empty": "Nema slika na ovom hostu",
+        "confirmRemove": "Ukloniti sliku {{name}}?",
+        "confirmPrune": "Ukloniti sve slike koje nijedan kontejner ne koristi? Time se može osloboditi puno prostora, a slike će se morati ponovno preuzeti kasnije."
+      },
+      "volume": {
+        "title": "Volumeni",
+        "count": "{{count}} zapremina",
+        "add": "Novi volumen",
+        "save": "Stvori",
+        "empty": "Nema volumena na ovom hostu",
+        "confirmRemove": "Ukloniti volumen {{name}}? Njegovi podaci će biti obrisani.",
+        "confirmPrune": "Ukloniti sve volumene koje nijedan kontejner ne koristi? Njihovi podaci će biti obrisani."
+      },
+      "network": {
+        "title": "Mreže",
+        "count": "{{count}} mreža",
+        "add": "Nova mreža",
+        "save": "Stvori",
+        "subnet": "Podmreža (opcionalno)",
+        "empty": "Nema mreža na ovom hostu",
+        "confirmRemove": "Ukloniti mrežu {{name}}?",
+        "confirmPrune": "Ukloniti sve mreže koje nijedan kontejner ne koristi?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "Nestabilni kontejneri"
+    },
+    "pullImage": {
+      "title": "Preuzmi sliku"
+    },
+    "image": {
+      "ref": "Slika"
+    },
+    "removeImage": {
+      "title": "Ukloni sliku"
+    },
+    "pruneImages": {
+      "title": "Ukloni neiskorištene slike",
+      "all": "Ukloni i slike s oznakama koje nijedan kontejner ne koristi"
+    },
+    "createVolume": {
+      "title": "Stvori volumen",
+      "name": "Naziv volumena"
+    },
+    "removeVolume": {
+      "title": "Ukloni volumen",
+      "name": "Naziv volumena"
+    },
+    "pruneVolumes": {
+      "title": "Ukloni neiskorištene volumene"
+    },
+    "createNetwork": {
+      "title": "Stvori mrežu",
+      "name": "Naziv mreže",
+      "driver": "Programski pokretač",
+      "subnet": "Podmreža",
+      "drivers": {
+        "bridge": "Most",
+        "overlay": "Preklapanje",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Ukloni mrežu",
+      "name": "Naziv mreže"
+    },
+    "pruneNetworks": {
+      "title": "Ukloni neiskorištene mreže"
     }
+  },
+  "tree": {
+    "containers": "Kontejneri"
   }
 }

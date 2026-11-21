@@ -227,6 +227,58 @@
       "updated": "{{name}} is opgedateer",
       "pulled": "Beeld is getrek vir {{name}}. Skep die houer nuut om dit te gebruik.",
       "failed": "Kon nie {{name}} opdateer nie: {{error}}"
+    },
+    "resources": {
+      "search": "Soek...",
+      "loading": "Laai tans...",
+      "listFailed": "Kon nie die lys laai nie",
+      "actionFailed": "Die aksie het misluk",
+      "inspectFailed": "Kon nie die besonderhede laai nie",
+      "noMatches": "Niks pas by nie",
+      "untagged": "Ongeteken",
+      "repository": "Repository",
+      "tag": "Teken",
+      "id": "ID",
+      "size": "Grootte",
+      "created": "Geskep",
+      "driver": "Drywer",
+      "mountpoint": "Aanhegspunt",
+      "usage": "Gebruik",
+      "inUse": "In gebruik",
+      "unused": "Ongebruik",
+      "all": "Almal",
+      "inspect": "Besonderhede",
+      "prune": "Verwyder ongebruik",
+      "image": {
+        "title": "Beelde",
+        "count": "{{count}} beelde",
+        "add": "Trek beeld",
+        "save": "Trek",
+        "ref": "Beeld",
+        "refHint": "Soos nginx:latest of ghcr.io/owner/app:1.2. Om 'n groot beeld te trek, kan dit 'n rukkie neem.",
+        "empty": "Geen beelde op hierdie gasheer nie",
+        "confirmRemove": "Verwyder beeld {{name}}?",
+        "confirmPrune": "Verwyder elke beeld wat geen houer gebruik nie? Dit kan baie spasie vrymaak, en die beelde moet later weer getrek word."
+      },
+      "volume": {
+        "title": "Volums",
+        "count": "{{count}} volumes",
+        "add": "Nuwe volume",
+        "save": "Skep",
+        "empty": "Geen volums op hierdie gasheer nie",
+        "confirmRemove": "Verwyder volume {{name}}? Sy data word verwyder.",
+        "confirmPrune": "Verwyder elke volume wat geen houer gebruik nie? Hul data word verwyder."
+      },
+      "network": {
+        "title": "Netwerke",
+        "count": "{{count}} netwerke",
+        "add": "Nuwe netwerk",
+        "save": "Skep",
+        "subnet": "Subnet (opsioneel)",
+        "empty": "Geen netwerke op hierdie gasheer nie",
+        "confirmRemove": "Verwyder netwerk {{name}}?",
+        "confirmPrune": "Verwyder elke netwerk wat geen houer gebruik nie?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Ongesonde houers"
+    },
+    "pullImage": {
+      "title": "Trek beeld"
+    },
+    "image": {
+      "ref": "Beeld"
+    },
+    "removeImage": {
+      "title": "Verwyder beeld"
+    },
+    "pruneImages": {
+      "title": "Verwyder ongebruikte beelde",
+      "all": "Verwyder ook getekende beelde wat geen houer gebruik nie"
+    },
+    "createVolume": {
+      "title": "Skep volume",
+      "name": "Volume naam"
+    },
+    "removeVolume": {
+      "title": "Verwyder volume",
+      "name": "Volume naam"
+    },
+    "pruneVolumes": {
+      "title": "Verwyder ongebruikte volums"
+    },
+    "createNetwork": {
+      "title": "Skep netwerk",
+      "name": "Netwerk naam",
+      "driver": "Drywer",
+      "subnet": "Subnet",
+      "drivers": {
+        "bridge": "Brug",
+        "overlay": "Oorlaai",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Verwyder netwerk",
+      "name": "Netwerknaam"
+    },
+    "pruneNetworks": {
+      "title": "Verwyder ongebruikte netwerke"
     }
+  },
+  "tree": {
+    "containers": "Behuisinge"
   }
 }

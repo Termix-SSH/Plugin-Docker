@@ -227,6 +227,55 @@
       "updated": "{{name}} uppdaterad",
       "pulled": "Bild hämtad för {{name}}. Skapa om behållaren för att använda den.",
       "failed": "Kunde inte uppdatera {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Sök...",
+      "loading": "Laddar...",
+      "listFailed": "Kunde inte ladda listan",
+      "actionFailed": "Åtgärden misslyckades",
+      "inspectFailed": "Kunde inte ladda detaljerna",
+      "noMatches": "Inga träffar",
+      "untagged": "Ej taggad",
+      "repository": "Repository",
+      "tag": "Tagg",
+      "id": "ID",
+      "size": "Storlek",
+      "created": "Skapad",
+      "driver": "Drivrutin",
+      "mountpoint": "Monteringspunkt",
+      "usage": "Användning",
+      "inUse": "I användning",
+      "unused": "Ej i användning",
+      "all": "Alla",
+      "inspect": "Detaljer",
+      "prune": "Ta bort oanvända",
+      "image": {
+        "title": "Avbilder",
+        "add": "Hämta avbild",
+        "save": "Hämta",
+        "ref": "Avbild",
+        "refHint": "Till exempel nginx:latest eller ghcr.io/owner/app:1.2. Det kan ta en stund att hämta en stor avbild.",
+        "empty": "Inga avbilder på denna host",
+        "confirmRemove": "Ta bort avbilden {{name}}?",
+        "confirmPrune": "Ta bort alla avbilder som ingen container använder? Detta kan frigöra mycket utrymme, och avbilderna måste hämtas igen senare."
+      },
+      "volume": {
+        "title": "Volym",
+        "add": "Ny volym",
+        "save": "Skapa",
+        "empty": "Inga volymer på denna host",
+        "confirmRemove": "Ta bort volymen {{name}}? Dess data raderas.",
+        "confirmPrune": "Ta bort alla volymer som ingen container använder? Deras data raderas."
+      },
+      "network": {
+        "title": "Nätverk",
+        "add": "Nytt nätverk",
+        "save": "Skapa",
+        "subnet": "Subnät (valfritt)",
+        "empty": "Inga nätverk på denna host",
+        "confirmRemove": "Ta bort nätverket {{name}}?",
+        "confirmPrune": "Ta bort alla nätverk som ingen container använder?"
+      }
     }
   },
   "nav": {
@@ -368,6 +417,52 @@
     },
     "unhealthy": {
       "title": "Ohälsosamma behållare"
+    },
+    "pullImage": {
+      "title": "Hämta avbild"
+    },
+    "image": {
+      "ref": "Avbild"
+    },
+    "removeImage": {
+      "title": "Ta bort avbild"
+    },
+    "pruneImages": {
+      "title": "Ta bort oanvända avbilder",
+      "all": "Ta även bort taggade avbilder som ingen container använder"
+    },
+    "createVolume": {
+      "title": "Skapa volym",
+      "name": "Volymnamn"
+    },
+    "removeVolume": {
+      "title": "Ta bort volym",
+      "name": "Volymnamn"
+    },
+    "pruneVolumes": {
+      "title": "Ta bort oanvända volymer"
+    },
+    "createNetwork": {
+      "title": "Skapa nätverk",
+      "name": "Nätverksnamn",
+      "driver": "Drivrutin",
+      "subnet": "Subnät",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Ta bort nätverk",
+      "name": "Nätverksnamn"
+    },
+    "pruneNetworks": {
+      "title": "Ta bort oanvända nätverk"
     }
+  },
+  "tree": {
+    "containers": "Behållare"
   }
 }

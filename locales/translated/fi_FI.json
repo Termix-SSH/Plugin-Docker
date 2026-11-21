@@ -227,6 +227,58 @@
       "updated": "{{name}} päivitetty",
       "pulled": "{{name}}:n kuva haettu. Luo kontti uudelleen käyttääksesi sitä.",
       "failed": "{{name}}:n päivitys epäonnistui: {{error}}"
+    },
+    "resources": {
+      "search": "Hae...",
+      "loading": "Ladataan...",
+      "listFailed": "Listaa ei voitu ladata",
+      "actionFailed": "Toiminto epäonnistui",
+      "inspectFailed": "Tietoja ei voitu ladata",
+      "noMatches": "Ei osumia",
+      "untagged": "Merkkimätön",
+      "repository": "Varasto",
+      "tag": "Tunniste",
+      "id": "Tunniste",
+      "size": "Koko",
+      "created": "Luotu",
+      "driver": "Kuljettaja",
+      "mountpoint": "Liitänpiste",
+      "usage": "Käyttö",
+      "inUse": "Käytössä",
+      "unused": "Käyttämättömät",
+      "all": "Kaikki",
+      "inspect": "Tiedot",
+      "prune": "Poista käyttämättömät",
+      "image": {
+        "title": "Kuvat",
+        "count": "{{count}} kuvaa",
+        "add": "Lataa kuva",
+        "save": "Lataa",
+        "ref": "Kuva",
+        "refHint": "Esimerkiksi nginx:latest tai ghcr.io/owner/app:1.2. Suuren kuvan lataaminen voi kestää hetken.",
+        "empty": "Tällä palvelimella ei ole kuvia",
+        "confirmRemove": "Poistetaanko kuva {{name}}?",
+        "confirmPrune": "Poistetaanko kaikki kuvat, joita mikään kontti ei käytä? Tämä voi vapauttaa paljon tilaa, ja kuvat on ladattava uudelleen myöhemmin."
+      },
+      "volume": {
+        "title": "Volyymit",
+        "count": "{{count}} tilavaraa",
+        "add": "Uusi tilavara",
+        "save": "Luo",
+        "empty": "Tällä palvelimella ei ole tilavaroja",
+        "confirmRemove": "Haluatko poistaa tilavaraston {{name}}? Sen tiedot poistetaan.",
+        "confirmPrune": "Haluatko poistaa kaikki tilavarastot, joita mikään kontti ei käytä? Niiden tiedot poistetaan."
+      },
+      "network": {
+        "title": "Verkot",
+        "count": "{{count}} verkkoa",
+        "add": "Uusi verkko",
+        "save": "Luo",
+        "subnet": "Aliverkko (valinnainen)",
+        "empty": "Tällä isäntäpalvelimella ei ole verkkoja",
+        "confirmRemove": "Haluatko poistaa verkon {{name}}?",
+        "confirmPrune": "Haluatko poistaa kaikki verkot, joita mikään kontti ei käytä?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Epäkuntoiset kontit"
+    },
+    "pullImage": {
+      "title": "Lataa kuva"
+    },
+    "image": {
+      "ref": "Kuva"
+    },
+    "removeImage": {
+      "title": "Poista kuva"
+    },
+    "pruneImages": {
+      "title": "Poista käyttämättömät kuvat",
+      "all": "Poista myös tagilliset kuvat, joita mikään kontti ei käytä"
+    },
+    "createVolume": {
+      "title": "Luo tilavaraus",
+      "name": "Väliaineen nimi"
+    },
+    "removeVolume": {
+      "title": "Poista väliaine",
+      "name": "Väliaineen nimi"
+    },
+    "pruneVolumes": {
+      "title": "Poista käyttämättömät väliaineet"
+    },
+    "createNetwork": {
+      "title": "Luo verkko",
+      "name": "Verkon nimi",
+      "driver": "Ajuri",
+      "subnet": "Aliverkko",
+      "drivers": {
+        "bridge": "Silta",
+        "overlay": "Ylikerros",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Poista verkko",
+      "name": "Verkon nimi"
+    },
+    "pruneNetworks": {
+      "title": "Poista käyttämättömät verkot"
     }
+  },
+  "tree": {
+    "containers": "Kontit"
   }
 }

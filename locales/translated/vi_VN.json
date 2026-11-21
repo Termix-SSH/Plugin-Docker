@@ -226,6 +226,58 @@
       "updated": "{{name}} đã được cập nhật",
       "pulled": "Đã kéo hình ảnh cho {{name}}. Tạo lại container để sử dụng.",
       "failed": "Không thể cập nhật {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Tìm kiếm...",
+      "loading": "Đang tải...",
+      "listFailed": "Không thể tải danh sách",
+      "actionFailed": "Hành động thất bại",
+      "inspectFailed": "Không thể tải chi tiết",
+      "noMatches": "Không có kết quả phù hợp",
+      "untagged": "Chưa gắn thẻ",
+      "repository": "Kho lưu trữ",
+      "tag": "Thẻ",
+      "id": "ID",
+      "size": "Kích thước",
+      "created": "Ngày tạo",
+      "driver": "Trình điều khiển",
+      "mountpoint": "Điểm gắn kết",
+      "usage": "Sử dụng",
+      "inUse": "Đang sử dụng",
+      "unused": "Chưa sử dụng",
+      "all": "Tất cả",
+      "inspect": "Chi tiết",
+      "prune": "Xóa phần chưa sử dụng",
+      "image": {
+        "title": "Hình ảnh",
+        "count": "{{count}} ảnh",
+        "add": "Kéo hình ảnh",
+        "save": "Kéo",
+        "ref": "Hình ảnh",
+        "refHint": "Ví dụ: nginx:latest hoặc ghcr.io/owner/app:1.2. Việc kéo một hình ảnh lớn có thể mất một lúc.",
+        "empty": "Không có hình ảnh trên máy chủ này",
+        "confirmRemove": "Xóa hình ảnh {{name}}?",
+        "confirmPrune": "Xóa mọi hình ảnh mà không có container nào đang sử dụng? Điều này có thể giải phóng nhiều dung lượng, và các hình ảnh sẽ phải được kéo lại sau này."
+      },
+      "volume": {
+        "title": "Volume",
+        "count": "{{count}} khối lưu trữ",
+        "add": "Volume mới",
+        "save": "Tạo",
+        "empty": "Không có volume trên máy chủ này",
+        "confirmRemove": "Xóa volume {{name}}? Dữ liệu của nó sẽ bị xóa.",
+        "confirmPrune": "Xóa mọi volume mà không có container nào đang sử dụng? Dữ liệu của chúng sẽ bị xóa."
+      },
+      "network": {
+        "title": "Mạng",
+        "count": "{{count}} mạng",
+        "add": "Mạng mới",
+        "save": "Tạo",
+        "subnet": "Mạng con (tùy chọn)",
+        "empty": "Không có mạng trên máy chủ này",
+        "confirmRemove": "Xóa mạng {{name}}?",
+        "confirmPrune": "Xóa mọi mạng mà không có container nào đang sử dụng?"
+      }
     }
   },
   "nav": {
@@ -366,6 +418,52 @@
     },
     "unhealthy": {
       "title": "Container bị lỗi"
+    },
+    "pullImage": {
+      "title": "Kéo hình ảnh"
+    },
+    "image": {
+      "ref": "Hình ảnh"
+    },
+    "removeImage": {
+      "title": "Xóa hình ảnh"
+    },
+    "pruneImages": {
+      "title": "Xóa hình ảnh chưa sử dụng",
+      "all": "Đồng thời xóa các hình ảnh đã gắn thẻ mà không có container nào đang sử dụng"
+    },
+    "createVolume": {
+      "title": "Tạo volume",
+      "name": "Tên volume"
+    },
+    "removeVolume": {
+      "title": "Xóa volume",
+      "name": "Tên volume"
+    },
+    "pruneVolumes": {
+      "title": "Xóa volume chưa sử dụng"
+    },
+    "createNetwork": {
+      "title": "Tạo mạng",
+      "name": "Tên mạng",
+      "driver": "Trình điều khiển",
+      "subnet": "Mạng con",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Xóa mạng",
+      "name": "Tên mạng"
+    },
+    "pruneNetworks": {
+      "title": "Xóa các mạng không sử dụng"
     }
+  },
+  "tree": {
+    "containers": "Container"
   }
 }

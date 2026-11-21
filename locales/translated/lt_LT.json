@@ -229,6 +229,58 @@
       "updated": "{{name}} atnaujinta",
       "pulled": "{{name}} paveikslėlis atnaujintas. Sukurkite konteinerį iš naujo, kad jį naudotumėte.",
       "failed": "Nepavyko atnaujinti {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Ieškoti...",
+      "loading": "Įkeliamas...",
+      "listFailed": "Nepavyko įkelti sąrašo",
+      "actionFailed": "Veiksmas nepavyko",
+      "inspectFailed": "Nepavyko įkelti išsamių duomenų",
+      "noMatches": "Nieko nerasta",
+      "untagged": "Be žymos",
+      "repository": "Saugykla",
+      "tag": "Žyma",
+      "id": "ID",
+      "size": "Dydis",
+      "created": "Sukurta",
+      "driver": "Tvarkyklė",
+      "mountpoint": "Prijungimo taškas",
+      "usage": "Naudojimas",
+      "inUse": "Naudojama",
+      "unused": "Nenaudojama",
+      "all": "Visi",
+      "inspect": "Išsamūs duomenys",
+      "prune": "Pašalinti nenaudojamus",
+      "image": {
+        "title": "Atvaizdai",
+        "count": "{{count}} paveikslėliai",
+        "add": "Atsiųsti atvaizdą",
+        "save": "Atsiųsti",
+        "ref": "Atvaizdas",
+        "refHint": "Pvz., nginx:latest arba ghcr.io/owner/app:1.2. Didelio atvaizdo atsisiuntimas gali užtrukti.",
+        "empty": "Šiame serveryje nėra atvaizdų",
+        "confirmRemove": "Pašalinti atvaizdą {{name}}?",
+        "confirmPrune": "Pašalinti visus atvaizdus, kurių niekas konteineris nenaudoja? Taip galima laisvinti daug vietos, o atvaizdus vėliau reikės atsisiųsti iš naujo."
+      },
+      "volume": {
+        "title": "Tomes",
+        "count": "{{count}} tomai",
+        "add": "Naujas tomas",
+        "save": "Sukurti",
+        "empty": "Šiame serveryje nėra tomų",
+        "confirmRemove": "Pašalinti tomą {{name}}? Jo duomenys bus ištrinti.",
+        "confirmPrune": "Pašalinti visus tomus, kurių niekas konteineris nenaudoja? Jų duomenys bus ištrinti."
+      },
+      "network": {
+        "title": "Tinklai",
+        "count": "{{count}} tinklai",
+        "add": "Naujas tinklas",
+        "save": "Sukurti",
+        "subnet": "Potinklis (nebūtina)",
+        "empty": "Šiame serveryje nėra tinklų",
+        "confirmRemove": "Pašalinti tinklą {{name}}?",
+        "confirmPrune": "Pašalinti visus tinklus, kurių niekas konteineris nenaudoja?"
+      }
     }
   },
   "nav": {
@@ -372,6 +424,52 @@
     },
     "unhealthy": {
       "title": "Nestabilūs konteineriai"
+    },
+    "pullImage": {
+      "title": "Atsiųsti atvaizdą"
+    },
+    "image": {
+      "ref": "Atvaizdas"
+    },
+    "removeImage": {
+      "title": "Pašalinti atvaizdą"
+    },
+    "pruneImages": {
+      "title": "Pašalinti nenaudojamus atvaizdus",
+      "all": "Taip pat pašalinti pažymėtus atvaizdus, kurių niekas konteineris nenaudoja"
+    },
+    "createVolume": {
+      "title": "Sukurti tomą",
+      "name": "Tomo pavadinimas"
+    },
+    "removeVolume": {
+      "title": "Pašalinti tomą",
+      "name": "Tomo pavadinimas"
+    },
+    "pruneVolumes": {
+      "title": "Pašalinti nenaudojamus tomus"
+    },
+    "createNetwork": {
+      "title": "Sukurti tinklą",
+      "name": "Tinklo pavadinimas",
+      "driver": "Tvarkyklė",
+      "subnet": "Potinklis",
+      "drivers": {
+        "bridge": "Tiltas",
+        "overlay": "Dengimas",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Pašalinti tinklą",
+      "name": "Tinklo pavadinimas"
+    },
+    "pruneNetworks": {
+      "title": "Pašalinti nenaudojamus tinklus"
     }
+  },
+  "tree": {
+    "containers": "Konteineriai"
   }
 }

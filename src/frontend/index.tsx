@@ -15,11 +15,15 @@ import { dockerPanelEnabled } from "./types";
 import { DockerCompanion, useDockerCompanionDefaults } from "./DockerCompanion";
 import { DockerHostsCard } from "./DockerHostsCard";
 import { DockerHostTile } from "./DockerHostTile";
+import { registerTreeChildren } from "./tree-children";
 
-function DockerTab({ host, sshHost, label, isVisible }: TabProps) {
+function DockerTab({ host, sshHost, label, isVisible, tab }: TabProps) {
   const record = host ?? (sshHost as DockerHostSource | undefined);
+  const focus = (tab?.data as { focus?: { container?: string } } | undefined)
+    ?.focus;
   return (
     <DockerManager
+      focus={focus}
       host={record ? toDockerHost(record) : undefined}
       title={label}
       isVisible={isVisible}
@@ -118,4 +122,9 @@ export function activate(app: TermixApp): void {
   });
 
   app.registerExtension("homepage.widgets", dockerWidget);
+
+  registerTreeChildren(
+    app,
+    (host) => canUse && !!host.enableSsh && dockerEnabled(host),
+  );
 }

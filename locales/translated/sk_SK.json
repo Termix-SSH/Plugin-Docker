@@ -229,6 +229,58 @@
       "updated": "{{name}} aktualizovaný",
       "pulled": "Obraz pre {{name}} stiahnutý. Pre jeho použitie vytvorte kontajner znova.",
       "failed": "Nepodarilo sa aktualizovať {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Vyhľadať...",
+      "loading": "Načítava sa...",
+      "listFailed": "Zoznam sa nepodarilo načítať",
+      "actionFailed": "Akcia zlyhala",
+      "inspectFailed": "Podrobnosti sa nepodarilo načítať",
+      "noMatches": "Žiadne zhody",
+      "untagged": "Bez štítku",
+      "repository": "Repozitár",
+      "tag": "Štítok",
+      "id": "ID",
+      "size": "Veľkosť",
+      "created": "Vytvorené",
+      "driver": "Ovládač",
+      "mountpoint": "Bod pripojenia",
+      "usage": "Využitie",
+      "inUse": "Používané",
+      "unused": "Nepoužívané",
+      "all": "Všetky",
+      "inspect": "Podrobnosti",
+      "prune": "Odstrániť nepoužívané",
+      "image": {
+        "title": "Obrazy",
+        "count": "{{count}} obrazov",
+        "add": "Stiahnuť obraz",
+        "save": "Stiahnuť",
+        "ref": "Obraz",
+        "refHint": "Napríklad nginx:latest alebo ghcr.io/owner/app:1.2. Stiahnutie veľkého obrazu môže trvať chvíľu.",
+        "empty": "Na tomto hostiteľovi nie sú žiadne obrazy",
+        "confirmRemove": "Odstrániť obraz {{name}}?",
+        "confirmPrune": "Odstrániť všetky obrazy, ktoré nepoužíva žiadny kontajner? Tým sa uvoľní veľa miesta a obrazy bude treba neskôr stiahnuť znova."
+      },
+      "volume": {
+        "title": "Zväzky",
+        "count": "{{count}} zväzkov",
+        "add": "Nový zväzok",
+        "save": "Vytvoriť",
+        "empty": "Na tomto hostiteľovi nie sú žiadne zväzky",
+        "confirmRemove": "Odstrániť zväzok {{name}}? Jeho údaje sa vymažú.",
+        "confirmPrune": "Odstrániť všetky zväzky, ktoré nepoužíva žiadny kontajner? Ich údaje sa vymažú."
+      },
+      "network": {
+        "title": "Sieť",
+        "count": "{{count}} sietí",
+        "add": "Nová sieť",
+        "save": "Vytvoriť",
+        "subnet": "Subsieť (voliteľné)",
+        "empty": "Na tomto hostiteľovi nie sú žiadne siete",
+        "confirmRemove": "Odstrániť sieť {{name}}?",
+        "confirmPrune": "Odstrániť všetky siete, ktoré nepoužíva žiadny kontajner?"
+      }
     }
   },
   "nav": {
@@ -372,6 +424,52 @@
     },
     "unhealthy": {
       "title": "Kontajnery v nesprávnom stave"
+    },
+    "pullImage": {
+      "title": "Stiahnuť obraz"
+    },
+    "image": {
+      "ref": "Obraz"
+    },
+    "removeImage": {
+      "title": "Odstrániť obraz"
+    },
+    "pruneImages": {
+      "title": "Odstrániť nepoužívané obrazy",
+      "all": "Odstrániť aj obrazy so štítkami, ktoré nepoužíva žiadny kontajner"
+    },
+    "createVolume": {
+      "title": "Vytvoriť zväzok",
+      "name": "Názov zväzku"
+    },
+    "removeVolume": {
+      "title": "Odstrániť zväzok",
+      "name": "Názov zväzku"
+    },
+    "pruneVolumes": {
+      "title": "Odstrániť nepoužívané zväzky"
+    },
+    "createNetwork": {
+      "title": "Vytvoriť sieť",
+      "name": "Názov siete",
+      "driver": "Ovládač",
+      "subnet": "Subsieť",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Odstrániť sieť",
+      "name": "Názov siete"
+    },
+    "pruneNetworks": {
+      "title": "Odstrániť nepoužívané siete"
     }
+  },
+  "tree": {
+    "containers": "Kontajnery"
   }
 }

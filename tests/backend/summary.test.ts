@@ -1,5 +1,9 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { countContainers, mapLimit } from "../../src/backend/summary.js";
+import {
+  countContainers,
+  mapLimit,
+  parseTreeContainers,
+} from "../../src/backend/summary.js";
 import { startServer, type TestServer } from "./server";
 
 let server: TestServer | null = null;
@@ -78,5 +82,47 @@ describe("GET /summary", () => {
   it("needs docker.use", async () => {
     server = await startServer({ permissions: [] });
     expect((await server.request("GET", "/summary")).status).toBe(403);
+  });
+});
+
+describe("GET /tree", () => {
+  it("parses ps output by name", () => {
+    expect(parseTreeContainers(`${ps}\nnot json`).map((c) => c.name)).toEqual([
+      "db",
+      "old",
+      "web",
+    ]);
+  });
+
+  it("lists the containers of one Docker host and caches them", async () => {
+    server = await startServer({ mock: { hosts: [summary(7), summary(8)] } });
+    server.client.reply(/ ps -a --format/, { stdout: ps });
+
+    const first = await server.request("GET", "/tree?hostId=7");
+    expect(first.status).toBe(200);
+    expect(first.body).toEqual({
+      items: [
+        { name: "db", state: "running", status: "Up 2 hours (unhealthy)" },
+        { name: "old", state: "exited", status: "Exited (0)" },
+        { name: "web", state: "running", status: "Up 2 hours" },
+      ],
+    });
+    const runs = server.client.commands.filter((c) => /ps -a/.test(c)).length;
+    await server.request("GET", "/tree?hostId=7");
+    expect(server.client.commands.filter((c) => /ps -a/.test(c)).length).toBe(
+      runs,
+    );
+  });
+
+  it("refuses a missing host id, a host with Docker off and an unknown host", async () => {
+    server = await startServer({ mock: { hosts: [summary(7), summary(8)] } });
+    expect((await server.request("GET", "/tree")).status).toBe(400);
+    expect((await server.request("GET", "/tree?hostId=8")).status).toBe(404);
+    expect((await server.request("GET", "/tree?hostId=99")).status).toBe(404);
+  });
+
+  it("needs docker.use", async () => {
+    server = await startServer({ permissions: [] });
+    expect((await server.request("GET", "/tree?hostId=7")).status).toBe(403);
   });
 });

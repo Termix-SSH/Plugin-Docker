@@ -227,6 +227,58 @@
       "updated": "{{name}} oppdatert",
       "pulled": "Bilde hentet for {{name}}. Opprett beholderen på nytt for å bruke den.",
       "failed": "Kunne ikke oppdatere {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Søk...",
+      "loading": "Laster...",
+      "listFailed": "Kunne ikke laste listen",
+      "actionFailed": "Handlingen mislyktes",
+      "inspectFailed": "Kunne ikke laste detaljene",
+      "noMatches": "Ingen treff",
+      "untagged": "Uten tagg",
+      "repository": "Repository",
+      "tag": "Tagg",
+      "id": "ID",
+      "size": "Størrelse",
+      "created": "Opprettet",
+      "driver": "Driver",
+      "mountpoint": "Monteringspunkt",
+      "usage": "Bruk",
+      "inUse": "I bruk",
+      "unused": "Ubrukt",
+      "all": "Alle",
+      "inspect": "Detaljer",
+      "prune": "Fjern ubrukte",
+      "image": {
+        "title": "Bilder",
+        "count": "{{count}} bilder",
+        "add": "Hent bilde",
+        "save": "Hent",
+        "ref": "Bilde",
+        "refHint": "Som nginx:latest eller ghcr.io/owner/app:1.2. Det kan ta litt tid å hente et stort bilde.",
+        "empty": "Ingen bilder på denne verten",
+        "confirmRemove": "Fjern bildet {{name}}?",
+        "confirmPrune": "Fjern alle bilder som ingen beholder bruker? Dette kan frigjøre mye plass, og bildene må hentes på nytt senere."
+      },
+      "volume": {
+        "title": "Volumer",
+        "count": "{{count}} volumer",
+        "add": "Nytt volum",
+        "save": "Opprett",
+        "empty": "Ingen volumer på denne verten",
+        "confirmRemove": "Fjern volumet {{name}}? Dataene slettes.",
+        "confirmPrune": "Fjern alle volumer som ingen beholder bruker? Dataene deres slettes."
+      },
+      "network": {
+        "title": "Nettverk",
+        "count": "{{count}} nettverk",
+        "add": "Nytt nettverk",
+        "save": "Opprett",
+        "subnet": "Subnett (valgfritt)",
+        "empty": "Ingen nettverk på denne verten",
+        "confirmRemove": "Fjern nettverket {{name}}?",
+        "confirmPrune": "Fjern alle nettverk som ingen beholder bruker?"
+      }
     }
   },
   "nav": {
@@ -368,6 +420,52 @@
     },
     "unhealthy": {
       "title": "Ustabile containere"
+    },
+    "pullImage": {
+      "title": "Hent bilde"
+    },
+    "image": {
+      "ref": "Bilde"
+    },
+    "removeImage": {
+      "title": "Fjern bilde"
+    },
+    "pruneImages": {
+      "title": "Fjern ubrukte bilder",
+      "all": "Fjern også taggede bilder som ingen beholder bruker"
+    },
+    "createVolume": {
+      "title": "Opprett volum",
+      "name": "Volumnavn"
+    },
+    "removeVolume": {
+      "title": "Fjern volum",
+      "name": "Volumnavn"
+    },
+    "pruneVolumes": {
+      "title": "Fjern ubrukte volumer"
+    },
+    "createNetwork": {
+      "title": "Opprett nettverk",
+      "name": "Nettverksnavn",
+      "driver": "Driver",
+      "subnet": "Subnett",
+      "drivers": {
+        "bridge": "Bro",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Fjern nettverk",
+      "name": "Nettverksnavn"
+    },
+    "pruneNetworks": {
+      "title": "Fjern ubrukte nettverk"
     }
+  },
+  "tree": {
+    "containers": "Containere"
   }
 }

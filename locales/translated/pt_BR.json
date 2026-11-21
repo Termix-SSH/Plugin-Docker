@@ -228,6 +228,58 @@
       "updated": "{{name}} atualizado",
       "pulled": "Imagem baixada para {{name}}. Recrie o container para usá-la.",
       "failed": "Não foi possível atualizar {{name}}: {{error}}"
+    },
+    "resources": {
+      "search": "Pesquisar...",
+      "loading": "Carregando...",
+      "listFailed": "Não foi possível carregar a lista",
+      "actionFailed": "A ação falhou",
+      "inspectFailed": "Não foi possível carregar os detalhes",
+      "noMatches": "Nenhum resultado encontrado",
+      "untagged": "Sem tag",
+      "repository": "Repositório",
+      "tag": "Tag",
+      "id": "ID",
+      "size": "Tamanho",
+      "created": "Criado",
+      "driver": "Driver",
+      "mountpoint": "Ponto de montagem",
+      "usage": "Uso",
+      "inUse": "Em uso",
+      "unused": "Não utilizado",
+      "all": "Todos",
+      "inspect": "Detalhes",
+      "prune": "Remover não utilizados",
+      "image": {
+        "title": "Imagens",
+        "count": "{{count}} imagens",
+        "add": "Baixar imagem",
+        "save": "Baixar",
+        "ref": "Imagem",
+        "refHint": "Como nginx:latest ou ghcr.io/owner/app:1.2. Baixar uma imagem grande pode demorar um pouco.",
+        "empty": "Nenhuma imagem neste host",
+        "confirmRemove": "Remover a imagem {{name}}?",
+        "confirmPrune": "Remover todas as imagens que nenhum container está usando? Isso pode liberar bastante espaço, e as imagens terão que ser baixadas novamente depois."
+      },
+      "volume": {
+        "title": "Volumes",
+        "count": "{{count}} volumes",
+        "add": "Novo volume",
+        "save": "Criar",
+        "empty": "Nenhum volume neste host",
+        "confirmRemove": "Remover o volume {{name}}? Seus dados serão excluídos.",
+        "confirmPrune": "Remover todos os volumes que nenhum container está usando? Seus dados serão excluídos."
+      },
+      "network": {
+        "title": "Redes",
+        "count": "{{count}} redes",
+        "add": "Nova rede",
+        "save": "Criar",
+        "subnet": "Sub-rede (opcional)",
+        "empty": "Nenhuma rede neste host",
+        "confirmRemove": "Remover a rede {{name}}?",
+        "confirmPrune": "Remover todas as redes que nenhum container está usando?"
+      }
     }
   },
   "nav": {
@@ -370,6 +422,52 @@
     },
     "unhealthy": {
       "title": "Contêineres instáveis"
+    },
+    "pullImage": {
+      "title": "Baixar imagem"
+    },
+    "image": {
+      "ref": "Imagem"
+    },
+    "removeImage": {
+      "title": "Remover imagem"
+    },
+    "pruneImages": {
+      "title": "Remover imagens não utilizadas",
+      "all": "Também remover imagens com tag que nenhum container está usando"
+    },
+    "createVolume": {
+      "title": "Criar volume",
+      "name": "Nome do volume"
+    },
+    "removeVolume": {
+      "title": "Remover volume",
+      "name": "Nome do volume"
+    },
+    "pruneVolumes": {
+      "title": "Remover volumes não utilizados"
+    },
+    "createNetwork": {
+      "title": "Criar rede",
+      "name": "Nome da rede",
+      "driver": "Driver",
+      "subnet": "Sub-rede",
+      "drivers": {
+        "bridge": "Bridge",
+        "overlay": "Overlay",
+        "macvlan": "Macvlan",
+        "ipvlan": "IPvlan"
+      }
+    },
+    "removeNetwork": {
+      "title": "Remover rede",
+      "name": "Nome da rede"
+    },
+    "pruneNetworks": {
+      "title": "Remover redes não utilizadas"
     }
+  },
+  "tree": {
+    "containers": "Contêineres"
   }
 }
